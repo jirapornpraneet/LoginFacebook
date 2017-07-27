@@ -7,41 +7,25 @@
 //
 
 import UIKit
-import FBSDKLoginKit
-import FBSDKCoreKit
+import CoreData
+import FacebookCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-//    - (BOOL)application:(UIApplication *)application
-//    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    
-//    [[FBSDKApplicationDelegate sharedInstance] application:application
-//    didFinishLaunchingWithOptions:launchOptions];
-//    // Add any custom logic here.
-//    return YES;
-//    }
-//    
-//    - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-//    sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-//    
-//    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
-//    openURL:url
-//    sourceApplication:sourceApplication
-//    annotation:annotation
-//    ];
-//    // Add any custom logic here.
-//    return handled;
-//    }
-  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        // Override point for customization after application launch.
+        
+        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-        return true
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool
+    {
+        return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

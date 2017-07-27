@@ -7,6 +7,7 @@ target 'LoginFacebook' do
 
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'SDWebImage/WebP'
 
   target 'LoginFacebookTests' do
     inherit! :search_paths
