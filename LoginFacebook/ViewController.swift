@@ -82,9 +82,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     @IBAction func listFriendTouchUpInside(_ sender: Any) {
-        getDataCurrenciesAPI(showToken: getToken!)
-        print(getToken.tokenString)
-        self.performSegue(withIdentifier: "ShowKidney", sender: sender)
+//        getDataCurrenciesAPI(showToken: getToken!)
+//        print(getToken.tokenString)
+        self.performSegue(withIdentifier: "ViewControllerID", sender: sender)
         
     }
 //    func friendsList() {
