@@ -13,6 +13,7 @@ target 'LoginFacebook' do
   pod 'SDWebImage/WebP'
   pod 'Alamofire', '~> 4.5.0'
   pod 'SwiftyJSON', '~> 3.1.4'
+  pod 'EVReflection'
 
   target 'LoginFacebookTests' do
     inherit! :search_paths
