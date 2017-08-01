@@ -7,7 +7,12 @@ target 'LoginFacebook' do
 
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'FBSDKCoreKit', '~> 4.25.0'
+  pod 'FBSDKLoginKit', '~> 4.25.0'
+  pod 'FBSDKShareKit', '~> 4.25.0'
   pod 'SDWebImage/WebP'
+  pod 'Alamofire', '~> 4.5.0'
+  pod 'SwiftyJSON', '~> 3.1.4'
 
   target 'LoginFacebookTests' do
     inherit! :search_paths

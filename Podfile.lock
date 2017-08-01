@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.5.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -13,9 +14,11 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKLoginKit (~> 4.15)
-  - FBSDKCoreKit (4.24.0):
+  - FBSDKCoreKit (4.25.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.24.0):
+  - FBSDKLoginKit (4.25.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.25.0):
     - FBSDKCoreKit
   - libwebp (0.6.0):
     - libwebp/core (= 0.6.0)
@@ -41,25 +44,34 @@ PODS:
   - libwebp/utils (0.6.0):
     - libwebp/core
   - libwebp/webp (0.6.0)
-  - SDWebImage/Core (4.0.0)
-  - SDWebImage/WebP (4.0.0):
+  - SDWebImage/Core (4.1.0)
+  - SDWebImage/WebP (4.1.0):
     - libwebp
     - SDWebImage/Core
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.5.0)
   - FacebookCore
   - FacebookLogin
+  - FBSDKCoreKit (~> 4.25.0)
+  - FBSDKLoginKit (~> 4.25.0)
+  - FBSDKShareKit (~> 4.25.0)
   - SDWebImage/WebP
+  - SwiftyJSON (~> 3.1.4)
 
 SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
-  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
-  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
+  FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
+  FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
+  FBSDKShareKit: aea699d3cac749af08e360f4e949b82ffa8813f5
   libwebp: 1d5a07c2eb97f9c31bd5f154bb82efc0ea67c6a2
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9b2e0492da1e75610697b6bd2dcbbfeef4b18d45
+PODFILE CHECKSUM: 9ed74f5e21b40c422ec5e1a75981d256e03f129f
 
 COCOAPODS: 1.2.1
