@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -84,20 +85,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H77-nk-mkn">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c6k-GR-7OD">
+                            <size key="itemSize" width="110" height="110"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="UJC-le-dB0">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="UJC-le-dB0" customClass="FriendsCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kHR-LJ-BUV">
+                                            <rect key="frame" x="17" y="7" width="76" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65" id="UFg-ph-KBX"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgt-mP-hJd">
+                                            <rect key="frame" x="0.0" y="80" width="110" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="1sa-Bt-bTX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="kHR-LJ-BUV" firstAttribute="centerX" secondItem="vgt-mP-hJd" secondAttribute="centerX" id="1zW-Qu-qvL"/>
+                                    <constraint firstItem="kHR-LJ-BUV" firstAttribute="leading" secondItem="UJC-le-dB0" secondAttribute="leadingMargin" constant="9" id="248-AT-QSo"/>
+                                    <constraint firstItem="kHR-LJ-BUV" firstAttribute="top" secondItem="UJC-le-dB0" secondAttribute="topMargin" constant="-1" id="9vP-1d-99l"/>
+                                    <constraint firstItem="vgt-mP-hJd" firstAttribute="top" secondItem="kHR-LJ-BUV" secondAttribute="bottom" constant="8" symbolic="YES" id="BIe-wF-H8O"/>
+                                    <constraint firstAttribute="trailing" secondItem="vgt-mP-hJd" secondAttribute="trailing" id="gxd-ZU-kgx"/>
+                                    <constraint firstItem="vgt-mP-hJd" firstAttribute="leading" secondItem="UJC-le-dB0" secondAttribute="leading" id="ty6-nt-poh"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageViewAvatar" destination="kHR-LJ-BUV" id="pKb-ys-6Nc"/>
+                                    <outlet property="nameLabel" destination="vgt-mP-hJd" id="S6g-px-Mya"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                     </collectionView>

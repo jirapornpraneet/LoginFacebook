@@ -3,6 +3,9 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static EVReflection.toJsonData(NSObject, conversionOptions : ConversionOptions, prettyPrinted : Bool) -&gt; Data:EVReflection.swift">
+      </ContextState>
+      <ContextState
          contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #2):ViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,10 +14,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #1):ViewController.swift">
+         contextName = "ViewController.fetchProfile() -&gt; ():ViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "ViewController.fetchProfile() -&gt; ():ViewController.swift">
+         contextName = "CollectionViewController.(getDataCurrenciesAPI(showToken : FBSDKAccessToken) -&gt; ()).(closure #1):CollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "friendsResource.data">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #1):ViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

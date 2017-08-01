@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "523260761.071001"
+            filePath = "LoginFacebook/CollectionViewController.swift"
+            timestampString = "523274588.242311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "listFriendTouchUpInside(_:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getDataCurrenciesAPI(showToken:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginFacebook/CollectionViewController.swift"
+            timestampString = "523274588.816124"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "getDataCurrenciesAPI(showToken:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
