@@ -50,7 +50,7 @@ class CollectionViewController: UICollectionViewController {
     
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI(showToken: FBSDKAccessToken) {
-        let url = String(format:"https://graph.facebook.com/me/taggable_friends?fields=name,picture&access_token=%@",showToken.tokenString)
+        let url = String(format:"https://graph.facebook.com/me/taggable_friends?fields=name,picture.type(large)&access_token=%@",showToken.tokenString)
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {

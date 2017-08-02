@@ -30,7 +30,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loginButton)
-        loginButton.center = view.center
+        loginButton.center =   CGPoint(x: 165,y :360)
         loginButton.delegate = self
     
         if  let token = FBSDKAccessToken.current() {
