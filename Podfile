@@ -14,6 +14,7 @@ target 'LoginFacebook' do
   pod 'Alamofire', '~> 4.5.0'
   pod 'SwiftyJSON', '~> 3.1.4'
   pod 'EVReflection'
+  pod 'SKPhotoBrowser', '~> 4.0.0'
 
   target 'LoginFacebookTests' do
     inherit! :search_paths

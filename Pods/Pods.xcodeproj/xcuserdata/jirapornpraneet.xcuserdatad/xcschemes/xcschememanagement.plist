@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SKPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,12 +82,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>44CAD6CE523055ED339E87154473A254</key>
+		<key>08299C447A59D8563B01C7069BFB92E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58353ADA7DB8746FB08845C3E848F32E</key>
+		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,22 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69A78E8CCDD60210F1C99407489FE743</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>7335E9C9689F3B8A16F063A884748533</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83C65A65054A36CC67F98CF9D44DCAC5</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>9712DBC438AC60FDA13F4C8DDC88FFC8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4F2D06EE084DDA9F545058D0874F957</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,6 +138,11 @@
 			<true/>
 		</dict>
 		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3398B3296662482AC8D7D3175B07D7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9712DBC438AC60FDA13F4C8DDC88FFC8'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = 'A4F2D06EE084DDA9F545058D0874F957'
+               BlueprintName = 'SKPhotoBrowser'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'SKPhotoBrowser.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
