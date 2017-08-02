@@ -26,6 +26,10 @@ class DetailFriendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgImage.layer.masksToBounds = true
+        imgImage.layer.cornerRadius = 4
+        imgImage.layer.borderWidth = 2
+        imgImage.layer.borderColor = UIColor.white.cgColor
         lblName.text! = getName
         imgImage.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
         birthdayLabel.text? = getBirthDay

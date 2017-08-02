@@ -30,6 +30,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loginButton)
+        showFriendButton.layer.masksToBounds = true
+        showFriendButton.layer.cornerRadius = 10
         loginButton.center =   CGPoint(x: 165,y :360)
         loginButton.delegate = self
     

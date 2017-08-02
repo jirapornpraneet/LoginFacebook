@@ -32,7 +32,7 @@ class CollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 10, right: 30)
         layout.itemSize = CGSize(width: 110, height: 110)
         self.collectionView?.collectionViewLayout = layout
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -89,7 +89,8 @@ class CollectionViewController: UICollectionViewController {
         
         cell.nameLabel.text = String(format: "%@", (cellData?.name)!)
         cell.imageViewAvatar.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
-       
+    
+
         return cell
     }
     
