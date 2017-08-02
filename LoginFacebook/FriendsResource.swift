@@ -17,6 +17,16 @@ class FriendData: EVObject {
     var id: Int = 0
     var name: String = ""
     var picture: PictureData?
+    var gender:String = ""
+    var birthday:String = ""
+    var cover: CoverData?
+}
+
+class CoverData:EVObject {
+    var id:Int = 0
+    var offset_x: Int = 0
+    var offset_y:Int = 0
+    var source:String = ""
 }
 
 class PictureData: EVObject {

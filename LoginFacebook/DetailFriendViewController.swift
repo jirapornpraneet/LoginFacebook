@@ -12,19 +12,26 @@ import SDWebImage
 class DetailFriendViewController: UIViewController {
     @IBOutlet weak var imgImage: UIImageView!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var coverImage: UIImageView!
     
     var getName = String()
     var getPictureDataURL = String()
+    var getGender = String()
+    var getBirthDay = String()
+    var getCoverImage = String()
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         lblName.text! = getName
         imgImage.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
-        print(getPictureDataURL)
-////        imgImage.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)  = getImageURL
-//        
-//        self.imageShow.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
-////        cell.imageViewAvatar.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
+        birthdayLabel.text? = getBirthDay
+        genderLabel.text? = getGender
+        coverImage.sd_setImage(with: URL(string: (getCoverImage)), completed: nil)
+
     }
     
     override func didReceiveMemoryWarning() {

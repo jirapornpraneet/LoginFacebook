@@ -32,7 +32,7 @@ class CollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         layout.itemSize = CGSize(width: 110, height: 110)
         self.collectionView?.collectionViewLayout = layout
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -43,14 +43,15 @@ class CollectionViewController: UICollectionViewController {
             getToken = token
             print(getToken.tokenString)
             print("Show >>> ",token.tokenString)
+            getDataCurrenciesAPI()
         }
-        getDataCurrenciesAPI(showToken: getToken)
+        getDataCurrenciesAPI()
     }
     
     
     var getJson = JSON([String: Any]())
-    func getDataCurrenciesAPI(showToken: FBSDKAccessToken) {
-        let url = String(format:"https://graph.facebook.com/me/taggable_friends?fields=name,picture.type(large)&access_token=%@",showToken.tokenString)
+    func getDataCurrenciesAPI() {
+        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover&access_token=EAACEdEose0cBAErF9NQqRnpKcuPgsilF6xSfPPyueNOeNfcuDNIuRIFjZAG4W3bgESJytpMWpBetZAdZA9W5Xu7L42adj15fWiMZBNCk7NbnPnRgT9hMcjyYFxEdtZChKkeos6hkTbazknCLf58anZBOZAQYGNbFPMig73v10LnooNtS43NvoQB9MZCcOwMC6P0ZD")
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {
@@ -98,6 +99,9 @@ class CollectionViewController: UICollectionViewController {
         let cellData = friendsResource.data?[indexPath.row]
         desCV.getPictureDataURL = (cellData?.picture?.data?.url)!
         desCV.getName = String(format: "%@", (cellData?.name)!)
+        desCV.getBirthDay = String(format: "%@", (cellData?.birthday)!)
+        desCV.getGender = String(format: "%@", (cellData?.gender)!)
+        desCV.getCoverImage = (cellData?.cover?.source)!
         self.navigationController?.pushViewController(desCV, animated: true)
         
     }
