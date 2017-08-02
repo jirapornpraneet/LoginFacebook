@@ -81,7 +81,6 @@ class CollectionViewController: UICollectionViewController {
             return 0
         }
     }
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FriendsCollectionViewCell
         
@@ -89,16 +88,19 @@ class CollectionViewController: UICollectionViewController {
         
         cell.nameLabel.text = String(format: "%@", (cellData?.name)!)
         cell.imageViewAvatar.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
-        
+       
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let MainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let desCV = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
+        let cellData = friendsResource.data?[indexPath.row]
+        desCV.getPictureDataURL = (cellData?.picture?.data?.url)!
+        desCV.getName = String(format: "%@", (cellData?.name)!)
+        self.navigationController?.pushViewController(desCV, animated: true)
         
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-    }
+
 
 }

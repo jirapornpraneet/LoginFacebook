@@ -136,5 +136,40 @@
             </objects>
             <point key="canvasLocation" x="834.375" y="28.52112676056338"/>
         </scene>
+        <!--Detail Friend View Controller-->
+        <scene sceneID="kcg-k7-yHl">
+            <objects>
+                <viewController storyboardIdentifier="DetailFriendViewController" id="oEd-0f-RSk" customClass="DetailFriendViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h60-js-5DA"/>
+                        <viewControllerLayoutGuide type="bottom" id="g73-Uh-fdQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r24-Mf-ZMw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYi-jP-eb2">
+                                <rect key="frame" x="61" y="104" width="204" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqr-gp-UzK">
+                                <rect key="frame" x="93" y="155" width="155" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgImage" destination="gqr-gp-UzK" id="w3K-9R-ad3"/>
+                        <outlet property="lblName" destination="TYi-jP-eb2" id="HIF-PK-Fgv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0m-Qi-ltK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824.375" y="14.788732394366198"/>
+        </scene>
     </scenes>
 </document>
