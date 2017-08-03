@@ -3,7 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "static EVReflection.toJsonData(NSObject, conversionOptions : ConversionOptions, prettyPrinted : Bool) -&gt; Data:EVReflection.swift">
+         contextName = "ViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userResource">
+            </PersistentString>
+            <PersistentString
+               value = "userResource.posts?.data?">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.fetchProfile() -&gt; ():ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.listFriendTouchUpInside(Any) -&gt; ():ViewController.swift">
       </ContextState>
       <ContextState
          contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #2):ViewController.swift">
@@ -12,9 +26,6 @@
                value = "result">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ViewController.fetchProfile() -&gt; ():ViewController.swift">
       </ContextState>
       <ContextState
          contextName = "CollectionViewController.(getDataCurrenciesAPI(showToken : FBSDKAccessToken) -&gt; ()).(closure #1):CollectionViewController.swift">
@@ -26,6 +37,9 @@
       </ContextState>
       <ContextState
          contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #1):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static EVReflection.toJsonData(NSObject, conversionOptions : ConversionOptions, prettyPrinted : Bool) -&gt; Data:EVReflection.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

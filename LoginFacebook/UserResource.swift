@@ -9,7 +9,6 @@
 import Foundation
 import EVReflection
 
-
 class UserResource: EVObject {
     var id: Int = 0
     var email:String = ""
@@ -24,13 +23,14 @@ class UserResource: EVObject {
     var hometown:HomeTownData?
     var work:[WorkData]? = []
     var education:[EducationData]? = []
-    var post:PostData?
-}
-class PostData:EVObject{
-    var data:[PostUserData]? = []
+    var posts:PostsData?
 }
 
-class PostUserData:EVObject{
+class PostsData:EVObject{
+    var data:[PostsUserData]? = []
+}
+
+class PostsUserData:EVObject{
     var message:String = ""
     var picture:String = ""
     var id:Int = 0
@@ -49,8 +49,6 @@ class PositionData: EVObject {
     var id:Int = 0
     var name:String = ""
 }
-
-
 
 class LocationData:EVObject{
     var id:Int = 0

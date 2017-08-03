@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LoginFacebook/DetailFriendViewController.swift"
-            timestampString = "523363698.329429"
+            filePath = "LoginFacebook/CollectionViewController.swift"
+            timestampString = "523440779.470431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "ZoomPictureDataURL()"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LoginFacebook/DetailFriendViewController.swift"
-            timestampString = "523363698.329429"
+            filePath = "LoginFacebook/ViewController.swift"
+            timestampString = "523441038.838519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "fetchProfile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

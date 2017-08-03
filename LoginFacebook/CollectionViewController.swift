@@ -18,16 +18,13 @@ import SDWebImage
 private let reuseIdentifier = "Cell"
 
 class FriendsCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var imageViewAvatar: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
 }
 
 class CollectionViewController: UICollectionViewController {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     var getToken:FBSDKAccessToken!
-    
     var friendsResource: FriendsResource! = nil
 
     override func viewDidLoad() {
@@ -51,7 +48,7 @@ class CollectionViewController: UICollectionViewController {
     
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI() {
-        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover&access_token=EAACEdEose0cBACqv7WZCTvQGCBMHCySTz28lACcffjnqZCYNosh0NPUVljyxnvu8WpzmOrTBlaP4WIil5nhryOOJht0C1kfojU6ZBIbIMHEt87DEG8PUZAu6LGBunZBolPLuDUpVsTZC8RyOI3XddaudXsWVmKCxKQMxhywYr94XP2P9ZC7qHvpMGuLvsQOfzwZD")
+        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover&access_token=EAACEdEose0cBAPJUB20CkE1EDNiDHHq6whsggnVgvunXOg6y1sqSXQcJMBZCyPaS4ZBMckyZCvgxUgeJuWVOHxn9LguLFtu1roilWORnq2DfsSBRs4UEPWi4wmjMZASB7c4SnyPTKcqd8yXK06KtiIR5USNdEnZASHSXJBfP3dwdhZC0aSEJ10fDTMiSgFor8ZD")
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {
@@ -65,8 +62,6 @@ class CollectionViewController: UICollectionViewController {
             }
         }
     }
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -84,13 +79,9 @@ class CollectionViewController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FriendsCollectionViewCell
-        
         let cellData = friendsResource.data?[indexPath.row]
-        
         cell.nameLabel.text = String(format: "%@", (cellData?.name)!)
         cell.imageViewAvatar.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
-    
-
         return cell
     }
     
