@@ -209,8 +209,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2q-s7-qCu">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zPn-b7-KXK">
-                                        <rect key="frame" x="0.0" y="-4" width="320" height="996"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPn-b7-KXK">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="992"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDm-fm-2BJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
@@ -472,7 +472,7 @@
                                             <constraint firstItem="lgN-0U-RVX" firstAttribute="baseline" secondItem="mpj-eJ-C8N" secondAttribute="baseline" id="GhP-kX-zrK"/>
                                             <constraint firstItem="cmn-QH-yyq" firstAttribute="leading" secondItem="FqM-70-hQq" secondAttribute="trailing" constant="5" id="Gu2-8M-iPI"/>
                                             <constraint firstItem="Qyj-7j-Aho" firstAttribute="baseline" secondItem="qC6-cb-H0s" secondAttribute="baseline" id="HdV-9g-8S6"/>
-                                            <constraint firstAttribute="bottom" secondItem="lJt-8x-sRc" secondAttribute="bottom" constant="48" id="Hv0-Ab-wzK"/>
+                                            <constraint firstAttribute="bottom" secondItem="lJt-8x-sRc" secondAttribute="bottom" constant="44" id="Hv0-Ab-wzK"/>
                                             <constraint firstItem="jDm-fm-2BJ" firstAttribute="top" secondItem="zPn-b7-KXK" secondAttribute="top" id="JsZ-6H-PfI"/>
                                             <constraint firstItem="jDm-fm-2BJ" firstAttribute="leading" secondItem="zPn-b7-KXK" secondAttribute="leading" id="K3i-lv-lxY"/>
                                             <constraint firstItem="oRr-iB-4f9" firstAttribute="leading" secondItem="qC6-cb-H0s" secondAttribute="trailing" constant="4.5" id="K5z-Db-nvI"/>
@@ -485,7 +485,7 @@
                                             <constraint firstItem="bp1-fL-upF" firstAttribute="leading" secondItem="IoF-3q-IQN" secondAttribute="trailing" constant="8" id="OUj-uj-lDv"/>
                                             <constraint firstItem="cmn-QH-yyq" firstAttribute="centerX" secondItem="zPn-b7-KXK" secondAttribute="centerX" constant="18" id="OuO-lA-9ot"/>
                                             <constraint firstItem="Tzb-pe-TPP" firstAttribute="top" secondItem="Zqo-pV-4nT" secondAttribute="bottom" constant="8" id="P3W-ea-pxu"/>
-                                            <constraint firstAttribute="height" constant="996" id="XMX-17-Eix"/>
+                                            <constraint firstAttribute="height" constant="992" id="XMX-17-Eix"/>
                                             <constraint firstItem="Qyj-7j-Aho" firstAttribute="leading" secondItem="DIW-18-1TH" secondAttribute="trailing" constant="2" id="Xa0-EY-npW"/>
                                             <constraint firstItem="qC6-cb-H0s" firstAttribute="centerX" secondItem="zPn-b7-KXK" secondAttribute="centerX" id="ahu-aO-yL7"/>
                                             <constraint firstItem="mpj-eJ-C8N" firstAttribute="top" secondItem="cmn-QH-yyq" secondAttribute="bottom" id="f1P-I9-y3I"/>
@@ -508,8 +508,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zPn-b7-KXK" secondAttribute="trailing" id="SPK-XK-fdd"/>
+                                    <constraint firstItem="zPn-b7-KXK" firstAttribute="top" secondItem="O2q-s7-qCu" secondAttribute="top" id="Vv3-oE-WRe"/>
                                     <constraint firstAttribute="bottom" secondItem="zPn-b7-KXK" secondAttribute="bottom" constant="-56" id="Xs6-sV-LEO"/>
-                                    <constraint firstItem="zPn-b7-KXK" firstAttribute="top" secondItem="O2q-s7-qCu" secondAttribute="top" constant="60" id="bUf-J7-Au2"/>
                                     <constraint firstItem="zPn-b7-KXK" firstAttribute="leading" secondItem="O2q-s7-qCu" secondAttribute="leading" id="bWV-xk-Woh"/>
                                 </constraints>
                             </scrollView>

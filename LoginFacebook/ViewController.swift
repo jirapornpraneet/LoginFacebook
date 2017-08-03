@@ -37,7 +37,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
       @IBOutlet weak var concentrationNameLabel: UILabel!
       var userResource: UserResource! = nil
     
-    let loginButton: FBSDKLoginButton = {
+    var loginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
         button.readPermissions = ["email", "user_friends", "user_about_me"]
         return button
@@ -47,7 +47,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loginButton)
-       
         tablePost.dataSource = self
         tablePost.delegate = self
         profileImageView.layer.masksToBounds = true
@@ -57,8 +56,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         showFriendButton.layer.masksToBounds = true
         showFriendButton.layer.cornerRadius = 10
         loginButton.center =   CGPoint(x: 165,y : 80)
-//        let size = CGSize(width: 20, height:20)
-//        loginButton.sizeThatFits(size)
         loginButton.delegate = self
     
         if  let token = FBSDKAccessToken.current() {
@@ -126,9 +123,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if ((userResource) != nil) {
-             print("Mess :" , userResource.posts?.data?.count)
             return (userResource.posts?.data?.count)!
         } else {
             return 0
@@ -144,7 +139,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         return cell
     }
     
-
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
