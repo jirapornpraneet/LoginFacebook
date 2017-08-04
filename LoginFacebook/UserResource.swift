@@ -32,8 +32,25 @@ class PostsData:EVObject{
 
 class PostsUserData:EVObject{
     var message:String = ""
-    var picture:String = ""
+    var full_picture:String = ""
     var id:Int = 0
+    var created_time:String = ""
+    var place:PlaceData?
+}
+
+class PlaceData: EVObject {
+    var id:Int = 0
+    var name:String = ""
+    var location:PlaceDataLocation?
+}
+
+class PlaceDataLocation: EVObject {
+    var city:String = ""
+    var country:String = ""
+    var latitude:Double = 0.0
+    var longitude:Double = 0.0
+    var street:String = ""
+    var zip:Int = 0 
 }
 
 class WorkData: EVObject {
