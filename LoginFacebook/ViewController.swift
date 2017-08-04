@@ -14,10 +14,15 @@ import FBSDKShareKit
 import SDWebImage
 import Alamofire
 import SwiftyJSON
+import SKPhotoBrowser
 
 class PostUserTableViewCell: UITableViewCell {
     @IBOutlet weak var picturePostImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var profilePostImageView: UIImageView!
+    @IBOutlet weak var namePostLabel: UILabel!
+    @IBOutlet weak var createdTimePostLabel: UILabel!
+    @IBOutlet weak var placePostLabel: UILabel!
 }
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDelegate, UITableViewDataSource {
@@ -27,16 +32,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
       @IBOutlet weak var profileImageView: UIImageView!
       @IBOutlet weak var showFriendButton : UIButton!
       @IBOutlet weak var coverImageView: UIImageView!
-      @IBOutlet weak var ageLabel: UILabel!
-      @IBOutlet weak var birthdayLabel: UILabel!
-      @IBOutlet weak var genderLabel: UILabel!
-      @IBOutlet weak var homeTownLabel: UILabel!
-      @IBOutlet weak var employerNameLabel: UILabel!
-      @IBOutlet weak var positionLabel: UILabel!
       @IBOutlet weak var schoolNameLabel: UILabel!
+      @IBOutlet weak var collegeNameLabel: UILabel!
       @IBOutlet weak var concentrationNameLabel: UILabel!
-      var userResource: UserResource! = nil
+      @IBOutlet weak var profileUpdateImageView: UIImageView!
+
     
+    var userResource: UserResource! = nil
     var loginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
         button.readPermissions = ["email", "user_friends", "user_about_me"]
@@ -57,6 +59,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         showFriendButton.layer.cornerRadius = 10
         loginButton.center =   CGPoint(x: 165,y : 80)
         loginButton.delegate = self
+        let tapProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomProfilePicture))
+        profileImageView.addGestureRecognizer(tapProfilePicture)
+        profileImageView.isUserInteractionEnabled = true
+        let tapCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomCoverPicture))
+        coverImageView.addGestureRecognizer(tapCoverPicture)
+        coverImageView.isUserInteractionEnabled = true
     
         if  let token = FBSDKAccessToken.current() {
             fetchProfile()
@@ -66,28 +74,42 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         }
     }
     
+    func ZoomProfilePicture(){
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImageURL((userResource.picture?.data?.url)!)
+        photo.shouldCachePhotoURLImage = true
+        images.append(photo)
+        let browser = SKPhotoBrowser(photos: images)
+        browser.initializePageIndex(0)
+        present(browser, animated: true, completion: {})
+    }
+    func ZoomCoverPicture(){
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImageURL((userResource.cover?.source)!)
+        photo.shouldCachePhotoURLImage = true
+        images.append(photo)
+        let browser = SKPhotoBrowser(photos: images)
+        browser.initializePageIndex(0)
+        present(browser, animated: true, completion: {})        
+    }
+    
     func fetchProfile(){
-        let parameters = ["fields" : "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{message,picture}"]
+        let parameters = ["fields" : "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-//            print("Result :",result)
-//            print("Dic : ",dic)
-//            print("json :",jsonString)
+            print("Result :",result)
+            print("Dic : ",dic)
+            print("json :",jsonString)
             self.userResource = UserResource(json: jsonString)
 //            print("UserResource :", self.userResource)
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
             self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
             self.coverImageView.sd_setImage(with: URL(string: (self.userResource.cover?.source)!), completed: nil)
-            self.ageLabel.text = self.userResource.age_range?.min
-            self.birthdayLabel.text = self.userResource.birthday
-            self.genderLabel.text = self.userResource.gender
-            self.homeTownLabel.text = self.userResource.hometown?.name
             self.schoolNameLabel.text = self.userResource.education?[2].school?.name
             self.concentrationNameLabel.text = self.userResource.education?[2].concentration?[0].name
-            self.employerNameLabel.text = self.userResource.work?[0].employer?.name
-            self.positionLabel.text = self.userResource.work?[0].position?.name
-//            print("Post :",self.userResource.posts!.data![0])
+            self.collegeNameLabel.text = self.userResource.education?[1].school?.name
+            self.profileUpdateImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
             self.tablePost.reloadData()
         }
     }
@@ -104,10 +126,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         self.nameLabel.text = ""
         self.profileImageView.image = nil
         self.coverImageView.image = nil
-        self.ageLabel.text = nil
-        self.birthdayLabel.text = nil
-        self.genderLabel.text = nil
-        self.homeTownLabel.text = nil
     }
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
         return true
@@ -115,7 +133,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -135,7 +152,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         let cellData = userResource.posts?.data?[indexPath.row]
         print("Cell : ", (cellData?.message)!)
         cell.messageLabel.text = (cellData?.message)!
-        cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.picture)!), completed: nil)
+        cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
+        cell.profilePostImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
+        cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
+        cell.createdTimePostLabel.text = cellData?.created_time
+        let dateStringFormResource = cellData?.created_time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: dateStringFormResource!)
+        print("DateFormResource: ",dateStringFormResource!)
+        dateFormatter.dateFormat = "EEEE dd MMMM yyyy hh:mm:ss a ZZZZ"
+        let dateString = dateFormatter.string(from: date!)
+        print("DateString :" ,dateString)
+        cell.placePostLabel.text = cellData?.place?.name
         return cell
     }
     
