@@ -23,6 +23,10 @@ class PostUserTableViewCell: UITableViewCell {
     @IBOutlet weak var namePostLabel: UILabel!
     @IBOutlet weak var createdTimePostLabel: UILabel!
     @IBOutlet weak var placePostLabel: UILabel!
+    
+
+    
+    
 }
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDelegate, UITableViewDataSource {
@@ -98,9 +102,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-            print("Result :",result)
-            print("Dic : ",dic)
-            print("json :",jsonString)
+//            print("Result :",result)
+//            print("Dic : ",dic)
+//            print("json :",jsonString)
             self.userResource = UserResource(json: jsonString)
 //            print("UserResource :", self.userResource)
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
@@ -155,16 +159,18 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
         cell.profilePostImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
-        cell.createdTimePostLabel.text = cellData?.created_time
+        let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormResource!)
         print("DateFormResource: ",dateStringFormResource!)
-        dateFormatter.dateFormat = "EEEE dd MMMM yyyy hh:mm:ss a ZZZZ"
+        dateFormatter.locale = myLocale
+        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
         print("DateString :" ,dateString)
-        cell.placePostLabel.text = cellData?.place?.name
+        cell.createdTimePostLabel.text = dateString
+        cell.placePostLabel.text = "ที่" + (cellData?.place?.name)!
         return cell
     }
     
