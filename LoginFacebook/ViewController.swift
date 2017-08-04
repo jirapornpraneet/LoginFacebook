@@ -23,13 +23,9 @@ class PostUserTableViewCell: UITableViewCell {
     @IBOutlet weak var namePostLabel: UILabel!
     @IBOutlet weak var createdTimePostLabel: UILabel!
     @IBOutlet weak var placePostLabel: UILabel!
-    
-
-    
-    
 }
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
       @IBOutlet var tablePost: UITableView!
       @IBOutlet weak var nameLabel: UILabel!
@@ -40,19 +36,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
       @IBOutlet weak var collegeNameLabel: UILabel!
       @IBOutlet weak var concentrationNameLabel: UILabel!
       @IBOutlet weak var profileUpdateImageView: UIImageView!
-
     
-    var userResource: UserResource! = nil
-    var loginButton: FBSDKLoginButton = {
-        let button = FBSDKLoginButton()
-        button.readPermissions = ["email", "user_friends", "user_about_me"]
-        return button
-    }()
+     var userResource: UserResource! = nil
     
     var getToken:FBSDKAccessToken!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(loginButton)
         tablePost.dataSource = self
         tablePost.delegate = self
         profileImageView.layer.masksToBounds = true
@@ -61,8 +50,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         profileImageView.layer.borderColor = UIColor.white.cgColor
         showFriendButton.layer.masksToBounds = true
         showFriendButton.layer.cornerRadius = 10
-        loginButton.center =   CGPoint(x: 165,y : 80)
-        loginButton.delegate = self
         let tapProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomProfilePicture))
         profileImageView.addGestureRecognizer(tapProfilePicture)
         profileImageView.isUserInteractionEnabled = true
@@ -102,9 +89,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-//            print("Result :",result)
-//            print("Dic : ",dic)
-//            print("json :",jsonString)
+            print("Result :",result)
+            print("Dic : ",dic)
+            print("json :",jsonString)
             self.userResource = UserResource(json: jsonString)
 //            print("UserResource :", self.userResource)
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
@@ -122,19 +109,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         self.performSegue(withIdentifier: "CollectionViewID", sender: sender)
         
     }
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("completed login")
-        fetchProfile()
-    }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        self.nameLabel.text = ""
-        self.profileImageView.image = nil
-        self.coverImageView.image = nil
-    }
-    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
-        return true
-    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -170,7 +145,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate,UITableViewDele
         let dateString = dateFormatter.string(from: date!)
         print("DateString :" ,dateString)
         cell.createdTimePostLabel.text = dateString
-        cell.placePostLabel.text = "ที่" + (cellData?.place?.name)!
+        cell.placePostLabel.text = cellData?.place?.name
         return cell
     }
     

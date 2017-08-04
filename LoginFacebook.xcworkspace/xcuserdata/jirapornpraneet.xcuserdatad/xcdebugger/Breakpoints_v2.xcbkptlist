@@ -25,14 +25,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "523513558.765326"
+            filePath = "LoginFacebook/FristViewController.swift"
+            timestampString = "523525751.392281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginFacebook.FristViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "LoginFacebook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jirapornpraneet/Documents/LoginFacebook/LoginFacebook/FristViewController.swift"
+                  timestampString = "523525861.691963"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "1736">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginFacebook.FristViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "LoginFacebook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jirapornpraneet/Documents/LoginFacebook/LoginFacebook/FristViewController.swift"
+                  timestampString = "523525861.694443"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "1824">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -41,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "523513854.565482"
+            filePath = "LoginFacebook/FristViewController.swift"
+            timestampString = "523525752.765413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "fetchProfile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
