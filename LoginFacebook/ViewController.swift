@@ -23,12 +23,15 @@ class PostUserTableViewCell: UITableViewCell {
     @IBOutlet weak var namePostLabel: UILabel!
     @IBOutlet weak var createdTimePostLabel: UILabel!
     @IBOutlet weak var placePostLabel: UILabel!
+    @IBOutlet weak var atPlaceLabel: UILabel!
+    @IBOutlet weak var iconCheckInImageView: UIImageView!
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
       @IBOutlet var tablePost: UITableView!
       @IBOutlet weak var nameLabel: UILabel!
+    
       @IBOutlet weak var profileImageView: UIImageView!
       @IBOutlet weak var showFriendButton : UIButton!
       @IBOutlet weak var coverImageView: UIImageView!
@@ -42,6 +45,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var getToken:FBSDKAccessToken!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tablePost.rowHeight = UITableViewAutomaticDimension
+//        tablePost.estimatedRowHeight = 300
+//        tablePost.rowHeight = 300
         tablePost.dataSource = self
         tablePost.delegate = self
         profileImageView.layer.masksToBounds = true
@@ -146,6 +152,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("DateString :" ,dateString)
         cell.createdTimePostLabel.text = dateString
         cell.placePostLabel.text = cellData?.place?.name
+        let picturePost = cellData?.full_picture
+        if  picturePost  == "" {
+            tablePost.rowHeight = 80
+        }else {
+            tablePost.rowHeight = 400
+        }
+        
+        let atPlace = cellData?.place
+        var image = UIImage(named:"iconcheckin")
+        if atPlace == nil {
+            cell.atPlaceLabel.text = ""
+            cell.iconCheckInImageView.image = nil
+        } else {
+            cell.atPlaceLabel.text = "ที่"
+            cell.iconCheckInImageView.image = image
+        }
         return cell
     }
     
