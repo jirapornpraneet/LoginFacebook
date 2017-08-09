@@ -6,9 +6,6 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - EVReflection (4.16.3):
-    - EVReflection/Core (= 4.16.3)
-  - EVReflection/Core (4.16.3)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -56,7 +53,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5.0)
-  - EVReflection
   - FacebookCore
   - FacebookLogin
   - FBSDKCoreKit (~> 4.25.0)
@@ -69,7 +65,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  EVReflection: 78a60b3c628a2e765652cdc554a903a3e40b16c8
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
@@ -80,6 +75,6 @@ SPEC CHECKSUMS:
   SKPhotoBrowser: 3a7c6fc02aa1620ab17253a47a49fafda46536e8
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8f55f6823dbbc7969160411c40d8db1d2bb9af04
+PODFILE CHECKSUM: f8b90c886af08dfe7ed1337830c41fb1a025e06e
 
 COCOAPODS: 1.2.1
