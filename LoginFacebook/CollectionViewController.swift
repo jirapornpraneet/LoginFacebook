@@ -48,7 +48,7 @@ class CollectionViewController: UICollectionViewController {
     
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI() {
-        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover&access_token=EAACEdEose0cBAPJUB20CkE1EDNiDHHq6whsggnVgvunXOg6y1sqSXQcJMBZCyPaS4ZBMckyZCvgxUgeJuWVOHxn9LguLFtu1roilWORnq2DfsSBRs4UEPWi4wmjMZASB7c4SnyPTKcqd8yXK06KtiIR5USNdEnZASHSXJBfP3dwdhZC0aSEJ10fDTMiSgFor8ZD")
+        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover&access_token=EAACEdEose0cBAJ2rBuP9YSeqKLCUwvqcPzzZCZA3QaFr4gob8RZB26ktVVcAnsm2oVN2rkaYNjjQoE8NZAlJtOyeukZBYlQoJzkJGqYA4FE18KEHRFgwE3sOxdSxAPqJDEVy9O5ug8jXCk2Um6aO2VnJDGbvPGlQd0piMtwB9l0ZAj1ZBuIhBXZBNm44f4YPrZAkZD")
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {

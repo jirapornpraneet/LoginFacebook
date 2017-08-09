@@ -22,7 +22,6 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
-    
     var userResource: UserResource! = nil
     var loginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
@@ -54,14 +53,10 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-            //            print("Result :",result)
-            //            print("Dic : ",dic)
-            //            print("json :",jsonString)
             self.userResource = UserResource(json: jsonString)
-            //            print("UserResource :", self.userResource)
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
             self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
-                   }
+                }
     }
     
     @IBAction func listFriendTouchUpInside(_ sender: Any) {
@@ -69,7 +64,6 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("completed login")
         fetchProfile()
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
