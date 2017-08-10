@@ -46,6 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         tablePost.dataSource = self
         tablePost.delegate = self
+
         
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = 4
@@ -69,6 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            print(getToken.tokenString)
 //            print("Show >>> ",token.tokenString)
         }
+        
     }
     
     func ZoomProfilePicture(){
@@ -160,7 +162,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         let atPlace = cellData?.place
-        var image = UIImage(named:"iconcheckin")
+        var image = UIImage(named:"iconCheckin")
         if atPlace == nil {
             cell.atPlaceLabel.text = ""
             cell.iconCheckInImageView.image = nil
