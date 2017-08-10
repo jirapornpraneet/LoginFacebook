@@ -55,11 +55,6 @@ class CollectionViewController: UICollectionViewController {
             case .success(let value):
                 self.friendsResource  = FriendsResource(json: value)
                 print(value)
-//                print("FriendsResource :",self.friendsResource)
-//                print("DataIndex :",self.friendsResource.data![2].name)
-//                print("EducationIndex2 :",self.friendsResource.data![2].education?[0])
-//                print("ConcentrationIndex3 :",self.friendsResource.data![2].education?[0].concentration![0].name)
-//                print("SchoolName :",self.friendsResource.data![2].education?[0].school?.name)
                 self.collectionView?.reloadData()
             case .failure(let error):
                 print(error)
@@ -130,6 +125,7 @@ class CollectionViewController: UICollectionViewController {
             cellCollectionView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ",(cellData?.hometown?.name)!)
             cellCollectionView.getHometownImage = UIImage(named: "iconHometown.png")!
         }
+        
         self.navigationController?.pushViewController(cellCollectionView, animated: true)
     }
 
