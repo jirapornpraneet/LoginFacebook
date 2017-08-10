@@ -48,14 +48,18 @@ class CollectionViewController: UICollectionViewController {
     
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI() {
-        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover&access_token=EAACEdEose0cBAJ2rBuP9YSeqKLCUwvqcPzzZCZA3QaFr4gob8RZB26ktVVcAnsm2oVN2rkaYNjjQoE8NZAlJtOyeukZBYlQoJzkJGqYA4FE18KEHRFgwE3sOxdSxAPqJDEVy9O5ug8jXCk2Um6aO2VnJDGbvPGlQd0piMtwB9l0ZAj1ZBuIhBXZBNm44f4YPrZAkZD")
+        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown&access_token=EAACEdEose0cBANjLHZCBf0fcfKQTsInPFnZA5vEPOJ0hsRP022QbciOeQvAEDJ66acG6qIZAgRvwTaa1vCZCgG1dFOZBFO4PGmsq5sz8zFFVzzTy3vz82XwkvKTllyj1HFEwXLMzm5AWqX4LzygBXhYM53ZBnQOvwwTMFc2G9vrYSw33jANQi0YimmBFdGGw4ZD")
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {
             case .success(let value):
                 self.friendsResource  = FriendsResource(json: value)
                 print(value)
-                print(self.friendsResource)
+//                print("FriendsResource :",self.friendsResource)
+//                print("DataIndex :",self.friendsResource.data![2].name)
+//                print("EducationIndex2 :",self.friendsResource.data![2].education?[0])
+//                print("ConcentrationIndex3 :",self.friendsResource.data![2].education?[0].concentration![0].name)
+//                print("SchoolName :",self.friendsResource.data![2].education?[0].school?.name)
                 self.collectionView?.reloadData()
             case .failure(let error):
                 print(error)
@@ -87,15 +91,25 @@ class CollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let desCV = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
+        let cellCollectionView = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
         let cellData = friendsResource.data?[indexPath.row]
-        desCV.getPictureDataURL = (cellData?.picture?.data?.url)!
-        desCV.getName = String(format: "%@", (cellData?.name)!)
-        desCV.getBirthDay = String(format: "%@", (cellData?.birthday)!)
-        desCV.getGender = String(format: "%@", (cellData?.gender)!)
-        desCV.getCoverImage = (cellData?.cover?.source)!
-        self.navigationController?.pushViewController(desCV, animated: true)
         
+        cellCollectionView.getPictureDataURL = (cellData?.picture?.data?.url)!
+        cellCollectionView.getName = String(format: "%@", (cellData?.name)!)
+        cellCollectionView.getBirthDay = String(format: "%@", (cellData?.birthday)!)
+        cellCollectionView.getGender = String(format: "%@", (cellData?.gender)!)
+        cellCollectionView.getCoverImage = (cellData?.cover?.source)!
+//        cellCollectionView.getEducation = (cellData?.education?[0].school?.name)!
+//        cellCollectionView.getHometown = (cellData?.hometown?.name)!
+        var cellEducation = cellData?.education
+        print("cellEducation :",cellEducation)
+        if cellEducation! == [] {
+            cellCollectionView.getEducation = ""
+        }else{
+            cellCollectionView.getEducation = (cellData?.education?[0].school?.name)!
+        }
+        cellCollectionView.getHometown = ""
+        self.navigationController?.pushViewController(cellCollectionView, animated: true)
     }
 
 
