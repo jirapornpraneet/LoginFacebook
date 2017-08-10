@@ -92,23 +92,44 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let cellCollectionView = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
+        
         let cellData = friendsResource.data?[indexPath.row]
         
         cellCollectionView.getPictureDataURL = (cellData?.picture?.data?.url)!
         cellCollectionView.getName = String(format: "%@", (cellData?.name)!)
-        cellCollectionView.getBirthDay = String(format: "%@", (cellData?.birthday)!)
-        cellCollectionView.getGender = String(format: "%@", (cellData?.gender)!)
         cellCollectionView.getCoverImage = (cellData?.cover?.source)!
-//        cellCollectionView.getEducation = (cellData?.education?[0].school?.name)!
-//        cellCollectionView.getHometown = (cellData?.hometown?.name)!
-        var cellEducation = cellData?.education
-        print("cellEducation :",cellEducation)
+        
+        let cellBirthDay = cellData?.birthday
+        if cellBirthDay == "" {
+             cellCollectionView.getBirthDay = ""
+        } else {
+             cellCollectionView.getBirthDay = String(format: "%วันเกิด : %@", (cellData?.birthday)!)
+        }
+       
+        let cellGender = cellData?.gender
+        if cellGender == "" {
+            cellCollectionView.getGender = ""
+        } else {
+            cellCollectionView.getGender = String(format: "%เพศ : %@", (cellData?.gender)!)
+        }
+        
+        let cellEducation = cellData?.education
         if cellEducation! == [] {
             cellCollectionView.getEducation = ""
+            cellCollectionView.getEducationImage = UIImage(named: "nil.png")!
         }else{
-            cellCollectionView.getEducation = (cellData?.education?[0].school?.name)!
+            cellCollectionView.getEducation = String(format: "เคยศึกษาที่  %@ ",(cellData?.education?[0].school?.name)!)
+            cellCollectionView.getEducationImage = UIImage(named: "iconEducation.png")!
         }
-        cellCollectionView.getHometown = ""
+        
+        let cellHomeTown = cellData?.hometown?.name
+        if cellHomeTown == nil {
+            cellCollectionView.getHometown = ""
+            cellCollectionView.getHometownImage = UIImage(named: "nil.png")!
+        }else {
+            cellCollectionView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ",(cellData?.hometown?.name)!)
+            cellCollectionView.getHometownImage = UIImage(named: "iconHometown.png")!
+        }
         self.navigationController?.pushViewController(cellCollectionView, animated: true)
     }
 
