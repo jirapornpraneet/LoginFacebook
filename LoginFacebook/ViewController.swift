@@ -47,7 +47,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tablePost.dataSource = self
         tablePost.delegate = self
 
-        
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = 4
         profileImageView.layer.borderWidth = 2
