@@ -20,6 +20,38 @@ class FriendData: EVObject {
     var gender:String = ""
     var birthday:String = ""
     var cover: CoverData?
+    var education:[EducationFriendsData]? = []
+    var hometown:HomeTownFriendsData?
+}
+
+class HomeTownFriendsData:EVObject{
+    var id:Int = 0
+    var name:String = ""
+}
+
+class EducationFriendsData:EVObject {
+    var school:SchoolFriendsData?
+    var type:String = ""
+    var year:YearFriendsData?
+    var id:Int = 0
+    var concentration:[ConcentrationFriendsData]? = []
+}
+
+class SchoolFriendsData:EVObject{
+    var id:Int = 0
+    var name:String = ""
+    
+}
+
+class ConcentrationFriendsData:EVObject{
+    var id:Int = 0
+    var name:String = ""
+    
+}
+
+class YearFriendsData:EVObject{
+    var id:Int = 0
+    var name:String = ""
 }
 
 class CoverData:EVObject {
