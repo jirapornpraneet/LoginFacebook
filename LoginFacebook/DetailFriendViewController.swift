@@ -18,6 +18,8 @@ class DetailFriendViewController: UIViewController {
     @IBOutlet weak var educationLabel: UILabel!
     @IBOutlet weak var hometownLabel: UILabel!
     @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var educationImage: UIImageView!
+    @IBOutlet weak var hometownImage: UIImageView!
     
     var getName = String()
     var getPictureDataURL = String()
@@ -26,9 +28,9 @@ class DetailFriendViewController: UIViewController {
     var getCoverImage = String()
     var getEducation = String()
     var getHometown = String()
+    var getEducationImage = UIImage()
+    var getHometownImage = UIImage()
     
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         imgImage.layer.masksToBounds = true
@@ -41,6 +43,9 @@ class DetailFriendViewController: UIViewController {
         birthdayLabel.text? = getBirthDay
         genderLabel.text? = getGender
         hometownLabel.text? = getHometown
+        educationLabel.text = getEducation
+        educationImage.image = getEducationImage
+        hometownImage.image = getHometownImage
         coverImage.sd_setImage(with: URL(string: (getCoverImage)), completed: nil)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureDataURL))
