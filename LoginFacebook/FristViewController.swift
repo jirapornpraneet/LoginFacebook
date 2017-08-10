@@ -42,8 +42,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
      
         if  let token = FBSDKAccessToken.current() {
             fetchProfile()
-            //            getToken = token
-            //            print(getToken.tokenString)
+            getToken = token
+            print(getToken.tokenString)
             print("Show >>> ",token.tokenString)
         }
     }

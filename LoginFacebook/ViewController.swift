@@ -31,7 +31,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
       @IBOutlet var tablePost: UITableView!
       @IBOutlet weak var nameLabel: UILabel!
-    
       @IBOutlet weak var profileImageView: UIImageView!
       @IBOutlet weak var showFriendButton : UIButton!
       @IBOutlet weak var coverImageView: UIImageView!
@@ -40,25 +39,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       @IBOutlet weak var concentrationNameLabel: UILabel!
       @IBOutlet weak var profileUpdateImageView: UIImageView!
     
-     var userResource: UserResource! = nil
+      var userResource: UserResource! = nil
+      var getToken:FBSDKAccessToken!
     
-    var getToken:FBSDKAccessToken!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tablePost.rowHeight = UITableViewAutomaticDimension
-//        tablePost.estimatedRowHeight = 300
-//        tablePost.rowHeight = 300
         tablePost.dataSource = self
         tablePost.delegate = self
+        
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = 4
         profileImageView.layer.borderWidth = 2
         profileImageView.layer.borderColor = UIColor.white.cgColor
+        
         showFriendButton.layer.masksToBounds = true
         showFriendButton.layer.cornerRadius = 10
+        
         let tapProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomProfilePicture))
         profileImageView.addGestureRecognizer(tapProfilePicture)
         profileImageView.isUserInteractionEnabled = true
+        
         let tapCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomCoverPicture))
         coverImageView.addGestureRecognizer(tapCoverPicture)
         coverImageView.isUserInteractionEnabled = true
@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fetchProfile()
 //            getToken = token
 //            print(getToken.tokenString)
-            print("Show >>> ",token.tokenString)
+//            print("Show >>> ",token.tokenString)
         }
     }
     
@@ -76,6 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let photo = SKPhoto.photoWithImageURL((userResource.picture?.data?.url)!)
         photo.shouldCachePhotoURLImage = true
         images.append(photo)
+        
         let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
@@ -85,6 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let photo = SKPhoto.photoWithImageURL((userResource.cover?.source)!)
         photo.shouldCachePhotoURLImage = true
         images.append(photo)
+        
         let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})        
@@ -92,14 +94,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func fetchProfile(){
         let parameters = ["fields" : "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
+        
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-            print("Result :",result)
-            print("Dic : ",dic)
-            print("json :",jsonString)
             self.userResource = UserResource(json: jsonString)
-//            print("UserResource :", self.userResource)
+            
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
             self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
             self.coverImageView.sd_setImage(with: URL(string: (self.userResource.cover?.source)!), completed: nil)
@@ -113,7 +113,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func listFriendTouchUpInside(_ sender: Any) {
         self.performSegue(withIdentifier: "CollectionViewID", sender: sender)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,26 +134,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResource.posts?.data?[indexPath.row]
-        print("Cell : ", (cellData?.message)!)
+       
         cell.messageLabel.text = (cellData?.message)!
         cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
         cell.profilePostImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
+        
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormResource!)
-        print("DateFormResource: ",dateStringFormResource!)
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
-        print("DateString :" ,dateString)
+        
         cell.createdTimePostLabel.text = dateString
         cell.placePostLabel.text = cellData?.place?.name
+        
         let picturePost = cellData?.full_picture
         if  picturePost  == "" {
-            tablePost.rowHeight = 80
+            tablePost.rowHeight = 135
         }else {
             tablePost.rowHeight = 400
         }
