@@ -12,9 +12,11 @@ import SKPhotoBrowser
 
 class DetailFriendViewController: UIViewController {
     @IBOutlet weak var imgImage: UIImageView!
-    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var educationLabel: UILabel!
+    @IBOutlet weak var hometownLabel: UILabel!
     @IBOutlet weak var coverImage: UIImageView!
     
     var getName = String()
@@ -22,6 +24,10 @@ class DetailFriendViewController: UIViewController {
     var getGender = String()
     var getBirthDay = String()
     var getCoverImage = String()
+    var getEducation = String()
+    var getHometown = String()
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +35,14 @@ class DetailFriendViewController: UIViewController {
         imgImage.layer.cornerRadius = 4
         imgImage.layer.borderWidth = 2
         imgImage.layer.borderColor = UIColor.white.cgColor
-        lblName.text! = getName
+        
+        nameLabel.text! = getName
         imgImage.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
         birthdayLabel.text? = getBirthDay
         genderLabel.text? = getGender
+        hometownLabel.text? = getHometown
         coverImage.sd_setImage(with: URL(string: (getCoverImage)), completed: nil)
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureDataURL))
         imgImage.addGestureRecognizer(tap)
         imgImage.isUserInteractionEnabled = true
