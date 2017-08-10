@@ -661,6 +661,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3266WF6C2V;
 				INFOPLIST_FILE = LoginFacebook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = currency.LoginFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -678,6 +679,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3266WF6C2V;
 				INFOPLIST_FILE = LoginFacebook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = currency.LoginFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
