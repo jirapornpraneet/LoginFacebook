@@ -45,10 +45,9 @@ class CollectionViewController: UICollectionViewController {
         getDataCurrenciesAPI()
     }
     
-    
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI() {
-        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown&access_token=EAACEdEose0cBANjLHZCBf0fcfKQTsInPFnZA5vEPOJ0hsRP022QbciOeQvAEDJ66acG6qIZAgRvwTaa1vCZCgG1dFOZBFO4PGmsq5sz8zFFVzzTy3vz82XwkvKTllyj1HFEwXLMzm5AWqX4LzygBXhYM53ZBnQOvwwTMFc2G9vrYSw33jANQi0YimmBFdGGw4ZD")
+        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown&access_token=EAACEdEose0cBAPyWnuRxK5ZAitCAeB8et3HVITxDNN4adh7kR0G5zoUa7CexAm6SqMeK4DZCO2HKCiuCi3cu3AFZCSZAOOi3umZBoYrOJIydiZAmbyBZBvqmRjA22K6l7bRHuyg4zqROgwsvaYtyiGZBtIHUc26IUj8VgAc5x0VmrDAPID4EpxxVR579J20ju6UZD")
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {
@@ -93,7 +92,7 @@ class CollectionViewController: UICollectionViewController {
         cellCollectionView.getPictureDataURL = (cellData?.picture?.data?.url)!
         cellCollectionView.getName = String(format: "%@", (cellData?.name)!)
         cellCollectionView.getCoverImage = (cellData?.cover?.source)!
-        
+   
         let cellBirthDay = cellData?.birthday
         if cellBirthDay == "" {
              cellCollectionView.getBirthDay = ""
@@ -128,6 +127,4 @@ class CollectionViewController: UICollectionViewController {
         
         self.navigationController?.pushViewController(cellCollectionView, animated: true)
     }
-
-
 }
