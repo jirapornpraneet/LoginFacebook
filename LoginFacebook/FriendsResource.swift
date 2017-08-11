@@ -22,6 +22,34 @@ class FriendData: EVObject {
     var cover: CoverData?
     var education:[EducationFriendsData]? = []
     var hometown:HomeTownFriendsData?
+    var posts:PostsFriendsData?
+}
+
+class PostsFriendsData:EVObject{
+    var data:[PostsFriendsDataDetail]? = []
+}
+
+class PostsFriendsDataDetail:EVObject{
+    var message:String = ""
+    var full_picture:String = ""
+    var id:Int = 0
+    var created_time:String = ""
+    var place:PostsPlaceData?
+}
+
+class PostsPlaceData: EVObject {
+    var id:Int = 0
+    var name:String = ""
+    var location:PostsPlaceDataLocation?
+}
+
+class PostsPlaceDataLocation: EVObject {
+    var city:String = ""
+    var country:String = ""
+    var latitude:Double = 0.0
+    var longitude:Double = 0.0
+    var street:String = ""
+    var zip:Int = 0
 }
 
 class HomeTownFriendsData:EVObject{
