@@ -100,7 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResource = UserResource(json: jsonString)
-            
+            print("UserResource  :" ,self.userResource)
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
             self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
             self.coverImageView.sd_setImage(with: URL(string: (self.userResource.cover?.source)!), completed: nil)
