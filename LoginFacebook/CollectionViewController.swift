@@ -47,12 +47,13 @@ class CollectionViewController: UICollectionViewController {
     
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI() {
-        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown&access_token=EAACEdEose0cBAPyWnuRxK5ZAitCAeB8et3HVITxDNN4adh7kR0G5zoUa7CexAm6SqMeK4DZCO2HKCiuCi3cu3AFZCSZAOOi3umZBoYrOJIydiZAmbyBZBvqmRjA22K6l7bRHuyg4zqROgwsvaYtyiGZBtIHUc26IUj8VgAc5x0VmrDAPID4EpxxVR579J20ju6UZD")
+        let url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts&access_token=EAACEdEose0cBACjB14PKUxGiJhcwq8BniIoN8FAzkExZBKMClFhI9zvA3IBDD8s92fBbfY5e4nmZCtEezkmVd1l49BQdHX8oaiwwyZBc6JZAlEeXZAcRagVJZBPFy606GcO41K1JBFiURJF5omJZAGxuQTOj69ZCK7UOQEm4n3svkpanWXjUb14UScE34gGZBr4i83iQkFpU4mAZDZD")
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {
             case .success(let value):
                 self.friendsResource  = FriendsResource(json: value)
+                print("FriendsResource :",self.friendsResource)
                 print(value)
                 self.collectionView?.reloadData()
             case .failure(let error):
@@ -60,6 +61,8 @@ class CollectionViewController: UICollectionViewController {
             }
         }
     }
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -124,6 +127,26 @@ class CollectionViewController: UICollectionViewController {
             cellCollectionView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ",(cellData?.hometown?.name)!)
             cellCollectionView.getHometownImage = UIImage(named: "iconHometown.png")!
         }
+       
+        let cellCount = cellData?.posts?.data?.count
+        cellCollectionView.getCountPostFriends = (cellCount)!
+        
+        let cellDataPost = cellData?.posts?.data?[indexPath.row]
+        cellCollectionView.getCreatedTime = (cellDataPost?.created_time)!
+        cellCollectionView.getMeaasge = (cellDataPost?.message)!
+        
+        let myLocale = Locale(identifier: "th_TH")
+        let dateStringFormResource = cellDataPost?.created_time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: dateStringFormResource!)
+        dateFormatter.locale = myLocale
+        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
+        let dateString = dateFormatter.string(from: date!)
+        
+        cellCollectionView.getCreatedTime = dateString
+//        cellCollectionView.getFullPicture = (cellDataPost?.full_picture)!
+//        cellCollectionView.getPlace = (cellDataPost?.place?.name)!
         
         self.navigationController?.pushViewController(cellCollectionView, animated: true)
     }
