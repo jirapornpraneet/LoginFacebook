@@ -60,6 +60,7 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
     var getPlace = String()
     var getCountPostFriends = Int()
     var friendsResource = FriendsResource()
+    var getPostsIndexPath = String()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,14 +134,13 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostFriendTableViewCell
-//        let cellData = friendsResource.data?[indexPath.row]
-//        let cellPostData = cellData?.posts?.data?[indexPath.row]
-//        print("Post :",cellPostData)
+//        let cellGetMeaasge = getMeaasge[indexPath.row]
+        print("getCountPostFriends :",getCountPostFriends)
   
-        cell.messageLabel.text = "Message"
+        cell.messageLabel.text = getMeaasge
         cell.picturePostImageView = nil
         cell.namePostLabel.text = getName
-        cell.createdTimePostLabel.text = getName
+        cell.createdTimePostLabel.text = getCreatedTime
         cell.placePostLabel.text = ""
         cell.profilePostImageView.image = nil
         
