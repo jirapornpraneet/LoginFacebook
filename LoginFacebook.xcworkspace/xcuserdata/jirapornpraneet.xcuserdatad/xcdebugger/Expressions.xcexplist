@@ -3,6 +3,9 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ViewController.fetchProfile() -&gt; ():ViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "ViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -14,7 +17,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ViewController.fetchProfile() -&gt; ():ViewController.swift">
+         contextName = "CollectionViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():CollectionViewController.swift">
       </ContextState>
       <ContextState
          contextName = "ViewController.listFriendTouchUpInside(Any) -&gt; ():ViewController.swift">
@@ -34,6 +37,17 @@
                value = "friendsResource.data">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userResource">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CollectionViewController.(getDataCurrenciesAPI() -&gt; ()).(closure #1):CollectionViewController.swift">
       </ContextState>
       <ContextState
          contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #1):ViewController.swift">
