@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2FE9D5476832B99D8EFB3C0178C07A38'
-               BlueprintName = 'SKPhotoBrowser'
+               BlueprintIdentifier = '1CE15060B0E33F7AE0A78865CFACF946'
+               BlueprintName = 'CocoaSecurity'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SKPhotoBrowser.framework'>
+               BuildableName = 'CocoaSecurity.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

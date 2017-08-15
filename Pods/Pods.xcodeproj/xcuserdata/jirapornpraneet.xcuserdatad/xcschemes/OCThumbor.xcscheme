@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2FE9D5476832B99D8EFB3C0178C07A38'
-               BlueprintName = 'SKPhotoBrowser'
+               BlueprintIdentifier = '1B3FD5D7D202DF2CE6076DDFC4BC6BEA'
+               BlueprintName = 'OCThumbor'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SKPhotoBrowser.framework'>
+               BuildableName = 'OCThumbor.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

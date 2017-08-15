@@ -15,6 +15,7 @@ target 'LoginFacebook' do
   pod 'SwiftyJSON', '~> 3.1.4'
   pod 'SKPhotoBrowser', '~> 4.0.0'
   pod 'EVReflection/Alamofire', '~> 4.16.0'
+  pod 'OCThumbor', '~> 0.3'
  
 
   target 'LoginFacebookTests' do

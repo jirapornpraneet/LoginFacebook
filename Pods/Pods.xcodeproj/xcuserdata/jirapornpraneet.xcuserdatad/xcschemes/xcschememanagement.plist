@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaSecurity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EVReflection.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +45,11 @@
 			<false/>
 		</dict>
 		<key>FacebookLogin.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OCThumbor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,12 +92,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08299C447A59D8563B01C7069BFB92E1</key>
+		<key>1B3FD5D7D202DF2CE6076DDFC4BC6BEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CE15060B0E33F7AE0A78865CFACF946</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25C963070C896D4FF30E7A46AF86BB9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2FE9D5476832B99D8EFB3C0178C07A38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>536B3816A3BBDA7064E8113A4743CFBD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9712DBC438AC60FDA13F4C8DDC88FFC8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A4F2D06EE084DDA9F545058D0874F957</key>
+		<key>91455E6E9716D665D9E75F57A66F16BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,11 +158,6 @@
 			<true/>
 		</dict>
 		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E3398B3296662482AC8D7D3175B07D7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
