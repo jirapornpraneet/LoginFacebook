@@ -69,7 +69,10 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         imgImage.layer.cornerRadius = 4
         imgImage.layer.borderWidth = 2
         imgImage.layer.borderColor = UIColor.white.cgColor
-        imgImage.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
+        
+        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getPictureDataURL), width: 150, height: 150)
+        imgImage.sd_setImage(with: imageUrl, completed:nil)
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureDataURL))
         imgImage.addGestureRecognizer(tap)
         imgImage.isUserInteractionEnabled = true
@@ -82,7 +85,9 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         educationImage.image = getEducationImage
         hometownImage.image = getHometownImage
         messengerToFriendLabel.text = String(format: "%เขียนอะไรบางอย่างถึง  %@ %.........",getName)
-        coverImage.sd_setImage(with: URL(string: (getCoverImage)), completed: nil)
+        
+        let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getCoverImage), width: 480, height: 260)
+        coverImage.sd_setImage(with: coverImageUrl, completed:nil)
     
         tablePostFriend.dataSource = self
         tablePostFriend.delegate = self
@@ -97,7 +102,9 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResource = UserResource(json: jsonString)
-            self.profileUserImage.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
+            
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 160, height: 160)
+            self.profileUserImage.sd_setImage(with: profileImageUrl, completed:nil)
         }
     }
 
@@ -136,9 +143,9 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         let cellData = getPostsIndexPath[indexPath.row] as? PostsFriendsDataDetail
     
         cell.messageLabel.text = cellData?.message
-        cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
         cell.namePostLabel.text = getName
-        
+        cell.placePostLabel.text = cellData?.place?.name
+    
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
@@ -149,14 +156,14 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         let dateString = dateFormatter.string(from: date!)
         cell.createdTimePostLabel.text = dateString
         
-        cell.placePostLabel.text = cellData?.place?.name
-        cell.profilePostImageView.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
-        
         let picturePost = cellData?.full_picture
         if  picturePost  == "" {
             tablePostFriend.rowHeight = 135
+            cell.picturePostImageView.image = nil
         }else {
-            tablePostFriend.rowHeight = 400
+            tablePostFriend.rowHeight = 420
+            var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
+            cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
         }
         
         let atPlace = cellData?.place
@@ -168,8 +175,6 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
             cell.atPlaceLabel.text = "ที่"
             cell.iconCheckInImageView.image = image
         }
-
-        
         return cell
     }
     
