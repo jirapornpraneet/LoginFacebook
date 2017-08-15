@@ -100,7 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResource = UserResource(json: jsonString)
-            print("UserResource  :" ,self.userResource)
+//            print("UserResource  :" ,self.userResource)
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
             self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
             self.coverImageView.sd_setImage(with: URL(string: (self.userResource.cover?.source)!), completed: nil)
@@ -135,6 +135,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResource.posts?.data?[indexPath.row]
+        print("CellData :",userResource)
        
         cell.messageLabel.text = (cellData?.message)!
         cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
