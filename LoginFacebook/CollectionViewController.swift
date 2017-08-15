@@ -49,16 +49,11 @@ class CollectionViewController: UICollectionViewController {
     func getDataCurrenciesAPI() {
         var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAC1CSwP1qjc8HYW8krIMYTcBtjEEnlIVDcx2nn4Em9xnywPSVoOnDLjK5YdHX9p3xAfrr3YB4AbHS1qk1ptZBPnWa4OwZAAujdDU5GdMJsa96SZAICbx81GwPE9DtGSUxSbyRrqPYZBZBqmfZBJtVUPcYHnmLM5ZAiHri1aBGHZBbDPBTHOvudcriBvmyo06XQZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        print("URL",url)
-//        addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-//        url = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {
             case .success(let value):
                 self.friendsResource  = FriendsResource(json: value)
-                print("FriendsResource :",self.friendsResource)
-//                print(value)
                 self.collectionView?.reloadData()
             case .failure(let error):
                 print(error)
@@ -92,10 +87,8 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let cellCollectionView = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
-        
         let cellData = friendsResource.data?[indexPath.row]
-        
-        
+    
         cellCollectionView.getPictureDataURL = (cellData?.picture?.data?.url)!
         cellCollectionView.getName = String(format: "%@", (cellData?.name)!)
         cellCollectionView.getCoverImage = (cellData?.cover?.source)!
@@ -131,31 +124,15 @@ class CollectionViewController: UICollectionViewController {
             cellCollectionView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ",(cellData?.hometown?.name)!)
             cellCollectionView.getHometownImage = UIImage(named: "iconHometown.png")!
         }
-       
-//        let cellResource = friendsResource.data
-//        cellCollectionView.getFriendsResource = (cellResource)!
         
         let cellCount = cellData?.posts?.data?.count
-        cellCollectionView.getCountPostFriends = (cellCount)!
+        if cellCount == nil {
+            return
+        }
+        cellCollectionView.getCountPostFriends = ((cellCount))!
        
         let cellDataPost = cellData?.posts?.data
-        print("cellDataPost :",cellDataPost?[0])
         cellCollectionView.getPostsIndexPath = cellDataPost!
-                
-//        cellCollectionView.getCreatedTime = (cellDataPost?.created_time)!
-//        cellCollectionView.getMeaasge = (cellDataPost?.message)!
-//        let myLocale = Locale(identifier: "th_TH")
-//        let dateStringFormResource = cellDataPost?.created_time
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//        let date = dateFormatter.date(from: dateStringFormResource!)
-//        dateFormatter.locale = myLocale
-//        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
-//        let dateString = dateFormatter.string(from: date!)
-        
-//        cellCollectionView.getCreatedTime = dateString
-//        cellCollectionView.getFullPicture = (cellDataPost?.full_picture)!
-//        cellCollectionView.getPlace = (cellDataPost?.place?.name)!
         
         self.navigationController?.pushViewController(cellCollectionView, animated: true)
     }
