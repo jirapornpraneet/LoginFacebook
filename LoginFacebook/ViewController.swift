@@ -102,8 +102,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.userResource = UserResource(json: jsonString)
 //            print("UserResource  :" ,self.userResource)
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
-            self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
-            self.coverImageView.sd_setImage(with: URL(string: (self.userResource.cover?.source)!), completed: nil)
+            
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 160, height: 160)
+            self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        
+            let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.cover?.source)!, width: 480, height: 260)
+            self.coverImageView.sd_setImage(with: coverImageUrl, completed:nil)
+            
             self.schoolNameLabel.text = self.userResource.education?[2].school?.name
             self.concentrationNameLabel.text = self.userResource.education?[2].concentration?[0].name
             self.collegeNameLabel.text = self.userResource.education?[1].school?.name
@@ -137,8 +142,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cellData = userResource.posts?.data?[indexPath.row]
        
         cell.messageLabel.text = (cellData?.message)!
+        cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
+        cell.placePostLabel.text = cellData?.place?.name
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 200, height: 200)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 160, height: 160)
         cell.profilePostImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         let picturePost = cellData?.full_picture
@@ -147,11 +154,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.picturePostImageView.image = nil
         }else {
             tablePost.rowHeight = 420
-            var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 320, height: 400)
+            var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
         }
-    
-        cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
         
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
@@ -161,11 +166,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
-        
         cell.createdTimePostLabel.text = dateString
-        cell.placePostLabel.text = cellData?.place?.name
-        
-      
         
         let atPlace = cellData?.place
         var image = UIImage(named:"iconCheckin")
