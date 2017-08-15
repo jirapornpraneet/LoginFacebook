@@ -41,7 +41,7 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
     @IBOutlet weak var educationImage: UIImageView!
     @IBOutlet weak var hometownImage: UIImageView!
     @IBOutlet weak var profileUserImage: UIImageView!
-    
+    //profile
     var getName = String()
     var getPictureDataURL = String()
     var getGender = String()
@@ -51,26 +51,30 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
     var getHometown = String()
     var getEducationImage = UIImage()
     var getHometownImage = UIImage()
-    
-    var userResource: UserResource! = nil
-    
+    //posts
     var getCreatedTime = String()
     var getMeaasge = String()
     var getFullPicture = String()
     var getPlace = String()
     var getCountPostFriends = Int()
-    var friendsResource = FriendsResource()
-    var getPostsIndexPath = String()
-  
+    var getPostsIndexPath = [NSObject]()
+    var getFriendsResource = [AnyObject]()
+    
+    var friendsResource: FriendsResource! = nil
+    var userResource: UserResource! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imgImage.layer.masksToBounds = true
         imgImage.layer.cornerRadius = 4
         imgImage.layer.borderWidth = 2
         imgImage.layer.borderColor = UIColor.white.cgColor
+        imgImage.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureDataURL))
+        imgImage.addGestureRecognizer(tap)
+        imgImage.isUserInteractionEnabled = true
         
         nameLabel.text! = getName
-        imgImage.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
         birthdayLabel.text? = getBirthDay
         genderLabel.text? = getGender
         hometownLabel.text? = getHometown
@@ -79,11 +83,7 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         hometownImage.image = getHometownImage
         messengerToFriendLabel.text = String(format: "%เขียนอะไรบางอย่างถึง  %@ %.........",getName)
         coverImage.sd_setImage(with: URL(string: (getCoverImage)), completed: nil)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureDataURL))
-        imgImage.addGestureRecognizer(tap)
-        imgImage.isUserInteractionEnabled = true
-        
+    
         tablePostFriend.dataSource = self
         tablePostFriend.delegate = self
         self.tablePostFriend.reloadData()
@@ -101,7 +101,6 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         }
     }
 
-    
     func ZoomPictureDataURL(){
         // 1. create URL Array
         var images = [SKPhoto]()
@@ -112,7 +111,6 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -130,19 +128,29 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         } else {
             return 0
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostFriendTableViewCell
-//        let cellGetMeaasge = getMeaasge[indexPath.row]
-        print("getCountPostFriends :",getCountPostFriends)
-  
-        cell.messageLabel.text = getMeaasge
-        cell.picturePostImageView = nil
+        let cellData = getPostsIndexPath[indexPath.row] as? PostsFriendsDataDetail
+    
+        cell.messageLabel.text = cellData?.message
+        cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
         cell.namePostLabel.text = getName
-        cell.createdTimePostLabel.text = getCreatedTime
-        cell.placePostLabel.text = ""
-        cell.profilePostImageView.image = nil
+        
+        let myLocale = Locale(identifier: "th_TH")
+        let dateStringFormResource = cellData?.created_time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: dateStringFormResource!)
+        dateFormatter.locale = myLocale
+        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
+        let dateString = dateFormatter.string(from: date!)
+        cell.createdTimePostLabel.text = dateString
+        
+        cell.placePostLabel.text = cellData?.place?.name
+        cell.profilePostImageView.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
         
         return cell
     }
