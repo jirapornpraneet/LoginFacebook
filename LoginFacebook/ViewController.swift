@@ -138,8 +138,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("CellData :",userResource)
        
         cell.messageLabel.text = (cellData?.message)!
+        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 200, height: 200)
+        print("URLImage :",imageUrl)
         cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
-        cell.profilePostImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
+        cell.profilePostImageView.sd_setImage(with: imageUrl, completed:nil)
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
         
         let myLocale = Locale(identifier: "th_TH")
