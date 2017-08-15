@@ -135,13 +135,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResource.posts?.data?[indexPath.row]
-        print("CellData :",userResource)
        
         cell.messageLabel.text = (cellData?.message)!
-        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 200, height: 200)
-        print("URLImage :",imageUrl)
-        cell.picturePostImageView.sd_setImage(with: URL(string: (cellData?.full_picture)!), completed: nil)
-        cell.profilePostImageView.sd_setImage(with: imageUrl, completed:nil)
+        
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 200, height: 200)
+        cell.profilePostImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        
+        let picturePost = cellData?.full_picture
+        if  picturePost  == "" {
+            tablePost.rowHeight = 135
+            cell.picturePostImageView.image = nil
+        }else {
+            tablePost.rowHeight = 420
+            var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 320, height: 400)
+            cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+        }
+    
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
         
         let myLocale = Locale(identifier: "th_TH")
@@ -156,12 +165,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.createdTimePostLabel.text = dateString
         cell.placePostLabel.text = cellData?.place?.name
         
-        let picturePost = cellData?.full_picture
-        if  picturePost  == "" {
-            tablePost.rowHeight = 135
-        }else {
-            tablePost.rowHeight = 400
-        }
+      
         
         let atPlace = cellData?.place
         var image = UIImage(named:"iconCheckin")
