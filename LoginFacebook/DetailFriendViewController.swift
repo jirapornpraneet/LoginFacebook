@@ -152,6 +152,24 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         cell.placePostLabel.text = cellData?.place?.name
         cell.profilePostImageView.sd_setImage(with: URL(string: (getPictureDataURL)), completed: nil)
         
+        let picturePost = cellData?.full_picture
+        if  picturePost  == "" {
+            tablePostFriend.rowHeight = 135
+        }else {
+            tablePostFriend.rowHeight = 400
+        }
+        
+        let atPlace = cellData?.place
+        var image = UIImage(named:"iconCheckin")
+        if atPlace == nil {
+            cell.atPlaceLabel.text = ""
+            cell.iconCheckInImageView.image = nil
+        } else {
+            cell.atPlaceLabel.text = "ที่"
+            cell.iconCheckInImageView.image = image
+        }
+
+        
         return cell
     }
     
