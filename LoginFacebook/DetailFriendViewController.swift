@@ -59,6 +59,7 @@ class DetailFriendViewController: UITableViewController{
     var getCountPostFriends = Int()
     var getPostsIndexPath = [NSObject]()
     var getFriendsResource = [AnyObject]()
+    var getImage = ""
     
     var friendsResource: FriendsResource! = nil
     var userResource: UserResource! = nil
@@ -120,6 +121,17 @@ class DetailFriendViewController: UITableViewController{
         present(browser, animated: true, completion: {})
     }
     
+    func ZoomPicture​Posts(){
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImageURL((getImage))
+        photo.shouldCachePhotoURLImage = true
+        images.append(photo)
+        
+        let browser = SKPhotoBrowser(photos: images)
+        browser.initializePageIndex(0)
+        present(browser, animated: true, completion: {})
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
@@ -141,6 +153,11 @@ class DetailFriendViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostFriendTableViewCell
         let cellData = getPostsIndexPath[indexPath.row] as? PostsFriendsDataDetail
+        getImage = (cellData?.full_picture)!
+        print("getImage",getImage)
+        let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
+        cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
+        cell.picturePostImageView.isUserInteractionEnabled = true
     
         cell.messageLabel.text = cellData?.message
         cell.namePostLabel.text = getName
