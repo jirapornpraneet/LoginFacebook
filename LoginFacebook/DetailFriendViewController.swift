@@ -89,6 +89,10 @@ class DetailFriendViewController: UITableViewController{
         
         let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getCoverImage), width: 480, height: 260)
         coverImage.sd_setImage(with: coverImageUrl, completed:nil)
+        
+        let tapCoverPicture = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomCoverPicture))
+        coverImage.addGestureRecognizer(tapCoverPicture)
+        coverImage.isUserInteractionEnabled = true
     
         tablePostFriend.dataSource = self
         tablePostFriend.delegate = self
@@ -110,12 +114,22 @@ class DetailFriendViewController: UITableViewController{
     }
 
     func ZoomPictureDataURL(){
-        // 1. create URL Array
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL(getPictureDataURL)
-        photo.shouldCachePhotoURLImage = true // you can use image cache by true(NSCache)
+        photo.shouldCachePhotoURLImage = true
         images.append(photo)
-        // 2. create PhotoBrowser Instance, and present.
+    
+        let browser = SKPhotoBrowser(photos: images)
+        browser.initializePageIndex(0)
+        present(browser, animated: true, completion: {})
+    }
+    
+    func ZoomCoverPicture(){
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImageURL(getCoverImage)
+        photo.shouldCachePhotoURLImage = true
+        images.append(photo)
+        
         let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
@@ -133,7 +147,6 @@ class DetailFriendViewController: UITableViewController{
         present(browser, animated: true, completion: {})
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
