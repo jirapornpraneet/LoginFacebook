@@ -41,7 +41,6 @@ class ViewController: UITableViewController {
     
       var userResource: UserResource! = nil
       var getToken:FBSDKAccessToken!
-      var getImage = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +65,6 @@ class ViewController: UITableViewController {
     
         if  let token = FBSDKAccessToken.current() {
             fetchProfile()
-//            getToken = token
-//            print(getToken.tokenString)
-//            print("Show >>> ",token.tokenString)
         }
         
     }
@@ -94,9 +90,10 @@ class ViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})        
     }
-    func ZoomPicture​Posts(){
+    func ZoomPicture​Posts(_ sender:AnyObject){
+        let cellData = userResource.posts?.data?[sender.view.tag]
         var images = [SKPhoto]()
-        let photo = SKPhoto.photoWithImageURL((getImage))
+        let photo = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
         photo.shouldCachePhotoURLImage = true
         images.append(photo)
         
@@ -112,19 +109,19 @@ class ViewController: UITableViewController {
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResource = UserResource(json: jsonString)
-//            print("UserResource  :" ,self.userResource)
+            
             self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
+            self.schoolNameLabel.text = self.userResource.education?[2].school?.name
+            self.concentrationNameLabel.text = self.userResource.education?[2].concentration?[0].name
+            self.collegeNameLabel.text = self.userResource.education?[1].school?.name
+            self.profileUpdateImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
             
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 160, height: 160)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
             let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.cover?.source)!, width: 480, height: 260)
             self.coverImageView.sd_setImage(with: coverImageUrl, completed:nil)
-            
-            self.schoolNameLabel.text = self.userResource.education?[2].school?.name
-            self.concentrationNameLabel.text = self.userResource.education?[2].concentration?[0].name
-            self.collegeNameLabel.text = self.userResource.education?[1].school?.name
-            self.profileUpdateImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
+        
             self.tablePost.reloadData()
         }
     }
@@ -152,11 +149,6 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResource.posts?.data?[indexPath.row]
-        getImage = (cellData?.full_picture)!
-        print("getImage",getImage)
-        let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
-        cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
-        cell.picturePostImageView.isUserInteractionEnabled = true
         
         cell.messageLabel.text = (cellData?.message)!
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
@@ -173,6 +165,11 @@ class ViewController: UITableViewController {
             tablePost.rowHeight = 420
             var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
+            cell.picturePostImageView.isUserInteractionEnabled = true
+            cell.picturePostImageView.tag = indexPath.row
+            cell.picturePostImageView.addGestureRecognizer(tapGestureRecognizer)
         }
     
         let myLocale = Locale(identifier: "th_TH")
@@ -199,12 +196,6 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                  let cellData = userResource.posts?.data?[indexPath.row]
-                  getImage = (cellData?.full_picture)!
-                  print("getImage",getImage)
-
     }
 }
 
