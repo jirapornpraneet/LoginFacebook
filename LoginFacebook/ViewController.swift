@@ -154,13 +154,6 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResource.posts?.data?[indexPath.row]
-//        print("cellData",cellData)
-//        print("Index",indexPath.row)
-    
-        getImage = (cellData?.full_picture)!
-        print("getImage ",getImage)
-        let Index = indexPath.row
-        print("Index",Index)
         
         cell.messageLabel.text = (cellData?.message)!
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
@@ -177,14 +170,11 @@ class ViewController: UITableViewController {
             tablePost.rowHeight = 420
             var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
-            
-            
+            let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
+            cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
+            cell.picturePostImageView.isUserInteractionEnabled = true
         }
-        
-        let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
-        cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
-        cell.picturePostImageView.isUserInteractionEnabled = true
-       
+    
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
@@ -211,9 +201,10 @@ class ViewController: UITableViewController {
         return true
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          let cellData = userResource.posts?.data?[indexPath.row]
-          getImage = (cellData?.full_picture)!
-          print("getImage",getImage)
+                  let cellData = userResource.posts?.data?[indexPath.row]
+                  getImage = (cellData?.full_picture)!
+                  print("getImage",getImage)
+
     }
 }
 
