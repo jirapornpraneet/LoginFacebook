@@ -59,7 +59,6 @@ class DetailFriendViewController: UITableViewController{
     var getCountPostFriends = Int()
     var getPostsIndexPath = [NSObject]()
     var getFriendsResource = [AnyObject]()
-    var getImage = ""
     
     var friendsResource: FriendsResource! = nil
     var userResource: UserResource! = nil
