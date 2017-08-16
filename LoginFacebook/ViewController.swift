@@ -94,7 +94,6 @@ class ViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})        
     }
-    
     func ZoomPicture​Posts(){
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL((getImage))
@@ -105,7 +104,6 @@ class ViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
-    
     
     func fetchProfile(){
         let parameters = ["fields" : "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
@@ -154,6 +152,11 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResource.posts?.data?[indexPath.row]
+        getImage = (cellData?.full_picture)!
+        print("getImage",getImage)
+        let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
+        cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
+        cell.picturePostImageView.isUserInteractionEnabled = true
         
         cell.messageLabel.text = (cellData?.message)!
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
@@ -170,9 +173,6 @@ class ViewController: UITableViewController {
             tablePost.rowHeight = 420
             var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
-            let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
-            cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
-            cell.picturePostImageView.isUserInteractionEnabled = true
         }
     
         let myLocale = Locale(identifier: "th_TH")
@@ -201,9 +201,9 @@ class ViewController: UITableViewController {
         return true
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                  let cellData = userResource.posts?.data?[indexPath.row]
-                  getImage = (cellData?.full_picture)!
-                  print("getImage",getImage)
+//                  let cellData = userResource.posts?.data?[indexPath.row]
+//                  getImage = (cellData?.full_picture)!
+//                  print("getImage",getImage)
 
     }
 }
