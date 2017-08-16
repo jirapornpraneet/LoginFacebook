@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAd-AO-CKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="-729"/>
+            <point key="canvasLocation" x="124" y="-575"/>
         </scene>
         <!--Frist View Controller-->
         <scene sceneID="DZs-p3-tN3">
@@ -655,14 +655,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbl-lZ-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="45"/>
+            <point key="canvasLocation" x="148" y="406"/>
         </scene>
         <!--Detail Friend View Controller-->
         <scene sceneID="7Jf-3z-mib">
             <objects>
                 <tableViewController storyboardIdentifier="DetailFriendViewController" id="R9R-l5-Gwy" customClass="DetailFriendViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="NAA-ES-LIh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="720"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="sG0-uv-cnA">
@@ -1102,7 +1102,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="L53-3J-USF"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="720"/>
                     <connections>
                         <outlet property="birthdayLabel" destination="lZe-Oi-Gpt" id="Hdt-JG-cwX"/>
                         <outlet property="coverImage" destination="DfE-FK-Ce4" id="Bkq-kg-Dh1"/>
@@ -1120,7 +1120,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsm-Lh-EAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="-606"/>
+            <point key="canvasLocation" x="810" y="-453"/>
         </scene>
     </scenes>
     <resources>
