@@ -201,9 +201,9 @@ class ViewController: UITableViewController {
         return true
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//                  let cellData = userResource.posts?.data?[indexPath.row]
-//                  getImage = (cellData?.full_picture)!
-//                  print("getImage",getImage)
+                  let cellData = userResource.posts?.data?[indexPath.row]
+                  getImage = (cellData?.full_picture)!
+                  print("getImage",getImage)
 
     }
 }
