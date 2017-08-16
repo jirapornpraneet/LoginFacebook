@@ -24,6 +24,28 @@ class UserResource: EVObject {
     var work:[WorkData]? = []
     var education:[EducationData]? = []
     var posts:PostsData?
+    var albums:AlbumsData?
+}
+
+class AlbumsData:EVObject{
+    var data:[AlbumsDataDetail]? = []
+}
+
+class AlbumsDataDetail:EVObject{
+    var created_time:String = ""
+    var count:Int = 0
+    var name:String = ""
+    var photos:AlbumsPhotosData?
+}
+
+class AlbumsPhotosData: EVObject {
+    var data:[AlbumsPhotosDataDetail]? = []
+}
+
+class AlbumsPhotosDataDetail:EVObject{
+    var picture:String = ""
+    var name:String =  "" 
+    var id:Int = 0
 }
 
 class PostsData:EVObject{
