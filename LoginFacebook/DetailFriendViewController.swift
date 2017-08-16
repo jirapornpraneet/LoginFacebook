@@ -121,9 +121,10 @@ class DetailFriendViewController: UITableViewController{
         present(browser, animated: true, completion: {})
     }
     
-    func ZoomPicture​Posts(){
+    func ZoomPicture​Posts(_ sender:AnyObject){
+        let cellData = getPostsIndexPath[sender.view.tag] as? PostsFriendsDataDetail
         var images = [SKPhoto]()
-        let photo = SKPhoto.photoWithImageURL((getImage))
+        let photo = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
         photo.shouldCachePhotoURLImage = true
         images.append(photo)
         
@@ -131,6 +132,7 @@ class DetailFriendViewController: UITableViewController{
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -153,11 +155,6 @@ class DetailFriendViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostFriendTableViewCell
         let cellData = getPostsIndexPath[indexPath.row] as? PostsFriendsDataDetail
-        getImage = (cellData?.full_picture)!
-        print("getImage",getImage)
-        let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
-        cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
-        cell.picturePostImageView.isUserInteractionEnabled = true
     
         cell.messageLabel.text = cellData?.message
         cell.namePostLabel.text = getName
@@ -183,6 +180,11 @@ class DetailFriendViewController: UITableViewController{
             tablePostFriend.rowHeight = 420
             var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
+            cell.picturePostImageView.isUserInteractionEnabled = true
+            cell.picturePostImageView.tag = indexPath.row
+            cell.picturePostImageView.addGestureRecognizer(tapGestureRecognizer)
         }
         
         let atPlace = cellData?.place
