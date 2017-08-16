@@ -47,7 +47,7 @@ class CollectionViewController: UICollectionViewController {
     
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAHTcLEhelTvdQhbLUscrFQuOfMzcRl8rdpr7G0Pp8ulkctKyF4B0ZApFDbJSRPGdpygjvC0qEFSesJYUuDzzv3ZCGEcTL7B3eva7fcdqcSrQbdqmKUtKFYO6kFofqQP0Wdz1BnMRXZC4Qj7EIJuW2tWPNS5mAZBKjsmoy88EpqBPwR55UXMAiBHnXlJ9PAZDZD")
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAA4NxF1vSyzPiK9nuJcSWu9yL0fAjs9xn5tBYcC2IOnFSyZBxAOOAmIQ7ZCgzf0o1pavwEuJGgxxJPO9HMykGskwMkzxyZAesOAgpJflm9dAGeChxmcMTcA9qhW8uzTpdPQMK1ZBMuu9TDfdoZAiawOyL2kFNFoWZB8FWQxUOBBynZBso0E4NnywDl4dqL97wZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
