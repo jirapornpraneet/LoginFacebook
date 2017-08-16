@@ -27,7 +27,7 @@ class PostUserTableViewCell: UITableViewCell {
     @IBOutlet weak var iconCheckInImageView: UIImageView!
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UITableViewController {
     
       @IBOutlet var tablePost: UITableView!
       @IBOutlet weak var nameLabel: UILabel!
@@ -41,6 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
       var userResource: UserResource! = nil
       var getToken:FBSDKAccessToken!
+      var getImage = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
+    
     func ZoomCoverPicture(){
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL((userResource.cover?.source)!)
@@ -92,6 +94,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})        
     }
+    
+    func ZoomPicture​Posts(){
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImageURL((getImage))
+        photo.shouldCachePhotoURLImage = true
+        images.append(photo)
+        
+        let browser = SKPhotoBrowser(photos: images)
+        browser.initializePageIndex(0)
+        present(browser, animated: true, completion: {})
+    }
+    
     
     func fetchProfile(){
         let parameters = ["fields" : "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
@@ -125,11 +139,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ((userResource) != nil) {
             return (userResource.posts?.data?.count)!
         } else {
@@ -137,10 +151,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResource.posts?.data?[indexPath.row]
-       
+//        print("cellData",cellData)
+//        print("Index",indexPath.row)
+    
+        getImage = (cellData?.full_picture)!
+        print("getImage ",getImage)
+        let Index = indexPath.row
+        print("Index",Index)
+        
         cell.messageLabel.text = (cellData?.message)!
         cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
         cell.placePostLabel.text = cellData?.place?.name
@@ -156,8 +177,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tablePost.rowHeight = 420
             var picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+            
+            
         }
         
+        let tapPicturePost = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts))
+        cell.picturePostImageView.addGestureRecognizer(tapPicturePost)
+        cell.picturePostImageView.isUserInteractionEnabled = true
+       
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
@@ -180,8 +207,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          let cellData = userResource.posts?.data?[indexPath.row]
+          getImage = (cellData?.full_picture)!
+          print("getImage",getImage)
     }
 }
 
