@@ -1084,14 +1084,14 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.13341047140000001" green="0.048128960110000001" blue="0.14522525380000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <outlet property="atPlaceLabel" destination="2hf-Yf-ADc" id="JmC-do-g1t"/>
-                                    <outlet property="createdTimePostLabel" destination="lmT-ec-Uhm" id="5TG-PL-hLC"/>
-                                    <outlet property="iconCheckInImageView" destination="X7Y-TU-Xio" id="Q2v-8M-bhq"/>
-                                    <outlet property="messageLabel" destination="s1I-AM-OkK" id="hYB-P3-cLw"/>
-                                    <outlet property="namePostLabel" destination="zy5-n0-4Fa" id="59N-gR-bDG"/>
-                                    <outlet property="picturePostImageView" destination="ctY-dN-upK" id="FEc-iv-gHO"/>
-                                    <outlet property="placePostLabel" destination="GIk-vL-WqD" id="GFM-2n-FsR"/>
-                                    <outlet property="profilePostImageView" destination="qzh-uv-N7v" id="hBq-DE-lNz"/>
+                                    <outlet property="atPlaceLabel" destination="2hf-Yf-ADc" id="z8h-6M-e8a"/>
+                                    <outlet property="createdTimePostLabel" destination="lmT-ec-Uhm" id="Kun-ER-WpE"/>
+                                    <outlet property="iconCheckInImageView" destination="X7Y-TU-Xio" id="m13-q0-4wH"/>
+                                    <outlet property="messageLabel" destination="s1I-AM-OkK" id="wk6-AS-YHe"/>
+                                    <outlet property="namePostLabel" destination="zy5-n0-4Fa" id="I0B-mF-bfk"/>
+                                    <outlet property="picturePostImageView" destination="ctY-dN-upK" id="HJU-FB-T1I"/>
+                                    <outlet property="placePostLabel" destination="GIk-vL-WqD" id="RsR-K4-fzQ"/>
+                                    <outlet property="profilePostImageView" destination="qzh-uv-N7v" id="zlM-QU-JZt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
