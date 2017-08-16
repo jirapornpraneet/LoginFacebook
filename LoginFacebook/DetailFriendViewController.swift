@@ -28,7 +28,7 @@ class PostFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var iconCheckInImageView: UIImageView!
 }
 
-class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
+class DetailFriendViewController: UITableViewController{
     @IBOutlet var tablePostFriend: UITableView!
     @IBOutlet weak var imgImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -125,11 +125,11 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
 
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ((getCountPostFriends) != nil) {
             return getCountPostFriends
         } else {
@@ -138,14 +138,16 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostFriendTableViewCell
         let cellData = getPostsIndexPath[indexPath.row] as? PostsFriendsDataDetail
     
         cell.messageLabel.text = cellData?.message
         cell.namePostLabel.text = getName
         cell.placePostLabel.text = cellData?.place?.name
-    
+        var profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getPictureDataURL), width: 150, height: 150)
+        cell.profilePostImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
@@ -178,7 +180,7 @@ class DetailFriendViewController: UIViewController ,UITableViewDelegate, UITable
         return cell
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 }
