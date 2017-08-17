@@ -24,7 +24,7 @@ class FriendsCollectionViewCell: UICollectionViewCell {
 
 class CollectionViewController: UICollectionViewController {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    var getToken:FBSDKAccessToken!
+    var getToken: FBSDKAccessToken!
     var friendsResource: FriendsResource! = nil
 
     override func viewDidLoad() {
@@ -35,19 +35,17 @@ class CollectionViewController: UICollectionViewController {
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
-        
         if  let token = FBSDKAccessToken.current() {
             getToken = token
             print(getToken.tokenString)
-            print("Show >>> ",token.tokenString)
+            print("Show >>> ", token.tokenString)
             getDataCurrenciesAPI()
         }
         getDataCurrenciesAPI()
     }
-    
     var getJson = JSON([String: Any]())
     func getDataCurrenciesAPI() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAFuhUYViLHLE2u7kZA4WaEBo031qLvmA4M7ozO7sd2ZCXZBgPiJapFTGNzAXZCwUnkoPKuKLPoytS7W2HS9eZBQjNik1BaYFyZChraehaj4nOclOIHhyN3Bi1CsrHnlaejh8b6aVjzbugfAoHJeUn8EXfXq2Gw2SqWb0UXG99bnjtNYlMKXnTTDjfndmjhvAZDZD")
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBABf1ZAge1ZAldpNnKVDheUimLWr0IiUwXIW3bJumoUgpK4OEAwIXWPzWiiL17LHqP361xjQvWYCuaEPxLibei8ZB7gw9Y4ZBQPeY4hFJddD3zmbmZAbXpcpselaD1Da7FIXHvU9wTGzJxpNsJAyZCwxldDoKGX6ZCKvEjl4RPOkVuGeF7fPO7cWqkytDovqvQZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
@@ -60,7 +58,6 @@ class CollectionViewController: UICollectionViewController {
             }
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -68,72 +65,62 @@ class CollectionViewController: UICollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if ((friendsResource) != nil) {
+        if  friendsResource != nil {
             return friendsResource.data!.count
         } else {
             return 0
         }
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FriendsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? FriendsCollectionViewCell
         let cellData = friendsResource.data?[indexPath.row]
-        cell.nameLabel.text = String(format: "%@", (cellData?.name)!)
-        cell.imageViewAvatar.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
-        return cell
+        cell?.nameLabel.text = String(format: "%@", (cellData?.name)!)
+        cell?.imageViewAvatar.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
+        return cell!
     }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let MainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let cellCollectionView = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
         let cellData = friendsResource.data?[indexPath.row]
-    
         cellCollectionView.getPictureDataURL = (cellData?.picture?.data?.url)!
         cellCollectionView.getName = String(format: "%@", (cellData?.name)!)
         cellCollectionView.getCoverImage = (cellData?.cover?.source)!
-   
         let cellBirthDay = cellData?.birthday
         if cellBirthDay == "" {
              cellCollectionView.getBirthDay = ""
         } else {
              cellCollectionView.getBirthDay = String(format: "%วันเกิด : %@", (cellData?.birthday)!)
         }
-       
         let cellGender = cellData?.gender
         if cellGender == "" {
             cellCollectionView.getGender = ""
         } else {
             cellCollectionView.getGender = String(format: "%เพศ : %@", (cellData?.gender)!)
         }
-        
         let cellEducation = cellData?.education
         if cellEducation! == [] {
             cellCollectionView.getEducation = ""
             cellCollectionView.getEducationImage = UIImage(named: "nil.png")!
-        }else{
-            cellCollectionView.getEducation = String(format: "เคยศึกษาที่  %@ ",(cellData?.education?[0].school?.name)!)
+        } else {
+            cellCollectionView.getEducation = String(format: "เคยศึกษาที่  %@ ", (cellData?.education?[0].school?.name)!)
             cellCollectionView.getEducationImage = UIImage(named: "iconEducation.png")!
         }
-        
         let cellHomeTown = cellData?.hometown?.name
         if cellHomeTown == nil {
             cellCollectionView.getHometown = ""
             cellCollectionView.getHometownImage = UIImage(named: "nil.png")!
-        }else {
-            cellCollectionView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ",(cellData?.hometown?.name)!)
+        } else {
+            cellCollectionView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellData?.hometown?.name)!)
             cellCollectionView.getHometownImage = UIImage(named: "iconHometown.png")!
         }
-        
         let cellCount = cellData?.posts?.data?.count
         if cellCount == nil {
             return
         }
         cellCollectionView.getCountPostFriends = ((cellCount))!
-       
         let cellDataPost = cellData?.posts?.data
         cellCollectionView.getPostsIndexPath = cellDataPost!
-        
         self.navigationController?.pushViewController(cellCollectionView, animated: true)
     }
 }

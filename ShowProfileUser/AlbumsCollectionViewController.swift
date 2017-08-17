@@ -1,94 +1,74 @@
 //
-//  AlbumsCollectionViewController.swift
+//  CollectionViewController.swift
 //  LoginFacebook
 //
-//  Created by Jiraporn Praneet on 8/16/2560 BE.
+//  Created by Jiraporn Praneet on 8/1/2560 BE.
 //  Copyright © 2560 Jiraporn Praneet. All rights reserved.
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import FacebookLogin
+import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
+import SDWebImage
 
 private let reuseIdentifier = "Cell"
 
-class AlbumsCollectionViewController: UICollectionViewController {
+class AlbumsDetailCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var imageViewAvatar: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+}
 
+class AlbumsCollectionViewController: UICollectionViewController {
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    var userResource: UserResource! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 10, right: 30)
+        layout.itemSize = CGSize(width: 110, height: 110)
+        self.collectionView?.collectionViewLayout = layout
+        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView?.delegate = self
+        self.collectionView?.dataSource = self
+        fetchProfile()
     }
-
+    func fetchProfile() {
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place}, albums{created_time, count, description, name, photos.limit(1){picture,name}}"]
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
+            let dic = result as? NSDictionary
+            let jsonString = dic?.toJsonString()
+            self.userResource = UserResource(json: jsonString)
+//            print("Albums",self.userResource.albums?.data)
+            self.collectionView?.reloadData()
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        if  userResource != nil {
+            return (userResource.albums?.data?.count)!
+        } else {
+            return 0
+        }
     }
-
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! AlbumsDetailCollectionViewCell
+        let cellData = userResource.albums?.data?[indexPath.row]
+//        let cellPicture = cellData?.photos?.data?[indexPath.row]
+//        print("Count1",userResource.albums?.data?.count)
+//        print("Count2",cellData?.photos?.data?.count)
+
+//        print("cellPicture",cellPicture)
+          cell.nameLabel.text = cellData?.name
+//        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPicture?.picture)!, width: 160, height: 160)
+//        cell.imageViewAvatar.sd_setImage(with: imageUrl, completed:nil)
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
