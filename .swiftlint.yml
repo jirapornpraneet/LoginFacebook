@@ -1,4 +1,14 @@
+included:
+  - LoginFacebook
+  - Pods
 excluded: 
   - Pods
+  - Pods/Products
 disabled_rules:
   - variable_name
+  - trailing_whitespace
+  - force_cast
+line_length: 450
+type_body_length:
+  - 300 # warning
+  - 400 # error
