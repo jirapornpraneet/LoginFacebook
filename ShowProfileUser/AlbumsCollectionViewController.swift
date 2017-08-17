@@ -23,10 +23,10 @@ class AlbumsDetailCollectionViewCell: UICollectionViewCell {
 }
 
 class AlbumsCollectionViewController: UICollectionViewController {
-    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    var userResource: UserResource! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 10, right: 30)
         layout.itemSize = CGSize(width: 110, height: 110)
         self.collectionView?.collectionViewLayout = layout
@@ -35,13 +35,15 @@ class AlbumsCollectionViewController: UICollectionViewController {
         self.collectionView?.dataSource = self
         fetchProfile()
     }
+    
+    var userResource: UserResource! = nil
+    
     func fetchProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place}, albums{created_time, count, description, name, photos.limit(1){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResource = UserResource(json: jsonString)
-//            print("Albums",self.userResource.albums?.data)
             self.collectionView?.reloadData()
         }
     }

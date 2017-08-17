@@ -22,7 +22,7 @@ class FriendsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
 }
 
-class CollectionViewController: UICollectionViewController {
+class ListFriendsCollectionViewController: UICollectionViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +34,13 @@ class CollectionViewController: UICollectionViewController {
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
        
-        getDataCurrenciesAPI()
+        getDataFriends()
     }
     
     var getJson = JSON([String: Any]())
     var friendsResource: FriendsResource! = nil
     
-    func getDataCurrenciesAPI() {
+    func getDataFriends() {
         var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBABf1ZAge1ZAldpNnKVDheUimLWr0IiUwXIW3bJumoUgpK4OEAwIXWPzWiiL17LHqP361xjQvWYCuaEPxLibei8ZB7gw9Y4ZBQPeY4hFJddD3zmbmZAbXpcpselaD1Da7FIXHvU9wTGzJxpNsJAyZCwxldDoKGX6ZCKvEjl4RPOkVuGeF7fPO7cWqkytDovqvQZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
@@ -78,22 +78,26 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let detailFrienCell = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
+        
         let cellData = friendsResource.data?[indexPath.row]
         detailFrienCell.getPictureDataURL = (cellData?.picture?.data?.url)!
         detailFrienCell.getName = String(format: "%@", (cellData?.name)!)
         detailFrienCell.getCoverImage = (cellData?.cover?.source)!
+        
         let cellBirthDay = cellData?.birthday
         if cellBirthDay == "" {
              detailFrienCell.getBirthDay = ""
         } else {
              detailFrienCell.getBirthDay = String(format: "%วันเกิด : %@", (cellData?.birthday)!)
         }
+        
         let cellGender = cellData?.gender
         if cellGender == "" {
             detailFrienCell.getGender = ""
         } else {
             detailFrienCell.getGender = String(format: "%เพศ : %@", (cellData?.gender)!)
         }
+        
         let cellEducation = cellData?.education
         if cellEducation! == [] {
             detailFrienCell.getEducation = ""
@@ -102,6 +106,7 @@ class CollectionViewController: UICollectionViewController {
             detailFrienCell.getEducation = String(format: "เคยศึกษาที่  %@ ", (cellData?.education?[0].school?.name)!)
             detailFrienCell.getEducationImage = UIImage(named: "iconEducation.png")!
         }
+        
         let cellHomeTown = cellData?.hometown?.name
         if cellHomeTown == nil {
             detailFrienCell.getHometown = ""
@@ -110,6 +115,7 @@ class CollectionViewController: UICollectionViewController {
             detailFrienCell.getHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellData?.hometown?.name)!)
             detailFrienCell.getHometownImage = UIImage(named: "iconHometown.png")!
         }
+        
         let cellCount = cellData?.posts?.data?.count
         if cellCount == nil {
             return

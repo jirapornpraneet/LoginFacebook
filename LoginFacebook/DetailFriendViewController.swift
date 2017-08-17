@@ -149,8 +149,10 @@ class DetailFriendViewController: UITableViewController {
         cell.messageLabel.text = cellData?.message
         cell.namePostLabel.text = getName
         cell.placePostLabel.text = cellData?.place?.name
+        
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getPictureDataURL), width: 150, height: 150)
         cell.profilePostImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
@@ -160,6 +162,7 @@ class DetailFriendViewController: UITableViewController {
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
         cell.createdTimePostLabel.text = dateString
+        
         let picturePost = cellData?.full_picture
         if  picturePost  == "" {
             tablePostFriend.rowHeight = 135
@@ -173,6 +176,7 @@ class DetailFriendViewController: UITableViewController {
             cell.picturePostImageView.tag = indexPath.row
             cell.picturePostImageView.addGestureRecognizer(tapGestureRecognizer)
         }
+        
         let atPlace = cellData?.place
         let image = UIImage(named:"iconCheckin")
         if atPlace == nil {

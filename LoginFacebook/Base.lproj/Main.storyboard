@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1656" y="-59"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--List Friends Collection View Controller-->
         <scene sceneID="Nu8-ap-3tI">
             <objects>
-                <viewController storyboardIdentifier="CollectionViewID" id="4SK-90-l44" customClass="CollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CollectionViewID" id="4SK-90-l44" customClass="ListFriendsCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="PSS-7G-A0u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -74,8 +74,8 @@
                                     <constraint firstItem="vgt-mP-hJd" firstAttribute="leading" secondItem="UJC-le-dB0" secondAttribute="leading" id="ty6-nt-poh"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageViewAvatar" destination="kHR-LJ-BUV" id="pKb-ys-6Nc"/>
                                     <outlet property="nameLabel" destination="vgt-mP-hJd" id="S6g-px-Mya"/>
+                                    <outlet property="profileimageView" destination="kHR-LJ-BUV" id="fZb-rh-fIi"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
