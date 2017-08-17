@@ -56,6 +56,7 @@ PODS:
     - libwebp
     - SDWebImage/Core
   - SKPhotoBrowser (4.0.1)
+  - SwiftLint (0.20.1)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - OCThumbor (~> 0.3)
   - SDWebImage/WebP
   - SKPhotoBrowser (~> 4.0.0)
+  - SwiftLint (~> 0.20.1)
   - SwiftyJSON (~> 3.1.4)
 
 SPEC CHECKSUMS:
@@ -85,8 +87,9 @@ SPEC CHECKSUMS:
   OCThumbor: 60b83bb204b7f860aecf515ed183a198f30c6f43
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SKPhotoBrowser: 3a7c6fc02aa1620ab17253a47a49fafda46536e8
+  SwiftLint: f60095dc173a3f3ec505bb34f5229c3dfd779a54
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 43c6079f35000d6ad3a1dc6713f54debc11bc88c
+PODFILE CHECKSUM: ecc17c3b6255e1e01c4089af626ff829c26817cb
 
 COCOAPODS: 1.2.1

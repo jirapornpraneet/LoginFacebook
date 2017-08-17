@@ -16,6 +16,7 @@ target 'LoginFacebook' do
   pod 'SKPhotoBrowser', '~> 4.0.0'
   pod 'EVReflection/Alamofire', '~> 4.16.0'
   pod 'OCThumbor', '~> 0.3'
+  pod 'SwiftLint','~>0.20.1'
  
 
   target 'LoginFacebookTests' do
