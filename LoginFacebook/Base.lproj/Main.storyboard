@@ -122,6 +122,7 @@
                                 </state>
                                 <connections>
                                     <action selector="listFriendTouchUpInside:" destination="Fhu-NT-lmh" eventType="touchUpInside" id="1aK-Ad-0bq"/>
+                                    <segue destination="4SK-90-l44" kind="show" id="7uH-kP-Nhv"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">
@@ -137,7 +138,7 @@
                                     <color key="titleColor" red="1" green="0.99625312359999996" blue="0.987392516" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XTy-WA-W6X" kind="show" id="Sle-N4-baD"/>
+                                    <segue destination="XTy-WA-W6X" kind="show" id="Xgt-sI-O6y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,7 +151,6 @@
                     <connections>
                         <outlet property="nameLabel" destination="b65-RY-aA7" id="rEJ-C4-amA"/>
                         <outlet property="profileImageView" destination="5Uq-4B-gMI" id="RwO-iR-79a"/>
-                        <segue destination="4SK-90-l44" kind="show" identifier="CollectionViewID" id="27m-i4-Quc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,7 +379,7 @@
                                                 <color key="titleColor" red="0.41905742080000002" green="0.4170329888" blue="0.42108185279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <segue destination="aMy-hH-RzL" kind="show" identifier="DetailAlbums" id="PNQ-UV-Ua7"/>
+                                                <segue destination="aMy-hH-RzL" kind="show" id="zyb-Jt-hPv"/>
                                             </connections>
                                         </button>
                                     </subviews>
