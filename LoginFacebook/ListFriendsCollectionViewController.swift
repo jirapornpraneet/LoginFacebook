@@ -81,43 +81,43 @@ class ListFriendsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let detailFrienCell = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
+        let detailFriendCell = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
         
         let cellData = userResource.data?[indexPath.row]
-        detailFrienCell.getPictureDataURL = (cellData?.picture?.data?.url)!
-        detailFrienCell.getName = String(format: "%@", (cellData?.name)!)
-        detailFrienCell.getCoverImage = (cellData?.cover?.source)!
+        detailFriendCell.getPictureDataURL = (cellData?.picture?.data?.url)!
+        detailFriendCell.getName = String(format: "%@", (cellData?.name)!)
+        detailFriendCell.getCoverImage = (cellData?.cover?.source)!
         
         let cellBirthDay = cellData?.birthday
         if cellBirthDay == "" {
-             detailFrienCell.getBirthDay = ""
+             detailFriendCell.getBirthDay = ""
         } else {
-             detailFrienCell.getBirthDay = String(format: "%วันเกิด : %@", (cellData?.birthday)!)
+             detailFriendCell.getBirthDay = String(format: "%วันเกิด : %@", (cellData?.birthday)!)
         }
         
         let cellGender = cellData?.gender
         if cellGender == "" {
-            detailFrienCell.getGender = ""
+            detailFriendCell.getGender = ""
         } else {
-            detailFrienCell.getGender = String(format: "%เพศ : %@", (cellData?.gender)!)
+            detailFriendCell.getGender = String(format: "%เพศ : %@", (cellData?.gender)!)
         }
         
         let cellEducation = cellData?.education
         if cellEducation! == [] {
-            detailFrienCell.getEducation = ""
-            detailFrienCell.getEducationImage = UIImage(named: "nil.png")!
+            detailFriendCell.getEducation = ""
+            detailFriendCell.getEducationImage = UIImage(named: "nil.png")!
         } else {
-            detailFrienCell.getEducation = String(format: "เคยศึกษาที่  %@ ", (cellData?.education?[0].school?.name)!)
-            detailFrienCell.getEducationImage = UIImage(named: "iconEducation.png")!
+            detailFriendCell.getEducation = String(format: "เคยศึกษาที่  %@ ", (cellData?.education?[0].school?.name)!)
+            detailFriendCell.getEducationImage = UIImage(named: "iconEducation.png")!
         }
         
         let cellHomeTown = cellData?.hometown?.name
         if cellHomeTown == nil {
-            detailFrienCell.getHometown = ""
-            detailFrienCell.getHometownImage = UIImage(named: "nil.png")!
+            detailFriendCell.getHometown = ""
+            detailFriendCell.getHometownImage = UIImage(named: "nil.png")!
         } else {
-            detailFrienCell.getHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellData?.hometown?.name)!)
-            detailFrienCell.getHometownImage = UIImage(named: "iconHometown.png")!
+            detailFriendCell.getHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellData?.hometown?.name)!)
+            detailFriendCell.getHometownImage = UIImage(named: "iconHometown.png")!
         }
         
         let cellCount = cellData?.posts?.data?.count
@@ -125,11 +125,11 @@ class ListFriendsCollectionViewController: UICollectionViewController {
             return
         }
         
-        detailFrienCell.getCountPostFriends = ((cellCount))!
+        detailFriendCell.getCountPostFriends = ((cellCount))!
         
         let cellDataPost = cellData?.posts?.data
-        detailFrienCell.getPostsIndexPath = cellDataPost!
+        detailFriendCell.getPostsIndexPath = cellDataPost!
         
-        self.navigationController?.pushViewController(detailFrienCell, animated: true)
+        self.navigationController?.pushViewController(detailFriendCell, animated: true)
     }
 }
