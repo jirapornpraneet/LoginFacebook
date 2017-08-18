@@ -33,7 +33,9 @@ class AlbumsCollectionViewController: UICollectionViewController {
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
+        
         fetchProfile()
+        
     }
     
     var userResourceData: UserResourceData! = nil
@@ -44,6 +46,7 @@ class AlbumsCollectionViewController: UICollectionViewController {
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
+            
             self.collectionView?.reloadData()
         }
     }
@@ -65,15 +68,13 @@ class AlbumsCollectionViewController: UICollectionViewController {
         }
     }
 
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! AlbumsDetailCollectionViewCell
         let cellData = userResourceData?.albums?.data?[indexPath.row]
 
         cell.nameAlbumsLabel.text = cellData?.name
-        
-        let cellPhotos = cellData?.photos?.data?[0].picture
-        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPhotos)!, width: 150, height: 150)
+
+        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.photos?.data?[0].picture)!, width: 150, height: 150)
         cell.photoAlbumsImageView.sd_setImage(with: imageUrl, completed:nil)
 
         return cell

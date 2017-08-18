@@ -37,7 +37,6 @@ class ListFriendsCollectionViewController: UICollectionViewController {
         getDataFriends()
     }
     
-    var getJson = JSON([String: Any]())
     var userResource: UserResource! = nil
     
     func getDataFriends() {

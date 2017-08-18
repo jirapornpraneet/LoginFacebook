@@ -57,6 +57,7 @@ class ViewController: UITableViewController {
         let tapCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomCoverPicture))
         coverImageView.addGestureRecognizer(tapCoverPicture)
         coverImageView.isUserInteractionEnabled = true
+        
          if (FBSDKAccessToken.current()) != nil {
             fetchProfile()
         }
@@ -74,6 +75,7 @@ class ViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
+    
     func ZoomCoverPicture() {
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL((userResourceData.cover?.source)!)
@@ -83,6 +85,7 @@ class ViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
+    
     func ZoomPicture​Posts(_ sender: AnyObject) {
         let cellData = userResourceData.posts?.data?[sender.view.tag]
         var images = [SKPhoto]()
@@ -114,6 +117,7 @@ class ViewController: UITableViewController {
             
             let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.cover?.source)!, width: 480, height: 260)
             self.coverImageView.sd_setImage(with: coverImageUrl, completed:nil)
+            
             self.tablePost.reloadData()
         }
     }
