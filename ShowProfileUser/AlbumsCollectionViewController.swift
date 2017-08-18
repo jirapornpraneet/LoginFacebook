@@ -59,22 +59,23 @@ class AlbumsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if  userResourceData != nil {
             return (userResourceData.albums?.data?.count)!
+            
         } else {
             return 0
         }
     }
 
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! AlbumsDetailCollectionViewCell
         let cellData = userResourceData?.albums?.data?[indexPath.row]
-//        let cellPicture = cellData?.photos?.data?[indexPath.row]
-//        print("Count1",userResource.albums?.data?.count)
-//        print("Count2",cellData?.photos?.data?.count)
 
-//        print("cellPicture",cellPicture)
-          cell.nameAlbumsLabel.text = cellData?.name
-//        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPicture?.picture)!, width: 160, height: 160)
-//        cell.imageViewAvatar.sd_setImage(with: imageUrl, completed:nil)
+        cell.nameAlbumsLabel.text = cellData?.name
+        
+        let cellPhotos = cellData?.photos?.data?[0].picture
+        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPhotos)!, width: 160, height: 160)
+        cell.photoAlbumsImageView.sd_setImage(with: imageUrl, completed:nil)
+
         return cell
     }
 }
