@@ -157,6 +157,7 @@ class ViewController: UITableViewController {
             tablePost.rowHeight = 420
             let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+            
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
             cell.picturePostImageView.isUserInteractionEnabled = true
             cell.picturePostImageView.tag = indexPath.row
