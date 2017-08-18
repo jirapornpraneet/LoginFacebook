@@ -105,6 +105,9 @@ class ViewController: UITableViewController {
             self.schoolNameLabel.text = self.userResourceData.education?[2].school?.name
             self.concentrationNameLabel.text = self.userResourceData.education?[2].concentration?[0].name
             self.collegeNameLabel.text = self.userResourceData.education?[1].school?.name
+            
+            let profileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
+            self.profileUpdateImageView.sd_setImage(with: profileUpdateImageUrl, completed:nil)
            
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
