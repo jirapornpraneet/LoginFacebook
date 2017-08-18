@@ -59,7 +59,9 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.userResourceData = UserResourceData(json: jsonString)
             
             self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-            self.profileImageView.sd_setImage(with: URL(string: (self.userResourceData.picture?.data?.url)!), completed: nil)
+         
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
+            self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         }
     }
