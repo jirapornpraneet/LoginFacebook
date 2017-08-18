@@ -79,4 +79,26 @@ class AlbumsCollectionViewController: UICollectionViewController {
 
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let photosAlbumsCell = MainStoryboard.instantiateViewController(withIdentifier: "PhotosAlbumsCollection") as! PhotosAlbumsCollectionViewController
+        
+        let cellDataPhotos = userResourceData?.albums?.data?[indexPath.row]
+    
+        let cellCount = cellDataPhotos?.photos?.data?.count
+        if cellCount == nil {
+            return
+        }
+        
+        photosAlbumsCell.getCount = ((cellCount))!
+        
+        let cellIndexPhotos = cellDataPhotos?.photos?.data
+        photosAlbumsCell.getIndexPath = cellIndexPhotos!
+        
+        self.navigationController?.pushViewController(photosAlbumsCell, animated: true)
+    }
+
+    
+    
 }
