@@ -62,9 +62,10 @@ class ViewController: UITableViewController {
         }
         
     }
+    var userResourceData: UserResourceData! = nil
     func ZoomProfilePicture() {
         var images = [SKPhoto]()
-        let photo = SKPhoto.photoWithImageURL((userResource.picture?.data?.url)!)
+        let photo = SKPhoto.photoWithImageURL((userResourceData.picture?.data?.url)!)
         photo.shouldCachePhotoURLImage = true
         images.append(photo)
         let browser = SKPhotoBrowser(photos: images)
@@ -73,7 +74,7 @@ class ViewController: UITableViewController {
     }
     func ZoomCoverPicture() {
         var images = [SKPhoto]()
-        let photo = SKPhoto.photoWithImageURL((userResource.cover?.source)!)
+        let photo = SKPhoto.photoWithImageURL((userResourceData.cover?.source)!)
         photo.shouldCachePhotoURLImage = true
         images.append(photo)
         let browser = SKPhotoBrowser(photos: images)
@@ -81,7 +82,7 @@ class ViewController: UITableViewController {
         present(browser, animated: true, completion: {})
     }
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let cellData = userResource.posts?.data?[sender.view.tag]
+        let cellData = userResourceData.posts?.data?[sender.view.tag]
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
         photo.shouldCachePhotoURLImage = true
@@ -90,25 +91,23 @@ class ViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
-    
-    var userResource: UserResource! = nil
    
     func fetchProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place}, albums{created_time, count, description,name, photos.limit(1){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-            self.userResource = UserResource(json: jsonString)
-            self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
-            self.schoolNameLabel.text = self.userResource.education?[2].school?.name
-            self.concentrationNameLabel.text = self.userResource.education?[2].concentration?[0].name
-            self.collegeNameLabel.text = self.userResource.education?[1].school?.name
-            self.profileUpdateImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
+            self.userResourceData = UserResourceData(json: jsonString)
+            self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+            self.schoolNameLabel.text = self.userResourceData.education?[2].school?.name
+            self.concentrationNameLabel.text = self.userResourceData.education?[2].concentration?[0].name
+            self.collegeNameLabel.text = self.userResourceData.education?[1].school?.name
+            self.profileUpdateImageView.sd_setImage(with: URL(string: (self.userResourceData.picture?.data?.url)!), completed: nil)
             
-            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 160, height: 160)
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
             
-            let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.cover?.source)!, width: 480, height: 260)
+            let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.cover?.source)!, width: 480, height: 260)
             self.coverImageView.sd_setImage(with: coverImageUrl, completed:nil)
             self.tablePost.reloadData()
         }
@@ -120,20 +119,20 @@ class ViewController: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if userResource != nil {
-            return (userResource.posts?.data?.count)!
+        if userResourceData != nil {
+            return (userResourceData.posts?.data?.count)!
         } else {
             return 0
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
-        let cellData = userResource.posts?.data?[indexPath.row]
+        let cellData = userResourceData.posts?.data?[indexPath.row]
         cell.messageLabel.text = (cellData?.message)!
-        cell.namePostLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
+        cell.namePostLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
         cell.placePostLabel.text = cellData?.place?.name
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 160, height: 160)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
         cell.profilePostImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         let picturePost = cellData?.full_picture

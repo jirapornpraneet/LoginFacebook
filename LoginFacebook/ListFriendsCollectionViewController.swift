@@ -38,7 +38,7 @@ class ListFriendsCollectionViewController: UICollectionViewController {
     }
     
     var getJson = JSON([String: Any]())
-    var friendsResource: FriendsResource! = nil
+    var userResource: UserResource! = nil
     
     func getDataFriends() {
         var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAO4kUxO30cAuVQebq0vb98dB6oVRdSegA7UCdOgZC4NVyolepsW82FgKG9n8RZCF2RXmT8z1F92TQc8kvCIRd0Y5hZA5K1WNiojNhgQIMOtHBhWhkfdPByDERpI1k3ZC69d3tBsZB544ANyuE75et79ZCtQIXbpxhISZCu4XozYn2QIJ6LxeCIa15oejHRnywZDZD")
@@ -47,7 +47,7 @@ class ListFriendsCollectionViewController: UICollectionViewController {
             print(response)
             switch response.result {
             case .success(let value):
-                self.friendsResource  = FriendsResource(json: value)
+                self.userResource  = UserResource(json: value)
                 self.collectionView?.reloadData()
             case .failure(let error):
                 print(error)
@@ -62,15 +62,15 @@ class ListFriendsCollectionViewController: UICollectionViewController {
         return 1
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if  friendsResource != nil {
-            return friendsResource.data!.count
+        if  userResource != nil {
+            return userResource.data!.count
         } else {
             return 0
         }
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let friendsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FriendsCollectionViewCell
-        let cellData = friendsResource.data?[indexPath.row]
+        let cellData = userResource.data?[indexPath.row]
         friendsCollectionViewCell.nameLabel.text = String(format: "%@", (cellData?.name)!)
         friendsCollectionViewCell.profileimageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
         return friendsCollectionViewCell
@@ -79,7 +79,7 @@ class ListFriendsCollectionViewController: UICollectionViewController {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let detailFrienCell = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
         
-        let cellData = friendsResource.data?[indexPath.row]
+        let cellData = userResource.data?[indexPath.row]
         detailFrienCell.getPictureDataURL = (cellData?.picture?.data?.url)!
         detailFrienCell.getName = String(format: "%@", (cellData?.name)!)
         detailFrienCell.getCoverImage = (cellData?.cover?.source)!

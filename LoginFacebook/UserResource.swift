@@ -10,10 +10,15 @@ import Foundation
 import EVReflection
 
 class UserResource: EVObject {
+    var data: [UserResourceData]? = []
+}
+
+class UserResourceData: EVObject {
     var id: Int = 0
     var email: String = ""
     var first_name: String = ""
     var last_name: String = ""
+    var name: String = "" 
     var picture: PictureUserData?
     var about: String = ""
     var age_range: AgeRangeData?
@@ -49,10 +54,10 @@ class AlbumsPhotosDataDetail: EVObject {
 }
 
 class PostsData: EVObject {
-    var data: [PostsUserData]? = []
+    var data: [PostsDataDetail]? = []
 }
 
-class PostsUserData: EVObject {
+class PostsDataDetail: EVObject {
     var message: String = ""
     var full_picture: String = ""
     var id: Int = 0

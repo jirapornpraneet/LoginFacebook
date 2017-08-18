@@ -55,14 +55,15 @@ class AlbumsCollectionViewController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if  userResource != nil {
-            return (userResource.albums?.data?.count)!
+            return (userResource.data?.count)!
         } else {
             return 0
         }
     }
+    var userResourceData: UserResourceData! = nil
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! AlbumsDetailCollectionViewCell
-        let cellData = userResource.albums?.data?[indexPath.row]
+        let cellData = userResourceData?.albums?.data?[indexPath.row]
 //        let cellPicture = cellData?.photos?.data?[indexPath.row]
 //        print("Count1",userResource.albums?.data?.count)
 //        print("Count2",cellData?.photos?.data?.count)

@@ -57,8 +57,7 @@ class DetailFriendViewController: UITableViewController {
     var getCountPostFriends = Int()
     var getPostsIndexPath = [NSObject]()
     var getFriendsResource = [AnyObject]()
-    var friendsResource: FriendsResource! = nil
-    var userResource: UserResource! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imgImage.layer.masksToBounds = true
@@ -89,13 +88,15 @@ class DetailFriendViewController: UITableViewController {
          self.tablePostFriend.reloadData()
         getProfileUser()
     }
+    
+    var userResourceData: UserResourceData! = nil
     func getProfileUser() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-            self.userResource = UserResource(json: jsonString)
-            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResource.picture?.data?.url)!, width: 160, height: 160)
+            self.userResourceData = UserResourceData(json: jsonString)
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
             self.profileUserImage.sd_setImage(with: profileImageUrl, completed:nil)
         }
     }
@@ -119,7 +120,7 @@ class DetailFriendViewController: UITableViewController {
         present(browser, animated: true, completion: {})
     }
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let cellData = getPostsIndexPath[sender.view.tag] as? PostsFriendsDataDetail
+        let cellData = getPostsIndexPath[sender.view.tag] as? PostsDataDetail
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
         photo.shouldCachePhotoURLImage = true
@@ -145,31 +146,31 @@ class DetailFriendViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostFriendTableViewCell
-        let cellData = getPostsIndexPath[indexPath.row] as? PostsFriendsDataDetail
-        cell.messageLabel.text = cellData?.message
+        let cellData = getPostsIndexPath[indexPath.row] as! PostsDataDetail
+        cell.messageLabel.text = cellData.message
         cell.namePostLabel.text = getName
-        cell.placePostLabel.text = cellData?.place?.name
+        cell.placePostLabel.text = cellData.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getPictureDataURL), width: 150, height: 150)
         cell.profilePostImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormResource = cellData?.created_time
+        let dateStringFormResource = cellData.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: dateStringFormResource!)
+        let date = dateFormatter.date(from: dateStringFormResource)
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
         cell.createdTimePostLabel.text = dateString
         
-        let picturePost = cellData?.full_picture
+        let picturePost = cellData.full_picture
         if  picturePost  == "" {
             tablePostFriend.rowHeight = 135
             cell.picturePostImageView.image = nil
         } else {
             tablePostFriend.rowHeight = 420
-            let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
+            let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData.full_picture), width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
             cell.picturePostImageView.isUserInteractionEnabled = true
@@ -177,7 +178,7 @@ class DetailFriendViewController: UITableViewController {
             cell.picturePostImageView.addGestureRecognizer(tapGestureRecognizer)
         }
         
-        let atPlace = cellData?.place
+        let atPlace = cellData.place
         let image = UIImage(named:"iconCheckin")
         if atPlace == nil {
             cell.atPlaceLabel.text = ""

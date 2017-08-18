@@ -20,7 +20,6 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
-    var userResource: UserResource! = nil
     var loginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
         button.readPermissions = ["email", "user_friends", "user_about_me"]
@@ -43,14 +42,16 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("Show >>> ", token.tokenString)
         }
     }
+    
+    var userResourceData: UserResourceData! = nil
     func fetchProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-            self.userResource = UserResource(json: jsonString)
-            self.nameLabel.text = self.userResource.first_name + "  " + self.userResource.last_name
-            self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
+            self.userResourceData = UserResourceData(json: jsonString)
+            self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+            self.profileImageView.sd_setImage(with: URL(string: (self.userResourceData.picture?.data?.url)!), completed: nil)
                 }
     }
     
