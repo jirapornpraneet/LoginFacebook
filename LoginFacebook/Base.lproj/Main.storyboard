@@ -121,8 +121,7 @@
                                     <color key="titleColor" red="1" green="0.99625312359999996" blue="0.987392516" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="listFriendTouchUpInside:" destination="Fhu-NT-lmh" eventType="touchUpInside" id="1aK-Ad-0bq"/>
-                                    <segue destination="4SK-90-l44" kind="show" id="7uH-kP-Nhv"/>
+                                    <segue destination="4SK-90-l44" kind="show" identifier="CollectionViewID" id="7uH-kP-Nhv"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">

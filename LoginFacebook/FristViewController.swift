@@ -53,9 +53,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.profileImageView.sd_setImage(with: URL(string: (self.userResource.picture?.data?.url)!), completed: nil)
                 }
     }
-    @IBAction func listFriendTouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "CollectionViewID", sender: sender)
-    }
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         fetchProfile()
     }
