@@ -50,10 +50,6 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData.picture), width: 600, height: 600)
         cell.photosAlbumsImageView.sd_setImage(with: imageUrl, completed:nil)
         
-        
-        
-       
-        
         return cell
     }
 
