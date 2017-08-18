@@ -1127,31 +1127,31 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.98625279629999996" green="0.98625279629999996" blue="0.98625279629999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OgD-On-JPv">
-                            <size key="itemSize" width="110" height="110"/>
+                            <size key="itemSize" width="120" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="WfT-6c-Bwa" customClass="AlbumsDetailCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GrE-JX-SoB">
-                                            <rect key="frame" x="17" y="7" width="76" height="65"/>
+                                            <rect key="frame" x="17" y="7" width="86" height="80"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="65" id="yhR-Ue-uaH"/>
+                                                <constraint firstAttribute="height" constant="80" id="yhR-Ue-uaH"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCS-TJ-Kpd">
-                                            <rect key="frame" x="0.0" y="80" width="110" height="21"/>
+                                            <rect key="frame" x="0.0" y="95" width="120" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Bs6-4s-NML"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1159,7 +1159,7 @@
                                 </view>
                                 <constraints>
                                     <constraint firstItem="tCS-TJ-Kpd" firstAttribute="leading" secondItem="WfT-6c-Bwa" secondAttribute="leading" id="IrR-H7-Cn1"/>
-                                    <constraint firstItem="tCS-TJ-Kpd" firstAttribute="top" secondItem="GrE-JX-SoB" secondAttribute="bottom" constant="8" symbolic="YES" id="N8f-hJ-Si7"/>
+                                    <constraint firstItem="tCS-TJ-Kpd" firstAttribute="top" secondItem="GrE-JX-SoB" secondAttribute="bottom" constant="8" id="N8f-hJ-Si7"/>
                                     <constraint firstItem="GrE-JX-SoB" firstAttribute="leading" secondItem="WfT-6c-Bwa" secondAttribute="leadingMargin" constant="9" id="jww-Hz-XVo"/>
                                     <constraint firstItem="GrE-JX-SoB" firstAttribute="top" secondItem="WfT-6c-Bwa" secondAttribute="topMargin" constant="-1" id="km2-gF-4qr"/>
                                     <constraint firstAttribute="trailing" secondItem="tCS-TJ-Kpd" secondAttribute="trailing" id="p70-m6-lNX"/>
@@ -1176,7 +1176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="758-LS-6D1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078" y="407"/>
+            <point key="canvasLocation" x="1076.25" y="406.6901408450704"/>
         </scene>
     </scenes>
     <resources>

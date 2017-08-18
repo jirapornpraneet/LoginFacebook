@@ -27,8 +27,8 @@ class AlbumsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 10, right: 30)
-        layout.itemSize = CGSize(width: 110, height: 110)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
+        layout.itemSize = CGSize(width: 120, height: 120)
         self.collectionView?.collectionViewLayout = layout
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.delegate = self
@@ -73,7 +73,7 @@ class AlbumsCollectionViewController: UICollectionViewController {
         cell.nameAlbumsLabel.text = cellData?.name
         
         let cellPhotos = cellData?.photos?.data?[0].picture
-        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPhotos)!, width: 160, height: 160)
+        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPhotos)!, width: 150, height: 150)
         cell.photoAlbumsImageView.sd_setImage(with: imageUrl, completed:nil)
 
         return cell
