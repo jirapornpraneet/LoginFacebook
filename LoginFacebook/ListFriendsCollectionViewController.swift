@@ -41,7 +41,7 @@ class ListFriendsCollectionViewController: UICollectionViewController {
     var friendsResource: FriendsResource! = nil
     
     func getDataFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBABf1ZAge1ZAldpNnKVDheUimLWr0IiUwXIW3bJumoUgpK4OEAwIXWPzWiiL17LHqP361xjQvWYCuaEPxLibei8ZB7gw9Y4ZBQPeY4hFJddD3zmbmZAbXpcpselaD1Da7FIXHvU9wTGzJxpNsJAyZCwxldDoKGX6ZCKvEjl4RPOkVuGeF7fPO7cWqkytDovqvQZDZD")
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAO4kUxO30cAuVQebq0vb98dB6oVRdSegA7UCdOgZC4NVyolepsW82FgKG9n8RZCF2RXmT8z1F92TQc8kvCIRd0Y5hZA5K1WNiojNhgQIMOtHBhWhkfdPByDERpI1k3ZC69d3tBsZB544ANyuE75et79ZCtQIXbpxhISZCu4XozYn2QIJ6LxeCIa15oejHRnywZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
