@@ -18,8 +18,8 @@ import SDWebImage
 private let reuseIdentifier = "Cell"
 
 class AlbumsDetailCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageViewAvatar: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var photoAlbumsImageView: UIImageView!
+    @IBOutlet weak var nameAlbumsLabel: UILabel!
 }
 
 class AlbumsCollectionViewController: UICollectionViewController {
@@ -36,31 +36,34 @@ class AlbumsCollectionViewController: UICollectionViewController {
         fetchProfile()
     }
     
-    var userResource: UserResource! = nil
+    var userResourceData: UserResourceData! = nil
     
     func fetchProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place}, albums{created_time, count, description, name, photos.limit(1){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
-            self.userResource = UserResource(json: jsonString)
+            self.userResourceData = UserResourceData(json: jsonString)
             self.collectionView?.reloadData()
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if  userResource != nil {
-            return (userResource.data?.count)!
+        if  userResourceData != nil {
+            return (userResourceData.albums?.data?.count)!
         } else {
             return 0
         }
     }
-    var userResourceData: UserResourceData! = nil
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! AlbumsDetailCollectionViewCell
         let cellData = userResourceData?.albums?.data?[indexPath.row]
@@ -69,7 +72,7 @@ class AlbumsCollectionViewController: UICollectionViewController {
 //        print("Count2",cellData?.photos?.data?.count)
 
 //        print("cellPicture",cellPicture)
-          cell.nameLabel.text = cellData?.name
+          cell.nameAlbumsLabel.text = cellData?.name
 //        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPicture?.picture)!, width: 160, height: 160)
 //        cell.imageViewAvatar.sd_setImage(with: imageUrl, completed:nil)
         return cell

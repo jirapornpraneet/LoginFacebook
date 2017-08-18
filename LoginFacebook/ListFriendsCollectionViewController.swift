@@ -18,7 +18,7 @@ import SDWebImage
 private let reuseIdentifier = "Cell"
 
 class FriendsCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var profileimageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
 }
 
@@ -54,6 +54,7 @@ class ListFriendsCollectionViewController: UICollectionViewController {
             }
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -61,6 +62,7 @@ class ListFriendsCollectionViewController: UICollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if  userResource != nil {
             return userResource.data!.count
@@ -68,13 +70,15 @@ class ListFriendsCollectionViewController: UICollectionViewController {
             return 0
         }
     }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let friendsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FriendsCollectionViewCell
         let cellData = userResource.data?[indexPath.row]
         friendsCollectionViewCell.nameLabel.text = String(format: "%@", (cellData?.name)!)
-        friendsCollectionViewCell.profileimageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
+        friendsCollectionViewCell.profileImageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
         return friendsCollectionViewCell
     }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let detailFrienCell = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
@@ -120,9 +124,12 @@ class ListFriendsCollectionViewController: UICollectionViewController {
         if cellCount == nil {
             return
         }
+        
         detailFrienCell.getCountPostFriends = ((cellCount))!
+        
         let cellDataPost = cellData?.posts?.data
         detailFrienCell.getPostsIndexPath = cellDataPost!
+        
         self.navigationController?.pushViewController(detailFrienCell, animated: true)
     }
 }

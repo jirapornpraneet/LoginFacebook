@@ -15,6 +15,7 @@ import FBSDKCoreKit
 import FBSDKShareKit
 import Alamofire
 import SwiftyJSON
+
 class PostFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var picturePostImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
@@ -28,7 +29,7 @@ class PostFriendTableViewCell: UITableViewCell {
 
 class DetailFriendViewController: UITableViewController {
     @IBOutlet var tablePostFriend: UITableView!
-    @IBOutlet weak var imgImage: UIImageView!
+    @IBOutlet weak var profileFriendImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
@@ -60,16 +61,18 @@ class DetailFriendViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgImage.layer.masksToBounds = true
-        imgImage.layer.cornerRadius = 4
-        imgImage.layer.borderWidth = 2
-        imgImage.layer.borderColor = UIColor.white.cgColor
+        profileFriendImageView.layer.masksToBounds = true
+        profileFriendImageView.layer.cornerRadius = 4
+        profileFriendImageView.layer.borderWidth = 2
+        profileFriendImageView.layer.borderColor = UIColor.white.cgColor
+        
         let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: getPictureDataURL, width: 150, height: 150)
-        imgImage.sd_setImage(with: imageUrl, completed:nil)
+        profileFriendImageView.sd_setImage(with: imageUrl, completed:nil)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureDataURL))
-        imgImage.addGestureRecognizer(tap)
-        imgImage.isUserInteractionEnabled = true
+        profileFriendImageView.addGestureRecognizer(tap)
+        profileFriendImageView.isUserInteractionEnabled = true
+        
         nameLabel.text! = getName
         birthdayLabel.text? = getBirthDay
         genderLabel.text? = getGender
@@ -78,24 +81,30 @@ class DetailFriendViewController: UITableViewController {
         educationImage.image = getEducationImage
         hometownImage.image = getHometownImage
         messengerToFriendLabel.text = String(format: "%เขียนอะไรบางอย่างถึง  %@ %.........", getName)
+        
         let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getCoverImage), width: 480, height: 260)
         coverImage.sd_setImage(with: coverImageUrl, completed:nil)
+        
         let tapCoverPicture = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomCoverPicture))
         coverImage.addGestureRecognizer(tapCoverPicture)
         coverImage.isUserInteractionEnabled = true
+        
         tablePostFriend.dataSource = self
         tablePostFriend.delegate = self
-         self.tablePostFriend.reloadData()
+        self.tablePostFriend.reloadData()
+        
         getProfileUser()
     }
     
     var userResourceData: UserResourceData! = nil
+    
     func getProfileUser() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
+            
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
             self.profileUserImage.sd_setImage(with: profileImageUrl, completed:nil)
         }
@@ -110,6 +119,7 @@ class DetailFriendViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
+    
     func ZoomCoverPicture() {
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL(getCoverImage)
@@ -119,6 +129,7 @@ class DetailFriendViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
+    
     func ZoomPicture​Posts(_ sender: AnyObject) {
         let cellData = getPostsIndexPath[sender.view.tag] as? PostsDataDetail
         var images = [SKPhoto]()
@@ -134,9 +145,11 @@ class DetailFriendViewController: UITableViewController {
         super.didReceiveMemoryWarning()
 
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if getCountPostFriends != 0 {
             return getCountPostFriends
@@ -144,9 +157,11 @@ class DetailFriendViewController: UITableViewController {
             return 0
         }
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostFriendTableViewCell
         let cellData = getPostsIndexPath[indexPath.row] as! PostsDataDetail
+        
         cell.messageLabel.text = cellData.message
         cell.namePostLabel.text = getName
         cell.placePostLabel.text = cellData.place?.name
@@ -187,8 +202,10 @@ class DetailFriendViewController: UITableViewController {
             cell.atPlaceLabel.text = "ที่"
             cell.iconCheckInImageView.image = image
         }
+        
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

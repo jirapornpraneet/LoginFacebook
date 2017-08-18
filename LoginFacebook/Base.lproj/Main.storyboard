@@ -75,7 +75,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="nameLabel" destination="vgt-mP-hJd" id="S6g-px-Mya"/>
-                                    <outlet property="profileimageView" destination="kHR-LJ-BUV" id="fZb-rh-fIi"/>
+                                    <outlet property="profileImageView" destination="kHR-LJ-BUV" id="Sla-9p-tdA"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -1107,16 +1107,16 @@
                         <outlet property="genderLabel" destination="eCZ-2d-DGw" id="UMO-WP-3kQ"/>
                         <outlet property="hometownImage" destination="vaW-Pc-UaF" id="bSR-Td-aVZ"/>
                         <outlet property="hometownLabel" destination="mrW-cf-zVH" id="5h5-RR-wrv"/>
-                        <outlet property="imgImage" destination="M9U-eW-Tvy" id="vGG-bi-TPv"/>
                         <outlet property="messengerToFriendLabel" destination="xTA-RV-eEm" id="guP-jH-kz9"/>
                         <outlet property="nameLabel" destination="xP7-J6-cpA" id="BsW-WB-yLZ"/>
+                        <outlet property="profileFriendImageView" destination="M9U-eW-Tvy" id="Ln1-J4-HQD"/>
                         <outlet property="profileUserImage" destination="eqq-tv-cm8" id="Hzr-f2-lrh"/>
                         <outlet property="tablePostFriend" destination="NAA-ES-LIh" id="xSp-r3-rRx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsm-Lh-EAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="-453"/>
+            <point key="canvasLocation" x="941" y="-495"/>
         </scene>
         <!--Albums Collection View Controller-->
         <scene sceneID="UqD-cY-JoY">
@@ -1166,8 +1166,8 @@
                                     <constraint firstItem="GrE-JX-SoB" firstAttribute="centerX" secondItem="tCS-TJ-Kpd" secondAttribute="centerX" id="zQD-nG-IDe"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageViewAvatar" destination="GrE-JX-SoB" id="6l6-T4-rJd"/>
-                                    <outlet property="nameLabel" destination="tCS-TJ-Kpd" id="7zL-5M-6Kg"/>
+                                    <outlet property="nameAlbumsLabel" destination="tCS-TJ-Kpd" id="Qqf-zu-vGq"/>
+                                    <outlet property="photoAlbumsImageView" destination="GrE-JX-SoB" id="CZ6-rw-qD2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

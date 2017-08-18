@@ -62,7 +62,9 @@ class ViewController: UITableViewController {
         }
         
     }
+    
     var userResourceData: UserResourceData! = nil
+    
     func ZoomProfilePicture() {
         var images = [SKPhoto]()
         let photo = SKPhoto.photoWithImageURL((userResourceData.picture?.data?.url)!)
@@ -98,6 +100,7 @@ class ViewController: UITableViewController {
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
+            
             self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
             self.schoolNameLabel.text = self.userResourceData.education?[2].school?.name
             self.concentrationNameLabel.text = self.userResourceData.education?[2].concentration?[0].name
@@ -112,12 +115,15 @@ class ViewController: UITableViewController {
             self.tablePost.reloadData()
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if userResourceData != nil {
             return (userResourceData.posts?.data?.count)!
@@ -125,6 +131,7 @@ class ViewController: UITableViewController {
             return 0
         }
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResourceData.posts?.data?[indexPath.row]
@@ -148,6 +155,7 @@ class ViewController: UITableViewController {
             cell.picturePostImageView.tag = indexPath.row
             cell.picturePostImageView.addGestureRecognizer(tapGestureRecognizer)
         }
+        
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormResource = cellData?.created_time
         let dateFormatter = DateFormatter()
@@ -157,6 +165,7 @@ class ViewController: UITableViewController {
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
         cell.createdTimePostLabel.text = dateString
+        
         let atPlace = cellData?.place
         let image = UIImage(named:"iconCheckin")
         if atPlace == nil {
@@ -166,8 +175,10 @@ class ViewController: UITableViewController {
             cell.atPlaceLabel.text = "ที่"
             cell.iconCheckInImageView.image = image
         }
+        
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
