@@ -57,7 +57,7 @@ class ViewController: UITableViewController {
         let tapCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomCoverPicture))
         coverImageView.addGestureRecognizer(tapCoverPicture)
         coverImageView.isUserInteractionEnabled = true
-         if let token = FBSDKAccessToken.current() {
+         if (FBSDKAccessToken.current()) != nil {
             fetchProfile()
         }
         
