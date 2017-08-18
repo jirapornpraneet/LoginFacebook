@@ -74,8 +74,10 @@ class ListFriendsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let friendsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FriendsCollectionViewCell
         let cellData = userResource.data?[indexPath.row]
+        
         friendsCollectionViewCell.nameLabel.text = String(format: "%@", (cellData?.name)!)
         friendsCollectionViewCell.profileImageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
+        
         return friendsCollectionViewCell
     }
     

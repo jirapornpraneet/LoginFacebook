@@ -134,6 +134,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
         let cellData = userResourceData.posts?.data?[indexPath.row]
+        
         cell.messageLabel.text = (cellData?.message)!
         cell.namePostLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
         cell.placePostLabel.text = cellData?.place?.name
