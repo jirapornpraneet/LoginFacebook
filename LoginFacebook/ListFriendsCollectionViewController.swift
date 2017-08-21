@@ -78,7 +78,10 @@ class ListFriendsCollectionViewController: UICollectionViewController {
         let cellData = userResource.data?[indexPath.row]
         
         cellFriendsCollectionView.nameLabel.text = String(format: "%@", (cellData?.name)!)
-        cellFriendsCollectionView.profileImageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
+//        cellFriendsCollectionView.profileImageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.picture?.data?.url)!, width: 200, height: 230)
+        cellFriendsCollectionView.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        cellFriendsCollectionView.profileImageView.contentMode = UIViewContentMode.scaleAspectFit
         
         return cellFriendsCollectionView
     }

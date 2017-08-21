@@ -108,6 +108,7 @@ class DetailFriendViewController: UITableViewController {
             
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
             self.profileUserImage.sd_setImage(with: profileImageUrl, completed:nil)
+            self.profileUserImage.contentMode = UIViewContentMode.scaleAspectFit
         }
     }
 

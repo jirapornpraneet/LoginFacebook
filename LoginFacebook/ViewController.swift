@@ -110,8 +110,9 @@ class ViewController: UITableViewController {
             let profileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileUpdateImageView.sd_setImage(with: profileUpdateImageUrl, completed:nil)
            
-            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 230)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
+            self.profileImageView.contentMode = UIViewContentMode.scaleAspectFit
             
             let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.cover?.source)!, width: 480, height: 260)
             self.coverImageView.sd_setImage(with: coverImageUrl, completed:nil)
