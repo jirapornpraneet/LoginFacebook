@@ -47,8 +47,6 @@ class ViewController: UITableViewController {
         profileImageView.layer.cornerRadius = 4
         profileImageView.layer.borderWidth = 2
         profileImageView.layer.borderColor = UIColor.white.cgColor
-        showFriendButton.layer.masksToBounds = true
-        showFriendButton.layer.cornerRadius = 10
         
         let tapZoomProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomProfilePicture))
         profileImageView.addGestureRecognizer(tapZoomProfilePicture)
