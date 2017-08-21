@@ -103,7 +103,7 @@ class ViewController: UITableViewController {
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
-            print("UserResource", self.userResourceData)
+           
             self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
             self.schoolNameLabel.text = self.userResourceData.education?[2].school?.name
             self.concentrationNameLabel.text = self.userResourceData.education?[2].concentration?[0].name
