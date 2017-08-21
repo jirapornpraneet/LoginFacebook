@@ -646,7 +646,7 @@
                         <outlet property="profileUpdateImageView" destination="j02-V4-yr9" id="sL4-GI-52g"/>
                         <outlet property="schoolNameLabel" destination="xA5-f1-uQE" id="47c-8A-fK2"/>
                         <outlet property="showFriendButton" destination="mlO-jw-MYG" id="8vm-zs-Lv9"/>
-                        <outlet property="tablePost" destination="aLE-t3-bId" id="6Rz-bU-sSn"/>
+                        <outlet property="tablePosts" destination="aLE-t3-bId" id="yxT-VV-9XV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbl-lZ-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>

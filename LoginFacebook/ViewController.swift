@@ -28,7 +28,7 @@ class PostUserTableViewCell: UITableViewCell {
 }
 
 class ViewController: UITableViewController {
-      @IBOutlet var tablePost: UITableView!
+      @IBOutlet var tablePosts: UITableView!
       @IBOutlet weak var nameLabel: UILabel!
       @IBOutlet weak var profileImageView: UIImageView!
       @IBOutlet weak var showFriendButton: UIButton!
@@ -40,8 +40,8 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tablePost.dataSource = self
-        tablePost.delegate = self
+        tablePosts.dataSource = self
+        tablePosts.delegate = self
 
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = 4
@@ -118,7 +118,7 @@ class ViewController: UITableViewController {
             let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.cover?.source)!, width: 480, height: 260)
             self.coverImageView.sd_setImage(with: coverImageUrl, completed:nil)
             
-            self.tablePost.reloadData()
+            self.tablePosts.reloadData()
         }
     }
     
@@ -151,10 +151,10 @@ class ViewController: UITableViewController {
         
         let picturePost = cellData?.full_picture
         if  picturePost  == "" {
-            tablePost.rowHeight = 135
+            tablePosts.rowHeight = 135
             cell.picturePostImageView.image = nil
         } else {
-            tablePost.rowHeight = 420
+            tablePosts.rowHeight = 420
             let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
             cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
             
