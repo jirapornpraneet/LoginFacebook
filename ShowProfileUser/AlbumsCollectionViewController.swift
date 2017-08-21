@@ -26,13 +26,14 @@ class AlbumsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let collectionViewListAlbums = collectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         layout.itemSize = CGSize(width: 120, height: 120)
-        self.collectionView?.collectionViewLayout = layout
-        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView?.delegate = self
-        self.collectionView?.dataSource = self
+        collectionViewListAlbums?.collectionViewLayout = layout
+        collectionViewListAlbums?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionViewListAlbums?.delegate = self
+        collectionViewListAlbums?.dataSource = self
         
         fetchProfile()
         

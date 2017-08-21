@@ -26,13 +26,14 @@ class ListFriendsCollectionViewController: UICollectionViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let collectionViewListFriends = collectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 10, right: 30)
         layout.itemSize = CGSize(width: 110, height: 110)
-        self.collectionView?.collectionViewLayout = layout
-        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView?.delegate = self
-        self.collectionView?.dataSource = self
+        collectionViewListFriends?.collectionViewLayout = layout
+        collectionViewListFriends?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionViewListFriends?.delegate = self
+        collectionViewListFriends?.dataSource = self
        
         getDataFriends()
     }

@@ -18,13 +18,14 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let collectionViewListPhotosInAlbums = collectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         layout.itemSize = CGSize(width: 120, height: 120)
-        self.collectionView?.collectionViewLayout = layout
-        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView?.delegate = self
-        self.collectionView?.dataSource = self
+        collectionViewListPhotosInAlbums?.collectionViewLayout = layout
+        collectionViewListPhotosInAlbums?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionViewListPhotosInAlbums?.delegate = self
+        collectionViewListPhotosInAlbums?.dataSource = self
         
         self.collectionView?.reloadData()
     }
