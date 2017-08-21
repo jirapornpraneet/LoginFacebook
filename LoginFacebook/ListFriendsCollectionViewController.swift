@@ -48,7 +48,9 @@ class ListFriendsCollectionViewController: UICollectionViewController {
             switch response.result {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
+                
                 self.collectionView?.reloadData()
+                
             case .failure(let error):
                 print(error)
             }

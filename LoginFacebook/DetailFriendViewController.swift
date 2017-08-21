@@ -91,6 +91,7 @@ class DetailFriendViewController: UITableViewController {
         
         tablePostsFriend.dataSource = self
         tablePostsFriend.delegate = self
+        
         self.tablePostsFriend.reloadData()
         
         getProfileUser()
