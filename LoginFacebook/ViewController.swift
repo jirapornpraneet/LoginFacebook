@@ -67,32 +67,32 @@ class ViewController: UITableViewController {
     var userResourceData: UserResourceData! = nil
     
     func ZoomProfilePicture() {
-        var images = [SKPhoto]()
-        let photo = SKPhoto.photoWithImageURL((userResourceData.picture?.data?.url)!)
-        photo.shouldCachePhotoURLImage = true
-        images.append(photo)
-        let browser = SKPhotoBrowser(photos: images)
+        var profileImages = [SKPhoto]()
+        let photoProfile = SKPhoto.photoWithImageURL((userResourceData.picture?.data?.url)!)
+        photoProfile.shouldCachePhotoURLImage = true
+        profileImages.append(photoProfile)
+        let browser = SKPhotoBrowser(photos: profileImages)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
     
     func ZoomCoverPicture() {
-        var images = [SKPhoto]()
-        let photo = SKPhoto.photoWithImageURL((userResourceData.cover?.source)!)
-        photo.shouldCachePhotoURLImage = true
-        images.append(photo)
-        let browser = SKPhotoBrowser(photos: images)
+        var coverImages = [SKPhoto]()
+        let photoCover = SKPhoto.photoWithImageURL((userResourceData.cover?.source)!)
+        photoCover.shouldCachePhotoURLImage = true
+        coverImages.append(photoCover)
+        let browser = SKPhotoBrowser(photos: coverImages)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
     
     func ZoomPicture​Posts(_ sender: AnyObject) {
         let cellData = userResourceData.posts?.data?[sender.view.tag]
-        var images = [SKPhoto]()
-        let photo = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
-        photo.shouldCachePhotoURLImage = true
-        images.append(photo)
-        let browser = SKPhotoBrowser(photos: images)
+        var picturePostsImages = [SKPhoto]()
+        let photoPicturePosts = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
+        photoPicturePosts.shouldCachePhotoURLImage = true
+        picturePostsImages.append(photoPicturePosts)
+        let browser = SKPhotoBrowser(photos: picturePostsImages)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
