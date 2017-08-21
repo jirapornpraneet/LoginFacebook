@@ -98,8 +98,8 @@ class ViewController: UITableViewController {
     func fetchProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
-            let dic = result as? NSDictionary
-            let jsonString = dic?.toJsonString()
+            let resultDictionary = result as? NSDictionary
+            let jsonString = resultDictionary?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
            
             self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
@@ -147,8 +147,8 @@ class ViewController: UITableViewController {
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
         cellPostsUserTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
-        let picturePost = cellPostsData?.full_picture
-        if  picturePost  == "" {
+        let fullPicturePosts = cellPostsData?.full_picture
+        if  fullPicturePosts   == "" {
             tablePosts.rowHeight = 135
             cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
@@ -172,9 +172,9 @@ class ViewController: UITableViewController {
         let dateString = dateFormatter.string(from: date!)
         cellPostsUserTableView.createdTimePostsLabel.text = dateString
         
-        let atPlace = cellPostsData?.place
+        let placePosts = cellPostsData?.place
         let image = UIImage(named:"iconCheckin")
-        if atPlace == nil {
+        if placePosts == nil {
             cellPostsUserTableView.atPlacePostsLabel.text = ""
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
         } else {
