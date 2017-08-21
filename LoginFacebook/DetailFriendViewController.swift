@@ -185,9 +185,9 @@ class DetailFriendViewController: UITableViewController {
             tablePostsFriend.rowHeight = 135
             cellPostsFriendTableView.picturePostsImageView.image = nil
         } else {
-            tablePostsFriend.rowHeight = 420
-            let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPostsData.full_picture), width: 380, height: 400)
-            cellPostsFriendTableView.picturePostsImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+            tablePostsFriend.rowHeight = 400
+            cellPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellPostsData.full_picture)), completed: nil)
+            cellPostsFriendTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
             cellPostsFriendTableView.picturePostsImageView.isUserInteractionEnabled = true
