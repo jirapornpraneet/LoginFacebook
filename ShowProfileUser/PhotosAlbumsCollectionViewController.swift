@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let reuseIdentifier = "Cell"
+
 class PhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photosAlbumsImageView: UIImageView!
 }
@@ -17,7 +19,15 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
+        layout.itemSize = CGSize(width: 120, height: 120)
+        self.collectionView?.collectionViewLayout = layout
+        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView?.delegate = self
+        self.collectionView?.dataSource = self
+        
+        self.collectionView?.reloadData()
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +41,7 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("getCount",getCount)
-        if  getCount != nil {
+        if  getCount != 0 {
             return getCount
         } else {
             return 0
@@ -47,7 +57,7 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         print("cellData",cellData)
         print("show",cellData.picture)
         
-        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData.picture), width: 600, height: 600)
+        let imageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData.picture), width: 120, height: 120)
         cell.photosAlbumsImageView.sd_setImage(with: imageUrl, completed:nil)
         
         return cell
