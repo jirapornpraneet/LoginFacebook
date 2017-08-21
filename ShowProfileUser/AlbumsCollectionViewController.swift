@@ -91,7 +91,6 @@ class AlbumsCollectionViewController: UICollectionViewController {
         if cellPhotosDataCount  == nil {
             return
         }
-        
         photosAlbumsCollectionView.getPhotosDataCount = ((cellPhotosDataCount))!
         
         let cellIndexPhotosData = cellAlbumsData?.photos?.data
