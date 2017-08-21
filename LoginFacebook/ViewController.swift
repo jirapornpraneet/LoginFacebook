@@ -152,9 +152,9 @@ class ViewController: UITableViewController {
             tablePosts.rowHeight = 135
             cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
-            tablePosts.rowHeight = 420
-            let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPostsData?.full_picture)!, width: 380, height: 400)
-            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+            tablePosts.rowHeight = 480
+            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellPostsData?.full_picture)!), completed: nil)
+            cellPostsUserTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
             cellPostsUserTableView.picturePostsImageView.isUserInteractionEnabled = true
