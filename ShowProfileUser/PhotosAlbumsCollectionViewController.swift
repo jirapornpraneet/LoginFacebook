@@ -27,7 +27,7 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         collectionViewListPhotosInAlbums?.delegate = self
         collectionViewListPhotosInAlbums?.dataSource = self
         
-        self.collectionView?.reloadData()
+        collectionViewListPhotosInAlbums?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
