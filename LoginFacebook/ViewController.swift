@@ -28,15 +28,15 @@ class PostsUserTableViewCell: UITableViewCell {
 }
 
 class ViewController: UITableViewController {
-      @IBOutlet var tablePosts: UITableView!
-      @IBOutlet weak var nameLabel: UILabel!
-      @IBOutlet weak var profileImageView: UIImageView!
-      @IBOutlet weak var showFriendButton: UIButton!
-      @IBOutlet weak var coverImageView: UIImageView!
-      @IBOutlet weak var schoolNameLabel: UILabel!
-      @IBOutlet weak var collegeNameLabel: UILabel!
-      @IBOutlet weak var concentrationNameLabel: UILabel!
-      @IBOutlet weak var profileUpdateImageView: UIImageView!
+    @IBOutlet var tablePosts: UITableView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var showFriendButton: UIButton!
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var schoolNameLabel: UILabel!
+    @IBOutlet weak var collegeNameLabel: UILabel!
+    @IBOutlet weak var concentrationNameLabel: UILabel!
+    @IBOutlet weak var profileUpdateImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
