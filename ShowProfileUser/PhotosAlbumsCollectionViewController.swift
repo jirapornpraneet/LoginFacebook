@@ -16,7 +16,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
 
 class PhotosAlbumsCollectionViewController: UICollectionViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -28,7 +27,6 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         self.collectionView?.dataSource = self
         
         self.collectionView?.reloadData()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
