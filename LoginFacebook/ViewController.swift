@@ -152,7 +152,7 @@ class ViewController: UITableViewController {
             tablePosts.rowHeight = 135
             cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
-            tablePosts.rowHeight = 420
+            tablePosts.rowHeight = 400
             cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellPostsData?.full_picture)!), completed: nil)
             cellPostsUserTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
