@@ -71,66 +71,66 @@ class ListFriendsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let friendsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FriendsCollectionViewCell
+        let cellFriendsCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellFriendsCollection", for: indexPath) as! FriendsCollectionViewCell
         let cellData = userResource.data?[indexPath.row]
         
-        friendsCollectionViewCell.nameLabel.text = String(format: "%@", (cellData?.name)!)
-        friendsCollectionViewCell.profileImageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
+        cellFriendsCollectionView.nameLabel.text = String(format: "%@", (cellData?.name)!)
+        cellFriendsCollectionView.profileImageView.sd_setImage(with: URL(string: (cellData?.picture?.data?.url)!), completed: nil)
         
-        return friendsCollectionViewCell
+        return cellFriendsCollectionView
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let detailFriendCell = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
+        let cellDetailFriendsView = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
         
         let cellData = userResource.data?[indexPath.row]
-        detailFriendCell.getPictureDataURL = (cellData?.picture?.data?.url)!
-        detailFriendCell.getName = String(format: "%@", (cellData?.name)!)
-        detailFriendCell.getCoverImage = (cellData?.cover?.source)!
+        cellDetailFriendsView.getProfileImageUrl = (cellData?.picture?.data?.url)!
+        cellDetailFriendsView.getName = String(format: "%@", (cellData?.name)!)
+        cellDetailFriendsView.getCoverImageUrl = (cellData?.cover?.source)!
         
         let cellBirthDay = cellData?.birthday
         if cellBirthDay == "" {
-             detailFriendCell.getBirthDay = ""
+             cellDetailFriendsView.getBirthDay = ""
         } else {
-             detailFriendCell.getBirthDay = String(format: "%วันเกิด : %@", (cellData?.birthday)!)
+            cellDetailFriendsView.getBirthDay = String(format: "%วันเกิด : %@", (cellData?.birthday)!)
         }
         
         let cellGender = cellData?.gender
         if cellGender == "" {
-            detailFriendCell.getGender = ""
+            cellDetailFriendsView.getGender = ""
         } else {
-            detailFriendCell.getGender = String(format: "%เพศ : %@", (cellData?.gender)!)
+            cellDetailFriendsView.getGender = String(format: "%เพศ : %@", (cellData?.gender)!)
         }
         
         let cellEducation = cellData?.education
         if cellEducation! == [] {
-            detailFriendCell.getEducation = ""
-            detailFriendCell.getEducationImage = UIImage(named: "nil.png")!
+            cellDetailFriendsView.getEducation = ""
+            cellDetailFriendsView.getEducationImage = UIImage(named: "nil.png")!
         } else {
-            detailFriendCell.getEducation = String(format: "เคยศึกษาที่  %@ ", (cellData?.education?[0].school?.name)!)
-            detailFriendCell.getEducationImage = UIImage(named: "iconEducation.png")!
+            cellDetailFriendsView.getEducation = String(format: "เคยศึกษาที่  %@ ", (cellData?.education?[0].school?.name)!)
+            cellDetailFriendsView.getEducationImage = UIImage(named: "iconEducation.png")!
         }
         
         let cellHomeTown = cellData?.hometown?.name
         if cellHomeTown == nil {
-            detailFriendCell.getHometown = ""
-            detailFriendCell.getHometownImage = UIImage(named: "nil.png")!
+            cellDetailFriendsView.getHometown = ""
+            cellDetailFriendsView.getHometownImage = UIImage(named: "nil.png")!
         } else {
-            detailFriendCell.getHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellData?.hometown?.name)!)
-            detailFriendCell.getHometownImage = UIImage(named: "iconHometown.png")!
+            cellDetailFriendsView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellData?.hometown?.name)!)
+            cellDetailFriendsView.getHometownImage = UIImage(named: "iconHometown.png")!
         }
         
-        let cellCount = cellData?.posts?.data?.count
-        if cellCount == nil {
+        let cellPostsDataCount = cellData?.posts?.data?.count
+        if cellPostsDataCount == nil {
             return
         }
         
-        detailFriendCell.getCountPostFriends = ((cellCount))!
+        cellDetailFriendsView.getPostsDataCount = ((cellPostsDataCount))!
         
-        let cellDataPost = cellData?.posts?.data
-        detailFriendCell.getPostsIndexPath = cellDataPost!
+        let cellPostsData = cellData?.posts?.data
+        cellDetailFriendsView.getPostsData = cellPostsData!
         
-        self.navigationController?.pushViewController(detailFriendCell, animated: true)
+        self.navigationController?.pushViewController(cellDetailFriendsView, animated: true)
     }
 }

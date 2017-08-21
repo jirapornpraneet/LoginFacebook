@@ -16,15 +16,15 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
-class PostUserTableViewCell: UITableViewCell {
-    @IBOutlet weak var picturePostImageView: UIImageView!
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var profilePostImageView: UIImageView!
-    @IBOutlet weak var namePostLabel: UILabel!
-    @IBOutlet weak var createdTimePostLabel: UILabel!
-    @IBOutlet weak var placePostLabel: UILabel!
-    @IBOutlet weak var atPlaceLabel: UILabel!
-    @IBOutlet weak var iconCheckInImageView: UIImageView!
+class PostsUserTableViewCell: UITableViewCell {
+    @IBOutlet weak var picturePostsImageView: UIImageView!
+    @IBOutlet weak var messagePostsLabel: UILabel!
+    @IBOutlet weak var profilePostsImageView: UIImageView!
+    @IBOutlet weak var namePostsLabel: UILabel!
+    @IBOutlet weak var createdTimePostsLabel: UILabel!
+    @IBOutlet weak var placePostsLabel: UILabel!
+    @IBOutlet weak var atPlacePostsLabel: UILabel!
+    @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
 }
 
 class ViewController: UITableViewController {
@@ -50,12 +50,12 @@ class ViewController: UITableViewController {
         showFriendButton.layer.masksToBounds = true
         showFriendButton.layer.cornerRadius = 10
         
-        let tapProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomProfilePicture))
-        profileImageView.addGestureRecognizer(tapProfilePicture)
+        let tapZoomProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomProfilePicture))
+        profileImageView.addGestureRecognizer(tapZoomProfilePicture)
         profileImageView.isUserInteractionEnabled = true
         
-        let tapCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomCoverPicture))
-        coverImageView.addGestureRecognizer(tapCoverPicture)
+        let tapZoomCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomCoverPicture))
+        coverImageView.addGestureRecognizer(tapZoomCoverPicture)
         coverImageView.isUserInteractionEnabled = true
         
          if (FBSDKAccessToken.current()) != nil {
@@ -89,9 +89,9 @@ class ViewController: UITableViewController {
     func ZoomPicture​Posts(_ sender: AnyObject) {
         let cellData = userResourceData.posts?.data?[sender.view.tag]
         var picturePostsImages = [SKPhoto]()
-        let photoPicturePosts = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
-        photoPicturePosts.shouldCachePhotoURLImage = true
-        picturePostsImages.append(photoPicturePosts)
+        let photosPosts = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
+        photosPosts.shouldCachePhotoURLImage = true
+        picturePostsImages.append(photosPosts)
         let browser = SKPhotoBrowser(photos: picturePostsImages)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
@@ -139,52 +139,52 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostUserTableViewCell
-        let cellData = userResourceData.posts?.data?[indexPath.row]
+        let cellPostsUserTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsUserTableView", for: indexPath) as! PostsUserTableViewCell
+        let cellPostsData = userResourceData.posts?.data?[indexPath.row]
         
-        cell.messageLabel.text = (cellData?.message)!
-        cell.namePostLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-        cell.placePostLabel.text = cellData?.place?.name
+        cellPostsUserTableView.messagePostsLabel.text = (cellPostsData?.message)!
+        cellPostsUserTableView.namePostsLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+        cellPostsUserTableView.placePostsLabel.text = cellPostsData?.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
-        cell.profilePostImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        cellPostsUserTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
-        let picturePost = cellData?.full_picture
+        let picturePost = cellPostsData?.full_picture
         if  picturePost  == "" {
             tablePosts.rowHeight = 135
-            cell.picturePostImageView.image = nil
+            cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
             tablePosts.rowHeight = 420
-            let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.full_picture)!, width: 380, height: 400)
-            cell.picturePostImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
+            let picturePostImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPostsData?.full_picture)!, width: 380, height: 400)
+            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: picturePostImageUrl, completed:nil)
             
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
-            cell.picturePostImageView.isUserInteractionEnabled = true
-            cell.picturePostImageView.tag = indexPath.row
-            cell.picturePostImageView.addGestureRecognizer(tapGestureRecognizer)
+            cellPostsUserTableView.picturePostsImageView.isUserInteractionEnabled = true
+            cellPostsUserTableView.picturePostsImageView.tag = indexPath.row
+            cellPostsUserTableView.picturePostsImageView.addGestureRecognizer(tapGestureRecognizer)
         }
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormResource = cellData?.created_time
+        let dateStringFormResource = cellPostsData?.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormResource!)
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
-        cell.createdTimePostLabel.text = dateString
+        cellPostsUserTableView.createdTimePostsLabel.text = dateString
         
-        let atPlace = cellData?.place
+        let atPlace = cellPostsData?.place
         let image = UIImage(named:"iconCheckin")
         if atPlace == nil {
-            cell.atPlaceLabel.text = ""
-            cell.iconCheckInImageView.image = nil
+            cellPostsUserTableView.atPlacePostsLabel.text = ""
+            cellPostsUserTableView.iconCheckInPostsImageView.image = nil
         } else {
-            cell.atPlaceLabel.text = "ที่"
-            cell.iconCheckInImageView.image = image
+            cellPostsUserTableView.atPlacePostsLabel.text = "ที่"
+            cellPostsUserTableView.iconCheckInPostsImageView.image = image
         }
         
-        return cell
+        return cellPostsUserTableView
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

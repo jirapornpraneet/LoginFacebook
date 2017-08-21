@@ -41,7 +41,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="UJC-le-dB0" customClass="FriendsCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellFriendsCollection" id="UJC-le-dB0" customClass="FriendsCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -477,7 +477,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="135" id="C0W-t5-ZCh" customClass="PostUserTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPostsUserTableView" rowHeight="135" id="C0W-t5-ZCh" customClass="PostsUserTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="576" width="320" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C0W-t5-ZCh" id="9qW-TU-bKW">
@@ -618,14 +618,14 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.13341047138929016" green="0.048128960110455053" blue="0.1452252538071066" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <outlet property="atPlaceLabel" destination="8aM-3a-kb3" id="BZO-mj-XBE"/>
-                                    <outlet property="createdTimePostLabel" destination="Dfm-Hh-7wz" id="95O-cR-FFC"/>
-                                    <outlet property="iconCheckInImageView" destination="Xdt-JT-5Ue" id="GHj-8V-R5v"/>
-                                    <outlet property="messageLabel" destination="5gA-o1-v55" id="yg7-e5-JsG"/>
-                                    <outlet property="namePostLabel" destination="LLC-yy-Ieh" id="580-Cm-B0Z"/>
-                                    <outlet property="picturePostImageView" destination="E5T-z3-MUg" id="FAP-19-3Qj"/>
-                                    <outlet property="placePostLabel" destination="RVE-wv-4k3" id="8pf-Oi-Px5"/>
-                                    <outlet property="profilePostImageView" destination="4Jl-ka-ux0" id="GaD-7y-kf9"/>
+                                    <outlet property="atPlacePostsLabel" destination="8aM-3a-kb3" id="CB9-PB-4eE"/>
+                                    <outlet property="createdTimePostsLabel" destination="Dfm-Hh-7wz" id="RFB-Ne-BSq"/>
+                                    <outlet property="iconCheckInPostsImageView" destination="Xdt-JT-5Ue" id="MRq-C9-Eog"/>
+                                    <outlet property="messagePostsLabel" destination="5gA-o1-v55" id="aTH-kT-X4N"/>
+                                    <outlet property="namePostsLabel" destination="LLC-yy-Ieh" id="lZF-LG-RaN"/>
+                                    <outlet property="picturePostsImageView" destination="E5T-z3-MUg" id="bl0-bp-JBd"/>
+                                    <outlet property="placePostsLabel" destination="RVE-wv-4k3" id="vc4-PU-Mn0"/>
+                                    <outlet property="profilePostsImageView" destination="4Jl-ka-ux0" id="k0M-bA-ca8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -939,7 +939,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="135" id="ql4-Ni-9cn" customClass="PostFriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellFriendsPosts" rowHeight="135" id="ql4-Ni-9cn" customClass="PostsFriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="576" width="320" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ql4-Ni-9cn" id="cjc-9J-zJY">
@@ -1080,14 +1080,14 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.13341047140000001" green="0.048128960110000001" blue="0.14522525380000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <outlet property="atPlaceLabel" destination="2hf-Yf-ADc" id="z8h-6M-e8a"/>
-                                    <outlet property="createdTimePostLabel" destination="lmT-ec-Uhm" id="Kun-ER-WpE"/>
-                                    <outlet property="iconCheckInImageView" destination="X7Y-TU-Xio" id="m13-q0-4wH"/>
-                                    <outlet property="messageLabel" destination="s1I-AM-OkK" id="wk6-AS-YHe"/>
-                                    <outlet property="namePostLabel" destination="zy5-n0-4Fa" id="I0B-mF-bfk"/>
-                                    <outlet property="picturePostImageView" destination="ctY-dN-upK" id="HJU-FB-T1I"/>
-                                    <outlet property="placePostLabel" destination="GIk-vL-WqD" id="RsR-K4-fzQ"/>
-                                    <outlet property="profilePostImageView" destination="qzh-uv-N7v" id="zlM-QU-JZt"/>
+                                    <outlet property="atPlacePostsLabel" destination="2hf-Yf-ADc" id="cZF-KL-aaW"/>
+                                    <outlet property="createdTimePostsLabel" destination="lmT-ec-Uhm" id="fb8-Ja-skx"/>
+                                    <outlet property="iconCheckInPostsImageView" destination="X7Y-TU-Xio" id="k57-I2-mwd"/>
+                                    <outlet property="messagePostsLabel" destination="s1I-AM-OkK" id="U9F-Z4-40v"/>
+                                    <outlet property="namePostsLabel" destination="zy5-n0-4Fa" id="PSd-kG-ZIq"/>
+                                    <outlet property="picturePostsImageView" destination="ctY-dN-upK" id="WAF-yk-TAQ"/>
+                                    <outlet property="placePostsLabel" destination="GIk-vL-WqD" id="Qiv-ud-NEh"/>
+                                    <outlet property="profilePostsImageView" destination="qzh-uv-N7v" id="tcG-ZG-6q0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1111,7 +1111,7 @@
                         <outlet property="nameLabel" destination="xP7-J6-cpA" id="BsW-WB-yLZ"/>
                         <outlet property="profileFriendImageView" destination="M9U-eW-Tvy" id="Ln1-J4-HQD"/>
                         <outlet property="profileUserImage" destination="eqq-tv-cm8" id="Hzr-f2-lrh"/>
-                        <outlet property="tablePostFriend" destination="NAA-ES-LIh" id="xSp-r3-rRx"/>
+                        <outlet property="tablePostsFriend" destination="NAA-ES-LIh" id="SVJ-nG-N7U"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsm-Lh-EAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1133,7 +1133,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="WfT-6c-Bwa" customClass="AlbumsDetailCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellAlbumsDetailCollection" id="WfT-6c-Bwa" customClass="AlbumsDetailCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1182,7 +1182,7 @@
         <scene sceneID="can-jy-LhI">
             <objects>
                 <collectionViewController storyboardIdentifier="PhotosAlbumsCollection" id="Sag-kc-C7d" customClass="PhotosAlbumsCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="niO-d9-Lgl">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="niO-d9-Lgl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1193,7 +1193,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotosAlbumsCell" id="gD2-BC-eXF" customClass="PhotosCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellPhotosCollection" id="gD2-BC-eXF" customClass="PhotosCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
