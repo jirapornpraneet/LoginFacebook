@@ -63,6 +63,18 @@ class PostsDataDetail: EVObject {
     var id: Int = 0
     var created_time: String = ""
     var place: PlaceData?
+    var likes: LikesData?
+}
+
+class LikesData: EVObject {
+    var data: [LikesDataDetail]? = []
+}
+
+class LikesDataDetail: EVObject {
+    var name: String = ""
+    var link: String = ""
+    var pic_large: String = ""
+    var id: Int = 0
 }
 
 class PlaceData: EVObject {
