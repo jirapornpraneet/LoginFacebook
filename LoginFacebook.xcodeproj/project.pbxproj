@@ -77,8 +77,8 @@
 		AB3344501F29C89000F20846 /* LoginFacebook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoginFacebook-Bridging-Header.h"; sourceTree = "<group>"; };
 		AB442AA31F42CEA900C17A41 /* FunctionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionHelper.swift; sourceTree = "<group>"; };
 		AB442AA51F42CEE900C17A41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosAlbumsCollectionViewController.swift; sourceTree = "<group>"; };
-		ABA416371F46AF9300BD9BC1 /* AlbumsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewController.swift; sourceTree = "<group>"; };
+		ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosAlbumsCollectionViewController.swift; path = ../ShowProfileUser/PhotosAlbumsCollectionViewController.swift; sourceTree = "<group>"; };
+		ABA416371F46AF9300BD9BC1 /* AlbumsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumsCollectionViewController.swift; path = ../ShowProfileUser/AlbumsCollectionViewController.swift; sourceTree = "<group>"; };
 		ABAAC0331F3453AA000B42F3 /* FristViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FristViewController.swift; path = ../LoginFacebook/FristViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +191,15 @@
 			path = "Function Helper";
 			sourceTree = SOURCE_ROOT;
 		};
+		ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */ = {
+			isa = PBXGroup;
+			children = (
+				ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */,
+				ABA416371F46AF9300BD9BC1 /* AlbumsCollectionViewController.swift */,
+			);
+			path = AlbumsPhotosUser;
+			sourceTree = SOURCE_ROOT;
+		};
 		ABDB61AF1F3AF3FA00CAD71D /* FristViewApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,8 +222,7 @@
 			children = (
 				AB292EBA1F3085B10088896D /* UserResource.swift */,
 				AB33440E1F29BA3000F20846 /* ViewController.swift */,
-				ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */,
-				ABA416371F46AF9300BD9BC1 /* AlbumsCollectionViewController.swift */,
+				ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */,
 			);
 			path = ShowProfileUser;
 			sourceTree = SOURCE_ROOT;

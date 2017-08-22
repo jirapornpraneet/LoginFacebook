@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SKPhotoBrowser
 
 private let reuseIdentifier = "Cell"
 
@@ -29,6 +30,18 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         
         collectionViewListPhotosInAlbums?.reloadData()
     }
+    
+    func ZoomPhotos(_ sender: AnyObject) {
+        let cellPhotosData = getPhotosData[sender.view.tag] as! AlbumsPhotosDataDetail
+        var photosAlbums = [SKPhoto]()
+        let photos = SKPhoto.photoWithImageURL((cellPhotosData.picture))
+        photos.shouldCachePhotoURLImage = true
+        photosAlbums.append(photos)
+        let browser = SKPhotoBrowser(photos: photosAlbums)
+        browser.initializePageIndex(0)
+        present(browser, animated: true, completion: {})
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,8 +66,13 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         let cellPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellPhotosCollection", for: indexPath) as! PhotosCollectionViewCell
         let cellPhotosData = getPhotosData[indexPath.row] as! AlbumsPhotosDataDetail
        
-        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPhotosData.picture), width: 120, height: 120)
+        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPhotosData.picture), width:  800, height: 800)
         cellPhotosCollectionView.photosAlbumsImageView.sd_setImage(with: pictureUrl, completed:nil)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PhotosAlbumsCollectionViewController.ZoomPhotos(_:)))
+        cellPhotosCollectionView.photosAlbumsImageView.isUserInteractionEnabled = true
+        cellPhotosCollectionView.photosAlbumsImageView.tag = indexPath.row
+        cellPhotosCollectionView.photosAlbumsImageView.addGestureRecognizer(tapGestureRecognizer)
         
         return cellPhotosCollectionView
     }
