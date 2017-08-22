@@ -186,7 +186,6 @@ class ViewController: UITableViewController {
         
         let cellLikesData = cellPostsData?.likes?.data?[0]
         var cellLikesDataCount = cellPostsData?.likes?.data?.count
-        print("cellCount", cellLikesDataCount)
         if cellLikesData == nil && cellLikesDataCount == nil {
             cellPostsUserTableView.friendsLikesLabel.text = ""
             cellLikesDataCount = 0
