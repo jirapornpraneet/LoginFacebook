@@ -25,6 +25,7 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var placePostsLabel: UILabel!
     @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
+    @IBOutlet weak var friendsLikesLabel: UILabel!
 }
 
 class ViewController: UITableViewController {
@@ -183,6 +184,16 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.iconCheckInPostsImageView.image = image
         }
         
+        let cellLikesData = cellPostsData?.likes?.data?[0]
+        let cellLikesCount = cellPostsData?.likes?.data?.count
+        let likesCount = cellLikesCount! - 1
+        print("LikesCount", likesCount)
+        if cellLikesData == nil {
+            cellPostsUserTableView.friendsLikesLabel.text = ""
+        } else {
+            cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และเพื่อนคนอื่นๆอีก %@ %คน", (cellLikesData?.name)!, likesCount)
+        }
+       
         return cellPostsUserTableView
     }
 }
