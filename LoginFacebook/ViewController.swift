@@ -185,13 +185,14 @@ class ViewController: UITableViewController {
         }
         
         let cellLikesData = cellPostsData?.likes?.data?[0]
-        let cellLikesCount = cellPostsData?.likes?.data?.count
-        let likesCount = cellLikesCount! - 1
-        print("LikesCount", likesCount)
-        if cellLikesData == nil {
+        var cellLikesDataCount = cellPostsData?.likes?.data?.count
+        print("cellCount", cellLikesDataCount)
+        if cellLikesData == nil && cellLikesDataCount == nil {
             cellPostsUserTableView.friendsLikesLabel.text = ""
+            cellLikesDataCount = 0
         } else {
-            cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และเพื่อนคนอื่นๆอีก %@ %คน", (cellLikesData?.name)!, likesCount)
+            let likesCount = cellLikesDataCount! - 1
+            cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และเพื่อนคนอื่นๆอีก %i %คน", (cellLikesData?.name)!, likesCount)
         }
        
         return cellPostsUserTableView
