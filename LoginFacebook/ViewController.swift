@@ -25,7 +25,8 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var placePostsLabel: UILabel!
     @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
-    @IBOutlet weak var friendsLikesLabel: UILabel!
+    @IBOutlet weak var friendsReactionLabel: UILabel!
+    @IBOutlet weak var iconReactionImageView: UIImageView!
 }
 
 class ViewController: UITableViewController {
@@ -187,17 +188,36 @@ class ViewController: UITableViewController {
         let cellReactionsData = cellPostsData?.reactions?.data?[0]
         var cellReactionsDataCount = cellPostsData?.reactions?.data?.count
         if cellReactionsData == nil && cellReactionsDataCount == nil {
-            cellPostsUserTableView.friendsLikesLabel.text = ""
+            cellPostsUserTableView.friendsReactionLabel.text = ""
             cellReactionsDataCount = 0
         } else {
-            
             let nameFriendLike = cellReactionsData?.name
             let length = nameFriendLike?.characters.count
             if length! >= 12 {
-                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%i", cellReactionsDataCount!)
+                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", cellReactionsDataCount!)
             } else {
                 let likesCount = cellReactionsDataCount! - 1
-                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellReactionsData?.name)!, likesCount)
+                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellReactionsData?.name)!, likesCount)
+            }
+        }
+        
+        let cellReactionsDataTest = cellPostsData?.reactions?.data?[0]
+        let cellReactionType = cellReactionsDataTest?.type
+        if cellReactionsDataTest == nil {
+            cellPostsUserTableView.iconReactionImageView.image = nil
+        } else {
+            if cellReactionType == "LIKE" {
+                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconLike")
+            } else if cellReactionType == "LOVE" {
+                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconLove")
+            } else if cellReactionType == "HAHA" {
+                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconHaHa")
+            } else if cellReactionType == "SAD" {
+                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconSad")
+            } else if cellReactionType == "WOW" {
+                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconWow")
+            } else {
+                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconAngry")
             }
         }
         return cellPostsUserTableView
