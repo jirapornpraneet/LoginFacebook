@@ -97,7 +97,7 @@ class ViewController: UITableViewController {
     }
    
     func fetchProfile() {
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place,likes{name,pic_large,link}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place,reactions{name,pic_large,type,link}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
             let jsonString = resultDictionary?.toJsonString()
@@ -190,7 +190,8 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.friendsLikesLabel.text = ""
             cellReactionsDataCount = 0
         } else {
-            
+            print("cellCount",cellReactionsDataCount)
+            print("cellName",cellReactionsData?.name)
             let nameFriendLike = cellReactionsData?.name
             let length = nameFriendLike?.characters.count
             if length! >= 12 {
