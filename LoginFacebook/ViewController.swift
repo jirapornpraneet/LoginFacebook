@@ -193,10 +193,11 @@ class ViewController: UITableViewController {
         } else {
             let nameFriendLike = cellReactionsData?.name
             let length = nameFriendLike?.characters.count
-            if length! >= 12 {
+            if length! >= 13 {
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", cellReactionsDataCount!)
             } else {
                 let likesCount = cellReactionsDataCount! - 1
+                print("name", cellReactionsData?.name)
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellReactionsData?.name)!, likesCount)
             }
         }
