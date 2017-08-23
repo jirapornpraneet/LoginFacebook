@@ -260,7 +260,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer Science" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-oa-1hl">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-oa-1hl">
                                             <rect key="frame" x="75" y="9" width="123" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="123" id="Gdn-u7-GwA"/>
@@ -287,7 +287,7 @@
                                                 <constraint firstAttribute="height" constant="15" id="zhG-6S-Azc"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="schoolName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3j-eo-UdQ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3j-eo-UdQ">
                                             <rect key="frame" x="98" y="68" width="211" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="hNb-cF-Zvq"/>
@@ -307,7 +307,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="schoolName" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xA5-f1-uQE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xA5-f1-uQE">
                                             <rect key="frame" x="40" y="32" width="254" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="254" id="Cw8-zE-xa4"/>
@@ -585,7 +585,7 @@
                                                 <constraint firstAttribute="width" constant="17" id="byv-D4-Axj"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLike" translatesAutoresizingMaskIntoConstraints="NO" id="3tf-OS-ycD">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLikePosts" translatesAutoresizingMaskIntoConstraints="NO" id="3tf-OS-ycD">
                                             <rect key="frame" x="19" y="105" width="64" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="23" id="3PB-W3-76L"/>
@@ -632,8 +632,9 @@
                                 <connections>
                                     <outlet property="atPlacePostsLabel" destination="8aM-3a-kb3" id="CB9-PB-4eE"/>
                                     <outlet property="createdTimePostsLabel" destination="Dfm-Hh-7wz" id="RFB-Ne-BSq"/>
-                                    <outlet property="friendsLikesLabel" destination="zOZ-Tz-OF5" id="2Ur-es-grH"/>
+                                    <outlet property="friendsReactionLabel" destination="zOZ-Tz-OF5" id="YJf-cC-o2F"/>
                                     <outlet property="iconCheckInPostsImageView" destination="Xdt-JT-5Ue" id="MRq-C9-Eog"/>
+                                    <outlet property="iconReactionImageView" destination="Dgh-vN-rBI" id="gp0-N1-mJB"/>
                                     <outlet property="messagePostsLabel" destination="5gA-o1-v55" id="aTH-kT-X4N"/>
                                     <outlet property="namePostsLabel" destination="LLC-yy-Ieh" id="lZF-LG-RaN"/>
                                     <outlet property="picturePostsImageView" destination="E5T-z3-MUg" id="bl0-bp-JBd"/>
@@ -1245,7 +1246,8 @@
         <image name="iconEvent" width="209" height="58"/>
         <image name="iconFriend" width="117" height="117"/>
         <image name="iconHello" width="116" height="115"/>
-        <image name="iconLike" width="133" height="49"/>
+        <image name="iconLike" width="77" height="77"/>
+        <image name="iconLikePosts" width="133" height="49"/>
         <image name="iconMessenger" width="124" height="140"/>
         <image name="iconPicture" width="134" height="43"/>
         <image name="iconPost" width="84" height="103"/>
