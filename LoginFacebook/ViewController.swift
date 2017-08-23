@@ -193,18 +193,17 @@ class ViewController: UITableViewController {
         } else {
             let nameFriendLike = cellReactionsData?.name
             let length = nameFriendLike?.characters.count
+        
             if length! >= 13 {
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", cellReactionsDataCount!)
             } else {
                 let likesCount = cellReactionsDataCount! - 1
-                print("name", cellReactionsData?.name)
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellReactionsData?.name)!, likesCount)
             }
         }
         
-        let cellReactionsDataTest = cellPostsData?.reactions?.data?[0]
-        let cellReactionType = cellReactionsDataTest?.type
-        if cellReactionsDataTest == nil {
+        let cellReactionType = cellReactionsData?.type
+        if cellReactionsData == nil {
             cellPostsUserTableView.iconReactionImageView.image = nil
         } else {
             if cellReactionType == "LIKE" {
