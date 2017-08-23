@@ -313,7 +313,7 @@
                                                 <constraint firstAttribute="width" constant="254" id="Cw8-zE-xa4"/>
                                                 <constraint firstAttribute="height" constant="15" id="NJJ-bC-7Tc"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -568,13 +568,13 @@
                                                 <constraint firstAttribute="width" constant="112" id="RFN-JN-Sxp"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOZ-Tz-OF5">
-                                            <rect key="frame" x="33" y="87" width="172" height="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOZ-Tz-OF5">
+                                            <rect key="frame" x="33" y="84" width="172" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="172" id="JOq-Ch-OzA"/>
                                                 <constraint firstAttribute="height" constant="13" id="VBv-aO-0Q7"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.44662119289340096" green="0.44662119289340096" blue="0.44662119289340096" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -619,7 +619,7 @@
                                         <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="Sow-VP-ZFX" secondAttribute="bottom" constant="7" id="ZMC-hR-VNn"/>
                                         <constraint firstItem="Dfm-Hh-7wz" firstAttribute="leading" secondItem="4Jl-ka-ux0" secondAttribute="trailing" constant="4" id="a5g-wW-WZd"/>
                                         <constraint firstItem="RSx-XG-TKo" firstAttribute="leading" secondItem="3tf-OS-ycD" secondAttribute="trailing" constant="102" id="azs-sC-w5W"/>
-                                        <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="zOZ-Tz-OF5" secondAttribute="bottom" constant="5" id="e4a-6V-W0r"/>
+                                        <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="zOZ-Tz-OF5" secondAttribute="bottom" constant="8" id="e4a-6V-W0r"/>
                                         <constraint firstItem="4Jl-ka-ux0" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="top" constant="8" id="epp-1A-oaL"/>
                                         <constraint firstAttribute="bottom" secondItem="RSx-XG-TKo" secondAttribute="bottom" constant="3.5" id="g6a-LR-iG7"/>
                                         <constraint firstItem="zOZ-Tz-OF5" firstAttribute="leading" secondItem="Dgh-vN-rBI" secondAttribute="trailing" constant="7" id="hCs-vJ-8w0"/>
