@@ -184,20 +184,20 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.iconCheckInPostsImageView.image = image
         }
         
-        let cellLikesData = cellPostsData?.likes?.data?[0]
-        var cellLikesDataCount = cellPostsData?.likes?.data?.count
-        if cellLikesData == nil && cellLikesDataCount == nil {
+        let cellReactionsData = cellPostsData?.reactions?.data?[0]
+        var cellReactionsDataCount = cellPostsData?.reactions?.data?.count
+        if cellReactionsData == nil && cellReactionsDataCount == nil {
             cellPostsUserTableView.friendsLikesLabel.text = ""
-            cellLikesDataCount = 0
+            cellReactionsDataCount = 0
         } else {
             
-            let nameFriendLike = cellLikesData?.name
+            let nameFriendLike = cellReactionsData?.name
             let length = nameFriendLike?.characters.count
             if length! >= 12 {
-                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%i", cellLikesDataCount!)
+                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%i", cellReactionsDataCount!)
             } else {
-                let likesCount = cellLikesDataCount! - 1
-                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellLikesData?.name)!, likesCount)
+                let likesCount = cellReactionsDataCount! - 1
+                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellReactionsData?.name)!, likesCount)
             }
         }
         return cellPostsUserTableView
