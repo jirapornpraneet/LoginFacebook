@@ -190,10 +190,16 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.friendsLikesLabel.text = ""
             cellLikesDataCount = 0
         } else {
-            let likesCount = cellLikesDataCount! - 1
-            cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และเพื่อนคนอื่นๆอีก %i %คน", (cellLikesData?.name)!, likesCount)
+            
+            let nameFriendLike = cellLikesData?.name
+            let length = nameFriendLike?.characters.count
+            if length! >= 12 {
+                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%i", cellLikesDataCount!)
+            } else {
+                let likesCount = cellLikesDataCount! - 1
+                cellPostsUserTableView.friendsLikesLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellLikesData?.name)!, likesCount)
+            }
         }
-       
         return cellPostsUserTableView
     }
 }
