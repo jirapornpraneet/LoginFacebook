@@ -28,7 +28,6 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var friendsReactionLabel: UILabel!
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
-    @IBOutlet weak var iconReaction3ImageView: UIImageView!
 }
 
 class ViewController: UITableViewController {
