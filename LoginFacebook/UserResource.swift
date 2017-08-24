@@ -64,6 +64,22 @@ class PostsDataDetail: EVObject {
     var created_time: String = ""
     var place: PlaceData?
     var reactions: ReactionsData?
+    var comments: CommentsData?
+}
+
+class CommentsData: EVObject {
+    var data: [CommentsDataDetail]? = []
+}
+
+class CommentsDataDetail: EVObject {
+    var comment_count: Int = 0
+    var message: String = ""
+    var from: FromData?
+    var created_time: String = ""
+}
+
+class FromData: EVObject {
+    var name: String = ""
 }
 
 class ReactionsData: EVObject {
