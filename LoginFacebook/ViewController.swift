@@ -100,7 +100,7 @@ class ViewController: UITableViewController {
     }
    
     func fetchProfile() {
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place,reactions{name,pic_large,type,link},comments{comment_count,message,from,created_time}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place,reactions.limit(500){name,pic_large,type,link},comments{comment_count,message,from,created_time}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
             let jsonString = resultDictionary?.toJsonString()
