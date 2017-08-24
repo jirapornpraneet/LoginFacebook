@@ -29,6 +29,7 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
     @IBOutlet weak var commentsFriendsLabel: UILabel!
+
 }
 
 class ViewController: UITableViewController {
@@ -193,7 +194,7 @@ class ViewController: UITableViewController {
         } else {
             cellPostsUserTableView.commentsFriendsLabel.text = String(format: "%ความคิดเห็น %i %รายการ", cellCommentsDataCount!)
         }
-        
+      
         let cellReactionsData = cellPostsData?.reactions?.data?[0]
         var cellReactionsDataCount = cellPostsData?.reactions?.data?.count
         if cellReactionsData == nil && cellReactionsDataCount == nil {
@@ -206,9 +207,15 @@ class ViewController: UITableViewController {
         
             if length! >= 10 {
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", cellReactionsDataCount!)
+                let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
+                cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
+                cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
             } else {
                 let likesCount = cellReactionsDataCount! - 1
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellReactionsData?.name)!, likesCount)
+                let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
+                cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
+                cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
             }
             
             let cellReactionType = cellReactionsData?.type
@@ -256,6 +263,17 @@ class ViewController: UITableViewController {
                 }
             }
         }
+        
+        let cellSetReactionData = cellPostsData?.reactions?.data
+        if cellSetReactionData != nil {
+            getReactionData = cellSetReactionData!
+        }
         return cellPostsUserTableView
   }
+    
+    var getReactionData = [NSObject]()
+    
+    func tapClickFriendsReactionLabel(sender: UITapGestureRecognizer) {
+        print("tapClick", getReactionData)
+    }
 }
