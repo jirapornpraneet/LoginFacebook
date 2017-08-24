@@ -26,7 +26,9 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
     @IBOutlet weak var friendsReactionLabel: UILabel!
-    @IBOutlet weak var iconReactionImageView: UIImageView!
+    @IBOutlet weak var iconReaction1ImageView: UIImageView!
+    @IBOutlet weak var iconReaction2ImageView: UIImageView!
+    @IBOutlet weak var iconReaction3ImageView: UIImageView!
 }
 
 class ViewController: UITableViewController {
@@ -204,22 +206,54 @@ class ViewController: UITableViewController {
         
         let cellReactionType = cellReactionsData?.type
         if cellReactionsData == nil {
-            cellPostsUserTableView.iconReactionImageView.image = nil
+            cellPostsUserTableView.iconReaction1ImageView.image = nil
         } else {
             if cellReactionType == "LIKE" {
-                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconLike")
+                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
             } else if cellReactionType == "LOVE" {
-                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconLove")
+                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
             } else if cellReactionType == "HAHA" {
-                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconHaHa")
+                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
             } else if cellReactionType == "SAD" {
-                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconSad")
+                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
             } else if cellReactionType == "WOW" {
-                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconWow")
+                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
             } else {
-                cellPostsUserTableView.iconReactionImageView.image = UIImage(named:"iconAngry")
+                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
             }
         }
+     
+        if cellReactionsDataCount == 1 {
+                cellPostsUserTableView.iconReaction2ImageView.image = nil
+            } else {
+                let cellReactionData1 = cellPostsData?.reactions?.data?[1]
+                let cellReactionType1 = cellReactionData1?.type
+         //       let cellReactionType = cellReactionsData?.type
+                
+                if cellReactionData1 == nil {
+                    cellPostsUserTableView.iconReaction2ImageView.image = nil
+                    
+                } else {
+                    if cellReactionType1 == cellReactionType {
+                        cellPostsUserTableView.iconReaction2ImageView.image = nil
+                    } else {
+                        if cellReactionType1 == "LIKE" {
+                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
+                        } else if cellReactionType1 == "LOVE" {
+                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
+                        } else if cellReactionType1 == "HAHA" {
+                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
+                        } else if cellReactionType1 == "SAD" {
+                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
+                        } else if cellReactionType1 == "WOW" {
+                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
+                        } else {
+                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
+                    }
+                }
+            }
+        }
+    
         return cellPostsUserTableView
-    }
+  }
 }
