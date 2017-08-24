@@ -222,36 +222,35 @@ class ViewController: UITableViewController {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
             }
         }
-     
+        
         if cellReactionsDataCount == 1 {
+            cellPostsUserTableView.iconReaction2ImageView.image = nil
+        } else {
+            let cellReactionData1 = cellPostsData?.reactions?.data?[1]
+            let cellReactionType1 = cellReactionData1?.type
+            let cellReactionType = cellReactionsData?.type
+            if cellReactionData1 == nil {
                 cellPostsUserTableView.iconReaction2ImageView.image = nil
             } else {
-                let cellReactionData1 = cellPostsData?.reactions?.data?[1]
-                let cellReactionType1 = cellReactionData1?.type
-                let cellReactionType = cellReactionsData?.type
-                if cellReactionData1 == nil {
+                if cellReactionType1 == cellReactionType {
                     cellPostsUserTableView.iconReaction2ImageView.image = nil
                 } else {
-                    if cellReactionType1 == cellReactionType {
-                        cellPostsUserTableView.iconReaction2ImageView.image = nil
+                    if cellReactionType1 == "LIKE" {
+                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
+                    } else if cellReactionType1 == "LOVE" {
+                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
+                    } else if cellReactionType1 == "HAHA" {
+                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
+                    } else if cellReactionType1 == "SAD" {
+                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
+                    } else if cellReactionType1 == "WOW" {
+                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
                     } else {
-                        if cellReactionType1 == "LIKE" {
-                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
-                        } else if cellReactionType1 == "LOVE" {
-                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
-                        } else if cellReactionType1 == "HAHA" {
-                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
-                        } else if cellReactionType1 == "SAD" {
-                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
-                        } else if cellReactionType1 == "WOW" {
-                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
-                        } else {
-                            cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
+                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
                     }
                 }
             }
         }
-    
         return cellPostsUserTableView
   }
 }
