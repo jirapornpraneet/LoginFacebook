@@ -28,6 +28,7 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var friendsReactionLabel: UILabel!
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
+    @IBOutlet weak var commentsFriendsLabel: UILabel!
 }
 
 class ViewController: UITableViewController {
@@ -184,6 +185,13 @@ class ViewController: UITableViewController {
         } else {
             cellPostsUserTableView.atPlacePostsLabel.text = "ที่"
             cellPostsUserTableView.iconCheckInPostsImageView.image = image
+        }
+        
+        let cellCommentsDataCount = cellPostsData?.comments?.data?.count
+        if cellCommentsDataCount == nil {
+            cellPostsUserTableView.commentsFriendsLabel.text = ""
+        } else {
+            cellPostsUserTableView.commentsFriendsLabel.text = String(format: "%ความคิดเห็น %i %รายการ", cellCommentsDataCount!)
         }
         
         let cellReactionsData = cellPostsData?.reactions?.data?[0]
