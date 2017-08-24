@@ -228,11 +228,9 @@ class ViewController: UITableViewController {
             } else {
                 let cellReactionData1 = cellPostsData?.reactions?.data?[1]
                 let cellReactionType1 = cellReactionData1?.type
-         //       let cellReactionType = cellReactionsData?.type
-                
+                let cellReactionType = cellReactionsData?.type
                 if cellReactionData1 == nil {
                     cellPostsUserTableView.iconReaction2ImageView.image = nil
-                    
                 } else {
                     if cellReactionType1 == cellReactionType {
                         cellPostsUserTableView.iconReaction2ImageView.image = nil
