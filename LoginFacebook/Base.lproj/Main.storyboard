@@ -580,12 +580,12 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="friendReaction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOZ-Tz-OF5">
-                                            <rect key="frame" x="43" y="84" width="132" height="13"/>
+                                            <rect key="frame" x="42" y="84" width="132" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="132" id="9HK-Sx-rk2"/>
                                                 <constraint firstAttribute="height" constant="13" id="w6A-0b-XjZ"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.44662119289340096" green="0.44662119289340096" blue="0.44662119289340096" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -595,7 +595,7 @@
                                                 <constraint firstAttribute="width" constant="127" id="2OF-X5-Ch2"/>
                                                 <constraint firstAttribute="height" constant="12" id="xV8-zK-eAy"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.44713732600212097" green="0.44712838530540466" blue="0.44713440537452698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -615,7 +615,7 @@
                                         <constraint firstItem="E5T-z3-MUg" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="7" id="IPT-0p-yXl"/>
                                         <constraint firstAttribute="trailing" secondItem="RSx-XG-TKo" secondAttribute="trailing" constant="23" id="JKV-gR-4by"/>
                                         <constraint firstItem="5gA-o1-v55" firstAttribute="top" secondItem="4Jl-ka-ux0" secondAttribute="bottom" constant="6" id="Jyx-mI-FFj"/>
-                                        <constraint firstItem="zOZ-Tz-OF5" firstAttribute="leading" secondItem="cxS-Xl-nPq" secondAttribute="trailing" constant="3" id="LVL-jP-A3Y"/>
+                                        <constraint firstItem="zOZ-Tz-OF5" firstAttribute="leading" secondItem="cxS-Xl-nPq" secondAttribute="trailing" constant="2" id="LVL-jP-A3Y"/>
                                         <constraint firstItem="LLC-yy-Ieh" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="4" id="NCe-1f-Q1I"/>
                                         <constraint firstAttribute="bottom" secondItem="3tf-OS-ycD" secondAttribute="bottom" constant="6.5" id="Ndw-Th-lhc"/>
                                         <constraint firstItem="8aM-3a-kb3" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="4" id="Nhg-w0-Xec"/>
