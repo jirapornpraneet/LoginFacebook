@@ -579,18 +579,11 @@
                                                 <constraint firstAttribute="width" constant="64" id="bwr-Q9-loi"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-dZ-oew">
-                                            <rect key="frame" x="45" y="82" width="17" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="17" id="6Q3-nW-9az"/>
-                                                <constraint firstAttribute="height" constant="17" id="Hke-EG-ERv"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOZ-Tz-OF5">
-                                            <rect key="frame" x="66" y="84" width="197" height="13"/>
+                                            <rect key="frame" x="47" y="84" width="197" height="13"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="13" id="Kzz-OX-KOk"/>
-                                                <constraint firstAttribute="width" constant="197" id="sZm-8Y-EEI"/>
+                                                <constraint firstAttribute="width" constant="197" id="9HK-Sx-rk2"/>
+                                                <constraint firstAttribute="height" constant="13" id="w6A-0b-XjZ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.44662119289340096" green="0.44662119289340096" blue="0.44662119289340096" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -603,7 +596,6 @@
                                         <constraint firstAttribute="trailing" secondItem="5gA-o1-v55" secondAttribute="trailing" constant="4" id="1As-HI-alA"/>
                                         <constraint firstItem="3tf-OS-ycD" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="19" id="1Gz-eB-UMC"/>
                                         <constraint firstItem="8aM-3a-kb3" firstAttribute="leading" secondItem="LLC-yy-Ieh" secondAttribute="trailing" constant="5" id="2UI-Im-wsN"/>
-                                        <constraint firstItem="fpc-dZ-oew" firstAttribute="leading" secondItem="cxS-Xl-nPq" secondAttribute="trailing" constant="1" id="3h7-Sc-O16"/>
                                         <constraint firstItem="4Jl-ka-ux0" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="7" id="5gE-gm-fNC"/>
                                         <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="Dgh-vN-rBI" secondAttribute="bottom" constant="6" id="8gM-JW-xNr"/>
                                         <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="cxS-Xl-nPq" secondAttribute="bottom" constant="6" id="8v6-4b-Apy"/>
@@ -613,6 +605,7 @@
                                         <constraint firstItem="E5T-z3-MUg" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="7" id="IPT-0p-yXl"/>
                                         <constraint firstAttribute="trailing" secondItem="RSx-XG-TKo" secondAttribute="trailing" constant="23" id="JKV-gR-4by"/>
                                         <constraint firstItem="5gA-o1-v55" firstAttribute="top" secondItem="4Jl-ka-ux0" secondAttribute="bottom" constant="6" id="Jyx-mI-FFj"/>
+                                        <constraint firstItem="zOZ-Tz-OF5" firstAttribute="leading" secondItem="cxS-Xl-nPq" secondAttribute="trailing" constant="3" id="LVL-jP-A3Y"/>
                                         <constraint firstItem="LLC-yy-Ieh" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="4" id="NCe-1f-Q1I"/>
                                         <constraint firstAttribute="bottom" secondItem="3tf-OS-ycD" secondAttribute="bottom" constant="6.5" id="Ndw-Th-lhc"/>
                                         <constraint firstItem="8aM-3a-kb3" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="4" id="Nhg-w0-Xec"/>
@@ -621,16 +614,14 @@
                                         <constraint firstItem="LLC-yy-Ieh" firstAttribute="leading" secondItem="4Jl-ka-ux0" secondAttribute="trailing" constant="4" id="SO2-Ex-zld"/>
                                         <constraint firstItem="Dfm-Hh-7wz" firstAttribute="top" secondItem="RVE-wv-4k3" secondAttribute="bottom" constant="1" id="UPl-ys-qML"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="E5T-z3-MUg" secondAttribute="bottom" constant="56.5" id="UXw-PX-DGU"/>
+                                        <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="zOZ-Tz-OF5" secondAttribute="bottom" constant="8" id="WOW-Td-LRw"/>
                                         <constraint firstItem="Dfm-Hh-7wz" firstAttribute="leading" secondItem="4Jl-ka-ux0" secondAttribute="trailing" constant="4" id="a5g-wW-WZd"/>
                                         <constraint firstItem="RSx-XG-TKo" firstAttribute="leading" secondItem="3tf-OS-ycD" secondAttribute="trailing" constant="102" id="azs-sC-w5W"/>
                                         <constraint firstItem="4Jl-ka-ux0" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="top" constant="8" id="epp-1A-oaL"/>
                                         <constraint firstAttribute="bottom" secondItem="RSx-XG-TKo" secondAttribute="bottom" constant="3.5" id="g6a-LR-iG7"/>
-                                        <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="zOZ-Tz-OF5" secondAttribute="bottom" constant="8" id="h1M-hc-VAm"/>
                                         <constraint firstItem="5gA-o1-v55" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="12" id="ib4-pL-Vxf"/>
                                         <constraint firstItem="Xdt-JT-5Ue" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="3" id="leR-9l-AQ4"/>
-                                        <constraint firstItem="zOZ-Tz-OF5" firstAttribute="leading" secondItem="fpc-dZ-oew" secondAttribute="trailing" constant="4" id="q98-XL-xcT"/>
                                         <constraint firstItem="RVE-wv-4k3" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="top" constant="9" id="r3T-Mx-hQc"/>
-                                        <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="fpc-dZ-oew" secondAttribute="bottom" constant="6" id="uqY-9T-Asi"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.13341047138929016" green="0.048128960110455053" blue="0.1452252538071066" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
@@ -641,7 +632,6 @@
                                     <outlet property="iconCheckInPostsImageView" destination="Xdt-JT-5Ue" id="MRq-C9-Eog"/>
                                     <outlet property="iconReaction1ImageView" destination="Dgh-vN-rBI" id="u2z-M9-kCF"/>
                                     <outlet property="iconReaction2ImageView" destination="cxS-Xl-nPq" id="4ZS-y8-lxp"/>
-                                    <outlet property="iconReaction3ImageView" destination="fpc-dZ-oew" id="WJs-Cc-mgg"/>
                                     <outlet property="messagePostsLabel" destination="5gA-o1-v55" id="aTH-kT-X4N"/>
                                     <outlet property="namePostsLabel" destination="LLC-yy-Ieh" id="lZF-LG-RaN"/>
                                     <outlet property="picturePostsImageView" destination="E5T-z3-MUg" id="bl0-bp-JBd"/>
