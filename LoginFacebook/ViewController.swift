@@ -201,8 +201,10 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.friendsReactionLabel.text = ""
             cellReactionsDataCount = 0
             cellPostsUserTableView.iconReaction1ImageView.image = nil
-            getReactionCount = cellReactionsDataCount!
+            getReactionCount = 0
         } else {
+            getReactionCount = cellReactionsDataCount!
+            
             let nameFriendLike = cellReactionsData?.name
             let length = nameFriendLike?.characters.count
         
@@ -216,6 +218,7 @@ class ViewController: UITableViewController {
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellReactionsData?.name)!, likesCount)
                 let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
                 cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
+                cellPostsUserTableView.friendsReactionLabel.tag = indexPath.row
                 cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
             }
             
@@ -283,5 +286,13 @@ class ViewController: UITableViewController {
         cellListReactionFriendsView.getReactionsFriendsCount = getReactionCount
         
         self.performSegue(withIdentifier: "ListReactionFriendsView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ListReactionFriendsView" {
+            let vc = segue.destination as! ListReactionFriendsTableViewController
+            vc.getReactionsFriendsData = getReactionData
+            vc.getReactionsFriendsCount = getReactionCount
+        }
     }
 }

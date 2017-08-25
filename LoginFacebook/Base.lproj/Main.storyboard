@@ -1239,6 +1239,9 @@
                             <outlet property="delegate" destination="Mll-1r-daG" id="XdQ-PS-kie"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableListReactionFriends" destination="IPG-hh-56G" id="xzN-h0-9j4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
