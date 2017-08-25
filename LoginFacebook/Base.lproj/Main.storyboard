@@ -671,6 +671,7 @@
                         <outlet property="schoolNameLabel" destination="xA5-f1-uQE" id="47c-8A-fK2"/>
                         <outlet property="showFriendButton" destination="mlO-jw-MYG" id="8vm-zs-Lv9"/>
                         <outlet property="tablePosts" destination="aLE-t3-bId" id="yxT-VV-9XV"/>
+                        <segue destination="Mll-1r-daG" kind="show" identifier="ListReactionFriendsView" id="ZXc-Qm-Eq4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbl-lZ-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1037,7 +1038,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLike" translatesAutoresizingMaskIntoConstraints="NO" id="UKw-rw-OSm">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLikePosts" translatesAutoresizingMaskIntoConstraints="NO" id="UKw-rw-OSm">
                                             <rect key="frame" x="28" y="105" width="64" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="64" id="7tM-SZ-b1F"/>
@@ -1202,6 +1203,47 @@
             </objects>
             <point key="canvasLocation" x="1076.25" y="406.6901408450704"/>
         </scene>
+        <!--List Reaction Friends Table View Controller-->
+        <scene sceneID="M7E-8o-RLO">
+            <objects>
+                <tableViewController storyboardIdentifier="ListReactionFriendsView" id="Mll-1r-daG" customClass="ListReactionFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="IPG-hh-56G">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="140" id="PGY-NK-f4X" customClass="ListReactionFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PGY-NK-f4X" id="yLn-CA-Mfp">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-ZM-exT">
+                                            <rect key="frame" x="18" y="82" width="283" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93031293150000005" green="0.48461708120000002" blue="0.53704141500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameFriendsLabel" destination="aKm-ZM-exT" id="MRo-oL-r9M"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Mll-1r-daG" id="f45-Z8-fLm"/>
+                            <outlet property="delegate" destination="Mll-1r-daG" id="XdQ-PS-kie"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294.375" y="1426.056338028169"/>
+        </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
             <objects>
@@ -1256,7 +1298,6 @@
         <image name="iconEvent" width="209" height="58"/>
         <image name="iconFriend" width="117" height="117"/>
         <image name="iconHello" width="116" height="115"/>
-        <image name="iconLike" width="77" height="77"/>
         <image name="iconLikePosts" width="133" height="49"/>
         <image name="iconMessenger" width="124" height="140"/>
         <image name="iconPicture" width="134" height="43"/>
