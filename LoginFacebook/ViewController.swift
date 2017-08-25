@@ -180,7 +180,7 @@ class ViewController: UITableViewController {
         
         let placePosts = cellPostsData?.place
         let image = UIImage(named:"iconCheckin")
-        if placePosts == nil {
+        if placePosts != nil {
             cellPostsUserTableView.atPlacePostsLabel.text = ""
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
         } else {
@@ -201,6 +201,7 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.friendsReactionLabel.text = ""
             cellReactionsDataCount = 0
             cellPostsUserTableView.iconReaction1ImageView.image = nil
+            getReactionCount = cellReactionsDataCount!
         } else {
             let nameFriendLike = cellReactionsData?.name
             let length = nameFriendLike?.characters.count
@@ -272,8 +273,15 @@ class ViewController: UITableViewController {
   }
     
     var getReactionData = [NSObject]()
+    var getReactionCount = Int()
     
     func tapClickFriendsReactionLabel(sender: UITapGestureRecognizer) {
-        print("tapClick", getReactionData)
+        let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let cellListReactionFriendsView = MainStoryboard.instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ListReactionFriendsTableViewController
+        
+        cellListReactionFriendsView.getReactionsFriendsData = getReactionData
+        cellListReactionFriendsView.getReactionsFriendsCount = getReactionCount
+        
+        self.performSegue(withIdentifier: "ListReactionFriendsView", sender: nil)
     }
 }
