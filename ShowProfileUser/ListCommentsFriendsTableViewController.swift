@@ -51,9 +51,8 @@ class ListCommentsFriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellListCommentsFriends = tableView.dequeueReusableCell(withIdentifier: "cellListCommentsFriends", for: indexPath) as! ListCommentsFriendsTableViewCell
-        let cellData = getCommentsFriendsData as! CommentsDataDetail
-        print("cellData", cellData)
-        // Configure the cell...
+        let cellCommentsData = getCommentsFriendsData[indexPath.row] as! CommentsDataDetail
+        cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.message
 
         return cellListCommentsFriends
     }
