@@ -90,9 +90,9 @@ class ViewController: UITableViewController {
     }
     
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let cellData = userResourceData.posts?.data?[sender.view.tag]
+        let postsData = userResourceData.posts?.data?[sender.view.tag]
         var picturePostsImages = [SKPhoto]()
-        let photosPosts = SKPhoto.photoWithImageURL((cellData?.full_picture)!)
+        let photosPosts = SKPhoto.photoWithImageURL((postsData?.full_picture)!)
         photosPosts.shouldCachePhotoURLImage = true
         picturePostsImages.append(photosPosts)
         let browser = SKPhotoBrowser(photos: picturePostsImages)
@@ -212,6 +212,7 @@ class ViewController: UITableViewController {
                 cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", cellReactionsDataCount!)
                 let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
                 cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
+                cellPostsUserTableView.friendsReactionLabel.tag = indexPath.row
                 cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
             } else {
                 let likesCount = cellReactionsDataCount! - 1
@@ -267,32 +268,27 @@ class ViewController: UITableViewController {
                 }
             }
         }
-        
-        let cellSetPostsReactionData = userResourceData.posts?.data
-        if cellSetPostsReactionData != nil {
-            getPostsData = cellSetPostsReactionData!
-        }
         return cellPostsUserTableView
   }
     
-    var getPostsData = [NSObject]()
     var getReactionCount = Int()
     var getReactionData = [NSObject]()
     
-    func tapClickFriendsReactionLabel(sender: UITapGestureRecognizer) {
-        let getPostsReactionData = getPostsData[(sender.view?.tag)!] as! PostsDataDetail
-        print("getPost", getPostsReactionData)
-        getReactionData = (getPostsReactionData.reactions?.data)!
-        let setReactionDataCount = getPostsReactionData.reactions?.data?.count
-        getReactionCount = setReactionDataCount!
+    func tapClickFriendsReactionLabel(_ sender: AnyObject) {
         
+        let getPostsData = userResourceData.posts?.data?[sender.view.tag]
+        let getPostsDataReaction = getPostsData?.reactions?.data
+        getReactionData = getPostsDataReaction!
+        let getPostsDataCount = getPostsData?.reactions?.data?.count
+        getReactionCount = getPostsDataCount!
+
         self.performSegue(withIdentifier: "ListReactionFriendsView", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ListReactionFriendsView" {
             let setReactionsDataToLitstReactionFriendsTableView = segue.destination as! ListReactionFriendsTableViewController
-            setReactionsDataToLitstReactionFriendsTableView.getReactionsFriendsData = getReactionData
+            setReactionsDataToLitstReactionFriendsTableView.getReactionsFriendsData = getReactionData 
             setReactionsDataToLitstReactionFriendsTableView.getReactionsFriendsCount = getReactionCount
         }
     }
