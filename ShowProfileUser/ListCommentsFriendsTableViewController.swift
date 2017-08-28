@@ -53,6 +53,16 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         let cellListCommentsFriends = tableView.dequeueReusableCell(withIdentifier: "cellListCommentsFriends", for: indexPath) as! ListCommentsFriendsTableViewCell
         let cellCommentsData = getCommentsFriendsData[indexPath.row] as! CommentsDataDetail
         cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.message
+        
+        let myLocale = Locale(identifier: "th_TH")
+        let dateStringFormResource = cellCommentsData.created_time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: dateStringFormResource)
+        dateFormatter.locale = myLocale
+        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
+        let dateString = dateFormatter.string(from: date!)
+        cellListCommentsFriends.dateTimeLabel.text = dateString
 
         return cellListCommentsFriends
     }
