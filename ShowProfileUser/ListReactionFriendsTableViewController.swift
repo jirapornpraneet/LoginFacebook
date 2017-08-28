@@ -68,7 +68,21 @@ class ListReactionFriendsTableViewController: UITableViewController {
         } else {
             cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconAngry")
         }
+        
+        // MARK: Click NameFriendLabel Link
+        let tapLinkUrlFriend = UITapGestureRecognizer(target: self, action: #selector(ListReactionFriendsTableViewController.tapLinkUrlProfileFriend))
+        cellListReactionFriends.nameFriendsLabel.isUserInteractionEnabled = true
+        cellListReactionFriends.nameFriendsLabel.tag = indexPath.row
+        cellListReactionFriends.nameFriendsLabel.addGestureRecognizer(tapLinkUrlFriend)
+        
         return cellListReactionFriends
+    }
+    
+    func tapLinkUrlProfileFriend(_ sender: AnyObject) {
+        let cellReactionData = getReactionsFriendsData[sender.view.tag] as! ReactionsDataDetail
+        if let url = URL(string: "\(cellReactionData.link)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 
 }
