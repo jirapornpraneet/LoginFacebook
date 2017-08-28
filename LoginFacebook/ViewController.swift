@@ -297,11 +297,9 @@ class ViewController: UITableViewController {
         
         let getPostsData = userResourceData.posts?.data?[sender.view.tag]
         let getPostsDataComments = getPostsData?.comments?.data
-        print("DatComments", getPostsDataComments)
-        getReactionData = getPostsDataComments!
+        getCommentsData = getPostsDataComments!
         let getPostsDataCount = getPostsData?.comments?.data?.count
         getCommentsCount = getPostsDataCount!
-        print("getCommentCOunt", getCommentsCount)
         
         self.performSegue(withIdentifier: "ListCommentsFriendsView", sender: nil)
     }
