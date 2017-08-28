@@ -193,6 +193,11 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.commentsFriendsLabel.text = ""
         } else {
             cellPostsUserTableView.commentsFriendsLabel.text = String(format: "%ความคิดเห็น %i %รายการ", cellCommentsDataCount!)
+            
+            let tapShowCommentsFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickCommentsFriendsLabel))
+            cellPostsUserTableView.commentsFriendsLabel.isUserInteractionEnabled = true
+            cellPostsUserTableView.commentsFriendsLabel.tag = indexPath.row
+            cellPostsUserTableView.commentsFriendsLabel.addGestureRecognizer(tapShowCommentsFriends)
         }
       
         let cellReactionsData = cellPostsData?.reactions?.data?[0]
@@ -285,11 +290,31 @@ class ViewController: UITableViewController {
         self.performSegue(withIdentifier: "ListReactionFriendsView", sender: nil)
     }
     
+    var getCommentsCount = Int()
+    var getCommentsData = [NSObject]()
+    
+    func tapClickCommentsFriendsLabel(_ sender: AnyObject) {
+        
+        let getPostsData = userResourceData.posts?.data?[sender.view.tag]
+        let getPostsDataComments = getPostsData?.comments?.data
+        print("DatComments", getPostsDataComments)
+        getReactionData = getPostsDataComments!
+        let getPostsDataCount = getPostsData?.comments?.data?.count
+        getCommentsCount = getPostsDataCount!
+        print("getCommentCOunt", getCommentsCount)
+        
+        self.performSegue(withIdentifier: "ListCommentsFriendsView", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ListReactionFriendsView" {
-            let setReactionsDataToLitstReactionFriendsTableView = segue.destination as! ListReactionFriendsTableViewController
-            setReactionsDataToLitstReactionFriendsTableView.getReactionsFriendsData = getReactionData 
-            setReactionsDataToLitstReactionFriendsTableView.getReactionsFriendsCount = getReactionCount
+            let setReactionsDataToListReactionFriendsTableView = segue.destination as! ListReactionFriendsTableViewController
+            setReactionsDataToListReactionFriendsTableView.getReactionsFriendsData = getReactionData
+            setReactionsDataToListReactionFriendsTableView.getReactionsFriendsCount = getReactionCount
+        } else if segue.identifier == "ListCommentsFriendsView" {
+            let setCommentsDataToListCommentsFriendsTableView = segue.destination as! ListCommentsFriendsTableViewController
+            setCommentsDataToListCommentsFriendsTableView.getCommentsFriendsData = getCommentsData
+            setCommentsDataToListCommentsFriendsTableView.getCommentsFriendsCount = getCommentsCount
         }
     }
 }
