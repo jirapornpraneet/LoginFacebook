@@ -24,7 +24,6 @@ class ListReactionFriendsTableViewController: UITableViewController {
         tableListReactionFriends.delegate = self
         tableListReactionFriends.dataSource = self
         self.tableListReactionFriends.reloadData()
-        print("counttt",getReactionsFriendsCount)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +50,7 @@ class ListReactionFriendsTableViewController: UITableViewController {
 //        let cellReactionFriendsData = getReactionsFriendsData[indexPath.row] as! ReactionsDataDetail
 //       print("Data1",getReactionsFriendsData[indexPath.row])
 //        cellListReactionFriends.nameFriendsLabel.text = cellReactionFriendsData.name
+//        cellListReactionFriends.nameFriendsLabel.text = getReactionsFriendsData
         print("getReactionsFriendsData", getReactionsFriendsData)
 
         return cellListReactionFriends
