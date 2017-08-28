@@ -80,8 +80,8 @@ class ListReactionFriendsTableViewController: UITableViewController {
     
     func tapLinkUrlProfileFriend(_ sender: AnyObject) {
         let cellReactionData = getReactionsFriendsData[sender.view.tag] as! ReactionsDataDetail
-        if let url = URL(string: "\(cellReactionData.link)") {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        if let linkUrlProfileFriend = URL(string: "\(cellReactionData.link)") {
+            UIApplication.shared.open(linkUrlProfileFriend, options: [:], completionHandler: nil)
         }
     }
 
