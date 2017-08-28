@@ -1367,13 +1367,9 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9K5-XI-o34" id="s9y-cM-rer"/>
-                            <outlet property="delegate" destination="9K5-XI-o34" id="DKA-pK-Dmr"/>
-                        </connections>
                     </tableView>
                     <connections>
-                        <outlet property="tableListReactionFriends" destination="sJf-M6-SLg" id="vUO-FD-qPe"/>
+                        <outlet property="tableListCommentsFriends" destination="sJf-M6-SLg" id="D2b-wj-YyM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
