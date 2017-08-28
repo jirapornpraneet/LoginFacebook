@@ -672,6 +672,7 @@
                         <outlet property="showFriendButton" destination="mlO-jw-MYG" id="8vm-zs-Lv9"/>
                         <outlet property="tablePosts" destination="aLE-t3-bId" id="yxT-VV-9XV"/>
                         <segue destination="Mll-1r-daG" kind="show" identifier="ListReactionFriendsView" id="ZXc-Qm-Eq4"/>
+                        <segue destination="9K5-XI-o34" kind="show" identifier="ListCommentsFriendsView" id="qcw-xZ-Cnh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbl-lZ-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1255,7 +1256,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294.375" y="1426.056338028169"/>
+            <point key="canvasLocation" x="-308" y="1501"/>
         </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
@@ -1299,6 +1300,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qv9-wQ-DSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1869" y="261"/>
+        </scene>
+        <!--List Comments Friends Table View Controller-->
+        <scene sceneID="KZ6-ft-pfc">
+            <objects>
+                <tableViewController storyboardIdentifier="ListCommentsFriendsView" id="9K5-XI-o34" customClass="ListCommentsFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJf-M6-SLg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListReactionFriends" rowHeight="61" id="qOC-v0-B6y" customClass="ListReactionFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qOC-v0-B6y" id="s4Z-E7-LIy">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9K5-XI-o34" id="s9y-cM-rer"/>
+                            <outlet property="delegate" destination="9K5-XI-o34" id="DKA-pK-Dmr"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableListReactionFriends" destination="sJf-M6-SLg" id="vUO-FD-qPe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="1500"/>
         </scene>
     </scenes>
     <resources>
