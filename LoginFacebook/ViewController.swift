@@ -180,7 +180,7 @@ class ViewController: UITableViewController {
         
         let placePosts = cellPostsData?.place
         let image = UIImage(named:"iconCheckin")
-        if placePosts != nil {
+        if placePosts == nil {
             cellPostsUserTableView.atPlacePostsLabel.text = ""
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
         } else {
@@ -281,6 +281,7 @@ class ViewController: UITableViewController {
     
     func tapClickFriendsReactionLabel(sender: UITapGestureRecognizer) {
         let getPostsReactionData = getPostsData[(sender.view?.tag)!] as! PostsDataDetail
+        print("getPost", getPostsReactionData)
         getReactionData = (getPostsReactionData.reactions?.data)!
         let setReactionDataCount = getPostsReactionData.reactions?.data?.count
         getReactionCount = setReactionDataCount!
