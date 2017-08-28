@@ -15,7 +15,7 @@ class ListReactionFriendsTableViewCell: UITableViewCell {
 class ListReactionFriendsTableViewController: UITableViewController {
     
     var getReactionsFriendsCount = Int()
-    var getReactionsFriendsData = NSObject()
+    var getReactionsFriendsData = [NSObject]()
     
     @IBOutlet var tableListReactionFriends: UITableView!
 
@@ -37,7 +37,6 @@ class ListReactionFriendsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Count2", getReactionsFriendsCount)
         if getReactionsFriendsCount != 0 {
             return getReactionsFriendsCount
         } else {
@@ -47,11 +46,9 @@ class ListReactionFriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellListReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellListReactionFriends", for: indexPath) as! ListReactionFriendsTableViewCell
-//        let cellReactionFriendsData = getReactionsFriendsData[indexPath.row] as! ReactionsDataDetail
-//       print("Data1",getReactionsFriendsData[indexPath.row])
-//        cellListReactionFriends.nameFriendsLabel.text = cellReactionFriendsData.name
-//        cellListReactionFriends.nameFriendsLabel.text = getReactionsFriendsData
-        print("getReactionsFriendsData", getReactionsFriendsData)
+        let cellReactionData = getReactionsFriendsData[indexPath.row] as! ReactionsDataDetail
+        cellListReactionFriends.nameFriendsLabel.text = cellReactionData.name
+        
 
         return cellListReactionFriends
     }
