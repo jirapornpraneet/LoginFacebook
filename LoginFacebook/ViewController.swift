@@ -277,22 +277,17 @@ class ViewController: UITableViewController {
     
     var getReactionData = [NSObject]()
     var getReactionCount = Int()
+    var getReactionDataObject = NSObject()
     
     func tapClickFriendsReactionLabel(sender: UITapGestureRecognizer) {
-        let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let cellListReactionFriendsView = MainStoryboard.instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ListReactionFriendsTableViewController
-        
-        cellListReactionFriendsView.getReactionsFriendsData = getReactionData
-        cellListReactionFriendsView.getReactionsFriendsCount = getReactionCount
-        
+        getReactionDataObject = getReactionData[(sender.view?.tag)!]
         self.performSegue(withIdentifier: "ListReactionFriendsView", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ListReactionFriendsView" {
-            let vc = segue.destination as! ListReactionFriendsTableViewController
-            vc.getReactionsFriendsData = getReactionData
-            vc.getReactionsFriendsCount = getReactionCount
+            let setReactionsDataToLitstReactionFriendsTableView = segue.destination as! ListReactionFriendsTableViewController
+            setReactionsDataToLitstReactionFriendsTableView.getReactionsFriendsData = getReactionDataObject
         }
     }
 }
