@@ -277,11 +277,11 @@ class ViewController: UITableViewController {
     
     var getPostsData = [NSObject]()
     var getReactionCount = Int()
-    var getReactionData = NSObject()
+    var getReactionData = [NSObject]()
     
     func tapClickFriendsReactionLabel(sender: UITapGestureRecognizer) {
         let getPostsReactionData = getPostsData[(sender.view?.tag)!] as! PostsDataDetail
-        getReactionData = (getPostsReactionData.reactions?.data?[(sender.view?.tag)!])! as ReactionsDataDetail
+        getReactionData = (getPostsReactionData.reactions?.data)!
         let setReactionDataCount = getPostsReactionData.reactions?.data?.count
         getReactionCount = setReactionDataCount!
         
