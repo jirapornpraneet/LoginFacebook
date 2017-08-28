@@ -10,6 +10,8 @@ import UIKit
 
 class ListReactionFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameFriendsLabel: UILabel!
+    @IBOutlet weak var profileFriendImageView: UIImageView!
+    @IBOutlet weak var reactionFriendImageView: UIImageView!
 }
 
 class ListReactionFriendsTableViewController: UITableViewController {
@@ -48,9 +50,25 @@ class ListReactionFriendsTableViewController: UITableViewController {
         let cellListReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellListReactionFriends", for: indexPath) as! ListReactionFriendsTableViewCell
         let cellReactionData = getReactionsFriendsData[indexPath.row] as! ReactionsDataDetail
         cellListReactionFriends.nameFriendsLabel.text = cellReactionData.name
-        
+        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: cellReactionData.pic_large, width: 50, height: 50)
+        cellListReactionFriends.profileFriendImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
 
+        let cellReactionType = cellReactionData.type
+        
+        if cellReactionType == "LIKE" {
+            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLike")
+        } else if cellReactionType == "LOVE" {
+            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLove")
+        } else if cellReactionType == "HAHA" {
+            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconHaHa")
+        } else if cellReactionType == "SAD" {
+            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconSad")
+        } else if cellReactionType == "WOW" {
+            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconWow")
+        } else {
+            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconAngry")
+        }
         return cellListReactionFriends
     }
-    
+
 }
