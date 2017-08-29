@@ -16,9 +16,6 @@ class ListCommentsFriendsTableViewCell: UITableViewCell {
 }
 
 class ListCommentsFriendsTableViewController: UITableViewController {
-
-    var getCommentsFriendsCount = Int()
-    var getCommentsFriendsData = [NSObject]()
     
     @IBOutlet var tableListCommentsFriends: UITableView!
     
@@ -28,43 +25,46 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         tableListCommentsFriends.dataSource = self
         self.tableListCommentsFriends.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
+    var setUserResourcePostsDataCommentsCount = Int()
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("getCommentsFriendsCount", getCommentsFriendsCount)
-        if getCommentsFriendsCount != 0 {
-            return getCommentsFriendsCount
+        if setUserResourcePostsDataCommentsCount != 0 {
+            return setUserResourcePostsDataCommentsCount
         } else {
             return 0
         }
     }
-
+    
+    var setUserResourcePostsDataCommentsData = [NSObject]()
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellListCommentsFriends = tableView.dequeueReusableCell(withIdentifier: "cellListCommentsFriends", for: indexPath) as! ListCommentsFriendsTableViewCell
-        let cellCommentsData = getCommentsFriendsData[indexPath.row] as! CommentsDataDetail
-        cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.message
+        let commentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
+        cellListCommentsFriends.nameFriendsLabel.text = commentsData.message
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormResource = cellCommentsData.created_time
+        let dateStringFormCommentsDataCreatedTime = commentsData.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: dateStringFormResource)
+        let date = dateFormatter.date(from: dateStringFormCommentsDataCreatedTime)
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
         cellListCommentsFriends.dateTimeLabel.text = dateString
-
+        
         return cellListCommentsFriends
     }
-
+    
 }

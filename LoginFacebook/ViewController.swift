@@ -307,12 +307,12 @@ class ViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ListReactionFriendsView" {
             let setReactionsDataToListReactionFriendsTableView = segue.destination as! ListReactionFriendsTableViewController
-            setReactionsDataToListReactionFriendsTableView.getReactionsFriendsData = getUserResourcePostsDataReactionData
-            setReactionsDataToListReactionFriendsTableView.getReactionsFriendsCount = getUserResourcePostsDataReactionCount
+            setReactionsDataToListReactionFriendsTableView.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
+            setReactionsDataToListReactionFriendsTableView.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
         } else if segue.identifier == "ListCommentsFriendsView" {
             let setCommentsDataToListCommentsFriendsTableView = segue.destination as! ListCommentsFriendsTableViewController
-            setCommentsDataToListCommentsFriendsTableView.getCommentsFriendsData = getUserResourcePostsDataCommentsData
-            setCommentsDataToListCommentsFriendsTableView.getCommentsFriendsCount = getUserResourcePostsDataCommentsCount
+            setCommentsDataToListCommentsFriendsTableView.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
+            setCommentsDataToListCommentsFriendsTableView.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
         }
     }
 }
