@@ -32,9 +32,9 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     }
     
     func ZoomPhotos(_ sender: AnyObject) {
-        let cellPhotosData = getPhotosData[sender.view.tag] as! AlbumsPhotosDataDetail
+        let albumsPhotosData = getPhotosData[sender.view.tag] as! AlbumsPhotosDataDetail
         var photosAlbums = [SKPhoto]()
-        let photos = SKPhoto.photoWithImageURL((cellPhotosData.picture))
+        let photos = SKPhoto.photoWithImageURL((albumsPhotosData.picture))
         photos.shouldCachePhotoURLImage = true
         photosAlbums.append(photos)
         let browser = SKPhotoBrowser(photos: photosAlbums)
@@ -64,9 +64,9 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellPhotosCollection", for: indexPath) as! PhotosCollectionViewCell
-        let cellPhotosData = getPhotosData[indexPath.row] as! AlbumsPhotosDataDetail
+        let albumsPhotosData = getPhotosData[indexPath.row] as! AlbumsPhotosDataDetail
        
-        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellPhotosData.picture), width:  200, height: 200)
+        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (albumsPhotosData.picture), width:  200, height: 200)
         cellPhotosCollectionView.photosAlbumsImageView.sd_setImage(with: pictureUrl, completed:nil)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PhotosAlbumsCollectionViewController.ZoomPhotos(_:)))
