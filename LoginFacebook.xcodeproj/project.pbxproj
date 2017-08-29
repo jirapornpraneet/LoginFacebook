@@ -198,8 +198,8 @@
 		ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */ = {
 			isa = PBXGroup;
 			children = (
-				ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */,
 				ABA416371F46AF9300BD9BC1 /* AlbumsCollectionViewController.swift */,
+				ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */,
 			);
 			path = AlbumsPhotosUser;
 			sourceTree = SOURCE_ROOT;

@@ -32,7 +32,7 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     }
     
     func ZoomPhotos(_ sender: AnyObject) {
-        let albumsPhotosData = getPhotosData[sender.view.tag] as! AlbumsPhotosDataDetail
+        let albumsPhotosData = setUserResourceAlbumsPhotosData[sender.view.tag] as! AlbumsPhotosDataDetail
         var photosAlbums = [SKPhoto]()
         let photos = SKPhoto.photoWithImageURL((albumsPhotosData.picture))
         photos.shouldCachePhotoURLImage = true
@@ -51,20 +51,21 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         return 1
     }
     
-    var getPhotosDataCount = Int()
-    var getPhotosData = [NSObject]()
-    
+    var setUserResourceAlbumsPhotosDataCount = Int()
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if  getPhotosDataCount != 0 {
-            return getPhotosDataCount
+        if  setUserResourceAlbumsPhotosDataCount  != 0 {
+            return setUserResourceAlbumsPhotosDataCount 
         } else {
             return 0
         }
     }
     
+    var setUserResourceAlbumsPhotosData = [NSObject]()
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellPhotosCollection", for: indexPath) as! PhotosCollectionViewCell
-        let albumsPhotosData = getPhotosData[indexPath.row] as! AlbumsPhotosDataDetail
+        let albumsPhotosData = setUserResourceAlbumsPhotosData[indexPath.row] as! AlbumsPhotosDataDetail
        
         let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (albumsPhotosData.picture), width:  200, height: 200)
         cellPhotosCollectionView.photosAlbumsImageView.sd_setImage(with: pictureUrl, completed:nil)

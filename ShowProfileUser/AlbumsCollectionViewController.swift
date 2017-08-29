@@ -71,11 +71,11 @@ class AlbumsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellAlbumsDetailCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsDetailCollection", for: indexPath) as! AlbumsDetailCollectionViewCell
-        let cellAlbumsData = userResourceData?.albums?.data?[indexPath.row]
+        let userResourceAlbumsData = userResourceData?.albums?.data?[indexPath.row]
 
-        cellAlbumsDetailCollectionView.nameAlbumsLabel.text = cellAlbumsData?.name
+        cellAlbumsDetailCollectionView.nameAlbumsLabel.text = userResourceAlbumsData?.name
 
-        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellAlbumsData?.photos?.data?[0].picture)!, width: 150, height: 150)
+        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceAlbumsData?.photos?.data?[0].picture)!, width: 150, height: 150)
         cellAlbumsDetailCollectionView.photoAlbumsImageView.sd_setImage(with:  pictureUrl, completed:nil)
 
         return cellAlbumsDetailCollectionView
@@ -85,16 +85,16 @@ class AlbumsCollectionViewController: UICollectionViewController {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let photosAlbumsCollectionView = MainStoryboard.instantiateViewController(withIdentifier: "PhotosAlbumsCollection") as! PhotosAlbumsCollectionViewController
         
-        let cellAlbumsData = userResourceData?.albums?.data?[indexPath.row]
+        let userResourceAlbumsData = userResourceData?.albums?.data?[indexPath.row]
    
-        let cellPhotosDataCount = cellAlbumsData?.photos?.data?.count
-        if cellPhotosDataCount  == nil {
+        let getUserResourceAlbumsPhotosDataCount = userResourceAlbumsData?.photos?.data?.count
+        if getUserResourceAlbumsPhotosDataCount  == nil {
             return
         }
-        photosAlbumsCollectionView.getPhotosDataCount = ((cellPhotosDataCount))!
+        photosAlbumsCollectionView.setUserResourceAlbumsPhotosDataCount  = ((getUserResourceAlbumsPhotosDataCount))!
         
-        let cellIndexPhotosData = cellAlbumsData?.photos?.data
-        photosAlbumsCollectionView.getPhotosData = cellIndexPhotosData!
+        let getUserResourceAlbumsPhotosData = userResourceAlbumsData?.photos?.data
+        photosAlbumsCollectionView.setUserResourceAlbumsPhotosData = getUserResourceAlbumsPhotosData!
         
         self.navigationController?.pushViewController(photosAlbumsCollectionView, animated: true)
     }
