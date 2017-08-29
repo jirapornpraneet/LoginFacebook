@@ -42,7 +42,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.delegate = self
         
         if  let token = FBSDKAccessToken.current() {
-            fetchProfile()
+            fetchUserResource()
             accessToken = token
             print(accessToken.tokenString)
             print("Show >>> ", token.tokenString)
@@ -51,7 +51,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     var userResourceData: UserResourceData! = nil
     
-    func fetchProfile() {
+    func fetchUserResource() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
@@ -67,7 +67,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        fetchProfile()
+        fetchUserResource()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
