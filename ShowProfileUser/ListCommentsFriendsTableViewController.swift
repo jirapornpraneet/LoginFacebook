@@ -53,6 +53,7 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         let cellListCommentsFriends = tableView.dequeueReusableCell(withIdentifier: "cellListCommentsFriends", for: indexPath) as! ListCommentsFriendsTableViewCell
         let cellCommentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
         cellListCommentsFriends.commentsMessageLabel.text = cellCommentsData.message
+        cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.from?.name
         
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormCommentsDataCreatedTime = cellCommentsData.created_time
