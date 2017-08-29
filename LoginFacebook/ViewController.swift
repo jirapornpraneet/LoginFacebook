@@ -62,7 +62,7 @@ class ViewController: UITableViewController {
         coverImageView.isUserInteractionEnabled = true
         
          if (FBSDKAccessToken.current()) != nil {
-            fetchProfile()
+            fetchUserResourceProfile()
         }
         
     }
@@ -90,9 +90,9 @@ class ViewController: UITableViewController {
     }
     
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let userResourcePostsData = userResourceData.posts?.data?[sender.view.tag]
+        let cellUserResourcePostsData = userResourceData.posts?.data?[sender.view.tag]
         var picturePostsImages = [SKPhoto]()
-        let photosPosts = SKPhoto.photoWithImageURL((userResourcePostsData?.full_picture)!)
+        let photosPosts = SKPhoto.photoWithImageURL((cellUserResourcePostsData?.full_picture)!)
         photosPosts.shouldCachePhotoURLImage = true
         picturePostsImages.append(photosPosts)
         let browser = SKPhotoBrowser(photos: picturePostsImages)
@@ -100,7 +100,7 @@ class ViewController: UITableViewController {
         present(browser, animated: true, completion: {})
     }
    
-    func fetchProfile() {
+    func fetchUserResourceProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place,reactions.limit(500){name,pic_large,type,link},comments{comment_count,message,from,created_time}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
@@ -144,22 +144,22 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellPostsUserTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsUserTableView", for: indexPath) as! PostsUserTableViewCell
-        let userResourcePostsData = userResourceData.posts?.data?[indexPath.row]
+        let cellUserResourcePostsData = userResourceData.posts?.data?[indexPath.row]
         
-        cellPostsUserTableView.messagePostsLabel.text = (userResourcePostsData?.message)!
+        cellPostsUserTableView.messagePostsLabel.text = (cellUserResourcePostsData?.message)!
         cellPostsUserTableView.namePostsLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-        cellPostsUserTableView.placePostsLabel.text = userResourcePostsData?.place?.name
+        cellPostsUserTableView.placePostsLabel.text = cellUserResourcePostsData?.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
         cellPostsUserTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
-        let userResourcePostsDataFullPicture = userResourcePostsData?.full_picture
-        if  userResourcePostsDataFullPicture   == "" {
+        let cellUserResourcePostsDataFullPicture = cellUserResourcePostsData?.full_picture
+        if  cellUserResourcePostsDataFullPicture   == "" {
             tablePosts.rowHeight = 135
             cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
             tablePosts.rowHeight = 400
-            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (userResourcePostsData?.full_picture)!), completed: nil)
+            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellUserResourcePostsData?.full_picture)!), completed: nil)
             cellPostsUserTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
@@ -169,7 +169,7 @@ class ViewController: UITableViewController {
         }
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormUserResourcePostsDataCreatedTime = userResourcePostsData?.created_time
+        let dateStringFormUserResourcePostsDataCreatedTime = cellUserResourcePostsData?.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormUserResourcePostsDataCreatedTime!)
@@ -178,9 +178,9 @@ class ViewController: UITableViewController {
         let dateString = dateFormatter.string(from: date!)
         cellPostsUserTableView.createdTimePostsLabel.text = dateString
         
-        let userResourcePostsDataPlacePosts = userResourcePostsData?.place
+        let cellUserResourcePostsDataPlacePosts = cellUserResourcePostsData?.place
         let image = UIImage(named:"iconCheckin")
-        if userResourcePostsDataPlacePosts == nil {
+        if cellUserResourcePostsDataPlacePosts == nil {
             cellPostsUserTableView.atPlacePostsLabel.text = ""
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
         } else {
@@ -188,11 +188,11 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.iconCheckInPostsImageView.image = image
         }
         
-        let userResourcePostsDataCommentsDataCount = userResourcePostsData?.comments?.data?.count
-        if userResourcePostsDataCommentsDataCount == nil {
+        let cellUserResourcePostsDataCommentsDataCount = cellUserResourcePostsData?.comments?.data?.count
+        if cellUserResourcePostsDataCommentsDataCount == nil {
             cellPostsUserTableView.commentsFriendsLabel.text = ""
         } else {
-            cellPostsUserTableView.commentsFriendsLabel.text = String(format: "%ความคิดเห็น %i %รายการ", userResourcePostsDataCommentsDataCount!)
+            cellPostsUserTableView.commentsFriendsLabel.text = String(format: "%ความคิดเห็น %i %รายการ", cellUserResourcePostsDataCommentsDataCount!)
             
             let tapShowCommentsFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickCommentsFriendsLabel))
             cellPostsUserTableView.commentsFriendsLabel.isUserInteractionEnabled = true
@@ -200,72 +200,72 @@ class ViewController: UITableViewController {
             cellPostsUserTableView.commentsFriendsLabel.addGestureRecognizer(tapShowCommentsFriends)
         }
       
-        let userResourcePostsDataReactionsData = userResourcePostsData?.reactions?.data?[0]
-        var userResourcePostsDataReactionsDataCount = userResourcePostsData?.reactions?.data?.count
-        if userResourcePostsDataReactionsData == nil && userResourcePostsDataReactionsDataCount == nil {
+        let cellUserResourcePostsDataReactionsData = cellUserResourcePostsData?.reactions?.data?[0]
+        var cellUserResourcePostsDataReactionsDataCount = cellUserResourcePostsData?.reactions?.data?.count
+        if cellUserResourcePostsDataReactionsData == nil && cellUserResourcePostsDataReactionsDataCount == nil {
             cellPostsUserTableView.friendsReactionLabel.text = ""
-            userResourcePostsDataReactionsDataCount = 0
+            cellUserResourcePostsDataReactionsDataCount = 0
             cellPostsUserTableView.iconReaction1ImageView.image = nil
             getUserResourcePostsDataReactionCount = 0
         } else {
-            getUserResourcePostsDataReactionCount = userResourcePostsDataReactionsDataCount!
+            getUserResourcePostsDataReactionCount = cellUserResourcePostsDataReactionsDataCount!
             
-            let nameFriendReactions = userResourcePostsDataReactionsData?.name
-            let length = nameFriendReactions?.characters.count
+            let cellNameFriendReactions = cellUserResourcePostsDataReactionsData?.name
+            let length = cellNameFriendReactions?.characters.count
         
             if length! >= 10 {
-                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", userResourcePostsDataReactionsDataCount!)
+                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", cellUserResourcePostsDataReactionsDataCount!)
                 let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
                 cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
                 cellPostsUserTableView.friendsReactionLabel.tag = indexPath.row
                 cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
             } else {
-                let reactionsCount = userResourcePostsDataReactionsDataCount! - 1
-                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (userResourcePostsDataReactionsData?.name)!, reactionsCount)
+                let reactionsCount = cellUserResourcePostsDataReactionsDataCount! - 1
+                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount)
                 let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
                 cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
                 cellPostsUserTableView.friendsReactionLabel.tag = indexPath.row
                 cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
             }
             
-            let userResourcePostsDataReactionType = userResourcePostsDataReactionsData?.type
+            let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
             
-            if userResourcePostsDataReactionType == "LIKE" {
+            if cellUserResourcePostsDataReactionType == "LIKE" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
-            } else if userResourcePostsDataReactionType == "LOVE" {
+            } else if cellUserResourcePostsDataReactionType == "LOVE" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
-            } else if userResourcePostsDataReactionType == "HAHA" {
+            } else if cellUserResourcePostsDataReactionType == "HAHA" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
-            } else if userResourcePostsDataReactionType == "SAD" {
+            } else if cellUserResourcePostsDataReactionType == "SAD" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
-            } else if userResourcePostsDataReactionType == "WOW" {
+            } else if cellUserResourcePostsDataReactionType == "WOW" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
             } else {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
             }
         }
         
-        if userResourcePostsDataReactionsDataCount == 1 {
+        if cellUserResourcePostsDataReactionsDataCount == 1 {
             cellPostsUserTableView.iconReaction2ImageView.image = nil
         } else {
-            let userResourcePostsDataReactionDataIndex1 = userResourcePostsData?.reactions?.data?[1]
-            let userResourcePostsDataReactionTypeIndex1 = userResourcePostsDataReactionDataIndex1?.type
-            let userResourcePostsDataReactionType = userResourcePostsDataReactionsData?.type
-            if userResourcePostsDataReactionDataIndex1 == nil {
+            let cellUserResourcePostsDataReactionDataIndex1 = cellUserResourcePostsData?.reactions?.data?[1]
+            let cellUserResourcePostsDataReactionTypeIndex1 = cellUserResourcePostsDataReactionDataIndex1?.type
+            let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
+            if cellUserResourcePostsDataReactionDataIndex1 == nil {
                 cellPostsUserTableView.iconReaction2ImageView.image = nil
             } else {
-                if userResourcePostsDataReactionTypeIndex1 == userResourcePostsDataReactionType {
+                if cellUserResourcePostsDataReactionTypeIndex1 == cellUserResourcePostsDataReactionType {
                     cellPostsUserTableView.iconReaction2ImageView.image = nil
                 } else {
-                    if userResourcePostsDataReactionTypeIndex1 == "LIKE" {
+                    if cellUserResourcePostsDataReactionTypeIndex1 == "LIKE" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "LOVE" {
+                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "LOVE" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "HAHA" {
+                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "HAHA" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "SAD" {
+                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "SAD" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "WOW" {
+                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "WOW" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
                     } else {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
