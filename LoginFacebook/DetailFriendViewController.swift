@@ -41,23 +41,23 @@ class DetailFriendViewController: UITableViewController {
     @IBOutlet weak var hometownImage: UIImageView!
     @IBOutlet weak var profileUserImage: UIImageView!
     //profile
-    var getName = String()
-    var getProfileImageUrl = String()
-    var getGender = String()
-    var getBirthDay = String()
-    var getCoverImageUrl = String()
-    var getEducation = String()
-    var getHometown = String()
-    var getEducationImage = UIImage()
-    var getHometownImage = UIImage()
+    var getUserResourceDataName = String()
+    var getUserResourceDataProfileImageUrl = String()
+    var getUserResourceDataGender = String()
+    var getUserResourceDataBirthDay = String()
+    var getUserResourceDataCoverImageUrl = String()
+    var getUserResourceDataEducation = String()
+    var getUserResourceDataHometown = String()
+    var getUserResourceDataEducationImage = UIImage()
+    var getUserResourceDataHometownImage = UIImage()
     //posts
-    var getCreatedTime = String()
-    var getMeaasge = String()
-    var getFullPicture = String()
-    var getPlace = String()
-    var getPostsDataCount = Int()
-    var getPostsData = [NSObject]()
-    var getFriendsResource = [AnyObject]()
+    var getUserResourceDataCreatedTime = String()
+    var getUserResourceDataMeaasge = String()
+    var getUserResourceDataFullPicture = String()
+    var getUserResourceDataPlace = String()
+    var getUserResourceDataPostsDataCount = Int()
+    var getUserResourceDataPostsData = [NSObject]()
+    var getUserResourceDataFriendsResource = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,23 +66,23 @@ class DetailFriendViewController: UITableViewController {
         profileFriendImageView.layer.borderWidth = 2
         profileFriendImageView.layer.borderColor = UIColor.white.cgColor
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: getProfileImageUrl, width: 150, height: 150)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: getUserResourceDataProfileImageUrl, width: 150, height: 150)
         profileFriendImageView.sd_setImage(with: profileImageUrl, completed:nil)
 
         let tapZoomPictureProfile = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureProfile))
         profileFriendImageView.addGestureRecognizer(tapZoomPictureProfile)
         profileFriendImageView.isUserInteractionEnabled = true
         
-        nameLabel.text! = getName
-        birthdayLabel.text? = getBirthDay
-        genderLabel.text? = getGender
-        hometownLabel.text? = getHometown
-        educationLabel.text = getEducation
-        educationImage.image = getEducationImage
-        hometownImage.image = getHometownImage
-        messengerToFriendLabel.text = String(format: "%เขียนอะไรบางอย่างถึง  %@ %.........", getName)
+        nameLabel.text! = getUserResourceDataName
+        birthdayLabel.text? = getUserResourceDataBirthDay
+        genderLabel.text? = getUserResourceDataGender
+        hometownLabel.text? = getUserResourceDataHometown
+        educationLabel.text = getUserResourceDataEducation
+        educationImage.image = getUserResourceDataEducationImage
+        hometownImage.image = getUserResourceDataHometownImage
+        messengerToFriendLabel.text = String(format: "%เขียนอะไรบางอย่างถึง  %@ %.........", getUserResourceDataName)
         
-        let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getCoverImageUrl), width: 480, height: 260)
+        let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getUserResourceDataCoverImageUrl), width: 480, height: 260)
         coverImage.sd_setImage(with: coverImageUrl, completed:nil)
         
         let tapZoomCoverPicture = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomCoverPicture))
@@ -114,7 +114,7 @@ class DetailFriendViewController: UITableViewController {
 
     func ZoomPictureProfile() {
         var pictureDataURLimages = [SKPhoto]()
-        let photoDataURL = SKPhoto.photoWithImageURL(getProfileImageUrl)
+        let photoDataURL = SKPhoto.photoWithImageURL(getUserResourceDataProfileImageUrl)
         photoDataURL.shouldCachePhotoURLImage = true
         pictureDataURLimages.append(photoDataURL)
         let browser = SKPhotoBrowser(photos: pictureDataURLimages)
@@ -124,7 +124,7 @@ class DetailFriendViewController: UITableViewController {
     
     func ZoomCoverPicture() {
         var CoverImages = [SKPhoto]()
-        let photoCover = SKPhoto.photoWithImageURL(getCoverImageUrl)
+        let photoCover = SKPhoto.photoWithImageURL(getUserResourceDataCoverImageUrl)
         photoCover.shouldCachePhotoURLImage = true
         CoverImages.append(photoCover)
         let browser = SKPhotoBrowser(photos: CoverImages)
@@ -133,7 +133,7 @@ class DetailFriendViewController: UITableViewController {
     }
     
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let cellPostsData = getPostsData[sender.view.tag] as? PostsDataDetail
+        let cellPostsData = getUserResourceDataPostsData[sender.view.tag] as? PostsDataDetail
         var picture​PostsImages = [SKPhoto]()
         let photosPosts = SKPhoto.photoWithImageURL((cellPostsData?.full_picture)!)
         photosPosts.shouldCachePhotoURLImage = true
@@ -153,8 +153,8 @@ class DetailFriendViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if getPostsDataCount != 0 {
-            return getPostsDataCount
+        if getUserResourceDataPostsDataCount != 0 {
+            return getUserResourceDataPostsDataCount
         } else {
             return 0
         }
@@ -162,13 +162,13 @@ class DetailFriendViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsFriendTableView", for: indexPath) as! PostsFriendTableViewCell
-        let cellPostsData = getPostsData[indexPath.row] as! PostsDataDetail
+        let cellPostsData = getUserResourceDataPostsData[indexPath.row] as! PostsDataDetail
         
         cellPostsFriendTableView.messagePostsLabel.text = cellPostsData.message
-        cellPostsFriendTableView.namePostsLabel.text = getName
+        cellPostsFriendTableView.namePostsLabel.text = getUserResourceDataName
         cellPostsFriendTableView.placePostsLabel.text = cellPostsData.place?.name
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getProfileImageUrl), width: 150, height: 150)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getUserResourceDataProfileImageUrl), width: 150, height: 150)
         cellPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         let myLocale = Locale(identifier: "th_TH")

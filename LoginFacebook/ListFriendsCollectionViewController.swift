@@ -35,12 +35,12 @@ class ListFriendsCollectionViewController: UICollectionViewController {
         collectionViewListFriends?.delegate = self
         collectionViewListFriends?.dataSource = self
        
-        getDataFriends()
+        getDataUserResourceFriends()
     }
     
     var userResource: UserResource! = nil
     
-    func getDataFriends() {
+    func getDataUserResourceFriends() {
         var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAPC00xpv3gCjKU6ouTvdpeftq6ZBG56Rnpe2OQjeZAjKbYZBKj0vbj5XDUE3ZB851tOcXVPL9DdVCAuFK5TRpNIalvEDYjflNJ3lCS5waNAIeGfNUTUR1s9T7m4g4N08ZBrKe1o69qog77lBx5HYl5zOmVYu4gjz83SDvXoEiFHbBSsOAVGtWqSpq3rCjHAZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
@@ -88,52 +88,52 @@ class ListFriendsCollectionViewController: UICollectionViewController {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let cellDetailFriendsView = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
         
-        let cellUserResourceData = userResource.data?[indexPath.row]
-        cellDetailFriendsView.getProfileImageUrl = (cellUserResourceData?.picture?.data?.url)!
-        cellDetailFriendsView.getName = String(format: "%@", (cellUserResourceData?.name)!)
-        cellDetailFriendsView.getCoverImageUrl = (cellUserResourceData?.cover?.source)!
+        let userResourceData = userResource.data?[indexPath.row]
+        cellDetailFriendsView.getUserResourceDataProfileImageUrl = (userResourceData?.picture?.data?.url)!
+        cellDetailFriendsView.getUserResourceDataName = String(format: "%@", (userResourceData?.name)!)
+        cellDetailFriendsView.getUserResourceDataCoverImageUrl = (userResourceData?.cover?.source)!
         
-        let cellBirthDay = cellUserResourceData?.birthday
-        if cellBirthDay == "" {
-             cellDetailFriendsView.getBirthDay = ""
+        let userResourceDataBirthDay = userResourceData?.birthday
+        if userResourceDataBirthDay == "" {
+             cellDetailFriendsView.getUserResourceDataBirthDay = ""
         } else {
-            cellDetailFriendsView.getBirthDay = String(format: "%วันเกิด : %@", (cellUserResourceData?.birthday)!)
+            cellDetailFriendsView.getUserResourceDataBirthDay = String(format: "%วันเกิด : %@", (userResourceData?.birthday)!)
         }
         
-        let cellGender = cellUserResourceData?.gender
-        if cellGender == "" {
-            cellDetailFriendsView.getGender = ""
+        let userResourceDataGender = userResourceData?.gender
+        if userResourceDataGender == "" {
+            cellDetailFriendsView.getUserResourceDataGender = ""
         } else {
-            cellDetailFriendsView.getGender = String(format: "%เพศ : %@", (cellUserResourceData?.gender)!)
+            cellDetailFriendsView.getUserResourceDataGender = String(format: "%เพศ : %@", (userResourceData?.gender)!)
         }
         
-        let cellEducation = cellUserResourceData?.education
-        if cellEducation! == [] {
-            cellDetailFriendsView.getEducation = ""
-            cellDetailFriendsView.getEducationImage = UIImage(named: "nil.png")!
+        let userResourceDataEducation = userResourceData?.education
+        if userResourceDataEducation! == [] {
+            cellDetailFriendsView.getUserResourceDataEducation = ""
+            cellDetailFriendsView.getUserResourceDataEducationImage = UIImage(named: "nil.png")!
         } else {
-            cellDetailFriendsView.getEducation = String(format: "เคยศึกษาที่  %@ ", (cellUserResourceData?.education?[0].school?.name)!)
-            cellDetailFriendsView.getEducationImage = UIImage(named: "iconEducation.png")!
+            cellDetailFriendsView.getUserResourceDataEducation = String(format: "เคยศึกษาที่  %@ ", (userResourceData?.education?[0].school?.name)!)
+            cellDetailFriendsView.getUserResourceDataEducationImage = UIImage(named: "iconEducation.png")!
         }
         
-        let cellHomeTown = cellUserResourceData?.hometown?.name
-        if cellHomeTown == nil {
-            cellDetailFriendsView.getHometown = ""
-            cellDetailFriendsView.getHometownImage = UIImage(named: "nil.png")!
+        let userResourceDataHomeTown = userResourceData?.hometown?.name
+        if userResourceDataHomeTown == nil {
+            cellDetailFriendsView.getUserResourceDataHometown = ""
+            cellDetailFriendsView.getUserResourceDataHometownImage = UIImage(named: "nil.png")!
         } else {
-            cellDetailFriendsView.getHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellUserResourceData?.hometown?.name)!)
-            cellDetailFriendsView.getHometownImage = UIImage(named: "iconHometown.png")!
+            cellDetailFriendsView.getUserResourceDataHometown = String(format: "%อาศัยอยู่ที่  %@ ", (userResourceData?.hometown?.name)!)
+            cellDetailFriendsView.getUserResourceDataHometownImage = UIImage(named: "iconHometown.png")!
         }
         
-        let cellPostsDataCount = cellUserResourceData?.posts?.data?.count
-        if cellPostsDataCount == nil {
+        let userResourceDataPostsDataCount = userResourceData?.posts?.data?.count
+        if userResourceDataPostsDataCount == nil {
             return
         }
         
-        cellDetailFriendsView.getPostsDataCount = ((cellPostsDataCount))!
+        cellDetailFriendsView.getUserResourceDataPostsDataCount = ((userResourceDataPostsDataCount))!
         
-        let cellPostsData = cellUserResourceData?.posts?.data
-        cellDetailFriendsView.getPostsData = cellPostsData!
+        let userResourceDataPostsData = userResourceData?.posts?.data
+        cellDetailFriendsView.getUserResourceDataPostsData = userResourceDataPostsData!
         
         self.navigationController?.pushViewController(cellDetailFriendsView, animated: true)
     }
