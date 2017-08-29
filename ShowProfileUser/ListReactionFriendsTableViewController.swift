@@ -49,22 +49,22 @@ class ListReactionFriendsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellListReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellListReactionFriends", for: indexPath) as! ListReactionFriendsTableViewCell
-        let reactionData = setUserResourcePostsDataReactionData[indexPath.row] as! ReactionsDataDetail
-        cellListReactionFriends.nameFriendsLabel.text = reactionData.name
-        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: reactionData.pic_large, width: 50, height: 50)
+        let cellReactionData = setUserResourcePostsDataReactionData[indexPath.row] as! ReactionsDataDetail
+        cellListReactionFriends.nameFriendsLabel.text = cellReactionData.name
+        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: cellReactionData.pic_large, width: 50, height: 50)
         cellListReactionFriends.profileFriendImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
 
-        let reactionDataType = reactionData.type
+        let cellReactionDataType = cellReactionData.type
         
-        if reactionDataType == "LIKE" {
+        if cellReactionDataType == "LIKE" {
             cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLike")
-        } else if reactionDataType == "LOVE" {
+        } else if cellReactionDataType == "LOVE" {
             cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLove")
-        } else if reactionDataType == "HAHA" {
+        } else if cellReactionDataType == "HAHA" {
             cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconHaHa")
-        } else if reactionDataType == "SAD" {
+        } else if cellReactionDataType == "SAD" {
             cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconSad")
-        } else if reactionDataType == "WOW" {
+        } else if cellReactionDataType == "WOW" {
             cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconWow")
         } else {
             cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconAngry")
@@ -80,8 +80,8 @@ class ListReactionFriendsTableViewController: UITableViewController {
     }
     
     func tapLinkUrlProfileFriend(_ sender: AnyObject) {
-        let reactionData = setUserResourcePostsDataReactionData[sender.view.tag] as! ReactionsDataDetail
-        if let linkUrlProfileFriend = URL(string: "\(reactionData.link)") {
+        let cellReactionData = setUserResourcePostsDataReactionData[sender.view.tag] as! ReactionsDataDetail
+        if let linkUrlProfileFriend = URL(string: "\(cellReactionData.link)") {
             UIApplication.shared.open(linkUrlProfileFriend, options: [:], completionHandler: nil)
         }
     }
