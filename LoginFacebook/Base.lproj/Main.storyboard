@@ -524,11 +524,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-wv-4k3">
-                                            <rect key="frame" x="197" y="9" width="105" height="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-wv-4k3">
+                                            <rect key="frame" x="197" y="9" width="119" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="1XD-9x-DeL"/>
-                                                <constraint firstAttribute="width" constant="105" id="i5C-Kw-2Tj"/>
+                                                <constraint firstAttribute="width" constant="119" id="i5C-Kw-2Tj"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="11.5"/>
                                             <nil key="textColor"/>
@@ -1321,39 +1321,39 @@
                                             <rect key="frame" x="8" y="6" width="45" height="53"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-Ip-J2Z">
-                                            <rect key="frame" x="61" y="0.0" width="240" height="15"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mED-ks-rEc">
-                                            <rect key="frame" x="61" y="19" width="245" height="15"/>
+                                            <rect key="frame" x="63" y="28" width="245" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzX-aP-hqO">
-                                            <rect key="frame" x="61" y="42" width="113" height="11"/>
+                                            <rect key="frame" x="63" y="50" width="113" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" red="0.61002934644670048" green="0.61002934644670048" blue="0.61002934644670048" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ถูกใจ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vey-Zl-wvb">
-                                            <rect key="frame" x="192" y="42" width="25" height="11"/>
+                                            <rect key="frame" x="191" y="50" width="25" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" red="0.61002934639999995" green="0.61002934639999995" blue="0.61002934639999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ตอบกลับ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaB-bs-y0O">
-                                            <rect key="frame" x="246" y="42" width="35" height="11"/>
+                                            <rect key="frame" x="246" y="50" width="35" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" red="0.61002934639999995" green="0.61002934639999995" blue="0.61002934639999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-Ip-J2Z">
+                                            <rect key="frame" x="63" y="7" width="240" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
