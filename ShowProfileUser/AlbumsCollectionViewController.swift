@@ -35,13 +35,13 @@ class AlbumsCollectionViewController: UICollectionViewController {
         collectionViewListAlbums?.delegate = self
         collectionViewListAlbums?.dataSource = self
         
-        fetchProfile()
+        fetchUserResourceProfile()
         
     }
     
     var userResourceData: UserResourceData! = nil
     
-    func fetchProfile() {
+    func fetchUserResourceProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place}, albums{created_time, count, description, name, photos.limit(10){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let dic = result as? NSDictionary
@@ -71,11 +71,11 @@ class AlbumsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellAlbumsDetailCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsDetailCollection", for: indexPath) as! AlbumsDetailCollectionViewCell
-        let userResourceAlbumsData = userResourceData?.albums?.data?[indexPath.row]
+        let cellUserResourceAlbumsData = userResourceData?.albums?.data?[indexPath.row]
 
-        cellAlbumsDetailCollectionView.nameAlbumsLabel.text = userResourceAlbumsData?.name
+        cellAlbumsDetailCollectionView.nameAlbumsLabel.text = cellUserResourceAlbumsData?.name
 
-        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceAlbumsData?.photos?.data?[0].picture)!, width: 150, height: 150)
+        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceAlbumsData?.photos?.data?[0].picture)!, width: 150, height: 150)
         cellAlbumsDetailCollectionView.photoAlbumsImageView.sd_setImage(with:  pictureUrl, completed:nil)
 
         return cellAlbumsDetailCollectionView
@@ -83,7 +83,7 @@ class AlbumsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let photosAlbumsCollectionView = MainStoryboard.instantiateViewController(withIdentifier: "PhotosAlbumsCollection") as! PhotosAlbumsCollectionViewController
+        let cellPhotosAlbumsCollectionView = MainStoryboard.instantiateViewController(withIdentifier: "PhotosAlbumsCollection") as! PhotosAlbumsCollectionViewController
         
         let userResourceAlbumsData = userResourceData?.albums?.data?[indexPath.row]
    
@@ -91,12 +91,12 @@ class AlbumsCollectionViewController: UICollectionViewController {
         if getUserResourceAlbumsPhotosDataCount  == nil {
             return
         }
-        photosAlbumsCollectionView.setUserResourceAlbumsPhotosDataCount  = ((getUserResourceAlbumsPhotosDataCount))!
+        cellPhotosAlbumsCollectionView.setUserResourceAlbumsPhotosDataCount  = ((getUserResourceAlbumsPhotosDataCount))!
         
         let getUserResourceAlbumsPhotosData = userResourceAlbumsData?.photos?.data
-        photosAlbumsCollectionView.setUserResourceAlbumsPhotosData = getUserResourceAlbumsPhotosData!
+        cellPhotosAlbumsCollectionView.setUserResourceAlbumsPhotosData = getUserResourceAlbumsPhotosData!
         
-        self.navigationController?.pushViewController(photosAlbumsCollectionView, animated: true)
+        self.navigationController?.pushViewController(cellPhotosAlbumsCollectionView, animated: true)
     }
 
     
