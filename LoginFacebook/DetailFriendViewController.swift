@@ -94,12 +94,12 @@ class DetailFriendViewController: UITableViewController {
         
         self.tablePostsFriend.reloadData()
         
-        getProfileUser()
+        getUserResource()
     }
     
     var userResourceData: UserResourceData! = nil
     
-    func getProfileUser() {
+    func getUserResource() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work,education,posts{created_time,message,full_picture,place}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
@@ -133,9 +133,9 @@ class DetailFriendViewController: UITableViewController {
     }
     
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let cellPostsData = getUserResourceDataPostsData[sender.view.tag] as? PostsDataDetail
+        let postsData = getUserResourceDataPostsData[sender.view.tag] as? PostsDataDetail
         var picture​PostsImages = [SKPhoto]()
-        let photosPosts = SKPhoto.photoWithImageURL((cellPostsData?.full_picture)!)
+        let photosPosts = SKPhoto.photoWithImageURL((postsData?.full_picture)!)
         photosPosts.shouldCachePhotoURLImage = true
         picture​PostsImages.append(photosPosts)
         let browser = SKPhotoBrowser(photos: picture​PostsImages)
@@ -162,32 +162,32 @@ class DetailFriendViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsFriendTableView", for: indexPath) as! PostsFriendTableViewCell
-        let cellPostsData = getUserResourceDataPostsData[indexPath.row] as! PostsDataDetail
+        let postsData = getUserResourceDataPostsData[indexPath.row] as! PostsDataDetail
         
-        cellPostsFriendTableView.messagePostsLabel.text = cellPostsData.message
+        cellPostsFriendTableView.messagePostsLabel.text = postsData.message
         cellPostsFriendTableView.namePostsLabel.text = getUserResourceDataName
-        cellPostsFriendTableView.placePostsLabel.text = cellPostsData.place?.name
+        cellPostsFriendTableView.placePostsLabel.text = postsData.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getUserResourceDataProfileImageUrl), width: 150, height: 150)
         cellPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormResource = cellPostsData.created_time
+        let dateStringFormPostsDataCreatedTime = postsData.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: dateStringFormResource)
+        let date = dateFormatter.date(from: dateStringFormPostsDataCreatedTime)
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
         cellPostsFriendTableView.createdTimePostsLabel.text = dateString
         
-        let picturePost = cellPostsData.full_picture
-        if  picturePost  == "" {
+        let postsDataPicturePost = postsData.full_picture
+        if  postsDataPicturePost  == "" {
             tablePostsFriend.rowHeight = 135
             cellPostsFriendTableView.picturePostsImageView.image = nil
         } else {
             tablePostsFriend.rowHeight = 400
-            cellPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellPostsData.full_picture)), completed: nil)
+            cellPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (postsData.full_picture)), completed: nil)
             cellPostsFriendTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
@@ -196,8 +196,8 @@ class DetailFriendViewController: UITableViewController {
             cellPostsFriendTableView.picturePostsImageView.addGestureRecognizer(tapGestureRecognizer)
         }
         
-        let atPlace = cellPostsData.place
-        if atPlace == nil {
+        let postsDataPlace = postsData.place
+        if postsDataPlace == nil {
             cellPostsFriendTableView.atPlacePostsLabel.text = ""
             cellPostsFriendTableView.iconCheckInPostsImageView.image = nil
         } else {
