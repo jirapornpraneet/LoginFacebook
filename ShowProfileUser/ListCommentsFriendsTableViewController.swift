@@ -52,7 +52,7 @@ class ListCommentsFriendsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellListCommentsFriends = tableView.dequeueReusableCell(withIdentifier: "cellListCommentsFriends", for: indexPath) as! ListCommentsFriendsTableViewCell
         let commentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
-        cellListCommentsFriends.nameFriendsLabel.text = commentsData.message
+        cellListCommentsFriends.commentsMessageLabel.text = commentsData.message
         
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormCommentsDataCreatedTime = commentsData.created_time
