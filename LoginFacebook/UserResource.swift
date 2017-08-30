@@ -76,6 +76,7 @@ class CommentsDataDetail: EVObject {
     var message: String = ""
     var from: FromData?
     var created_time: String = ""
+    var comments: CommentsData?
 }
 
 class FromData: EVObject {
