@@ -25,14 +25,14 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var placePostsLabel: UILabel!
     @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
-    @IBOutlet weak var friendsReactionLabel: UILabel!
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
     @IBOutlet weak var commentsFriendsLabel: UILabel!
+    @IBOutlet weak var reactionFriendsButton: UIButton!
 
 }
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     @IBOutlet var tablePosts: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -203,7 +203,7 @@ class ViewController: UITableViewController {
         let cellUserResourcePostsDataReactionsData = cellUserResourcePostsData?.reactions?.data?[0]
         var cellUserResourcePostsDataReactionsDataCount = cellUserResourcePostsData?.reactions?.data?.count
         if cellUserResourcePostsDataReactionsData == nil && cellUserResourcePostsDataReactionsDataCount == nil {
-            cellPostsUserTableView.friendsReactionLabel.text = ""
+            cellPostsUserTableView.reactionFriendsButton.setTitle("", for: .normal)
             cellUserResourcePostsDataReactionsDataCount = 0
             cellPostsUserTableView.iconReaction1ImageView.image = nil
             getUserResourcePostsDataReactionCount = 0
@@ -214,18 +214,12 @@ class ViewController: UITableViewController {
             let length = cellNameFriendReactions?.characters.count
         
             if length! >= 10 {
-                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%i", cellUserResourcePostsDataReactionsDataCount!)
-                let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
-                cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
-                cellPostsUserTableView.friendsReactionLabel.tag = indexPath.row
-                cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
+                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", cellUserResourcePostsDataReactionsDataCount!), for: .normal)
+                cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
             } else {
                 let reactionsCount = cellUserResourcePostsDataReactionsDataCount! - 1
-                cellPostsUserTableView.friendsReactionLabel.text = String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount)
-                let tapShowReactionFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickFriendsReactionLabel))
-                cellPostsUserTableView.friendsReactionLabel.isUserInteractionEnabled = true
-                cellPostsUserTableView.friendsReactionLabel.tag = indexPath.row
-                cellPostsUserTableView.friendsReactionLabel.addGestureRecognizer(tapShowReactionFriends)
+                 cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
+                cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
             }
             
             let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
@@ -279,15 +273,30 @@ class ViewController: UITableViewController {
     var getUserResourcePostsDataReactionCount = Int()
     var getUserResourcePostsDataReactionData = [NSObject]()
     
-    func tapClickFriendsReactionLabel(_ sender: AnyObject) {
-        
-        let getUserResourcePostsData = userResourceData.posts?.data?[sender.view.tag]
+    @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
+        let senderButton = sender as! UIButton
+        let getUserResourcePostsData = userResourceData.posts?.data?[senderButton.tag]
         let getUserResourcePostsDataReaction = getUserResourcePostsData?.reactions?.data
         getUserResourcePostsDataReactionData = getUserResourcePostsDataReaction!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
         getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
+       
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ListReactionFriendsTableViewController
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+   
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as! UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
 
-        self.performSegue(withIdentifier: "ListReactionFriendsView", sender: nil)
+        popController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
+        popController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
+
+        self.present(popController, animated: true, completion: nil)
+    }
+
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
     
     var getUserResourcePostsDataCommentsCount = Int()
