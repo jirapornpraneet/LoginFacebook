@@ -27,9 +27,9 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
-    @IBOutlet weak var commentsFriendsLabel: UILabel!
     @IBOutlet weak var reactionFriendsButton: UIButton!
-
+    @IBOutlet weak var commentsFriendsButton: UIButton!
+    
 }
 
 class ViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
@@ -47,7 +47,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         super.viewDidLoad()
         tablePosts.dataSource = self
         tablePosts.delegate = self
-
+        
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = 4
         profileImageView.layer.borderWidth = 2
@@ -61,7 +61,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         coverImageView.addGestureRecognizer(tapZoomCoverPicture)
         coverImageView.isUserInteractionEnabled = true
         
-         if (FBSDKAccessToken.current()) != nil {
+        if (FBSDKAccessToken.current()) != nil {
             fetchUserResourceProfile()
         }
         
@@ -99,14 +99,14 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
-   
+    
     func fetchUserResourceProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education, posts{created_time, message, full_picture, place,reactions.limit(500){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
             let jsonString = resultDictionary?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
-    
+            
             self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
             self.schoolNameLabel.text = self.userResourceData.education?[2].school?.name
             self.concentrationNameLabel.text = self.userResourceData.education?[2].concentration?[0].name
@@ -114,7 +114,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             
             let profileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileUpdateImageView.sd_setImage(with: profileUpdateImageUrl, completed:nil)
-           
+            
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 230)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
             self.profileImageView.contentMode = UIViewContentMode.scaleAspectFit
@@ -190,16 +190,11 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         
         let cellUserResourcePostsDataCommentsDataCount = cellUserResourcePostsData?.comments?.data?.count
         if cellUserResourcePostsDataCommentsDataCount == nil {
-            cellPostsUserTableView.commentsFriendsLabel.text = ""
+            cellPostsUserTableView.commentsFriendsButton.setTitle("", for: .normal)
         } else {
-            cellPostsUserTableView.commentsFriendsLabel.text = String(format: "%ความคิดเห็น %i %รายการ", cellUserResourcePostsDataCommentsDataCount!)
-            
-            let tapShowCommentsFriends = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapClickCommentsFriendsLabel))
-            cellPostsUserTableView.commentsFriendsLabel.isUserInteractionEnabled = true
-            cellPostsUserTableView.commentsFriendsLabel.tag = indexPath.row
-            cellPostsUserTableView.commentsFriendsLabel.addGestureRecognizer(tapShowCommentsFriends)
+            cellPostsUserTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", cellUserResourcePostsDataCommentsDataCount!), for: .normal)
         }
-      
+        
         let cellUserResourcePostsDataReactionsData = cellUserResourcePostsData?.reactions?.data?[0]
         var cellUserResourcePostsDataReactionsDataCount = cellUserResourcePostsData?.reactions?.data?.count
         if cellUserResourcePostsDataReactionsData == nil && cellUserResourcePostsDataReactionsDataCount == nil {
@@ -212,13 +207,13 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             
             let cellNameFriendReactions = cellUserResourcePostsDataReactionsData?.name
             let length = cellNameFriendReactions?.characters.count
-        
+            
             if length! >= 10 {
                 cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", cellUserResourcePostsDataReactionsDataCount!), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
             } else {
                 let reactionsCount = cellUserResourcePostsDataReactionsDataCount! - 1
-                 cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
+                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
             }
             
@@ -268,7 +263,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             }
         }
         return cellPostsUserTableView
-  }
+    }
     
     var getUserResourcePostsDataReactionCount = Int()
     var getUserResourcePostsDataReactionData = [NSObject]()
@@ -280,21 +275,21 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         getUserResourcePostsDataReactionData = getUserResourcePostsDataReaction!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
         getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
-       
+        
         let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ListReactionFriendsTableViewController
         popController.modalPresentationStyle = UIModalPresentationStyle.popover
-   
+        
         popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
         popController.popoverPresentationController?.delegate = self
         popController.popoverPresentationController?.sourceView = sender as! UIView // button
         popController.popoverPresentationController?.sourceRect = sender.bounds
-
+        
         popController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
         popController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
-
+        
         self.present(popController, animated: true, completion: nil)
     }
-
+    
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
     }

@@ -579,16 +579,6 @@
                                                 <constraint firstAttribute="width" constant="64" id="bwr-Q9-loi"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="friendscomments" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGL-48-xDa">
-                                            <rect key="frame" x="183" y="85" width="127" height="12"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="127" id="2OF-X5-Ch2"/>
-                                                <constraint firstAttribute="height" constant="12" id="xV8-zK-eAy"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" red="0.44713732600212097" green="0.44712838530540466" blue="0.44713440537452698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyC-iQ-TWc">
                                             <rect key="frame" x="43" y="83" width="31" height="16"/>
                                             <constraints>
@@ -603,6 +593,17 @@
                                                 <action selector="clickButtonToViewReactionFriendsTableViewController:" destination="XTy-WA-W6X" eventType="touchUpInside" id="4PR-fj-yRJ"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qui-Pc-ksG">
+                                            <rect key="frame" x="179" y="86" width="130" height="13"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="QX8-xi-8vH"/>
+                                                <constraint firstAttribute="height" constant="13" id="w84-em-dHI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <state key="normal" title="comment">
+                                                <color key="titleColor" red="0.61176470589999998" green="0.62352941179999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
@@ -615,6 +616,8 @@
                                         <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="cxS-Xl-nPq" secondAttribute="bottom" constant="6" id="8v6-4b-Apy"/>
                                         <constraint firstAttribute="trailing" secondItem="E5T-z3-MUg" secondAttribute="trailing" constant="7" id="9NE-sp-fJy"/>
                                         <constraint firstItem="E5T-z3-MUg" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="56" id="ACC-zj-Upc"/>
+                                        <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="Qui-Pc-ksG" secondAttribute="bottom" constant="6" id="CJS-MQ-cab"/>
+                                        <constraint firstItem="Qui-Pc-ksG" firstAttribute="leading" secondItem="wyC-iQ-TWc" secondAttribute="trailing" constant="105" id="DiG-aI-ne4"/>
                                         <constraint firstItem="Dgh-vN-rBI" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leadingMargin" constant="1" id="G48-qJ-S1E"/>
                                         <constraint firstItem="wyC-iQ-TWc" firstAttribute="leading" secondItem="cxS-Xl-nPq" secondAttribute="trailing" constant="3" id="HXr-fc-6NH"/>
                                         <constraint firstItem="E5T-z3-MUg" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="7" id="IPT-0p-yXl"/>
@@ -631,19 +634,18 @@
                                         <constraint firstItem="Dfm-Hh-7wz" firstAttribute="leading" secondItem="4Jl-ka-ux0" secondAttribute="trailing" constant="4" id="a5g-wW-WZd"/>
                                         <constraint firstItem="RSx-XG-TKo" firstAttribute="leading" secondItem="3tf-OS-ycD" secondAttribute="trailing" constant="102" id="azs-sC-w5W"/>
                                         <constraint firstItem="4Jl-ka-ux0" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="top" constant="8" id="epp-1A-oaL"/>
-                                        <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="SGL-48-xDa" secondAttribute="bottom" constant="8" id="f9a-iX-7iq"/>
                                         <constraint firstAttribute="bottom" secondItem="RSx-XG-TKo" secondAttribute="bottom" constant="3.5" id="g6a-LR-iG7"/>
                                         <constraint firstItem="5gA-o1-v55" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="12" id="ib4-pL-Vxf"/>
                                         <constraint firstItem="Xdt-JT-5Ue" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="3" id="leR-9l-AQ4"/>
                                         <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="wyC-iQ-TWc" secondAttribute="bottom" constant="6" id="pC8-14-GVh"/>
                                         <constraint firstItem="RVE-wv-4k3" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="top" constant="9" id="r3T-Mx-hQc"/>
-                                        <constraint firstItem="SGL-48-xDa" firstAttribute="trailing" secondItem="9qW-TU-bKW" secondAttribute="trailingMargin" constant="-2" id="t43-oW-wUk"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Qui-Pc-ksG" secondAttribute="trailing" constant="3" id="xQb-15-JHR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.13341047138929016" green="0.048128960110455053" blue="0.1452252538071066" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="atPlacePostsLabel" destination="8aM-3a-kb3" id="CB9-PB-4eE"/>
-                                    <outlet property="commentsFriendsLabel" destination="SGL-48-xDa" id="cp6-MS-Wop"/>
+                                    <outlet property="commentsFriendsButton" destination="Qui-Pc-ksG" id="f5v-ry-Pyt"/>
                                     <outlet property="createdTimePostsLabel" destination="Dfm-Hh-7wz" id="RFB-Ne-BSq"/>
                                     <outlet property="iconCheckInPostsImageView" destination="Xdt-JT-5Ue" id="MRq-C9-Eog"/>
                                     <outlet property="iconReaction1ImageView" destination="Dgh-vN-rBI" id="u2z-M9-kCF"/>
