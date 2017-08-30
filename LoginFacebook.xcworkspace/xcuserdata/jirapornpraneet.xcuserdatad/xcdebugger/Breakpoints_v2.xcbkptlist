@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "525779591.790783"
+            timestampString = "525782046.341377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "499"
-            endingLineNumber = "499">
+            startingLineNumber = "454"
+            endingLineNumber = "454">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "525779591.790783"
+            timestampString = "525782046.341377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500">
+            startingLineNumber = "455"
+            endingLineNumber = "455">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -114,11 +114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "525779591.790783"
+            timestampString = "525782046.341377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418">
+            startingLineNumber = "373"
+            endingLineNumber = "373">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
