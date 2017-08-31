@@ -1369,6 +1369,9 @@
                                             <rect key="frame" x="122" y="60" width="159" height="9"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <connections>
+                                                <action selector="clickButtonToViewCommentsTableViewController:" destination="9K5-XI-o34" eventType="touchUpInside" id="2qH-HQ-ChJ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.57034530348745793" green="0.87618415562472762" blue="0.91449695825576782" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1385,6 +1388,7 @@
                     </tableView>
                     <connections>
                         <outlet property="tableListCommentsFriends" destination="sJf-M6-SLg" id="D2b-wj-YyM"/>
+                        <segue destination="oIg-l3-HvX" kind="show" identifier="ListComments" id="mGc-0w-beL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1396,11 +1400,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="ListComments" id="oIg-l3-HvX" customClass="ListCommentsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="JuK-Lt-aPz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListComments" rowHeight="68" id="NGr-dt-PrN" customClass="ListCommentsTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListComments" rowHeight="68" id="NGr-dt-PrN" customClass="ListCommentsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NGr-dt-PrN" id="nMD-gZ-5Rc">
@@ -1450,10 +1454,10 @@
                                     <color key="backgroundColor" red="0.91449695825576782" green="0.5217114052748173" blue="0.61449087374855638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="commentsMessageLabel" destination="Ngx-M0-Hbk" id="zd1-iF-MIJ"/>
-                                    <outlet property="dateTimeLabel" destination="ukL-fw-ljl" id="TzB-jx-hw2"/>
-                                    <outlet property="nameFriendsLabel" destination="ba9-zS-lbf" id="XlT-ud-JR3"/>
-                                    <outlet property="profileFriendImageView" destination="r6A-FS-MlJ" id="PxT-Kb-kDy"/>
+                                    <outlet property="commentsMessageLabel" destination="Ngx-M0-Hbk" id="zsD-hV-vgP"/>
+                                    <outlet property="dateTimeLabel" destination="ukL-fw-ljl" id="qhv-gI-scf"/>
+                                    <outlet property="nameFriendsLabel" destination="ba9-zS-lbf" id="L5V-nL-6Kc"/>
+                                    <outlet property="profileFriendImageView" destination="r6A-FS-MlJ" id="tDY-5x-lka"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
