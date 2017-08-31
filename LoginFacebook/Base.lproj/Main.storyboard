@@ -1374,7 +1374,6 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.57034530348745793" green="0.87618415562472762" blue="0.91449695825576782" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentsCountButton" destination="g3b-oo-wPX" id="fPS-Sn-3km"/>
@@ -1451,7 +1450,6 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.91449695825576782" green="0.5217114052748173" blue="0.61449087374855638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentsMessageLabel" destination="Ngx-M0-Hbk" id="zsD-hV-vgP"/>
