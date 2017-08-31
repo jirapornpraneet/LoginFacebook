@@ -58,7 +58,21 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "525843761.01723"
+            timestampString = "525844332.222881"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "451"
+            endingLineNumber = "451">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginFacebook/ViewController.swift"
+            timestampString = "525844332.222881"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "452"
@@ -71,12 +85,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "525843761.01723"
+            filePath = "ShowProfileUser/ListCommentsFriendsTableViewController.swift"
+            timestampString = "525844589.315639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453">
+            startingLineNumber = "107"
+            endingLineNumber = "107">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -86,25 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShowProfileUser/ListCommentsFriendsTableViewController.swift"
-            timestampString = "525767882.546609"
+            timestampString = "525844589.315639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShowProfileUser/ListCommentsFriendsTableViewController.swift"
-            timestampString = "525767882.546609"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105">
+            startingLineNumber = "112"
+            endingLineNumber = "112">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -114,11 +114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "525843761.01723"
+            timestampString = "525844332.222881"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371">
+            startingLineNumber = "370"
+            endingLineNumber = "370">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
