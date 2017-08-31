@@ -680,8 +680,8 @@
                         <outlet property="schoolNameLabel" destination="xA5-f1-uQE" id="47c-8A-fK2"/>
                         <outlet property="showFriendButton" destination="mlO-jw-MYG" id="8vm-zs-Lv9"/>
                         <outlet property="tablePosts" destination="aLE-t3-bId" id="yxT-VV-9XV"/>
-                        <segue destination="Mll-1r-daG" kind="show" identifier="ListReactionFriendsView" id="ZXc-Qm-Eq4"/>
-                        <segue destination="9K5-XI-o34" kind="show" identifier="ListCommentsFriendsView" id="qcw-xZ-Cnh"/>
+                        <segue destination="Mll-1r-daG" kind="show" identifier="ReactionFriendsTableView" id="ZXc-Qm-Eq4"/>
+                        <segue destination="9K5-XI-o34" kind="show" identifier="CommentsFriendsTableView" id="qcw-xZ-Cnh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbl-lZ-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1216,13 +1216,13 @@
         <!--Reaction Friends Table View Controller-->
         <scene sceneID="M7E-8o-RLO">
             <objects>
-                <tableViewController storyboardIdentifier="ListReactionFriendsView" id="Mll-1r-daG" customClass="ReactionFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ReactionFriendsTableView" id="Mll-1r-daG" customClass="ReactionFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" id="IPG-hh-56G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListReactionFriends" rowHeight="49" id="PGY-NK-f4X" customClass="ReactionFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReactionFriends" rowHeight="49" id="PGY-NK-f4X" customClass="ReactionFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PGY-NK-f4X" id="yLn-CA-Mfp">
@@ -1313,13 +1313,13 @@
         <!--Comments Friends Table View Controller-->
         <scene sceneID="KZ6-ft-pfc">
             <objects>
-                <tableViewController storyboardIdentifier="ListCommentsFriendsView" id="9K5-XI-o34" customClass="CommentsFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CommentsFriendsTableView" id="9K5-XI-o34" customClass="CommentsFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJf-M6-SLg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListCommentsFriends" rowHeight="73" id="qOC-v0-B6y" customClass="CommentsFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellComments" rowHeight="73" id="qOC-v0-B6y" customClass="CommentsFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qOC-v0-B6y" id="s4Z-E7-LIy">
@@ -1387,7 +1387,7 @@
                     </tableView>
                     <connections>
                         <outlet property="tableListCommentsFriends" destination="sJf-M6-SLg" id="D2b-wj-YyM"/>
-                        <segue destination="oIg-l3-HvX" kind="show" identifier="ListComments" id="mGc-0w-beL"/>
+                        <segue destination="oIg-l3-HvX" kind="show" identifier="CommentsView" id="mGc-0w-beL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1397,13 +1397,13 @@
         <!--Comments Table View Controller-->
         <scene sceneID="16a-cb-4Fi">
             <objects>
-                <tableViewController storyboardIdentifier="ListComments" id="oIg-l3-HvX" customClass="CommentsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CommentsView" id="oIg-l3-HvX" customClass="CommentsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="JuK-Lt-aPz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListComments" rowHeight="68" id="NGr-dt-PrN" customClass="CommentsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellCommentsView" rowHeight="68" id="NGr-dt-PrN" customClass="CommentsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NGr-dt-PrN" id="nMD-gZ-5Rc">

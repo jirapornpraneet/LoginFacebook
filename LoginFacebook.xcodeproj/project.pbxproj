@@ -158,7 +158,7 @@
 			children = (
 				AB442AA21F42CE9F00C17A41 /* Function Helper */,
 				ABDB61B21F3AF47000CAD71D /* ShowProfileUser */,
-				ABDB61B11F3AF43E00CAD71D /* ShowListFriend */,
+				ABDB61B11F3AF43E00CAD71D /* ShowFriend */,
 				ABDB61AF1F3AF3FA00CAD71D /* FristViewApp */,
 				AB33440C1F29BA3000F20846 /* AppDelegate.swift */,
 				AB3344101F29BA3000F20846 /* Main.storyboard */,
@@ -214,12 +214,13 @@
 			path = FristViewApp;
 			sourceTree = SOURCE_ROOT;
 		};
-		ABDB61B11F3AF43E00CAD71D /* ShowListFriend */ = {
+		ABDB61B11F3AF43E00CAD71D /* ShowFriend */ = {
 			isa = PBXGroup;
 			children = (
 				AB292EBC1F3176120088896D /* DetailFriendViewController.swift */,
 				AB91A03E1F58161600D7D84A /* FriendsCollectionViewController.swift */,
 			);
+			name = ShowFriend;
 			path = ShowListFriend;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -229,8 +230,8 @@
 				AB292EBA1F3085B10088896D /* UserResource.swift */,
 				AB33440E1F29BA3000F20846 /* ViewController.swift */,
 				AB91A03C1F58135900D7D84A /* ReactionFriendsTableViewController.swift */,
-				AB91A0421F58183200D7D84A /* CommentsTableViewController.swift */,
 				AB91A0401F5817AE00D7D84A /* CommentsFriendsTableViewController.swift */,
+				AB91A0421F58183200D7D84A /* CommentsTableViewController.swift */,
 				ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */,
 			);
 			path = ShowProfileUser;

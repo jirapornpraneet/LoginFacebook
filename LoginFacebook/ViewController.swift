@@ -278,18 +278,18 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
         getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
         
-        let popListReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ReactionFriendsTableViewController
-        popListReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        let popReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReactionFriendsTableView") as! ReactionFriendsTableViewController
+        popReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
-        popListReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popListReactionFriendsTableViewController.popoverPresentationController?.delegate = self
-        popListReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
-        popListReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        popReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popReactionFriendsTableViewController.popoverPresentationController?.delegate = self
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popListReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
-        popListReactionFriendsTableViewController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
+        popReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
+        popReactionFriendsTableViewController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
         
-        self.present(popListReactionFriendsTableViewController, animated: true, completion: nil)
+        self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
     }
     
     var getUserResourcePostsDataCommentsCount = Int()
@@ -304,18 +304,18 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
         getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
         
-        let popListCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListCommentsFriendsView") as! CommentsFriendsTableViewController
-        popListCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
+        popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
-        popListCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popListCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
-        popListCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
-        popListCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        popCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
-        popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
+        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
+        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
         
-        self.present(popListCommentsFriendsTableViewController, animated: true, completion: nil)
+        self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {

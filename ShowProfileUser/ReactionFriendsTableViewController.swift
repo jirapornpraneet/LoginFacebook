@@ -48,35 +48,35 @@ class ReactionFriendsTableViewController: UITableViewController {
     var setUserResourcePostsDataReactionData = [NSObject]()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellListReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellListReactionFriends", for: indexPath) as! ReactionFriendsTableViewCell
+        let cellReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellReactionFriends", for: indexPath) as! ReactionFriendsTableViewCell
         let cellReactionData = setUserResourcePostsDataReactionData[indexPath.row] as! ReactionsDataDetail
-        cellListReactionFriends.nameFriendsLabel.text = cellReactionData.name
+        cellReactionFriends.nameFriendsLabel.text = cellReactionData.name
         let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: cellReactionData.pic_large, width: 50, height: 50)
-        cellListReactionFriends.profileFriendImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
+        cellReactionFriends.profileFriendImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
         
         let cellReactionDataType = cellReactionData.type
         
         if cellReactionDataType == "LIKE" {
-            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLike")
+            cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLike")
         } else if cellReactionDataType == "LOVE" {
-            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLove")
+            cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLove")
         } else if cellReactionDataType == "HAHA" {
-            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconHaHa")
+            cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconHaHa")
         } else if cellReactionDataType == "SAD" {
-            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconSad")
+            cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconSad")
         } else if cellReactionDataType == "WOW" {
-            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconWow")
+            cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconWow")
         } else {
-            cellListReactionFriends.reactionFriendImageView.image = UIImage(named:"iconAngry")
+            cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconAngry")
         }
         
         // MARK: Click NameFriendLabel Link
         let tapLinkUrlFriend = UITapGestureRecognizer(target: self, action: #selector(ReactionFriendsTableViewController.tapLinkUrlProfileFriend))
-        cellListReactionFriends.nameFriendsLabel.isUserInteractionEnabled = true
-        cellListReactionFriends.nameFriendsLabel.tag = indexPath.row
-        cellListReactionFriends.nameFriendsLabel.addGestureRecognizer(tapLinkUrlFriend)
+        cellReactionFriends.nameFriendsLabel.isUserInteractionEnabled = true
+        cellReactionFriends.nameFriendsLabel.tag = indexPath.row
+        cellReactionFriends.nameFriendsLabel.addGestureRecognizer(tapLinkUrlFriend)
         
-        return cellListReactionFriends
+        return cellReactionFriends
     }
     
     func tapLinkUrlProfileFriend(_ sender: AnyObject) {

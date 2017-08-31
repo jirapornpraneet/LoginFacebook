@@ -51,17 +51,17 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
     var setUserResourcePostsDataCommentsData = [NSObject]()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellListCommentsFriends = tableView.dequeueReusableCell(withIdentifier: "cellListCommentsFriends", for: indexPath) as! CommentsFriendsTableViewCell
+        let cellComments = tableView.dequeueReusableCell(withIdentifier: "cellComments", for: indexPath) as! CommentsFriendsTableViewCell
         let cellCommentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
-        cellListCommentsFriends.commentsMessageLabel.text = cellCommentsData.message
-        cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.from?.name
+        cellComments.commentsMessageLabel.text = cellCommentsData.message
+        cellComments.nameFriendsLabel.text = cellCommentsData.from?.name
         
         let cellListCommentsDataCount = cellCommentsData.comment_count
         if cellListCommentsDataCount == 0 {
-            cellListCommentsFriends.commentsCountButton.setTitle("", for: .normal)
+            cellComments.commentsCountButton.setTitle("", for: .normal)
         } else {
-            cellListCommentsFriends.commentsCountButton.setTitle(String(format: "%ความคิดเห็น %i %รายการ", cellListCommentsDataCount), for: .normal)
-            cellListCommentsFriends.commentsCountButton.tag = indexPath.row
+            cellComments.commentsCountButton.setTitle(String(format: "%ความคิดเห็น %i %รายการ", cellListCommentsDataCount), for: .normal)
+            cellComments.commentsCountButton.tag = indexPath.row
         }
         
         let myLocale = Locale(identifier: "th_TH")
@@ -72,9 +72,9 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
-        cellListCommentsFriends.dateTimeLabel.text = dateString
+        cellComments.dateTimeLabel.text = dateString
         
-        return cellListCommentsFriends
+        return cellComments
     }
     
     @IBAction func clickButtonToViewCommentsTableViewController(_ sender: AnyObject) {
@@ -83,18 +83,18 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
         let getCommentsDataCommentsData = getCommentsData.comments?.data
         let getCommentsDataCommentsCount = getCommentsData.comments?.data?.count
         
-        let popListCommentsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListComments") as! CommentsTableViewController
-        popListCommentsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        let popCommentsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsView") as! CommentsTableViewController
+        popCommentsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
-        popListCommentsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popListCommentsTableViewController.popoverPresentationController?.delegate = self
-        popListCommentsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
-        popListCommentsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        popCommentsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popCommentsTableViewController.popoverPresentationController?.delegate = self
+        popCommentsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popCommentsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popListCommentsTableViewController.getUserResourceDataCommentsData = getCommentsDataCommentsData!
-        popListCommentsTableViewController.getUserResourceDataCommentsCount = getCommentsDataCommentsCount!
+        popCommentsTableViewController.getUserResourceDataCommentsData = getCommentsDataCommentsData!
+        popCommentsTableViewController.getUserResourceDataCommentsCount = getCommentsDataCommentsCount!
         
-        self.present(popListCommentsTableViewController, animated: true, completion: nil)
+        self.present(popCommentsTableViewController, animated: true, completion: nil)
         
     }
     
