@@ -1213,16 +1213,16 @@
             </objects>
             <point key="canvasLocation" x="1076.25" y="406.6901408450704"/>
         </scene>
-        <!--List Reaction Friends Table View Controller-->
+        <!--Reaction Friends Table View Controller-->
         <scene sceneID="M7E-8o-RLO">
             <objects>
-                <tableViewController storyboardIdentifier="ListReactionFriendsView" id="Mll-1r-daG" customClass="ListReactionFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListReactionFriendsView" id="Mll-1r-daG" customClass="ReactionFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" id="IPG-hh-56G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListReactionFriends" rowHeight="49" id="PGY-NK-f4X" customClass="ListReactionFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListReactionFriends" rowHeight="49" id="PGY-NK-f4X" customClass="ReactionFriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PGY-NK-f4X" id="yLn-CA-Mfp">

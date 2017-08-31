@@ -278,7 +278,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
         getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
         
-        let popListReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ListReactionFriendsTableViewController
+        let popListReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ReactionFriendsTableViewController
         popListReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
         popListReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up

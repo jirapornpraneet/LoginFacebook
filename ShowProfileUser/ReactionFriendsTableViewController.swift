@@ -48,7 +48,7 @@ class ReactionFriendsTableViewController: UITableViewController {
     var setUserResourcePostsDataReactionData = [NSObject]()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellListReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellListReactionFriends", for: indexPath) as! ListReactionFriendsTableViewCell
+        let cellListReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellListReactionFriends", for: indexPath) as! ReactionFriendsTableViewCell
         let cellReactionData = setUserResourcePostsDataReactionData[indexPath.row] as! ReactionsDataDetail
         cellListReactionFriends.nameFriendsLabel.text = cellReactionData.name
         let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: cellReactionData.pic_large, width: 50, height: 50)
@@ -71,7 +71,7 @@ class ReactionFriendsTableViewController: UITableViewController {
         }
         
         // MARK: Click NameFriendLabel Link
-        let tapLinkUrlFriend = UITapGestureRecognizer(target: self, action: #selector(ListReactionFriendsTableViewController.tapLinkUrlProfileFriend))
+        let tapLinkUrlFriend = UITapGestureRecognizer(target: self, action: #selector(ReactionFriendsTableViewController.tapLinkUrlProfileFriend))
         cellListReactionFriends.nameFriendsLabel.isUserInteractionEnabled = true
         cellListReactionFriends.nameFriendsLabel.tag = indexPath.row
         cellListReactionFriends.nameFriendsLabel.addGestureRecognizer(tapLinkUrlFriend)
