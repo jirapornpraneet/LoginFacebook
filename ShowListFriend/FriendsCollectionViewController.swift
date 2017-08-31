@@ -1,94 +1,140 @@
 //
-//  FriendsCollectionViewController.swift
+//  CollectionViewController.swift
 //  LoginFacebook
 //
-//  Created by Jiraporn Praneet on 8/31/2560 BE.
+//  Created by Jiraporn Praneet on 8/1/2560 BE.
 //  Copyright © 2560 Jiraporn Praneet. All rights reserved.
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import FacebookLogin
+import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
+import SDWebImage
 
 private let reuseIdentifier = "Cell"
 
-class FriendsCollectionViewController: UICollectionViewController {
+class FriendsCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+}
 
+class FriendsCollectionViewController: UICollectionViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        let collectionViewListFriends = collectionView
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 10, right: 30)
+        layout.itemSize = CGSize(width: 110, height: 110)
+        collectionViewListFriends?.collectionViewLayout = layout
+        collectionViewListFriends?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionViewListFriends?.delegate = self
+        collectionViewListFriends?.dataSource = self
+        
+        getDataUserResourceFriends()
     }
-
+    
+    var userResource: UserResource! = nil
+    
+    func getDataUserResourceFriends() {
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAM53VB4Huo3dlP9EcIXe5V0WBJrzlH3XdGItWqCmJgMYuZBSR5gHQmxzwEWqfBID6avdlAg2GE1GmDxRQcataQYCwGzhWFRqTjnhfZC5NN1qhRdVgkX8H7WgsBjriOohjTPv4vQVH9iyJkdyYTFGmDgWBXUy6OqQJPB2wZA40D5NFSneL5QAZCVE1DqScAZDZD")
+        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        Alamofire.request(url, method: .get).validate().responseString { response in
+            print(response)
+            switch response.result {
+            case .success(let value):
+                self.userResource  = UserResource(json: value)
+                
+                self.collectionView?.reloadData()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        if  userResource != nil {
+            return userResource.data!.count
+        } else {
+            return 0
+        }
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cellFriendsCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellFriendsCollection", for: indexPath) as! FriendsCollectionViewCell
+        let cellUserResourceData = userResource.data?[indexPath.row]
+        
+        cellFriendsCollectionView.nameLabel.text = String(format: "%@", (cellUserResourceData?.name)!)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+        cellFriendsCollectionView.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        
+        return cellFriendsCollectionView
+    }
     
-        // Configure the cell
-    
-        return cell
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let cellDetailFriendsView = MainStoryboard.instantiateViewController(withIdentifier: "DetailFriendViewController") as! DetailFriendViewController
+        
+        let cellUserResourceData = userResource.data?[indexPath.row]
+        cellDetailFriendsView.getUserResourceDataProfileImageUrl = (cellUserResourceData?.picture?.data?.url)!
+        cellDetailFriendsView.getUserResourceDataName = String(format: "%@", (cellUserResourceData?.name)!)
+        cellDetailFriendsView.getUserResourceDataCoverImageUrl = (cellUserResourceData?.cover?.source)!
+        
+        let cellUserResourceDataBirthDay = cellUserResourceData?.birthday
+        if cellUserResourceDataBirthDay == "" {
+            cellDetailFriendsView.getUserResourceDataBirthDay = ""
+        } else {
+            cellDetailFriendsView.getUserResourceDataBirthDay = String(format: "%วันเกิด : %@", (cellUserResourceData?.birthday)!)
+        }
+        
+        let cellUserResourceDataGender = cellUserResourceData?.gender
+        if cellUserResourceDataGender == "" {
+            cellDetailFriendsView.getUserResourceDataGender = ""
+        } else {
+            cellDetailFriendsView.getUserResourceDataGender = String(format: "%เพศ : %@", (cellUserResourceData?.gender)!)
+        }
+        
+        let cellUserResourceDataEducation = cellUserResourceData?.education
+        if cellUserResourceDataEducation! == [] {
+            cellDetailFriendsView.getUserResourceDataEducation = ""
+            cellDetailFriendsView.getUserResourceDataEducationImage = UIImage(named: "nil.png")!
+        } else {
+            cellDetailFriendsView.getUserResourceDataEducation = String(format: "เคยศึกษาที่  %@ ", (cellUserResourceData?.education?[0].school?.name)!)
+            cellDetailFriendsView.getUserResourceDataEducationImage = UIImage(named: "iconEducation.png")!
+        }
+        
+        let cellUserResourceDataHomeTown = cellUserResourceData?.hometown?.name
+        if cellUserResourceDataHomeTown == nil {
+            cellDetailFriendsView.getUserResourceDataHometown = ""
+            cellDetailFriendsView.getUserResourceDataHometownImage = UIImage(named: "nil.png")!
+        } else {
+            cellDetailFriendsView.getUserResourceDataHometown = String(format: "%อาศัยอยู่ที่  %@ ", (cellUserResourceData?.hometown?.name)!)
+            cellDetailFriendsView.getUserResourceDataHometownImage = UIImage(named: "iconHometown.png")!
+        }
+        
+        let cellUserResourceDataPostsDataCount = cellUserResourceData?.posts?.data?.count
+        if cellUserResourceDataPostsDataCount == nil {
+            return
+        }
+        
+        cellDetailFriendsView.getUserResourceDataPostsDataCount = ((cellUserResourceDataPostsDataCount))!
+        
+        let cellUserResourceDataPostsData = cellUserResourceData?.posts?.data
+        cellDetailFriendsView.getUserResourceDataPostsData = cellUserResourceDataPostsData!
+        
+        self.navigationController?.pushViewController(cellDetailFriendsView, animated: true)
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
