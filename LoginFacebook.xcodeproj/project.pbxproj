@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F52C8D65B0CFCBDB36A4418 /* Pods_LoginFacebookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DB884A753D0349A4BBAF4D /* Pods_LoginFacebookTests.framework */; };
+		AB1AFFF81F57E5A8005DCE68 /* ListCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1AFFF71F57E5A8005DCE68 /* ListCommentsTableViewController.swift */; };
 		AB292EB71F30602C0088896D /* ListFriendsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB292EB61F30602C0088896D /* ListFriendsCollectionViewController.swift */; };
 		AB292EBB1F3085B10088896D /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB292EBA1F3085B10088896D /* UserResource.swift */; };
 		AB292EBD1F3176120088896D /* DetailFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB292EBC1F3176120088896D /* DetailFriendViewController.swift */; };
@@ -58,6 +59,7 @@
 		5871E61C8856E1D170A0CAC1 /* Pods-LoginFacebook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginFacebook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoginFacebook/Pods-LoginFacebook.debug.xcconfig"; sourceTree = "<group>"; };
 		919F8559C7802257AFBB2661 /* Pods-LoginFacebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginFacebook.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoginFacebook/Pods-LoginFacebook.release.xcconfig"; sourceTree = "<group>"; };
 		A9DB884A753D0349A4BBAF4D /* Pods_LoginFacebookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginFacebookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1AFFF71F57E5A8005DCE68 /* ListCommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCommentsTableViewController.swift; sourceTree = "<group>"; };
 		AB292EB61F30602C0088896D /* ListFriendsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListFriendsCollectionViewController.swift; path = ../LoginFacebook/ListFriendsCollectionViewController.swift; sourceTree = "<group>"; };
 		AB292EBA1F3085B10088896D /* UserResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserResource.swift; path = ../LoginFacebook/UserResource.swift; sourceTree = "<group>"; };
 		AB292EBC1F3176120088896D /* DetailFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailFriendViewController.swift; path = ../LoginFacebook/DetailFriendViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				AB33440E1F29BA3000F20846 /* ViewController.swift */,
 				ABE5A92E1F5026DF000B687D /* ListReactionFriendsTableViewController.swift */,
 				AB30C2E41F541DEF003828FA /* ListCommentsFriendsTableViewController.swift */,
+				AB1AFFF71F57E5A8005DCE68 /* ListCommentsTableViewController.swift */,
 				ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */,
 			);
 			path = ShowProfileUser;
@@ -553,6 +556,7 @@
 				ABE5A92F1F5026DF000B687D /* ListReactionFriendsTableViewController.swift in Sources */,
 				AB442AA41F42CEA900C17A41 /* FunctionHelper.swift in Sources */,
 				AB292EBB1F3085B10088896D /* UserResource.swift in Sources */,
+				AB1AFFF81F57E5A8005DCE68 /* ListCommentsTableViewController.swift in Sources */,
 				AB442AA61F42CEE900C17A41 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
