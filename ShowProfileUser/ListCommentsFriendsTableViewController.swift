@@ -15,6 +15,13 @@ class ListCommentsFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var commentsMessageLabel: UILabel!
 }
 
+class ListCommentsFriendsCommentsTableViewCell: UITableViewCell {
+    @IBOutlet weak var nameFriendsLabel: UILabel!
+    @IBOutlet weak var profileFriendImageView: UIImageView!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    @IBOutlet weak var commentsMessageLabel: UILabel!
+}
+
 class ListCommentsFriendsTableViewController: UITableViewController {
     
     @IBOutlet var tableListCommentsFriends: UITableView!
