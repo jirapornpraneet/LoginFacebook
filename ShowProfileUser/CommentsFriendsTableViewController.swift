@@ -1,95 +1,101 @@
 //
-//  CommentsFriendsTableViewController.swift
+//  ListCommentsFriendsTableViewController.swift
 //  LoginFacebook
 //
-//  Created by Jiraporn Praneet on 8/31/2560 BE.
+//  Created by Jiraporn Praneet on 8/28/2560 BE.
 //  Copyright © 2560 Jiraporn Praneet. All rights reserved.
 //
 
 import UIKit
 
-class CommentsFriendsTableViewController: UITableViewController {
+class CommentsFriendsTableViewCell: UITableViewCell {
+    @IBOutlet weak var nameFriendsLabel: UILabel!
+    @IBOutlet weak var profileFriendImageView: UIImageView!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    @IBOutlet weak var commentsMessageLabel: UILabel!
+    @IBOutlet weak var commentsCountButton: UIButton!
+}
 
+class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+    
+    @IBOutlet var tableListCommentsFriends: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableListCommentsFriends.delegate = self
+        tableListCommentsFriends.dataSource = self
+        self.tableListCommentsFriends.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
+    var setUserResourcePostsDataCommentsCount = Int()
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if setUserResourcePostsDataCommentsCount != 0 {
+            return setUserResourcePostsDataCommentsCount
+        } else {
+            return 0
+        }
     }
-
-    /*
+    
+    var setUserResourcePostsDataCommentsData = [NSObject]()
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cellListCommentsFriends = tableView.dequeueReusableCell(withIdentifier: "cellListCommentsFriends", for: indexPath) as! CommentsFriendsTableViewCell
+        let cellCommentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
+        cellListCommentsFriends.commentsMessageLabel.text = cellCommentsData.message
+        cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.from?.name
+        
+        let cellListCommentsDataCount = cellCommentsData.comment_count
+        if cellListCommentsDataCount == 0 {
+            cellListCommentsFriends.commentsCountButton.setTitle("", for: .normal)
+        } else {
+            cellListCommentsFriends.commentsCountButton.setTitle(String(format: "%ความคิดเห็น %i %รายการ", cellListCommentsDataCount), for: .normal)
+            cellListCommentsFriends.commentsCountButton.tag = indexPath.row
+        }
+        
+        let myLocale = Locale(identifier: "th_TH")
+        let dateStringFormCommentsDataCreatedTime = cellCommentsData.created_time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: dateStringFormCommentsDataCreatedTime)
+        dateFormatter.locale = myLocale
+        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
+        let dateString = dateFormatter.string(from: date!)
+        cellListCommentsFriends.dateTimeLabel.text = dateString
+        
+        return cellListCommentsFriends
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @IBAction func clickButtonToViewCommentsTableViewController(_ sender: AnyObject) {
+        let senderCommentsFriendsButton = sender as! UIButton
+        let getCommentsData = setUserResourcePostsDataCommentsData[senderCommentsFriendsButton.tag] as! CommentsDataDetail
+        let getCommentsDataCommentsData = getCommentsData.comments?.data
+        let getCommentsDataCommentsCount = getCommentsData.comments?.data?.count
+        
+        let popListCommentsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListComments") as! CommentsTableViewController
+        popListCommentsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popListCommentsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popListCommentsTableViewController.popoverPresentationController?.delegate = self
+        popListCommentsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popListCommentsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popListCommentsTableViewController.getUserResourceDataCommentsData = getCommentsDataCommentsData!
+        popListCommentsTableViewController.getUserResourceDataCommentsCount = getCommentsDataCommentsCount!
+        
+        self.present(popListCommentsTableViewController, animated: true, completion: nil)
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
