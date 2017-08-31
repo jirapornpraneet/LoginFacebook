@@ -193,6 +193,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             cellPostsUserTableView.commentsFriendsButton.setTitle("", for: .normal)
         } else {
             cellPostsUserTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", cellUserResourcePostsDataCommentsDataCount!), for: .normal)
+            cellPostsUserTableView.commentsFriendsButton.tag = indexPath.row
         }
         
         let cellUserResourcePostsDataReactionsData = cellUserResourcePostsData?.reactions?.data?[0]
@@ -269,54 +270,56 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     var getUserResourcePostsDataReactionData = [NSObject]()
     
     @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
-        let senderButton = sender as! UIButton
-        let getUserResourcePostsData = userResourceData.posts?.data?[senderButton.tag]
+        
+        let senderReactionFriendsButton = sender as! UIButton
+        let getUserResourcePostsData = userResourceData.posts?.data?[senderReactionFriendsButton.tag]
         let getUserResourcePostsDataReaction = getUserResourcePostsData?.reactions?.data
         getUserResourcePostsDataReactionData = getUserResourcePostsDataReaction!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
         getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
         
-        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ListReactionFriendsTableViewController
-        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        let popListReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListReactionFriendsView") as! ListReactionFriendsTableViewController
+        popListReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
-        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popController.popoverPresentationController?.delegate = self
-        popController.popoverPresentationController?.sourceView = sender as! UIView // button
-        popController.popoverPresentationController?.sourceRect = sender.bounds
+        popListReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popListReactionFriendsTableViewController.popoverPresentationController?.delegate = self
+        popListReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as! UIView // button
+        popListReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
-        popController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
+        popListReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
+        popListReactionFriendsTableViewController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
         
-        self.present(popController, animated: true, completion: nil)
-    }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.none
+        self.present(popListReactionFriendsTableViewController, animated: true, completion: nil)
     }
     
     var getUserResourcePostsDataCommentsCount = Int()
     var getUserResourcePostsDataCommentsData = [NSObject]()
     
-    func tapClickCommentsFriendsLabel(_ sender: AnyObject) {
+    @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
         
-        let getUserResourcePostsData = userResourceData.posts?.data?[sender.view.tag]
+        let senderCommentsFriendsButton = sender as! UIButton
+        let getUserResourcePostsData = userResourceData.posts?.data?[senderCommentsFriendsButton.tag]
         let getUserResourcePostsDataComments = getUserResourcePostsData?.comments?.data
         getUserResourcePostsDataCommentsData = getUserResourcePostsDataComments!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
         getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
         
-        self.performSegue(withIdentifier: "ListCommentsFriendsView", sender: nil)
+        let popListCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListCommentsFriendsView") as! ListCommentsFriendsTableViewController
+        popListCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popListCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popListCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
+        popListCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as! UIView // button
+        popListCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
+        popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
+        
+        self.present(popListCommentsFriendsTableViewController, animated: true, completion: nil)
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ListReactionFriendsView" {
-            let setReactionsDataToListReactionFriendsTableView = segue.destination as! ListReactionFriendsTableViewController
-            setReactionsDataToListReactionFriendsTableView.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
-            setReactionsDataToListReactionFriendsTableView.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
-        } else if segue.identifier == "ListCommentsFriendsView" {
-            let setCommentsDataToListCommentsFriendsTableView = segue.destination as! ListCommentsFriendsTableViewController
-            setCommentsDataToListCommentsFriendsTableView.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
-            setCommentsDataToListCommentsFriendsTableView.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
-        }
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
 }
