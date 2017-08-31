@@ -283,7 +283,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         
         popListReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
         popListReactionFriendsTableViewController.popoverPresentationController?.delegate = self
-        popListReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as! UIView // button
+        popListReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
         popListReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
         popListReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
@@ -309,7 +309,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         
         popListCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
         popListCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
-        popListCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as! UIView // button
+        popListCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
         popListCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
         popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
