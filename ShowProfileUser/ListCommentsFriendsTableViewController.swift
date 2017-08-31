@@ -16,7 +16,7 @@ class ListCommentsFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var commentsCountButton: UIButton!
 }
 
-class ListCommentsFriendsTableViewController: UITableViewController {
+class ListCommentsFriendsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet var tableListCommentsFriends: UITableView!
     
@@ -56,7 +56,7 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         cellListCommentsFriends.commentsMessageLabel.text = cellCommentsData.message
         cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.from?.name
         
-        var cellListCommentsDataCount = cellCommentsData.comment_count
+        let cellListCommentsDataCount = cellCommentsData.comment_count
         if cellListCommentsDataCount == 0 {
             cellListCommentsFriends.commentsCountButton.setTitle("", for: .normal)
         } else {
@@ -76,4 +76,26 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         
         return cellListCommentsFriends
     }
+    
+    @IBAction func clickButtonToViewCommentsTableViewController(_ sender: AnyObject) {
+        let senderCommentsFriendsButton = sender as! UIButton
+        let getCommentsData = setUserResourcePostsDataCommentsData[senderCommentsFriendsButton.tag] as! CommentsDataDetail
+        let getCommentsDataCommentsData = getCommentsData.comments?.data
+        let getCommentsDataCommentsCount = getCommentsData.comments?.data?.count
+        
+        let popListCommentsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListComments") as! ListCommentsTableViewController
+        popListCommentsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popListCommentsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popListCommentsTableViewController.popoverPresentationController?.delegate = self
+        popListCommentsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popListCommentsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popListCommentsTableViewController.getUserResourceDataCommentsData = getCommentsDataCommentsData!
+        popListCommentsTableViewController.getUserResourceDataCommentsCount = getCommentsDataCommentsCount!
+        
+        self.present(popListCommentsTableViewController, animated: true, completion: nil)
+
+    }
+    
 }
