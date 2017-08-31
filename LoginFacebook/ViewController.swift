@@ -304,7 +304,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
         getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
         
-        let popListCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListCommentsFriendsView") as! ListCommentsFriendsTableViewController
+        let popListCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListCommentsFriendsView") as! CommentsFriendsTableViewController
         popListCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
         popListCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
@@ -315,8 +315,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
         popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
         
-        self.performSegue(withIdentifier: String(format: "%@", popListCommentsFriendsTableViewController), sender: nil)
-        //self.present(popListCommentsFriendsTableViewController, animated: true, completion: nil)
+        self.present(popListCommentsFriendsTableViewController, animated: true, completion: nil)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
