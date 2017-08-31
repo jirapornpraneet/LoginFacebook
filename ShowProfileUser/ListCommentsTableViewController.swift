@@ -40,7 +40,7 @@ class ListCommentsTableViewController: UITableViewController {
     var getUserResourceDataCommentsCount = Int()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Count", getUserResourceDataCommentsCount)
+        print("CountSend", getUserResourceDataCommentsCount)
         if getUserResourceDataCommentsCount != 0 {
             return getUserResourceDataCommentsCount
         } else {
@@ -53,6 +53,19 @@ class ListCommentsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellListComments = tableView.dequeueReusableCell(withIdentifier: "cellListComments", for: indexPath) as! ListCommentsTableViewCell
         let cellCommentsData = getUserResourceDataCommentsData[indexPath.row] as! CommentsDataDetail
+        cellListComments.nameFriendsLabel.text = cellCommentsData.from?.name
+        cellListComments.commentsMessageLabel.text = cellCommentsData.message
+        
+        let myLocale = Locale(identifier: "th_TH")
+        let dateStringFormCommentsDataCreatedTime = cellCommentsData.created_time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: dateStringFormCommentsDataCreatedTime)
+        dateFormatter.locale = myLocale
+        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
+        let dateString = dateFormatter.string(from: date!)
+        cellListComments.dateTimeLabel.text = dateString
+        
         return cellListComments
     }
 }
