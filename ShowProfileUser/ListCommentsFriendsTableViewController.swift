@@ -15,13 +15,6 @@ class ListCommentsFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var commentsMessageLabel: UILabel!
 }
 
-class ListCommentsFriendsCommentsTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameFriendsLabel: UILabel!
-    @IBOutlet weak var profileFriendImageView: UIImageView!
-    @IBOutlet weak var dateTimeLabel: UILabel!
-    @IBOutlet weak var commentsMessageLabel: UILabel!
-}
-
 class ListCommentsFriendsTableViewController: UITableViewController {
     
     @IBOutlet var tableListCommentsFriends: UITableView!
@@ -73,6 +66,16 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         cellListCommentsFriends.dateTimeLabel.text = dateString
         
         return cellListCommentsFriends
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let cellListComments = MainStoryboard.instantiateViewController(withIdentifier: "ListComments") as! ListCommentsTableViewController
+        let cellCommentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
+        let cellCommentsDataComments = cellCommentsData.comments?.data
+        let cellCommentsDataCommentsCount = cellCommentsDataComments?.count
+        cellListComments.getUserResourceDataCommentsData = cellCommentsDataComments!
+        cellListComments.getUserResourceDataCommentsCount = cellCommentsDataCommentsCount
     }
     
 }
