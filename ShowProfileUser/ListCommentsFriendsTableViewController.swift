@@ -13,6 +13,7 @@ class ListCommentsFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var profileFriendImageView: UIImageView!
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var commentsMessageLabel: UILabel!
+    @IBOutlet weak var commentsCountButton: UIButton!
 }
 
 class ListCommentsFriendsTableViewController: UITableViewController {
@@ -55,6 +56,14 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         cellListCommentsFriends.commentsMessageLabel.text = cellCommentsData.message
         cellListCommentsFriends.nameFriendsLabel.text = cellCommentsData.from?.name
         
+        var cellListCommentsDataCount = cellCommentsData.comment_count
+        if cellListCommentsDataCount == 0 {
+            cellListCommentsFriends.commentsCountButton.setTitle("", for: .normal)
+        } else {
+            cellListCommentsFriends.commentsCountButton.setTitle(String(format: "%ความคิดเห็น %i %รายการ", cellListCommentsDataCount), for: .normal)
+            cellListCommentsFriends.commentsCountButton.tag = indexPath.row
+        }
+
         let myLocale = Locale(identifier: "th_TH")
         let dateStringFormCommentsDataCreatedTime = cellCommentsData.created_time
         let dateFormatter = DateFormatter()
@@ -67,15 +76,4 @@ class ListCommentsFriendsTableViewController: UITableViewController {
         
         return cellListCommentsFriends
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let MainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let cellListComments = MainStoryboard.instantiateViewController(withIdentifier: "ListComments") as! ListCommentsTableViewController
-        let cellCommentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
-        let cellCommentsDataComments = cellCommentsData.comments?.data
-        let cellCommentsDataCommentsCount = cellCommentsDataComments?.count
-        cellListComments.getUserResourceDataCommentsData = cellCommentsDataComments!
-        cellListComments.getUserResourceDataCommentsCount = cellCommentsDataCommentsCount
-    }
-    
 }
