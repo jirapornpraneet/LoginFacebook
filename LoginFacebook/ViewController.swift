@@ -316,7 +316,6 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         popListCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
         
         self.present(popListCommentsFriendsTableViewController, animated: true, completion: nil)
-        
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
