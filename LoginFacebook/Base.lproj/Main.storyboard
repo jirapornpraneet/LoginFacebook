@@ -614,9 +614,6 @@
                                                 <constraint firstAttribute="height" constant="20" id="sCA-iN-j3e"/>
                                             </constraints>
                                             <state key="normal" image="iconArrowDown"/>
-                                            <connections>
-                                                <action selector="clickButtonToEditPostsTableViewController:" destination="XTy-WA-W6X" eventType="touchUpInside" id="3ev-gW-obv"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1483,7 +1480,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFs-pT-zTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="1592"/>
+            <point key="canvasLocation" x="1746" y="1500"/>
         </scene>
     </scenes>
     <resources>
