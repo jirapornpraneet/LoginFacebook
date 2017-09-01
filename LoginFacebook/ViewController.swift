@@ -303,7 +303,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         getUserResourcePostsDataCommentsData = getUserResourcePostsDataComments!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
         getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
-        
+
         let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
         popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
