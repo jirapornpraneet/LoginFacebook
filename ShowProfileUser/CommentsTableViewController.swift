@@ -24,6 +24,14 @@ class CommentsTableViewController: UITableViewController {
         tableListComments.delegate = self
         tableListComments.dataSource = self
         self.tableListComments.reloadData()
+        
+//        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self,action: #selector(CommentsTableViewController(backButton:))
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CommentsTableViewController.cartButtonHandler))
+        self.navigationItem.leftBarButtonItem =  backButton
+    }
+    
+    func cartButtonHandler() {
+        print("Back")
     }
     
     override func didReceiveMemoryWarning() {
