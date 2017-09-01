@@ -318,6 +318,10 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
     }
     
+    @IBAction func clickButtonToEditPostsTableViewController(_ sender: Any) {
+    }
+    
+    
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
     }
