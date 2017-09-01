@@ -159,7 +159,7 @@
         <!--View Controller-->
         <scene sceneID="obW-0g-IlQ">
             <objects>
-                <tableViewController id="XTy-WA-W6X" customClass="ViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ViewController" id="XTy-WA-W6X" customClass="ViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="aLE-t3-bId">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1466,7 +1466,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFs-pT-zTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1569" y="1377"/>
+            <point key="canvasLocation" x="1764" y="1592"/>
         </scene>
     </scenes>
     <resources>
