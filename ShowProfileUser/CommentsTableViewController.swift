@@ -25,13 +25,13 @@ class CommentsTableViewController: UITableViewController {
         tableListComments.dataSource = self
         self.tableListComments.reloadData()
         
-//        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self,action: #selector(CommentsTableViewController(backButton:))
-        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CommentsTableViewController.cartButtonHandler))
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CommentsTableViewController.actionBackButtonToViewController))
         self.navigationItem.leftBarButtonItem =  backButton
     }
     
-    func cartButtonHandler() {
-        print("Back")
+    func actionBackButtonToViewController() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        self.present(viewController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
