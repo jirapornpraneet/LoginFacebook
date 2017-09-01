@@ -30,6 +30,8 @@ class UserResourceData: EVObject {
     var education: [EducationData]? = []
     var posts: PostsData?
     var albums: AlbumsData?
+    var location: LocationData?
+    var relationship_status: String = ""
 }
 
 class AlbumsData: EVObject {
