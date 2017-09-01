@@ -1227,10 +1227,10 @@
             </objects>
             <point key="canvasLocation" x="1076.25" y="406.6901408450704"/>
         </scene>
-        <!--View Controller-->
+        <!--About Profile User View Controller-->
         <scene sceneID="4tK-jX-Xrx">
             <objects>
-                <viewController id="tmx-XD-GUk" sceneMemberID="viewController">
+                <viewController id="tmx-XD-GUk" customClass="AboutProfileUserViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IfG-Zi-DcA"/>
                         <viewControllerLayoutGuide type="bottom" id="ZgJ-l3-HLW"/>
@@ -1409,6 +1409,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="companyLabel" destination="K7Y-Qo-brA" id="32T-ZS-aB2"/>
+                        <outlet property="facultyLabel" destination="D27-nj-je0" id="FIX-UB-f8f"/>
+                        <outlet property="fromLocalLabel" destination="K1Z-fG-kBb" id="nwK-5d-ohH"/>
+                        <outlet property="localLabel" destination="AnE-Fy-X8G" id="iTU-hk-ScP"/>
+                        <outlet property="positionLabel" destination="VLy-Al-drT" id="Fwe-TY-rdR"/>
+                        <outlet property="previousStudyLabel" destination="kjz-0d-JZO" id="fgA-e5-8D3"/>
+                        <outlet property="ralationshipLabel" destination="vwx-xs-9oP" id="FPm-y6-nf3"/>
+                        <outlet property="universityLabel" destination="NcB-DT-Aet" id="11D-Ze-UFa"/>
+                        <outlet property="yearWorkedLabel" destination="Q8k-Cn-2Yj" id="QhP-Hh-PXh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpZ-hp-oxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
