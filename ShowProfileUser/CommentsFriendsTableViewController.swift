@@ -82,19 +82,19 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
         let getCommentsData = setUserResourcePostsDataCommentsData[senderCommentsFriendsButton.tag] as! CommentsDataDetail
         let getCommentsDataCommentsData = getCommentsData.comments?.data
         let getCommentsDataCommentsCount = getCommentsData.comments?.data?.count
+    
+        let commentsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "CommentsView") as! CommentsTableViewController
+        let navigationCommentsTableViewController = UINavigationController(rootViewController: commentsTableViewController)
+        commentsTableViewController.getUserResourceDataCommentsData = getCommentsDataCommentsData!
+        commentsTableViewController.getUserResourceDataCommentsCount = getCommentsDataCommentsCount!
+        navigationCommentsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        let popCommentsTableViewController = navigationCommentsTableViewController.popoverPresentationController
+        popCommentsTableViewController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popCommentsTableViewController?.delegate = self
+        popCommentsTableViewController?.sourceView = sender as? UIView
+        popCommentsTableViewController?.sourceRect = sender.bounds
         
-        let popCommentsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsView") as! CommentsTableViewController
-        popCommentsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-        
-        popCommentsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popCommentsTableViewController.popoverPresentationController?.delegate = self
-        popCommentsTableViewController.popoverPresentationController?.sourceView = sender as? UIView // button
-        popCommentsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
-        
-        popCommentsTableViewController.getUserResourceDataCommentsData = getCommentsDataCommentsData!
-        popCommentsTableViewController.getUserResourceDataCommentsCount = getCommentsDataCommentsCount!
-        
-        self.present(popCommentsTableViewController, animated: true, completion: nil)
+        self.present(navigationCommentsTableViewController, animated: true, completion: nil)
         
     }
     
