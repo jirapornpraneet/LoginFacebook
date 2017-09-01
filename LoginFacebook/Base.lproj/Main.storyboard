@@ -1410,14 +1410,14 @@
                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="companyLabel" destination="K7Y-Qo-brA" id="32T-ZS-aB2"/>
-                        <outlet property="facultyLabel" destination="D27-nj-je0" id="FIX-UB-f8f"/>
-                        <outlet property="fromLocalLabel" destination="K1Z-fG-kBb" id="nwK-5d-ohH"/>
-                        <outlet property="localLabel" destination="AnE-Fy-X8G" id="iTU-hk-ScP"/>
+                        <outlet property="concentrationNameLabel" destination="D27-nj-je0" id="Jtl-lt-138"/>
+                        <outlet property="employerNameLabel" destination="K7Y-Qo-brA" id="XBt-2C-gjd"/>
+                        <outlet property="fromLocationLabel" destination="K1Z-fG-kBb" id="NV4-cb-iU7"/>
+                        <outlet property="locationLabel" destination="AnE-Fy-X8G" id="jrX-cG-QsB"/>
                         <outlet property="positionLabel" destination="VLy-Al-drT" id="Fwe-TY-rdR"/>
                         <outlet property="previousStudyLabel" destination="kjz-0d-JZO" id="fgA-e5-8D3"/>
                         <outlet property="ralationshipLabel" destination="vwx-xs-9oP" id="FPm-y6-nf3"/>
-                        <outlet property="universityLabel" destination="NcB-DT-Aet" id="11D-Ze-UFa"/>
+                        <outlet property="schoolNameLabel" destination="NcB-DT-Aet" id="DM5-Cn-fdg"/>
                         <outlet property="yearWorkedLabel" destination="Q8k-Cn-2Yj" id="QhP-Hh-PXh"/>
                     </connections>
                 </viewController>

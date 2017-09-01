@@ -18,13 +18,13 @@ import SKPhotoBrowser
 
 class AboutProfileUserViewController: UIViewController {
     @IBOutlet weak var positionLabel: UILabel!
-    @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
-    @IBOutlet weak var facultyLabel: UILabel!
-    @IBOutlet weak var universityLabel: UILabel!
+    @IBOutlet weak var concentrationNameLabel: UILabel!
+    @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var previousStudyLabel: UILabel!
-    @IBOutlet weak var localLabel: UILabel!
-    @IBOutlet weak var fromLocalLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var fromLocationLabel: UILabel!
     @IBOutlet weak var ralationshipLabel: UILabel!
     
     override func viewDidLoad() {
@@ -48,6 +48,14 @@ class AboutProfileUserViewController: UIViewController {
             let userResourceDataWork = self.userResourceData.work?[0]
             let userResourceDataWorkPositionName = userResourceDataWork?.position?.name
             self.positionLabel.text = userResourceDataWorkPositionName
+            let userResourceDataWorkEmployerName = userResourceDataWork?.employer?.name
+            self.employerNameLabel.text = userResourceDataWorkEmployerName
+            let userResourceDataLocal = self.userResourceData.location?.name
+            self.locationLabel.text = userResourceDataLocal
+            self.fromLocationLabel.text = userResourceDataLocal
+            print("userResource", self.userResourceData.education?[2].school?.name)
+            
+            
         
             //            self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
             //            self.schoolNameLabel.text = self.userResourceData.education?[2].school?.name
