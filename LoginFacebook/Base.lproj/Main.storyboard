@@ -346,16 +346,6 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-J8-vPg">
                                     <rect key="frame" x="0.0" y="394" width="320" height="48"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pr-CF-nuC">
-                                            <rect key="frame" x="33" y="15" width="38" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="38" id="2Y3-W2-sDt"/>
-                                                <constraint firstAttribute="height" constant="21" id="VDx-kW-NgE"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                            <color key="textColor" red="0.41905742080000002" green="0.4170329888" blue="0.42108185279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlO-jw-MYG">
                                             <rect key="frame" x="229" y="19" width="83" height="13"/>
                                             <constraints>
@@ -381,15 +371,29 @@
                                                 <segue destination="aMy-hH-RzL" kind="show" id="zyb-Jt-hPv"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMB-WA-Px6">
+                                            <rect key="frame" x="20" y="19" width="83" height="13"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="83" id="1GN-x3-4zo"/>
+                                                <constraint firstAttribute="height" constant="13" id="rUd-PP-ok7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                            <state key="normal" title="เกี่ยวกับ">
+                                                <color key="titleColor" red="0.41905742080000002" green="0.4170329888" blue="0.42108185279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="tmx-XD-GUk" kind="show" id="86U-Dh-M9l"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.96895086765289307" green="0.9802708625793457" blue="0.98431718349456787" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="mlO-jw-MYG" firstAttribute="leading" secondItem="Mfc-Sp-irQ" secondAttribute="trailing" constant="27.5" id="0uk-oC-0Qy"/>
-                                        <constraint firstItem="6Pr-CF-nuC" firstAttribute="baseline" secondItem="Mfc-Sp-irQ" secondAttribute="baseline" constant="4" id="KAa-SI-YL4"/>
                                         <constraint firstItem="Mfc-Sp-irQ" firstAttribute="centerX" secondItem="7Lp-J8-vPg" secondAttribute="centerX" id="LU5-wz-NZf"/>
                                         <constraint firstItem="mlO-jw-MYG" firstAttribute="baseline" secondItem="Mfc-Sp-irQ" secondAttribute="baseline" id="Mug-NY-0eB"/>
                                         <constraint firstItem="Mfc-Sp-irQ" firstAttribute="top" secondItem="7Lp-J8-vPg" secondAttribute="top" constant="19" id="bb2-fL-lYa"/>
-                                        <constraint firstItem="Mfc-Sp-irQ" firstAttribute="leading" secondItem="6Pr-CF-nuC" secondAttribute="trailing" constant="47.5" id="yCH-Vq-xkJ"/>
+                                        <constraint firstItem="Mfc-Sp-irQ" firstAttribute="leading" secondItem="uMB-WA-Px6" secondAttribute="trailing" constant="15.5" id="pAN-pW-XTb"/>
+                                        <constraint firstItem="uMB-WA-Px6" firstAttribute="baseline" secondItem="Mfc-Sp-irQ" secondAttribute="baseline" id="tF5-7z-Baf"/>
                                         <constraint firstAttribute="height" constant="48" id="zWP-ad-8if"/>
                                     </constraints>
                                 </view>
@@ -1222,6 +1226,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="758-LS-6D1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076.25" y="406.6901408450704"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4tK-jX-Xrx">
+            <objects>
+                <viewController id="tmx-XD-GUk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IfG-Zi-DcA"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZgJ-l3-HLW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qup-KO-9LK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wpZ-hp-oxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1279" y="882"/>
         </scene>
         <!--Reaction Friends Table View Controller-->
         <scene sceneID="M7E-8o-RLO">
