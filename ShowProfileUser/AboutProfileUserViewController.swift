@@ -9,6 +9,15 @@
 import UIKit
 
 class AboutProfileUserViewController: UIViewController {
+    @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var yearWorkedLabel: UILabel!
+    @IBOutlet weak var facultyLabel: UILabel!
+    @IBOutlet weak var universityLabel: UILabel!
+    @IBOutlet weak var previousStudyLabel: UILabel!
+    @IBOutlet weak var localLabel: UILabel!
+    @IBOutlet weak var fromLocalLabel: UILabel!
+    @IBOutlet weak var ralationshipLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +30,4 @@ class AboutProfileUserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
