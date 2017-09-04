@@ -40,7 +40,6 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var collegeNameLabel: UILabel!
-    @IBOutlet weak var concentrationNameLabel: UILabel!
     @IBOutlet weak var profileUpdateImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -108,9 +107,14 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             self.userResourceData = UserResourceData(json: jsonString)
             
             self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-            self.schoolNameLabel.text = self.userResourceData.education?[2].school?.name
-            self.concentrationNameLabel.text = self.userResourceData.education?[2].concentration?[0].name
-            self.collegeNameLabel.text = self.userResourceData.education?[1].school?.name
+            
+            let userResourceDataEducationConCentrationName = self.userResourceData.education?[2].concentration?[0].name
+            let userResourceDataEducationSchoolName = self.userResourceData.education?[2].school?.name
+           
+            self.schoolNameLabel.text = String(format:"%เรียน  %@  %ที่  %@", userResourceDataEducationConCentrationName!, userResourceDataEducationSchoolName!)
+
+            let userResourceDataEducationSchoolName1 = self.userResourceData.education?[0].school?.name
+            self.collegeNameLabel.text = String(format: "%เคยศึกษาที่  %@", userResourceDataEducationSchoolName1!)
             
             let profileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileUpdateImageView.sd_setImage(with: profileUpdateImageUrl, completed:nil)
