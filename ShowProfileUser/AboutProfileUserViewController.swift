@@ -66,6 +66,9 @@ class AboutProfileUserViewController: UIViewController {
             self.concentrationNameLabel.text = userResourceDataEducationConcentrationName
             let userResourceDataEducationName = self.userResourceData.education?[2].school?.name
             self.schoolNameLabel.text = userResourceDataEducationName
+            let userResourceDataEducationName0 = self.userResourceData.education?[0].school?.name
+            let userResourceDataEducationName1 = self.userResourceData.education?[1].school?.name
+            self.previousStudyLabel.text = String(format:"%@ %และ %@", userResourceDataEducationName0!, userResourceDataEducationName1!)
         }
     }
 }
