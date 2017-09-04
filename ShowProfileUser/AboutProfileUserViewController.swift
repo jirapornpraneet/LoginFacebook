@@ -64,7 +64,7 @@ class AboutProfileUserViewController: UIViewController {
             self.schoolNameLabel.text = String(format:"%เรียน %@ %ที่ %@",userResourceDataEducationConcentrationName!, userResourceDataEducationName!)
             let userResourceDataEducationName0 = self.userResourceData.education?[0].school?.name
             let userResourceDataEducationName1 = self.userResourceData.education?[1].school?.name
-            self.previousStudyLabel.text = String(format:"%@ %และ %@", userResourceDataEducationName0!, userResourceDataEducationName1!)
+            self.previousStudyLabel.text = String(format:"%ก่อนหน้า: %@ %และ %@", userResourceDataEducationName0!, userResourceDataEducationName1!)
         }
     }
 }
