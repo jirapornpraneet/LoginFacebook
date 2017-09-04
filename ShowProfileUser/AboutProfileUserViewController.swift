@@ -58,10 +58,13 @@ class AboutProfileUserViewController: UIViewController {
             
             let userResourceDataLocal = self.userResourceData.location?.name
             self.locationLabel.text = String(format:"%อาศัยอยู่ที่ %@", userResourceDataLocal!)
+            
             self.fromLocationLabel.text = String(format:"%จาก %@", userResourceDataLocal!)
+            
             let userResourceDataEducationConcentrationName  = self.userResourceData.education?[2].concentration?[0].name
             let userResourceDataEducationSchoolName = self.userResourceData.education?[2].school?.name
             self.schoolNameLabel.text = String(format:"%เรียน %@ %ที่ %@",userResourceDataEducationConcentrationName!, userResourceDataEducationSchoolName!)
+            
             let userResourceDataEducationSchoolName0 = self.userResourceData.education?[0].school?.name
             let userResourceDataEducationSchoolName1 = self.userResourceData.education?[1].school?.name
             self.previousStudyLabel.text = String(format:"%ก่อนหน้า: %@ %และ %@", userResourceDataEducationSchoolName0!, userResourceDataEducationSchoolName1!)
