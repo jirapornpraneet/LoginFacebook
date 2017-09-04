@@ -57,8 +57,8 @@ class AboutProfileUserViewController: UIViewController {
             self.yearWorkedLabel.text = String(format:"%@ %ถึงปัจจุบัน", dateString)
             
             let userResourceDataLocal = self.userResourceData.location?.name
-            self.locationLabel.text = userResourceDataLocal
-            self.fromLocationLabel.text = userResourceDataLocal
+            self.locationLabel.text = String(format:"%อาศัยอยู่ที่ %@", userResourceDataLocal!)
+            self.fromLocationLabel.text = String(format:"%จาก %@", userResourceDataLocal!)
             let userResourceDataEducationConcentrationName  = self.userResourceData.education?[2].concentration?[0].name
             let userResourceDataEducationName = self.userResourceData.education?[2].school?.name
             self.schoolNameLabel.text = String(format:"%เรียน %@ %ที่ %@",userResourceDataEducationConcentrationName!, userResourceDataEducationName!)
