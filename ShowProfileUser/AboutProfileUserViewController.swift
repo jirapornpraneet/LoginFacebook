@@ -17,10 +17,8 @@ import SwiftyJSON
 import SKPhotoBrowser
 
 class AboutProfileUserViewController: UIViewController {
-    @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
-    @IBOutlet weak var concentrationNameLabel: UILabel!
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var previousStudyLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -47,9 +45,8 @@ class AboutProfileUserViewController: UIViewController {
             self.userResourceData = UserResourceData(json: jsonString)
             let userResourceDataWork = self.userResourceData.work?[0]
             let userResourceDataWorkPositionName = userResourceDataWork?.position?.name
-            self.positionLabel.text = userResourceDataWorkPositionName
             let userResourceDataWorkEmployerName = userResourceDataWork?.employer?.name
-            self.employerNameLabel.text = userResourceDataWorkEmployerName
+            self.employerNameLabel.text = String(format:"%@ %ที่ %@", userResourceDataWorkPositionName!, userResourceDataWorkEmployerName!)
             
             let dateStringFormUserResourceDataWorkStartDate = userResourceDataWork?.start_date
             let dateFormatter = DateFormatter()
@@ -63,9 +60,8 @@ class AboutProfileUserViewController: UIViewController {
             self.locationLabel.text = userResourceDataLocal
             self.fromLocationLabel.text = userResourceDataLocal
             let userResourceDataEducationConcentrationName  = self.userResourceData.education?[2].concentration?[0].name
-            self.concentrationNameLabel.text = userResourceDataEducationConcentrationName
             let userResourceDataEducationName = self.userResourceData.education?[2].school?.name
-            self.schoolNameLabel.text = userResourceDataEducationName
+            self.schoolNameLabel.text = String(format:"%เรียน %@ %ที่ %@",userResourceDataEducationConcentrationName!, userResourceDataEducationName!)
             let userResourceDataEducationName0 = self.userResourceData.education?[0].school?.name
             let userResourceDataEducationName1 = self.userResourceData.education?[1].school?.name
             self.previousStudyLabel.text = String(format:"%@ %และ %@", userResourceDataEducationName0!, userResourceDataEducationName1!)
