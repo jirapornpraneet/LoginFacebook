@@ -50,6 +50,15 @@ class AboutProfileUserViewController: UIViewController {
             self.positionLabel.text = userResourceDataWorkPositionName
             let userResourceDataWorkEmployerName = userResourceDataWork?.employer?.name
             self.employerNameLabel.text = userResourceDataWorkEmployerName
+            
+            let dateStringFormUserResourceDataWorkStartDate = userResourceDataWork?.start_date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.date(from: dateStringFormUserResourceDataWorkStartDate!)
+            dateFormatter.dateFormat = "yyyy"
+            let dateString = dateFormatter.string(from: date!)
+            self.yearWorkedLabel.text = String(format:"%@ %ถึงปัจจุบัน", dateString)
+            
             let userResourceDataLocal = self.userResourceData.location?.name
             self.locationLabel.text = userResourceDataLocal
             self.fromLocationLabel.text = userResourceDataLocal
