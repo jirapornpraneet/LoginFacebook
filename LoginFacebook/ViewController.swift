@@ -23,7 +23,6 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var namePostsLabel: UILabel!
     @IBOutlet weak var createdTimePostsLabel: UILabel!
     @IBOutlet weak var placePostsLabel: UILabel!
-    @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
@@ -151,7 +150,8 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let cellUserResourcePostsData = userResourceData.posts?.data?[indexPath.row]
         
         cellPostsUserTableView.messagePostsLabel.text = (cellUserResourcePostsData?.message)!
-        cellPostsUserTableView.namePostsLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+        let userResourceName = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+        cellPostsUserTableView.namePostsLabel.text = String(format:"%@", userResourceName)
         cellPostsUserTableView.placePostsLabel.text = cellUserResourcePostsData?.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
@@ -185,10 +185,9 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let cellUserResourcePostsDataPlacePosts = cellUserResourcePostsData?.place
         let image = UIImage(named:"iconCheckin")
         if cellUserResourcePostsDataPlacePosts == nil {
-            cellPostsUserTableView.atPlacePostsLabel.text = ""
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
         } else {
-            cellPostsUserTableView.atPlacePostsLabel.text = "ที่"
+            cellPostsUserTableView.namePostsLabel.text = String(format:"%@   %ที่", userResourceName)
             cellPostsUserTableView.iconCheckInPostsImageView.image = image
         }
         
