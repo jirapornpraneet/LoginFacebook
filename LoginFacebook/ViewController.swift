@@ -157,7 +157,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         cellPostsUserTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         let cellUserResourcePostsDataFullPicture = cellUserResourcePostsData?.full_picture
-        if  cellUserResourcePostsDataFullPicture   == "" {
+        if  cellUserResourcePostsDataFullPicture  == "" {
             tablePosts.rowHeight = 135
             cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
@@ -185,13 +185,12 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         
         let cellUserResourcePostsDataPlacePosts = cellUserResourcePostsData?.place
         
-        let image = UIImage(named:"iconCheckin")
         if cellUserResourcePostsDataPlacePosts == nil {
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
             cellPostsUserTableView.namePostsLabel.text = String(format:"%@", userResourceName)
         } else {
             cellPostsUserTableView.namePostsLabel.text = String(format:"%@   %ที่", userResourceName)
-            cellPostsUserTableView.iconCheckInPostsImageView.image = image
+            cellPostsUserTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
         let cellUserResourcePostsDataCommentsDataCount = cellUserResourcePostsData?.comments?.data?.count
