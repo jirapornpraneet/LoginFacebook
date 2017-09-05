@@ -165,10 +165,10 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellUserResourcePostsData?.full_picture)!), completed: nil)
             cellPostsUserTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
+            let tapZoomPicturePosts = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
             cellPostsUserTableView.picturePostsImageView.isUserInteractionEnabled = true
             cellPostsUserTableView.picturePostsImageView.tag = indexPath.row
-            cellPostsUserTableView.picturePostsImageView.addGestureRecognizer(tapGestureRecognizer)
+            cellPostsUserTableView.picturePostsImageView.addGestureRecognizer(tapZoomPicturePosts)
         }
         
         let myLocale = Locale(identifier: "th_TH")
