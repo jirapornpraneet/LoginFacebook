@@ -32,16 +32,6 @@ class UserResourceData: EVObject {
     var albums: AlbumsData?
     var location: LocationData?
     var relationship_status: String = ""
-    var friends: FriendsData?
-}
-
-class FriendsData: EVObject {
-    var data: [FriendsDataDetail]? = []
-}
-
-class FriendsDataDetail: EVObject {
-    var picture: PictureUserData?
-    var name: String = ""
 }
 
 class AlbumsData: EVObject {

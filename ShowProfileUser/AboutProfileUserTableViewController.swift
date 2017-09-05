@@ -44,11 +44,12 @@ class AboutProfileUserTableViewController: UITableViewController {
     var userResourceData: UserResourceData! = nil
     
     func fetchUserResourceProfile() {
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education,location,relationship_status,friends{picture{url},name}"]
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education,location,relationship_status"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
             let jsonString = resultDictionary?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
+            
             let userResourceDataWork = self.userResourceData.work?[0]
             let userResourceDataWorkPositionName = userResourceDataWork?.position?.name
             let userResourceDataWorkEmployerName = userResourceDataWork?.employer?.name
@@ -93,15 +94,15 @@ class AboutProfileUserTableViewController: UITableViewController {
 //        if getUserResourceDataPostsDataCount != 0 {
 //            return getUserResourceDataPostsDataCount
 //        } else {
-//            return 0
+            return 4
 //        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsFriendTableView", for: indexPath) as! PostsFriendTableViewCell
+        let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendTableViewCell
 //        let cellPostsData = getUserResourceDataPostsData[indexPath.row] as! PostsDataDetail
         
-        return cellPostsFriendTableView
+        return cellFriendTableView
     }
 
 }
