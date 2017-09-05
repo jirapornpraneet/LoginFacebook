@@ -207,9 +207,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             cellPostsUserTableView.reactionFriendsButton.setTitle("", for: .normal)
             cellUserResourcePostsDataReactionsDataCount = 0
             cellPostsUserTableView.iconReaction1ImageView.image = nil
-            getUserResourcePostsDataReactionCount = 0
         } else {
-            getUserResourcePostsDataReactionCount = cellUserResourcePostsDataReactionsDataCount!
             
             let cellNameFriendReactions = cellUserResourcePostsDataReactionsData?.name
             let length = cellNameFriendReactions?.characters.count
@@ -270,18 +268,15 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         }
         return cellPostsUserTableView
     }
-    
-    var getUserResourcePostsDataReactionCount = Int()
-    var getUserResourcePostsDataReactionData = [NSObject]()
-    
+
     @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
         
         let senderReactionFriendsButton = sender as! UIButton
         let getUserResourcePostsData = userResourceData.posts?.data?[senderReactionFriendsButton.tag]
         let getUserResourcePostsDataReaction = getUserResourcePostsData?.reactions?.data
-        getUserResourcePostsDataReactionData = getUserResourcePostsDataReaction!
+        let getUserResourcePostsDataReactionData = getUserResourcePostsDataReaction!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
-        getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
+        let getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
         
         let popReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReactionFriendsTableView") as! ReactionFriendsTableViewController
         popReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -296,18 +291,15 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         
         self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
     }
-    
-    var getUserResourcePostsDataCommentsCount = Int()
-    var getUserResourcePostsDataCommentsData = [NSObject]()
-    
+
     @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
         
         let senderCommentsFriendsButton = sender as! UIButton
         let getUserResourcePostsData = userResourceData.posts?.data?[senderCommentsFriendsButton.tag]
         let getUserResourcePostsDataComments = getUserResourcePostsData?.comments?.data
-        getUserResourcePostsDataCommentsData = getUserResourcePostsDataComments!
+        let getUserResourcePostsDataCommentsData = getUserResourcePostsDataComments!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
-        getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
+        let getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
 
         let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
         popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
