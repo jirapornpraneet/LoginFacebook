@@ -121,7 +121,6 @@ class AboutProfileUserTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendTableViewCell
         let cellUserResourceData = userResource.data?[indexPath.row]
-        print("CellData", cellUserResourceData)
         
         cellFriendTableView.nameFriendLabel.text = cellUserResourceData?.name
         
@@ -131,5 +130,4 @@ class AboutProfileUserTableViewController: UITableViewController {
         
         return cellFriendTableView
     }
-
 }
