@@ -39,7 +39,7 @@ class AboutProfileUserTableViewController: UITableViewController {
     var userResourceData: UserResourceData! = nil
     
     func fetchUserResourceProfile() {
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education,location,relationship_status, posts{created_time, message, full_picture, place,reactions.limit(500){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education,location,relationship_status"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
             let jsonString = resultDictionary?.toJsonString()
