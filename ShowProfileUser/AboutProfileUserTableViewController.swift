@@ -94,7 +94,6 @@ class AboutProfileUserTableViewController: UITableViewController {
             switch response.result {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
-                print("userResource", self.userResource)
                 
                 self.tableFriend.dataSource = self
                 self.tableFriend.delegate = self
@@ -112,16 +111,23 @@ class AboutProfileUserTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if getUserResourceDataPostsDataCount != 0 {
-//            return getUserResourceDataPostsDataCount
-//        } else {
-            return 4
-//        }
+        if  userResource != nil {
+            return userResource.data!.count
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendTableViewCell
-//        let cellPostsData = getUserResourceDataPostsData[indexPath.row] as! PostsDataDetail
+        let cellUserResourceData = userResource.data?[indexPath.row]
+        print("CellData", cellUserResourceData)
+        
+        cellFriendTableView.nameFriendLabel.text = cellUserResourceData?.name
+        
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+
+        cellFriendTableView.profileFriendImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         return cellFriendTableView
     }
