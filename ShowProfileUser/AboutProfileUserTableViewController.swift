@@ -22,6 +22,19 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var friendButton: UIButton!
 }
 
+class MusicTableViewCell: UITableViewCell {
+    @IBOutlet weak var musicImageView: UIImageView!
+    @IBOutlet weak var nameMusicLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+}
+
+class MovieTableViewCell: UITableViewCell {
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var nameMovieLabel: UILabel!
+}
+
+
+
 class AboutProfileUserTableViewController: UITableViewController {
     @IBOutlet var tableFriend: UITableView!
     @IBOutlet weak var employerNameLabel: UILabel!
@@ -47,9 +60,10 @@ class AboutProfileUserTableViewController: UITableViewController {
     var userResourceData: UserResourceData! = nil
     
     func fetchUserResourceProfile() {
-        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education,location,relationship_status"]
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education,location,relationship_status, music.limit(4){name,picture{url},category},movies.limit(4){global_brand_page_name,picture{url}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
+            print("result", result)
             let jsonString = resultDictionary?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
             
