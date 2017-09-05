@@ -98,6 +98,8 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         present(browser, animated: true, completion: {})
     }
     
+    var userResourceDataName: String = ""
+    
     func fetchUserResourceProfile() {
         let parameters = ["fields": "email, first_name, last_name, picture.type(large), about, age_range, birthday, gender, cover, hometown, work, education,location,relationship_status, posts{created_time, message, full_picture, place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}, albums{created_time, count, description,name, photos.limit(10){picture,name}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
@@ -105,7 +107,8 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             let jsonString = resultDictionary?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
             
-            self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+            self.userResourceDataName = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+            self.nameLabel.text = self.userResourceDataName
             
             let userResourceDataEducationConCentrationName = self.userResourceData.education?[2].concentration?[0].name
             let userResourceDataEducationSchoolName = self.userResourceData.education?[2].school?.name
@@ -181,15 +184,13 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let dateString = dateFormatter.string(from: date!)
         cellPostsUserTableView.createdTimePostsLabel.text = dateString
         
-        let userResourceName = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-        
         let cellUserResourcePostsDataPlacePosts = cellUserResourcePostsData?.place
         
         if cellUserResourcePostsDataPlacePosts == nil {
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
-            cellPostsUserTableView.namePostsLabel.text = String(format:"%@", userResourceName)
+            cellPostsUserTableView.namePostsLabel.text = String(format:"%@", self.userResourceDataName)
         } else {
-            cellPostsUserTableView.namePostsLabel.text = String(format:"%@   %ที่", userResourceName)
+            cellPostsUserTableView.namePostsLabel.text = String(format:"%@   %ที่", self.userResourceDataName)
             cellPostsUserTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
