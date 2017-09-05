@@ -1198,6 +1198,7 @@
                                     <color key="backgroundColor" red="0.57034530350000001" green="0.87618415559999996" blue="0.9144969583" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="friendButton" destination="MGk-Eo-e8c" id="xy2-FM-dS8"/>
                                     <outlet property="nameFriendLabel" destination="KPd-SF-cUv" id="aXR-L2-2Tl"/>
                                     <outlet property="profileFriendImageView" destination="fZr-Oe-u5T" id="j7m-jV-gOu"/>
                                 </connections>

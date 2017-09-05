@@ -19,10 +19,11 @@ import SKPhotoBrowser
 class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var profileFriendImageView: UIImageView!
     @IBOutlet weak var nameFriendLabel: UILabel!
+    @IBOutlet weak var friendButton: UIButton!
 }
 
 class AboutProfileUserTableViewController: UITableViewController {
-     @IBOutlet var tableFriend: UITableView!
+    @IBOutlet var tableFriend: UITableView!
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
     @IBOutlet weak var schoolNameLabel: UILabel!
@@ -30,6 +31,7 @@ class AboutProfileUserTableViewController: UITableViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var fromLocationLabel: UILabel!
     @IBOutlet weak var ralationshipLabel: UILabel!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
