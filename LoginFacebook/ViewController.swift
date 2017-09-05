@@ -150,8 +150,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let cellUserResourcePostsData = userResourceData.posts?.data?[indexPath.row]
         
         cellPostsUserTableView.messagePostsLabel.text = (cellUserResourcePostsData?.message)!
-        let userResourceName = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-        cellPostsUserTableView.namePostsLabel.text = String(format:"%@", userResourceName)
+        
         cellPostsUserTableView.placePostsLabel.text = cellUserResourcePostsData?.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
@@ -182,10 +181,14 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let dateString = dateFormatter.string(from: date!)
         cellPostsUserTableView.createdTimePostsLabel.text = dateString
         
+        let userResourceName = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+        
         let cellUserResourcePostsDataPlacePosts = cellUserResourcePostsData?.place
+        
         let image = UIImage(named:"iconCheckin")
         if cellUserResourcePostsDataPlacePosts == nil {
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
+            cellPostsUserTableView.namePostsLabel.text = String(format:"%@", userResourceName)
         } else {
             cellPostsUserTableView.namePostsLabel.text = String(format:"%@   %ที่", userResourceName)
             cellPostsUserTableView.iconCheckInPostsImageView.image = image
