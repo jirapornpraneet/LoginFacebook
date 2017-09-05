@@ -17,6 +17,7 @@ import SwiftyJSON
 import SKPhotoBrowser
 
 class AboutProfileUserTableViewController: UITableViewController {
+     @IBOutlet var tableFriend: UITableView!
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
     @IBOutlet weak var schoolNameLabel: UILabel!
@@ -71,6 +72,11 @@ class AboutProfileUserTableViewController: UITableViewController {
             
             let userResourceDataRelationShip = self.userResourceData.relationship_status
             self.ralationshipLabel.text = userResourceDataRelationShip
+            
+            self.tableFriend.dataSource = self
+            self.tableFriend.delegate = self
+            
+            self.tableFriend.reloadData()
         }
     }
 }
