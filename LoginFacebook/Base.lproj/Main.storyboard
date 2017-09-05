@@ -1037,7 +1037,7 @@
         <scene sceneID="bbP-2p-O01">
             <objects>
                 <tableViewController id="RKY-IJ-7OV" customClass="AboutProfileUserTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Gk-sn-hpE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Gk-sn-hpE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1153,7 +1153,7 @@
                             <color key="backgroundColor" red="1" green="0.61635339140000001" blue="0.73407814469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                         <collectionView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Kna-eA-yys">
-                            <rect key="frame" x="0.0" y="412" width="320" height="142"/>
+                            <rect key="frame" x="0.0" y="348" width="320" height="142"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JF0-ew-Sd8">
@@ -1174,14 +1174,31 @@
                             </cells>
                         </collectionView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="ivZ-2Q-6lt">
-                                <rect key="frame" x="0.0" y="282" width="320" height="130"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="ivZ-2Q-6lt" customClass="FriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="282" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ivZ-2Q-6lt" id="0JT-B0-LXq">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="129.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZr-Oe-u5T">
+                                            <rect key="frame" x="8" y="8" width="47" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPd-SF-cUv">
+                                            <rect key="frame" x="65" y="17" width="190" height="13"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" red="0.57034530350000001" green="0.87618415559999996" blue="0.9144969583" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameFriendLabel" destination="KPd-SF-cUv" id="aXR-L2-2Tl"/>
+                                    <outlet property="profileFriendImageView" destination="fZr-Oe-u5T" id="j7m-jV-gOu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
