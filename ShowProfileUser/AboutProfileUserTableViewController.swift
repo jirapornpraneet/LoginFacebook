@@ -127,8 +127,12 @@ class AboutProfileUserTableViewController: UITableViewController {
         cellFriendTableView.nameFriendLabel.text = cellUserResourceData?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
-
         cellFriendTableView.profileFriendImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        
+        cellFriendTableView.friendButton.layer.masksToBounds = true
+        cellFriendTableView.friendButton.layer.cornerRadius = 5
+        cellFriendTableView.friendButton.layer.borderWidth = 0.5
+        cellFriendTableView.friendButton.layer.borderColor = UIColor.gray.cgColor
         
         return cellFriendTableView
     }
