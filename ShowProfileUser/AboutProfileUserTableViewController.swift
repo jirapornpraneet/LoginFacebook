@@ -34,6 +34,7 @@ class AboutProfileUserTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUserResourceProfile()
+        getDataUserResourceFriends()
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,10 +80,30 @@ class AboutProfileUserTableViewController: UITableViewController {
             let userResourceDataRelationShip = self.userResourceData.relationship_status
             self.ralationshipLabel.text = userResourceDataRelationShip
             
-            self.tableFriend.dataSource = self
-            self.tableFriend.delegate = self
             
-            self.tableFriend.reloadData()
+        }
+    }
+    
+    var userResource: UserResource! = nil
+    
+    func getDataUserResourceFriends() {
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBAD67M1GZCgUH3hEqeTthpaxseEmKATb8XBEQ3sO70qUEZAqZBGo8sBSHdFZBoOYEDmk1jYLdAzNbUBAUTAvcQuWIjZB8zXA8vryIrKfJ9sO9nVzsExPh22q1VCFFwlJ1ZAmNoMCwTRZAYkWzeJpkfFb9M3OylcNu0qWMHArek0JTesa4cAyZC9FuZBaKl6M1UCQZDZD")
+        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        Alamofire.request(url, method: .get).validate().responseString { response in
+            print(response)
+            switch response.result {
+            case .success(let value):
+                self.userResource  = UserResource(json: value)
+                print("userResource", self.userResource)
+                
+                self.tableFriend.dataSource = self
+                self.tableFriend.delegate = self
+                
+                self.tableFriend.reloadData()
+                
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     
