@@ -130,7 +130,7 @@ class AboutProfileUserTableViewController: UITableViewController {
         cellFriendTableView.profileFriendImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
         cellFriendTableView.friendButton.layer.masksToBounds = true
-        cellFriendTableView.friendButton.layer.cornerRadius = 5
+        cellFriendTableView.friendButton.layer.cornerRadius = 3
         cellFriendTableView.friendButton.layer.borderWidth = 0.5
         cellFriendTableView.friendButton.layer.borderColor = UIColor.gray.cgColor
         
