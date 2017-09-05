@@ -16,7 +16,7 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
-class AboutProfileUserViewController: UIViewController {
+class AboutProfileUserTableViewController: UITableViewController {
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
     @IBOutlet weak var schoolNameLabel: UILabel!
