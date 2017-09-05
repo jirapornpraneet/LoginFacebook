@@ -112,7 +112,7 @@ class AboutProfileUserTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if  userResource != nil {
-            return userResource.data!.count
+            return 4
         } else {
             return 0
         }
