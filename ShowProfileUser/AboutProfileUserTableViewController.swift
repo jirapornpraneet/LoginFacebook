@@ -16,6 +16,11 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
+class FriendTableViewCell: UITableViewCell {
+    @IBOutlet weak var profileFriendImageView: UIImageView!
+    @IBOutlet weak var nameFriendLabel: UILabel!
+}
+
 class AboutProfileUserTableViewController: UITableViewController {
      @IBOutlet var tableFriend: UITableView!
     @IBOutlet weak var employerNameLabel: UILabel!
@@ -79,4 +84,24 @@ class AboutProfileUserTableViewController: UITableViewController {
             self.tableFriend.reloadData()
         }
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if getUserResourceDataPostsDataCount != 0 {
+//            return getUserResourceDataPostsDataCount
+//        } else {
+//            return 0
+//        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsFriendTableView", for: indexPath) as! PostsFriendTableViewCell
+//        let cellPostsData = getUserResourceDataPostsData[indexPath.row] as! PostsDataDetail
+        
+        return cellPostsFriendTableView
+    }
+
 }
