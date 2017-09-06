@@ -7,6 +7,19 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import FacebookLogin
+import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
+import SDWebImage
+
+class FriendsTableViewCell: UITableViewCell {
+    @IBOutlet weak var profileFriendsImageView: UIImageView!
+    @IBOutlet weak var nameFriendsLabel: UILabel!
+    @IBOutlet weak var friendButton: UIButton!
+}
 
 class AboutProfileViewController: UIViewController {
 
