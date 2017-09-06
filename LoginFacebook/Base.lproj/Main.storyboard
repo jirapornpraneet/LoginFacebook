@@ -1375,6 +1375,10 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="nameTelevisionLabel" destination="fbE-Uq-V8A" id="kmg-8p-5TQ"/>
+                                                                    <outlet property="televisionImageView" destination="rq5-my-jE8" id="7ar-e4-rkj"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
