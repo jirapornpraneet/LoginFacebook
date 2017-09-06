@@ -1354,7 +1354,7 @@
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="225" id="jUg-8f-LRj"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMovieTableView" rowHeight="55" id="JUS-t3-ncA" customClass="TelevisionTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellTelevisionTableView" rowHeight="55" id="JUS-t3-ncA" customClass="TelevisionTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="310" height="55"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JUS-t3-ncA" id="fK6-MJ-2aB">
