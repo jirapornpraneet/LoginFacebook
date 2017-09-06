@@ -1382,6 +1382,41 @@
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JH6-IA-Sqw">
+                                                        <rect key="frame" x="8" y="1240" width="304" height="169"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EQK-Yw-rHk">
+                                                            <size key="itemSize" width="77" height="88"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellAlbumsPhotosCollectionView" id="RZn-TW-pii" customClass="AlbumsPhotosCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="88"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="88"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WF1-97-b9P">
+                                                                            <rect key="frame" x="2" y="2" width="73" height="84"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </view>
+                                                                <constraints>
+                                                                    <constraint firstItem="WF1-97-b9P" firstAttribute="top" secondItem="RZn-TW-pii" secondAttribute="top" constant="2" id="KQp-zb-kug"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="WF1-97-b9P" secondAttribute="trailing" constant="2" id="bF4-w0-3mW"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="WF1-97-b9P" secondAttribute="bottom" constant="2" id="cIS-II-k1X"/>
+                                                                    <constraint firstItem="WF1-97-b9P" firstAttribute="leading" secondItem="RZn-TW-pii" secondAttribute="leading" constant="2" id="llm-Ul-KRX"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outlet property="photosImageView" destination="WF1-97-b9P" id="yLG-eW-1cD"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -1440,6 +1475,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1500"/>
                     <connections>
+                        <outlet property="collectionviewPhotosAlbums" destination="JH6-IA-Sqw" id="tI9-Bv-a4w"/>
                         <outlet property="employerNameLabel" destination="ico-St-vG7" id="AsB-0l-5bK"/>
                         <outlet property="fromLocationLabel" destination="RcY-ZD-njX" id="RH0-nf-EjT"/>
                         <outlet property="locationLabel" destination="64j-Ao-rdB" id="pS1-7E-Yjn"/>
