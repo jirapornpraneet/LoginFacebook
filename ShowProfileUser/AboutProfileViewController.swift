@@ -91,6 +91,10 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             
             self.tableMusic.dataSource = self
             self.tableMusic.delegate = self
+            self.tableMovie.reloadData()
+            
+            self.tableMovie.delegate = self
+            self.tableMovie.dataSource = self
             self.tableMusic.reloadData()
         }
     }
