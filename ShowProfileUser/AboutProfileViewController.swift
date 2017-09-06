@@ -131,7 +131,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     var userResource: UserResource! = nil
     
     func getDataUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBACt8SObpFJTZBRNNebreNYlPYnR8QQ3PGj3bC4DFomTtIYwb0xmNT1khfluY9vnSdvfCqLT6qyj6YCdD2HZC3B3KigqYfRLrsiqV4GRuJiynHFI19ghccMEHg2suP6z7FViqRMWEgj3lD8fTLmhcImUzES7ZAiAEmXjDNRGBsL7KI7kGD8QOiYCcvPPWgZDZD")
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBANUTnndZChCNtR13kcVn3ZBGo2U6Lm6nohK2Yyj4hcZAvWwWzu1iGgZAoiLxVqgEM1hryJr6rZCQhf44LEJznRqvZCKRB12wUpNJKih3y6z20ZBjIwuoFRSrbR4J4WM5esDVcipOPr4HaZB9uDoz53XZChlY6knO13joTNmMmSZBf9jeEmCAWvMUzVdOCu8emMtAZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
