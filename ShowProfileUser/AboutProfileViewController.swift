@@ -29,6 +29,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var fromLocationLabel: UILabel!
     @IBOutlet weak var ralationshipLabel: UILabel!
+    @IBOutlet weak var tableFriends: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1222,6 +1222,7 @@
                         <outlet property="previousStudyLabel" destination="kjz-0d-JZO" id="JUT-uM-Kia"/>
                         <outlet property="ralationshipLabel" destination="sF8-PQ-izd" id="OrI-N4-d7r"/>
                         <outlet property="schoolNameLabel" destination="NcB-DT-Aet" id="86a-GQ-gwW"/>
+                        <outlet property="tableFriends" destination="D7T-Ed-lVO" id="Cie-ve-NxY"/>
                         <outlet property="yearWorkedLabel" destination="Q8k-Cn-2Yj" id="uZj-tz-luG"/>
                     </connections>
                 </viewController>
