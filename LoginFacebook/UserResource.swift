@@ -33,6 +33,7 @@ class UserResourceData: EVObject {
     var location: LocationData?
     var relationship_status: String = ""
     var music: AlbumsData?
+    var movies: AlbumsData?
 }
 
 class AlbumsData: EVObject {
@@ -46,6 +47,7 @@ class AlbumsDataDetail: EVObject {
     var photos: AlbumsPhotosData?
     var picture: PictureUserData?
     var category: String = ""
+    var global_brand_page_name: String = ""
 }
 
 class AlbumsPhotosData: EVObject {
