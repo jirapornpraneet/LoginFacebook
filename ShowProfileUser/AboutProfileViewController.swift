@@ -137,6 +137,8 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             return 4
         } else if tableView == tableMusic {
             return 4
+        } else if tableView == tableMovie {
+            return 4
         } else {
             return 4
         }
@@ -169,7 +171,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             cellMusicTableView.musicImageView.sd_setImage(with: pictureMusicImageUrl, completed: nil)
             
             return cellMusicTableView
-        } else {
+        } else if tableView == tableMovie {
             let cellMovieTableView = tableView.dequeueReusableCell(withIdentifier: "cellMovieTableView", for: indexPath) as! MovieTableViewCell
             let cellUserResourceMovieData = userResourceData.movies?.data?[indexPath.row]
             
@@ -179,6 +181,17 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             cellMovieTableView.movieImageView.sd_setImage(with: pictureMovieImageUrl, completed: nil)
             
             return cellMovieTableView
+        } else {
+            let cellTelevisionTableView = tableView.dequeueReusableCell(withIdentifier: "cellTelevisionTableView", for: indexPath) as! TelevisionTableViewCell
+            let cellUserResourceTelevisionData = userResourceData.television?.data?[indexPath.row]
+            
+            cellTelevisionTableView.nameTelevisionLabel.text = cellUserResourceTelevisionData?.name
+            
+            let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceTelevisionData?.picture?.data?.url)!, width: 300, height: 300)
+            cellTelevisionTableView.televisionImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
+            
+            return cellTelevisionTableView
+
         }
     }
 
