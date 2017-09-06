@@ -181,7 +181,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             cellMusicTableView.nameMusicLabel.text = cellUserResourceMusicData?.name
             cellMusicTableView.categoryLabel.text = cellUserResourceMusicData?.category
             
-             let pictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceMusicData?.picture?.data?.url)!, width: 300, height: 300)
+            let pictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceMusicData?.picture?.data?.url)!, width: 300, height: 300)
             cellMusicTableView.musicImageView.sd_setImage(with: pictureMusicImageUrl, completed: nil)
             
             return cellMusicTableView
@@ -205,10 +205,10 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             cellTelevisionTableView.televisionImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
             
             return cellTelevisionTableView
-
+            
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -218,17 +218,19 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellAlbumsPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsPhotosCollectionView", for: indexPath) as! AlbumsPhotosCollectionViewCell
-        let cellUserResourceTelevisionData = userResourceData.television?.data?[indexPath.row]
-    
         
-        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceTelevisionData?.picture?.data?.url)!, width: 300, height: 300)
+        let cellUserResourceAlbumsData = userResourceData.albums?.data?[indexPath.row]
+        let celluserResourcePhotosData = cellUserResourceAlbumsData?.photos?.data?[indexPath.row]
+    
+        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (celluserResourcePhotosData?.picture)!, width: 300, height: 300)
         cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
         
         return cellAlbumsPhotosCollectionView
+        
     }
 }
