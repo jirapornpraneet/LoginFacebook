@@ -1217,13 +1217,61 @@
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZQr-9Z-2sr">
+                                                        <rect key="frame" x="5" y="473" width="310" height="225"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="225" id="muY-Fs-ryE"/>
+                                                        </constraints>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellFriendTableView" rowHeight="55" id="seK-t4-AaF" customClass="FriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="310" height="55"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="seK-t4-AaF" id="fmJ-Ja-VZW">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="310" height="54.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-0U-36v">
+                                                                            <rect key="frame" x="8" y="3" width="39" height="43"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-IX-4lH">
+                                                                            <rect key="frame" x="55" y="8" width="145" height="11"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDm-R5-2G4">
+                                                                            <rect key="frame" x="256" y="6" width="46" height="21"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                            <state key="normal" title="เพื่อน">
+                                                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </state>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="friendButton" destination="HDm-R5-2G4" id="FUx-El-kle"/>
+                                                                    <outlet property="nameFriendsLabel" destination="UFC-IX-4lH" id="u62-Gd-DfL"/>
+                                                                    <outlet property="profileFriendsImageView" destination="5Ds-0U-36v" id="6U2-sl-oPv"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="ofp-vN-qMr" secondAttribute="trailing" constant="5" id="FVl-El-7MG"/>
+                                                    <constraint firstItem="ZQr-9Z-2sr" firstAttribute="top" secondItem="ofp-vN-qMr" secondAttribute="bottom" constant="5" id="NkB-iq-28f"/>
                                                     <constraint firstItem="ofp-vN-qMr" firstAttribute="top" secondItem="Mbo-5S-ndb" secondAttribute="top" constant="243" id="P7d-nd-drl"/>
+                                                    <constraint firstItem="ZQr-9Z-2sr" firstAttribute="leading" secondItem="Mbo-5S-ndb" secondAttribute="leading" constant="5" id="UTe-9W-iiO"/>
                                                     <constraint firstAttribute="height" constant="282" id="Z5Z-Eu-sX1"/>
                                                     <constraint firstItem="ofp-vN-qMr" firstAttribute="leading" secondItem="Mbo-5S-ndb" secondAttribute="leading" constant="5" id="dUo-eX-7K3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ZQr-9Z-2sr" secondAttribute="trailing" constant="5" id="i0c-JU-Rs7"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1268,7 +1316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nah-AL-A2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2529.375" y="861.97183098591552"/>
+            <point key="canvasLocation" x="-1742" y="1152"/>
         </scene>
         <!--Reaction Friends Table View Controller-->
         <scene sceneID="M7E-8o-RLO">
@@ -1322,7 +1370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-309.375" y="1500"/>
+            <point key="canvasLocation" x="-743" y="1421"/>
         </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
