@@ -32,6 +32,11 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var nameMovieLabel: UILabel!
 }
 
+class TelevisionTableViewCell: UITableViewCell {
+    @IBOutlet weak var televisionImageView: UIImageView!
+    @IBOutlet weak var nameTelevisionLabel: UILabel!
+}
+
 class AboutProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
