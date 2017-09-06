@@ -49,6 +49,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableFriends: UITableView!
     @IBOutlet weak var tableMusic: UITableView!
     @IBOutlet weak var tableMovie: UITableView!
+    @IBOutlet weak var tableTelevision: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1375,10 +1375,6 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </tableViewCellContentView>
-                                                                <connections>
-                                                                    <outlet property="movieImageView" destination="rq5-my-jE8" id="4XM-Qz-Drc"/>
-                                                                    <outlet property="nameMovieLabel" destination="fbE-Uq-V8A" id="hym-3B-owI"/>
-                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
@@ -1449,6 +1445,7 @@
                         <outlet property="tableFriends" destination="ofp-vN-qMr" id="dLk-rD-TqV"/>
                         <outlet property="tableMovie" destination="Rul-19-4xE" id="AbS-ms-avF"/>
                         <outlet property="tableMusic" destination="ZQr-9Z-2sr" id="kGz-sE-71d"/>
+                        <outlet property="tableTelevision" destination="L7J-C0-fqV" id="HCY-Md-opm"/>
                         <outlet property="yearWorkedLabel" destination="7lc-1p-sDy" id="uZY-CS-GBq"/>
                     </connections>
                 </viewController>
