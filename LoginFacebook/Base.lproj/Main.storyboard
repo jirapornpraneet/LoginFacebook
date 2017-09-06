@@ -1300,7 +1300,7 @@
                                                             <constraint firstAttribute="height" constant="225" id="G0q-AN-6ZW"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMusicTableView" rowHeight="55" id="EIL-pz-75L" customClass="MusicTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMovieTableView" rowHeight="55" id="EIL-pz-75L" customClass="MovieTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="310" height="55"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EIL-pz-75L" id="jzC-7W-Gs3">
@@ -1318,20 +1318,12 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZB5-An-Vbl">
-                                                                            <rect key="frame" x="55" y="25" width="127" height="14"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </tableViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="categoryLabel" destination="ZB5-An-Vbl" id="wrT-GM-0I2"/>
-                                                                    <outlet property="musicImageView" destination="P7K-ZS-Pjd" id="B07-g7-xba"/>
-                                                                    <outlet property="nameMusicLabel" destination="uTx-8c-E2R" id="zpa-35-Svh"/>
+                                                                    <outlet property="movieImageView" destination="P7K-ZS-Pjd" id="zOq-NH-91N"/>
+                                                                    <outlet property="nameMovieLabel" destination="uTx-8c-E2R" id="4so-yF-avJ"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -1395,6 +1387,7 @@
                         <outlet property="ralationshipLabel" destination="cf2-0n-a5B" id="hRX-D5-3WF"/>
                         <outlet property="schoolNameLabel" destination="E3B-mr-cbO" id="kA8-Op-Vh8"/>
                         <outlet property="tableFriends" destination="ofp-vN-qMr" id="dLk-rD-TqV"/>
+                        <outlet property="tableMovie" destination="Rul-19-4xE" id="AbS-ms-avF"/>
                         <outlet property="tableMusic" destination="ZQr-9Z-2sr" id="kGz-sE-71d"/>
                         <outlet property="yearWorkedLabel" destination="7lc-1p-sDy" id="uZY-CS-GBq"/>
                     </connections>
