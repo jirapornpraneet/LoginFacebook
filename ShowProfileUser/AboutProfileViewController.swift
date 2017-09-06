@@ -82,13 +82,17 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             
             let userResourceDataRelationShip = self.userResourceData.relationship_status
             self.ralationshipLabel.text = userResourceDataRelationShip
+            
+            self.tableMusic.dataSource = self
+            self.tableMusic.delegate = self
+            self.tableMusic.reloadData()
         }
     }
     
     var userResource: UserResource! = nil
     
     func getDataUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBAPpGcN0VzTUjDnE7iCm9aAUk4umtn4DbJeItJZAngDDskQIvhH1Izrz4MXfQn68kmE380JEr85JrQ3qgTofQM9jIryO4axTUReFTZBKwpdlESdx4FQVZCK3RnwDM96ZCovaQZB62QGl7pzw0iIBOHjQ0q5YoBUi1dvx1oB211BrIHFF2X0XZBZBMVCmxR6KaQZDZD")
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBAPXxIguLuHs0Gfcy1K5RZBWaYZCmIZBLEBZCJLN2YwlkruWce8Yx31nYUMZAwlgXVb59uG7OsyPgrg4tYmAt6T2EI0hZBy172FZB2F0wDUpCRaqp6sCoWkDARXXWZAgMeJbD0kPoPGRRGeMGMTjy0o6nwYNd64TeaDU8iZCa7SnCGjMJNZBYghgATBZAtmBZB75ZBNAZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
@@ -98,7 +102,6 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
                 
                 self.tableFriends.dataSource = self
                 self.tableFriends.delegate = self
-                
                 self.tableFriends.reloadData()
                 
             case .failure(let error):
@@ -117,7 +120,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
         if tableView == tableFriends {
             return 4
         } else {
-            return 1
+            return 4
         }
     }
     
