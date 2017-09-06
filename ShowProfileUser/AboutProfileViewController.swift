@@ -76,6 +76,28 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    var userResource: UserResource! = nil
+    
+    func getDataUserResourceFriends() {
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBAPpGcN0VzTUjDnE7iCm9aAUk4umtn4DbJeItJZAngDDskQIvhH1Izrz4MXfQn68kmE380JEr85JrQ3qgTofQM9jIryO4axTUReFTZBKwpdlESdx4FQVZCK3RnwDM96ZCovaQZB62QGl7pzw0iIBOHjQ0q5YoBUi1dvx1oB211BrIHFF2X0XZBZBMVCmxR6KaQZDZD")
+        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        Alamofire.request(url, method: .get).validate().responseString { response in
+            print(response)
+            switch response.result {
+            case .success(let value):
+                self.userResource  = UserResource(json: value)
+                
+                self.tableFriends.dataSource = self
+                self.tableFriends.delegate = self
+                
+                self.tableFriends.reloadData()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
