@@ -27,6 +27,11 @@ class MusicTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
 }
 
+class MovieTableViewCell: UITableViewCell {
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var nameMovieLabel: UILabel!
+}
+
 class AboutProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
@@ -119,8 +124,10 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == tableFriends {
             return 4
-        } else {
+        } else if tableView == tableMusic {
             return 4
+        } else {
+            
         }
     }
     
@@ -140,7 +147,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             cellFriendTableView.friendButton.layer.borderColor = UIColor.gray.cgColor
             
             return cellFriendTableView
-        } else {
+        } else if tableView == tableMusic {
             let cellMusicTableView = tableView.dequeueReusableCell(withIdentifier: "cellMusicTableView", for: indexPath) as! MusicTableViewCell
             let cellUserResourceData = userResourceData.music?.data?[indexPath.row]
             
@@ -151,6 +158,8 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             cellMusicTableView.musicImageView.sd_setImage(with: pictureMusicImageUrl, completed: nil)
             
             return cellMusicTableView
+        } else {
+            
         }
     }
 
