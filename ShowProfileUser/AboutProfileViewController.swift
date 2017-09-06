@@ -34,6 +34,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUserResourceProfile()
+        getDataUserResourceFriends()
     }
     
     var userResourceData: UserResourceData! = nil
