@@ -1311,6 +1311,7 @@
                         <outlet property="ralationshipLabel" destination="cf2-0n-a5B" id="hRX-D5-3WF"/>
                         <outlet property="schoolNameLabel" destination="E3B-mr-cbO" id="kA8-Op-Vh8"/>
                         <outlet property="tableFriends" destination="ofp-vN-qMr" id="dLk-rD-TqV"/>
+                        <outlet property="tableMusic" destination="ZQr-9Z-2sr" id="kGz-sE-71d"/>
                         <outlet property="yearWorkedLabel" destination="7lc-1p-sDy" id="uZY-CS-GBq"/>
                     </connections>
                 </viewController>
