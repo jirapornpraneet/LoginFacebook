@@ -1033,10 +1033,10 @@
             </objects>
             <point key="canvasLocation" x="1076.25" y="406.6901408450704"/>
         </scene>
-        <!--View Controller-->
+        <!--About Profile View Controller-->
         <scene sceneID="b4L-hd-zuv">
             <objects>
-                <viewController id="3eR-7B-Leh" sceneMemberID="viewController">
+                <viewController id="3eR-7B-Leh" customClass="AboutProfileViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ffk-Qa-mNr"/>
                         <viewControllerLayoutGuide type="bottom" id="lg1-ug-Z4G"/>
