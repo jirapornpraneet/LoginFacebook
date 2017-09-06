@@ -21,6 +21,12 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var friendButton: UIButton!
 }
 
+class MusicTableViewCell: UITableViewCell {
+    @IBOutlet weak var musicImageView: UIImageView!
+    @IBOutlet weak var nameMusicLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+}
+
 class AboutProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
@@ -29,7 +35,9 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var fromLocationLabel: UILabel!
     @IBOutlet weak var ralationshipLabel: UILabel!
+    //MARK: TableView
     @IBOutlet weak var tableFriends: UITableView!
+    @IBOutlet weak var tableMusic: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
