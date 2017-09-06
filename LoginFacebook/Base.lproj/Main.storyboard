@@ -1224,40 +1224,38 @@
                                                             <constraint firstAttribute="height" constant="225" id="muY-Fs-ryE"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellFriendTableView" rowHeight="55" id="seK-t4-AaF" customClass="FriendsTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMusicTableView" rowHeight="55" id="seK-t4-AaF" customClass="MusicTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="310" height="55"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="seK-t4-AaF" id="fmJ-Ja-VZW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="310" height="54.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-0U-36v">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-aG-0fu">
                                                                             <rect key="frame" x="8" y="3" width="39" height="43"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-IX-4lH">
-                                                                            <rect key="frame" x="55" y="8" width="145" height="11"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sv-WP-xlL">
+                                                                            <rect key="frame" x="55" y="8" width="127" height="14"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDm-R5-2G4">
-                                                                            <rect key="frame" x="256" y="6" width="46" height="21"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f01-ZD-X68">
+                                                                            <rect key="frame" x="55" y="25" width="127" height="14"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                            <state key="normal" title="เพื่อน">
-                                                                                <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            </state>
-                                                                        </button>
+                                                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </tableViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="friendButton" destination="HDm-R5-2G4" id="FUx-El-kle"/>
-                                                                    <outlet property="nameFriendsLabel" destination="UFC-IX-4lH" id="u62-Gd-DfL"/>
-                                                                    <outlet property="profileFriendsImageView" destination="5Ds-0U-36v" id="6U2-sl-oPv"/>
+                                                                    <outlet property="categoryLabel" destination="f01-ZD-X68" id="Qia-0z-Fvx"/>
+                                                                    <outlet property="musicImageView" destination="bUX-aG-0fu" id="4EN-et-oEf"/>
+                                                                    <outlet property="nameMusicLabel" destination="8Sv-WP-xlL" id="7Vv-UI-KJK"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -1317,7 +1315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nah-AL-A2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1742" y="1152"/>
+            <point key="canvasLocation" x="-1743.75" y="1151.4084507042253"/>
         </scene>
         <!--Reaction Friends Table View Controller-->
         <scene sceneID="M7E-8o-RLO">
