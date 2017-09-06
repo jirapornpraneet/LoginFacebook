@@ -1048,8 +1048,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQK-jq-qHc">
                                 <rect key="frame" x="0.0" y="64" width="320" height="936"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Aq-VM-Yxb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Aq-VM-Yxb">
+                                        <rect key="frame" x="0.0" y="-64" width="320" height="1064"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mbo-5S-ndb">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="282"/>
@@ -1222,14 +1222,14 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.75297987461090088" green="0.75296545028686523" blue="0.7529752254486084" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="wzO-Jx-Yhv"/>
+                                            <constraint firstAttribute="height" constant="1064" id="wzO-Jx-Yhv"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0Aq-VM-Yxb" firstAttribute="top" secondItem="jQK-jq-qHc" secondAttribute="top" id="ExJ-tX-EPc"/>
                                     <constraint firstAttribute="trailing" secondItem="0Aq-VM-Yxb" secondAttribute="trailing" id="efB-Ao-NlF"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Aq-VM-Yxb" secondAttribute="bottom" id="huG-PZ-knk"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Aq-VM-Yxb" secondAttribute="bottom" constant="-128" id="huG-PZ-knk"/>
                                     <constraint firstItem="0Aq-VM-Yxb" firstAttribute="leading" secondItem="jQK-jq-qHc" secondAttribute="leading" id="mbe-IC-Tbc"/>
                                 </constraints>
                             </scrollView>
@@ -1245,6 +1245,16 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="employerNameLabel" destination="ico-St-vG7" id="AsB-0l-5bK"/>
+                        <outlet property="fromLocationLabel" destination="RcY-ZD-njX" id="RH0-nf-EjT"/>
+                        <outlet property="locationLabel" destination="64j-Ao-rdB" id="pS1-7E-Yjn"/>
+                        <outlet property="previousStudyLabel" destination="tGt-1s-RfJ" id="ovW-fF-pyW"/>
+                        <outlet property="ralationshipLabel" destination="cf2-0n-a5B" id="hRX-D5-3WF"/>
+                        <outlet property="schoolNameLabel" destination="E3B-mr-cbO" id="kA8-Op-Vh8"/>
+                        <outlet property="tableFriends" destination="ofp-vN-qMr" id="dLk-rD-TqV"/>
+                        <outlet property="yearWorkedLabel" destination="7lc-1p-sDy" id="uZY-CS-GBq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nah-AL-A2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
