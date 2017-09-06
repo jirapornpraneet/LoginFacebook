@@ -1191,6 +1191,15 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="employerNameLabel" destination="K7Y-Qo-brA" id="CcU-tm-IRU"/>
+                        <outlet property="fromLocationLabel" destination="K1Z-fG-kBb" id="Vz1-JS-yyM"/>
+                        <outlet property="locationLabel" destination="AnE-Fy-X8G" id="oVr-WB-TT9"/>
+                        <outlet property="previousStudyLabel" destination="kjz-0d-JZO" id="JUT-uM-Kia"/>
+                        <outlet property="ralationshipLabel" destination="sF8-PQ-izd" id="OrI-N4-d7r"/>
+                        <outlet property="schoolNameLabel" destination="NcB-DT-Aet" id="86a-GQ-gwW"/>
+                        <outlet property="yearWorkedLabel" destination="Q8k-Cn-2Yj" id="uZj-tz-luG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aae-Ev-e8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
