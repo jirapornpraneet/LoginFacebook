@@ -15,6 +15,8 @@ import FBSDKCoreKit
 import FBSDKShareKit
 import SDWebImage
 
+private let reuseIdentifier = "Cell"
+
 class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var profileFriendsImageView: UIImageView!
     @IBOutlet weak var nameFriendsLabel: UILabel!
@@ -112,6 +114,13 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             self.tableTelevision.delegate = self
             self.tableTelevision.dataSource = self
             self.tableTelevision.reloadData()
+            
+            let collectionViewListFriends = self.collectionviewPhotosAlbums
+            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            layout.itemSize = CGSize(width: 80, height: 80)
+            collectionViewListFriends?.collectionViewLayout = layout
+            collectionViewListFriends?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
             
             self.collectionviewPhotosAlbums.delegate = self
             self.collectionviewPhotosAlbums.dataSource = self
@@ -227,7 +236,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
         let cellUserResourceAlbumsData = userResourceData.albums?.data?[indexPath.row]
         let celluserResourcePhotosData = cellUserResourceAlbumsData?.photos?.data?[indexPath.row]
     
-        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (celluserResourcePhotosData?.picture)!, width: 300, height: 300)
+        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (celluserResourcePhotosData?.picture)!, width: 120, height: 120)
         cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
         
         return cellAlbumsPhotosCollectionView
