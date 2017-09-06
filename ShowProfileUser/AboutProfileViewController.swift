@@ -21,7 +21,7 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var friendButton: UIButton!
 }
 
-class AboutProfileViewController: UIViewController {
+class AboutProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
     @IBOutlet weak var schoolNameLabel: UILabel!
