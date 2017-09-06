@@ -22,6 +22,13 @@ class FriendsTableViewCell: UITableViewCell {
 }
 
 class AboutProfileViewController: UIViewController {
+    @IBOutlet weak var employerNameLabel: UILabel!
+    @IBOutlet weak var yearWorkedLabel: UILabel!
+    @IBOutlet weak var schoolNameLabel: UILabel!
+    @IBOutlet weak var previousStudyLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var fromLocationLabel: UILabel!
+    @IBOutlet weak var ralationshipLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
