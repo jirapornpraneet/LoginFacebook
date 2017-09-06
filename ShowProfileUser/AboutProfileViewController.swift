@@ -179,7 +179,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             let cellMovieTableView = tableView.dequeueReusableCell(withIdentifier: "cellMovieTableView", for: indexPath) as! MovieTableViewCell
             let cellUserResourceMovieData = userResourceData.movies?.data?[indexPath.row]
             
-            cellMovieTableView.nameMovieLabel.text = cellUserResourceMovieData?.name
+            cellMovieTableView.nameMovieLabel.text = cellUserResourceMovieData?.global_brand_page_name
             
             let pictureMovieImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceMovieData?.picture?.data?.url)!, width: 300, height: 300)
             cellMovieTableView.movieImageView.sd_setImage(with: pictureMovieImageUrl, completed: nil)
