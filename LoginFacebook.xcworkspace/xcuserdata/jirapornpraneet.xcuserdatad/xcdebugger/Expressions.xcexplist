@@ -6,10 +6,18 @@
          contextName = "ViewController.fetchProfile() -&gt; ():ViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #1):ViewController.swift">
+         contextName = "CollectionViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():CollectionViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "static EVReflection.toJsonData(NSObject, conversionOptions : ConversionOptions, prettyPrinted : Bool) -&gt; Data:EVReflection.swift">
+         contextName = "ViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userResource">
+            </PersistentString>
+            <PersistentString
+               value = "userResource.posts?.data?">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ViewController.swift">
@@ -42,21 +50,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AboutProfileUserTableViewController.(fetchUserResourceProfile() -&gt; ()).(closure #1):AboutProfileUserTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userResourceData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CollectionViewController.(getDataCurrenciesAPI() -&gt; ()).(closure #1):CollectionViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "CollectionViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():CollectionViewController.swift">
+         contextName = "ViewController.(fetchProfile() -&gt; ()).(closure #1):ViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "ViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "userResource">
-            </PersistentString>
-            <PersistentString
-               value = "userResource.posts?.data?">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "static EVReflection.toJsonData(NSObject, conversionOptions : ConversionOptions, prettyPrinted : Bool) -&gt; Data:EVReflection.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
