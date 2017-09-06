@@ -1202,6 +1202,11 @@
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="0.61635339140000001" blue="0.73407814469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendButton" destination="79E-hZ-S10" id="n8j-vr-PbY"/>
+                                            <outlet property="nameFriendsLabel" destination="Old-dG-Fdp" id="buC-NG-HTX"/>
+                                            <outlet property="profileFriendsImageView" destination="LrL-sG-0bd" id="kh0-1O-z38"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
