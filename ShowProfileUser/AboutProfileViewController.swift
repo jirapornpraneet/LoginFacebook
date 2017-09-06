@@ -37,7 +37,11 @@ class TelevisionTableViewCell: UITableViewCell {
     @IBOutlet weak var nameTelevisionLabel: UILabel!
 }
 
-class AboutProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class AlbumsPhotosCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var photosImageView: UIImageView!
+}
+
+class AboutProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
     @IBOutlet weak var employerNameLabel: UILabel!
     @IBOutlet weak var yearWorkedLabel: UILabel!
     @IBOutlet weak var schoolNameLabel: UILabel!
@@ -50,7 +54,9 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableMusic: UITableView!
     @IBOutlet weak var tableMovie: UITableView!
     @IBOutlet weak var tableTelevision: UITableView!
-
+    //MARK: CollectionView
+    @IBOutlet weak var collectionviewPhotosAlbums: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUserResourceProfile()
@@ -106,6 +112,10 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             self.tableTelevision.delegate = self
             self.tableTelevision.dataSource = self
             self.tableTelevision.reloadData()
+            
+            self.collectionviewPhotosAlbums.delegate = self
+            self.collectionviewPhotosAlbums.dataSource = self
+            self.collectionviewPhotosAlbums.reloadData()
         }
     }
     
@@ -202,5 +212,23 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellAlbumsPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsPhotosCollectionView", for: indexPath) as! AlbumsPhotosCollectionViewCell
+        let cellUserResourceTelevisionData = userResourceData.television?.data?[indexPath.row]
+    
+        
+        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceTelevisionData?.picture?.data?.url)!, width: 300, height: 300)
+        cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
+        
+        return cellAlbumsPhotosCollectionView
+    }
 }
