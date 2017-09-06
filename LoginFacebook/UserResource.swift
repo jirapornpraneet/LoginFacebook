@@ -34,6 +34,7 @@ class UserResourceData: EVObject {
     var relationship_status: String = ""
     var music: AlbumsData?
     var movies: AlbumsData?
+    var television: AlbumsData?
 }
 
 class AlbumsData: EVObject {
