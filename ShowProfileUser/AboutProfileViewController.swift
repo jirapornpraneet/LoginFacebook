@@ -150,12 +150,12 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             return cellFriendTableView
         } else if tableView == tableMusic {
             let cellMusicTableView = tableView.dequeueReusableCell(withIdentifier: "cellMusicTableView", for: indexPath) as! MusicTableViewCell
-            let cellUserResourceData = userResourceData.music?.data?[indexPath.row]
+            let cellUserResourceMusicData = userResourceData.music?.data?[indexPath.row]
             
-            cellMusicTableView.nameMusicLabel.text = cellUserResourceData?.name
-            cellMusicTableView.categoryLabel.text = cellUserResourceData?.category
+            cellMusicTableView.nameMusicLabel.text = cellUserResourceMusicData?.name
+            cellMusicTableView.categoryLabel.text = cellUserResourceMusicData?.category
             
-             let pictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+             let pictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceMusicData?.picture?.data?.url)!, width: 300, height: 300)
             cellMusicTableView.musicImageView.sd_setImage(with: pictureMusicImageUrl, completed: nil)
             
             return cellMusicTableView
