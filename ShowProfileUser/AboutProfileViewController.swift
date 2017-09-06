@@ -32,6 +32,7 @@ class AboutProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchUserResourceProfile()
     }
     
     var userResourceData: UserResourceData! = nil
