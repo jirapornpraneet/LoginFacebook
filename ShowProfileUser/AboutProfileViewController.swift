@@ -138,20 +138,16 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             
             return cellFriendTableView
         } else {
-            let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendsTableViewCell
-            let cellUserResourceData = userResource.data?[indexPath.row]
+            let cellMusicTableView = tableView.dequeueReusableCell(withIdentifier: "cellMusicTableView", for: indexPath) as! MusicTableViewCell
+            let cellUserResourceData = userResourceData.music?.data?[indexPath.row]
             
-            cellFriendTableView.nameFriendsLabel.text = cellUserResourceData?.name
+            cellMusicTableView.nameMusicLabel.text = cellUserResourceData?.name
+            cellMusicTableView.categoryLabel.text = cellUserResourceData?.category
             
-            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
-            cellFriendTableView.profileFriendsImageView.sd_setImage(with: profileImageUrl, completed:nil)
+             let pictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+            cellMusicTableView.musicImageView.sd_setImage(with: pictureMusicImageUrl, completed: nil)
             
-            cellFriendTableView.friendButton.layer.masksToBounds = true
-            cellFriendTableView.friendButton.layer.cornerRadius = 3
-            cellFriendTableView.friendButton.layer.borderWidth = 0.5
-            cellFriendTableView.friendButton.layer.borderColor = UIColor.gray.cgColor
-            
-            return cellFriendTableView
+            return cellMusicTableView
         }
     }
 
