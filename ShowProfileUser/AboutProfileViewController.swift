@@ -106,14 +106,46 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == tableFriends {
+            return 4
+        } else {
+            return 1
+        }
     }
-    
-    var setUserResourcePostsDataReactionData = [NSObject]()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == tableFriends {
+            let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendsTableViewCell
+            let cellUserResourceData = userResource.data?[indexPath.row]
+            
+            cellFriendTableView.nameFriendsLabel.text = cellUserResourceData?.name
+            
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+            cellFriendTableView.profileFriendsImageView.sd_setImage(with: profileImageUrl, completed:nil)
+            
+            cellFriendTableView.friendButton.layer.masksToBounds = true
+            cellFriendTableView.friendButton.layer.cornerRadius = 3
+            cellFriendTableView.friendButton.layer.borderWidth = 0.5
+            cellFriendTableView.friendButton.layer.borderColor = UIColor.gray.cgColor
+            
+            return cellFriendTableView
+        } else {
+            let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendsTableViewCell
+            let cellUserResourceData = userResource.data?[indexPath.row]
+            
+            cellFriendTableView.nameFriendsLabel.text = cellUserResourceData?.name
+            
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+            cellFriendTableView.profileFriendsImageView.sd_setImage(with: profileImageUrl, completed:nil)
+            
+            cellFriendTableView.friendButton.layer.masksToBounds = true
+            cellFriendTableView.friendButton.layer.cornerRadius = 3
+            cellFriendTableView.friendButton.layer.borderWidth = 0.5
+            cellFriendTableView.friendButton.layer.borderColor = UIColor.gray.cgColor
+            
+            return cellFriendTableView
+        }
     }
-
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
