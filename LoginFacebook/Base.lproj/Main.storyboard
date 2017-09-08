@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Fhu-NT-lmh" kind="relationship" relationship="rootViewController" id="F3e-PU-ERg"/>
+                        <segue destination="kQl-dz-GCu" kind="relationship" relationship="rootViewController" id="IcG-vW-Irp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLy-0D-fps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-879" y="-1320"/>
+            <point key="canvasLocation" x="-814" y="-1551"/>
         </scene>
-        <!--Friends Collection View Controller-->
+        <!--Item-->
         <scene sceneID="Nu8-ap-3tI">
             <objects>
                 <viewController storyboardIdentifier="CollectionViewID" id="4SK-90-l44" customClass="FriendsCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,11 +80,12 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="w3l-Xv-u4r"/>
                     <navigationItem key="navigationItem" id="ReM-i6-nRs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAd-AO-CKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1674" y="211"/>
+            <point key="canvasLocation" x="-1761" y="210"/>
         </scene>
         <!--Frist View Controller-->
         <scene sceneID="DZs-p3-tN3">
@@ -143,7 +144,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99787670370000003" blue="0.96722763779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="iconheart" id="9Wc-XG-f1T"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconWow" id="9Wc-XG-f1T"/>
                     <navigationItem key="navigationItem" id="pTX-zf-XHD"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
@@ -154,9 +155,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-879" y="-576"/>
+            <point key="canvasLocation" x="-818" y="209"/>
         </scene>
-        <!--View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="86N-jj-Usq">
+            <objects>
+                <tabBarController id="kQl-dz-GCu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jhu-x0-V7i"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ci7-YH-FMW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Fhu-NT-lmh" kind="relationship" relationship="viewControllers" id="np9-Zz-IUi"/>
+                        <segue destination="XTy-WA-W6X" kind="relationship" relationship="viewControllers" id="cBd-7y-e1m"/>
+                        <segue destination="4SK-90-l44" kind="relationship" relationship="viewControllers" id="RCb-2i-fGh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ztH-Jc-s4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-816" y="-811"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="obW-0g-IlQ">
             <objects>
                 <tableViewController storyboardIdentifier="ViewController" id="XTy-WA-W6X" customClass="ViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
@@ -488,6 +509,7 @@
                             <outlet property="delegate" destination="XTy-WA-W6X" id="ljU-rQ-Gn6"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="yga-Sx-sNW"/>
                     <navigationItem key="navigationItem" id="OgL-sZ-6dh"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="800"/>
@@ -1305,7 +1327,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7s-uI-SwQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1351"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-0A-cMW">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1300"/>
@@ -1734,7 +1756,11 @@
         <image name="iconShareImage" width="188" height="54"/>
         <image name="iconStatus" width="137" height="41"/>
         <image name="iconWorkAbout" width="33" height="29"/>
+        <image name="iconWow" width="77" height="77"/>
         <image name="iconWritePosts" width="182" height="46"/>
-        <image name="iconheart" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xgt-sI-O6y"/>
+        <segue reference="7uH-kP-Nhv"/>
+    </inferredMetricsTieBreakers>
 </document>
