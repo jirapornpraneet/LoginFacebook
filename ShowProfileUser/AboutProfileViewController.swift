@@ -117,8 +117,8 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             
             let collectionViewListFriends = self.collectionviewPhotosAlbums
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-            layout.itemSize = CGSize(width: 80, height: 80)
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            layout.itemSize = CGSize(width: 70, height: 70)
             collectionViewListFriends?.collectionViewLayout = layout
             collectionViewListFriends?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
             
