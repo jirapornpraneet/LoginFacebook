@@ -1301,11 +1301,11 @@
                         <viewControllerLayoutGuide type="bottom" id="SYb-BZ-tbE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CRG-NC-HqE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7s-uI-SwQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-0A-cMW">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
@@ -1486,10 +1486,10 @@
                                                 </prototypes>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L7J-C0-fqV">
-                                                <rect key="frame" x="2" y="653" width="310" height="146"/>
+                                                <rect key="frame" x="2" y="629" width="310" height="220"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="146" id="9Rx-un-Y86"/>
+                                                    <constraint firstAttribute="height" constant="220" id="9Rx-un-Y86"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellTelevisionTableView" rowHeight="55" id="JUS-t3-ncA" customClass="TelevisionTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
@@ -1521,10 +1521,10 @@
                                                 </prototypes>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZQr-9Z-2sr">
-                                                <rect key="frame" x="5" y="836" width="310" height="125"/>
+                                                <rect key="frame" x="5" y="853" width="310" height="220"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="125" id="etY-US-eZH"/>
+                                                    <constraint firstAttribute="height" constant="220" id="etY-US-eZH"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMusicTableView" rowHeight="55" id="seK-t4-AaF" customClass="MusicTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
@@ -1564,10 +1564,10 @@
                                                 </prototypes>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rul-19-4xE">
-                                                <rect key="frame" x="2" y="994" width="310" height="131"/>
+                                                <rect key="frame" x="2" y="1077" width="310" height="220"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="131" id="FZx-fy-NMg"/>
+                                                    <constraint firstAttribute="height" constant="220" id="FZx-fy-NMg"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMovieTableView" rowHeight="55" id="EIL-pz-75L" customClass="MovieTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
@@ -1644,7 +1644,7 @@
                                             <constraint firstAttribute="trailing" secondItem="ZQr-9Z-2sr" secondAttribute="trailing" constant="5" id="8TQ-3G-VQW"/>
                                             <constraint firstItem="JH6-IA-Sqw" firstAttribute="leading" secondItem="d8a-0A-cMW" secondAttribute="leading" constant="5" id="A9C-gP-Qqj"/>
                                             <constraint firstAttribute="height" constant="1200" id="AJ0-fn-x3i"/>
-                                            <constraint firstItem="Rul-19-4xE" firstAttribute="top" secondItem="ZQr-9Z-2sr" secondAttribute="bottom" constant="33" id="B1G-Dr-e2W"/>
+                                            <constraint firstItem="Rul-19-4xE" firstAttribute="top" secondItem="ZQr-9Z-2sr" secondAttribute="bottom" constant="4" id="B1G-Dr-e2W"/>
                                             <constraint firstItem="wAl-45-PPP" firstAttribute="leading" secondItem="d8a-0A-cMW" secondAttribute="leading" constant="5" id="BEV-62-3Rd"/>
                                             <constraint firstAttribute="trailing" secondItem="yIc-xP-JaU" secondAttribute="trailing" constant="5" id="Bus-Ug-cP8"/>
                                             <constraint firstItem="wAl-45-PPP" firstAttribute="top" secondItem="yIc-xP-JaU" secondAttribute="bottom" constant="2" id="C1F-tn-Qs7"/>
@@ -1656,14 +1656,14 @@
                                             <constraint firstItem="Slk-Nc-mSI" firstAttribute="top" secondItem="wAl-45-PPP" secondAttribute="bottom" constant="2" id="RG8-Od-jHU"/>
                                             <constraint firstAttribute="trailing" secondItem="ofp-vN-qMr" secondAttribute="trailing" constant="5" id="T4R-DQ-c1O"/>
                                             <constraint firstAttribute="trailing" secondItem="L7J-C0-fqV" secondAttribute="trailing" constant="8" id="TaV-9D-tqn"/>
-                                            <constraint firstItem="L7J-C0-fqV" firstAttribute="top" secondItem="JH6-IA-Sqw" secondAttribute="bottom" constant="28" id="VXT-mS-12H"/>
+                                            <constraint firstItem="L7J-C0-fqV" firstAttribute="top" secondItem="JH6-IA-Sqw" secondAttribute="bottom" constant="4" id="VXT-mS-12H"/>
                                             <constraint firstItem="L7J-C0-fqV" firstAttribute="leading" secondItem="d8a-0A-cMW" secondAttribute="leading" constant="2" id="VgA-4b-ULr"/>
                                             <constraint firstAttribute="trailing" secondItem="Slk-Nc-mSI" secondAttribute="trailing" constant="5" id="W2E-Aa-mLB"/>
                                             <constraint firstAttribute="trailing" secondItem="oyU-DV-r6a" secondAttribute="trailing" constant="5" id="Wjh-rT-3a1"/>
                                             <constraint firstItem="ofp-vN-qMr" firstAttribute="top" secondItem="oyU-DV-r6a" secondAttribute="bottom" constant="4" id="dZc-o2-9kL"/>
                                             <constraint firstItem="yIc-xP-JaU" firstAttribute="leading" secondItem="d8a-0A-cMW" secondAttribute="leading" constant="5" id="don-SU-NWe"/>
                                             <constraint firstItem="fOB-34-aXu" firstAttribute="top" secondItem="mtH-FV-tWU" secondAttribute="bottom" constant="2" id="ed4-vm-2x9"/>
-                                            <constraint firstItem="ZQr-9Z-2sr" firstAttribute="top" secondItem="L7J-C0-fqV" secondAttribute="bottom" constant="37" id="fgm-Ab-Rcd"/>
+                                            <constraint firstItem="ZQr-9Z-2sr" firstAttribute="top" secondItem="L7J-C0-fqV" secondAttribute="bottom" constant="4" id="fgm-Ab-Rcd"/>
                                             <constraint firstItem="Rul-19-4xE" firstAttribute="leading" secondItem="d8a-0A-cMW" secondAttribute="leading" constant="2" id="kda-7M-oi4"/>
                                             <constraint firstAttribute="trailing" secondItem="fOB-34-aXu" secondAttribute="trailing" constant="5" id="l7O-y8-g51"/>
                                             <constraint firstItem="ofp-vN-qMr" firstAttribute="leading" secondItem="d8a-0A-cMW" secondAttribute="leading" constant="5" id="mCC-sX-G0m"/>
@@ -1692,7 +1692,7 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1200"/>
+                    <size key="freeformSize" width="320" height="1400"/>
                     <connections>
                         <outlet property="collectionviewPhotosAlbums" destination="JH6-IA-Sqw" id="W7u-V2-GHD"/>
                         <outlet property="employerNameLabel" destination="ico-St-vG7" id="YWt-pc-DEU"/>
