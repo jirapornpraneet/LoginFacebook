@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-814" y="-1551"/>
         </scene>
-        <!--Item-->
+        <!--Friends Collection View Controller-->
         <scene sceneID="Nu8-ap-3tI">
             <objects>
                 <viewController storyboardIdentifier="CollectionViewID" id="4SK-90-l44" customClass="FriendsCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="w3l-Xv-u4r"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconFriends" id="w3l-Xv-u4r"/>
                     <navigationItem key="navigationItem" id="ReM-i6-nRs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAd-AO-CKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,7 +144,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99787670370000003" blue="0.96722763779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="iconWow" id="9Wc-XG-f1T"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconFrist" id="9Wc-XG-f1T"/>
                     <navigationItem key="navigationItem" id="pTX-zf-XHD"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
@@ -180,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="-816" y="-811"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="7lj-pb-ddF">
             <objects>
                 <viewController id="yW3-U9-gQo" sceneMemberID="viewController">
@@ -193,13 +193,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Our-dj-l8r"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconPlay" id="Our-dj-l8r"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGY-7E-7t3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-977" y="207"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="WCz-RS-K75">
             <objects>
                 <viewController id="4SP-Ph-LkA" sceneMemberID="viewController">
@@ -212,13 +212,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="gJe-s9-fck"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconShop" id="gJe-s9-fck"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kza-Ko-Jps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="98" y="198"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="obW-0g-IlQ">
             <objects>
                 <tableViewController storyboardIdentifier="ViewController" id="XTy-WA-W6X" customClass="ViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
@@ -550,7 +550,7 @@
                             <outlet property="delegate" destination="XTy-WA-W6X" id="ljU-rQ-Gn6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="yga-Sx-sNW"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconBell" id="yga-Sx-sNW"/>
                     <navigationItem key="navigationItem" id="OgL-sZ-6dh"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="800"/>
@@ -1193,7 +1193,7 @@
             </objects>
             <point key="canvasLocation" x="2507" y="191"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="DJs-Jm-IRk">
             <objects>
                 <viewController id="LFi-kb-IJf" sceneMemberID="viewController">
@@ -1206,7 +1206,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="zM4-j5-fe9"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconMenu" id="zM4-j5-fe9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-9O-vwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1797,6 +1797,7 @@
     </scenes>
     <resources>
         <image name="iconActivity" width="159" height="114"/>
+        <image name="iconBell" width="20" height="20"/>
         <image name="iconCheckInAbout" width="256" height="256"/>
         <image name="iconComment" width="234" height="59"/>
         <image name="iconEdit" width="143" height="109"/>
@@ -1806,21 +1807,25 @@
         <image name="iconEmojiLike" width="156" height="59"/>
         <image name="iconEvent" width="209" height="58"/>
         <image name="iconFriend" width="117" height="117"/>
+        <image name="iconFriends" width="20" height="20"/>
+        <image name="iconFrist" width="20" height="20"/>
         <image name="iconHeartAbout" width="40" height="41"/>
         <image name="iconHello" width="116" height="115"/>
         <image name="iconHomeTownAbout" width="34" height="32"/>
         <image name="iconLikePosts" width="133" height="49"/>
+        <image name="iconMenu" width="20" height="20"/>
         <image name="iconMessenger" width="124" height="140"/>
         <image name="iconPicture" width="134" height="43"/>
+        <image name="iconPlay" width="20" height="20"/>
         <image name="iconPost" width="84" height="103"/>
         <image name="iconShareImage" width="188" height="54"/>
+        <image name="iconShop" width="20" height="20"/>
         <image name="iconStatus" width="137" height="41"/>
         <image name="iconWorkAbout" width="33" height="29"/>
-        <image name="iconWow" width="77" height="77"/>
         <image name="iconWritePosts" width="182" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5ix-FQ-25C"/>
-        <segue reference="w2Q-uP-ZSv"/>
+        <segue reference="Xgt-sI-O6y"/>
+        <segue reference="7uH-kP-Nhv"/>
     </inferredMetricsTieBreakers>
 </document>
