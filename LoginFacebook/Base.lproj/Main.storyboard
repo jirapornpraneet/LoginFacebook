@@ -1777,7 +1777,7 @@
     </scenes>
     <resources>
         <image name="iconActivity" width="159" height="114"/>
-        <image name="iconBell" width="20" height="20"/>
+        <image name="iconBell" width="26" height="26"/>
         <image name="iconCheckInAbout" width="256" height="256"/>
         <image name="iconComment" width="234" height="59"/>
         <image name="iconEdit" width="143" height="109"/>
@@ -1787,16 +1787,16 @@
         <image name="iconEmojiLike" width="156" height="59"/>
         <image name="iconEvent" width="209" height="58"/>
         <image name="iconFriend" width="117" height="117"/>
-        <image name="iconFriends" width="20" height="20"/>
-        <image name="iconFrist" width="20" height="20"/>
+        <image name="iconFriends" width="26" height="26"/>
+        <image name="iconFrist" width="26" height="26"/>
         <image name="iconHeartAbout" width="40" height="41"/>
         <image name="iconHello" width="116" height="115"/>
         <image name="iconHomeTownAbout" width="34" height="32"/>
         <image name="iconLikePosts" width="133" height="49"/>
-        <image name="iconMenu" width="20" height="20"/>
+        <image name="iconMenu" width="23" height="23"/>
         <image name="iconMessenger" width="124" height="140"/>
         <image name="iconPicture" width="134" height="43"/>
-        <image name="iconPlay" width="20" height="20"/>
+        <image name="iconPlay" width="26" height="26"/>
         <image name="iconPost" width="84" height="103"/>
         <image name="iconShareImage" width="188" height="54"/>
         <image name="iconStatus" width="137" height="41"/>
