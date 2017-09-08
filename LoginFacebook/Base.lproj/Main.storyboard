@@ -113,18 +113,6 @@
                                 <color key="textColor" red="0.93031293153762817" green="0.48461708122368696" blue="0.5370414149820596" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMg-ZV-wsY">
-                                <rect key="frame" x="108" y="378" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.31029749779999999" green="0.43677462639999998" blue="0.75612706220000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Show Friend">
-                                    <color key="titleColor" red="1" green="0.99625312359999996" blue="0.987392516" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <segue destination="4SK-90-l44" kind="show" identifier="CollectionViewID" id="7uH-kP-Nhv"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">
                                 <rect key="frame" x="91" y="120" width="137" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1074,7 +1062,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="758-LS-6D1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091" y="331"/>
+            <point key="canvasLocation" x="1134" y="1518"/>
         </scene>
         <!--Reaction Friends Table View Controller-->
         <scene sceneID="M7E-8o-RLO">
@@ -1128,7 +1116,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="1518"/>
+            <point key="canvasLocation" x="-919" y="1518"/>
         </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
@@ -1171,7 +1159,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qv9-wQ-DSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="208"/>
+            <point key="canvasLocation" x="1856" y="1395"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DJs-Jm-IRk">
@@ -1190,7 +1178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-9O-vwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="208"/>
+            <point key="canvasLocation" x="1230" y="206"/>
         </scene>
         <!--Comments Friends Table View Controller-->
         <scene sceneID="KZ6-ft-pfc">
@@ -1278,7 +1266,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898" y="1518"/>
+            <point key="canvasLocation" x="-264" y="1518"/>
         </scene>
         <!--Comments Table View Controller-->
         <scene sceneID="16a-cb-4Fi">
@@ -1352,7 +1340,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFs-pT-zTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="1518"/>
+            <point key="canvasLocation" x="405" y="1518"/>
         </scene>
         <!--About Profile View Controller-->
         <scene sceneID="BQ5-jJ-9bi">
@@ -1772,7 +1760,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0X-Nu-7mT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="1835"/>
+            <point key="canvasLocation" x="-1618" y="1835"/>
         </scene>
     </scenes>
     <resources>
@@ -1805,6 +1793,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Xgt-sI-O6y"/>
-        <segue reference="7uH-kP-Nhv"/>
     </inferredMetricsTieBreakers>
 </document>
