@@ -263,6 +263,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         } else {
             cellPostsUserTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", cellUserResourcePostsDataCommentsDataCount!), for: .normal)
             cellPostsUserTableView.commentsFriendsButton.tag = indexPath.row
+            cellPostsUserTableView.commentsFriendsButton.contentHorizontalAlignment = .right
         }
         
         let cellUserResourcePostsDataReactionsData = cellUserResourcePostsData?.reactions?.data?[0]
