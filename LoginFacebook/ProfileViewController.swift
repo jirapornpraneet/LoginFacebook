@@ -76,7 +76,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default) { _ in
             self.openCamera()
         }
-
+        
         let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.default) { _ in
             self.openGallary()
         }
@@ -102,21 +102,19 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     }
     
     func openCamera() {
-        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            picker!.sourceType = UIImagePickerControllerSourceType.camera
+            self.present(picker!, animated: true, completion: nil)
+        } else {
+            openGallary()
+        }
     }
     
     func openGallary() {
-        
+//        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary // เรียก photoLibrary ขึ้นมา
+//        if UIDevice
     }
-//    func openCamera() {
-//        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
-//            picker!.sourceType = UIImagePickerControllerSourceType.camera
-//            self .present(picker!, animated: true, completion: nil)
-//        } else {
-//            openGallary()
-//        }
-//    }
-//    
+//
 //    func openGallary() {
 //        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
 //        if UIDevice.current.userInterfaceIdiom == .phone {
@@ -130,16 +128,18 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
 //            popover.permittedArrowDirections = .up
 //        }
 //    }
-//    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        picker .dismiss(animated: true, completion: nil)
-//        imageView.image=info[UIImagePickerControllerOriginalImage] as? UIImage
-//    }
-//    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
+    
 
+    
+    //    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    //        picker .dismiss(animated: true, completion: nil)
+    //        imageView.image=info[UIImagePickerControllerOriginalImage] as? UIImage
+    //    }
+    //
+    //    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    //        dismiss(animated: true, completion: nil)
+    //    }
+    
     var userResourceData: UserResourceData! = nil
     
     func ZoomProfilePicture() {
@@ -187,9 +187,9 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
             
             let userResourceDataEducationConCentrationName = self.userResourceData.education?[2].concentration?[0].name
             let userResourceDataEducationSchoolName = self.userResourceData.education?[2].school?.name
-           
+            
             self.schoolNameLabel.text = String(format:"%เรียน  %@  %ที่  %@", userResourceDataEducationConCentrationName!, userResourceDataEducationSchoolName!)
-
+            
             let userResourceDataEducationSchoolName1 = self.userResourceData.education?[0].school?.name
             self.collegeNameLabel.text = String(format: "%เคยศึกษาที่  %@", userResourceDataEducationSchoolName1!)
             
@@ -344,7 +344,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         }
         return cellPostsUserTableView
     }
-
+    
     @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
         
         let senderReactionFriendsButton = sender as! UIButton
@@ -367,7 +367,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         
         self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
     }
-
+    
     @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
         
         let senderCommentsFriendsButton = sender as! UIButton
@@ -376,7 +376,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         let getUserResourcePostsDataCommentsData = getUserResourcePostsDataComments!
         let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
         let getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
-
+        
         let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
         popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         
