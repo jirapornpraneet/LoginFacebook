@@ -88,12 +88,9 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         }
         
         picker?.delegate = self
-        
-        
-//        picker?.delegate = self
-//        alert.addAction(cameraAction)
-//        alert.addAction(gallaryAction)
-//        alert.addAction(cancelAction)
+        alert.addAction(cameraAction)
+        alert.addAction(gallaryAction)
+        alert.addAction(cancelAction)
 //        
 //        if UIDevice.current.userInterfaceIdiom == .phone {
 //            self.present(alert, animated: true, completion: nil)
