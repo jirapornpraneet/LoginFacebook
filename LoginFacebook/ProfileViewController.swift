@@ -279,10 +279,12 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
             if length! >= 10 {
                 cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", cellUserResourcePostsDataReactionsDataCount!), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
+                cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             } else {
                 let reactionsCount = cellUserResourcePostsDataReactionsDataCount! - 1
                 cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
+                cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             }
             
             let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
