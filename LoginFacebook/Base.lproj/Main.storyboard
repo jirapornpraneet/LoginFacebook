@@ -556,9 +556,9 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyC-iQ-TWc">
-                                            <rect key="frame" x="43" y="83" width="31" height="16"/>
+                                            <rect key="frame" x="43" y="83" width="146" height="16"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="31" id="Kh9-eE-4U8"/>
+                                                <constraint firstAttribute="width" constant="146" id="Kh9-eE-4U8"/>
                                                 <constraint firstAttribute="height" constant="16" id="ySE-So-sm8"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -612,7 +612,7 @@
                                         <constraint firstAttribute="trailing" secondItem="E5T-z3-MUg" secondAttribute="trailing" constant="7" id="9NE-sp-fJy"/>
                                         <constraint firstItem="E5T-z3-MUg" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="56" id="ACC-zj-Upc"/>
                                         <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="Qui-Pc-ksG" secondAttribute="bottom" constant="6" id="CJS-MQ-cab"/>
-                                        <constraint firstItem="Qui-Pc-ksG" firstAttribute="leading" secondItem="wyC-iQ-TWc" secondAttribute="trailing" constant="105" id="DiG-aI-ne4"/>
+                                        <constraint firstItem="Qui-Pc-ksG" firstAttribute="leading" secondItem="wyC-iQ-TWc" secondAttribute="trailing" constant="-10" id="DiG-aI-ne4"/>
                                         <constraint firstItem="Dgh-vN-rBI" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leadingMargin" constant="1" id="G48-qJ-S1E"/>
                                         <constraint firstItem="wyC-iQ-TWc" firstAttribute="leading" secondItem="cxS-Xl-nPq" secondAttribute="trailing" constant="3" id="HXr-fc-6NH"/>
                                         <constraint firstItem="E5T-z3-MUg" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leading" constant="7" id="IPT-0p-yXl"/>
