@@ -71,7 +71,39 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     }
     
     @IBAction func selectImagePickerClicked(_ sender: Any) {
+        let alert: UIAlertController = UIAlertController(title: "เลือกรูปภาพ", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
+//        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+//        
+//        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default) {
+//            UIAlertAction in
+//            self.openCamera()
+//        }
+//        
+//        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.default) {
+//            UIAlertAction in
+//            self.openGallary()
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+//            UIAlertAction in
+//        }
+//        
+//        picker?.delegate = self
+//        alert.addAction(cameraAction)
+//        alert.addAction(gallaryAction)
+//        alert.addAction(cancelAction)
+//        
+//        if UIDevice.current.userInterfaceIdiom == .phone {
+//            self.present(alert, animated: true, completion: nil)
+//        } else {
+//            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
+//            vc.modalPresentationStyle = .popover
+//            let popover = vc.popoverPresentationController!
+//            popover.delegate = self
+//            popover.permittedArrowDirections = .up
+
     }
     
     var userResourceData: UserResourceData! = nil
