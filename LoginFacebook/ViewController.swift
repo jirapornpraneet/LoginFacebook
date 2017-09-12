@@ -31,7 +31,7 @@ class PostsUserTableViewCell: UITableViewCell {
     
 }
 
-class ViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class ViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet var tablePosts: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
