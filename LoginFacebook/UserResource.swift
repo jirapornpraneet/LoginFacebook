@@ -20,18 +20,18 @@ class UserResourceData: EVNetworkingObject {
     var last_name: String = ""
     var name: String = "" 
     var picture: PictureUserData?
+    var cover: CoverUserData?
     var about: String = ""
-    var age_range: AgeRangeData?
     var birthday: String = ""
     var gender: String = ""
-    var cover: CoverUserData?
-    var hometown: HomeTownData?
+    var age_range: Data?
+    var hometown: Data?
+    var location: Data?
     var work: [WorkData]? = []
     var education: [EducationData]? = []
     var posts: PostsData?
-    var albums: AlbumsData?
-    var location: LocationData?
     var relationship_status: String = ""
+    var albums: AlbumsData?
     var music: AlbumsData?
     var movies: AlbumsData?
     var television: AlbumsData?
@@ -52,13 +52,7 @@ class AlbumsDataDetail: EVNetworkingObject {
 }
 
 class AlbumsPhotosData: EVNetworkingObject {
-    var data: [AlbumsPhotosDataDetail]? = []
-}
-
-class AlbumsPhotosDataDetail: EVNetworkingObject {
-    var picture: String = ""
-    var name: String =  ""
-    var id: Int = 0
+    var data: [Data]? = []
 }
 
 class PostsData: EVNetworkingObject {
@@ -70,7 +64,7 @@ class PostsDataDetail: EVNetworkingObject {
     var full_picture: String = ""
     var id: Int = 0
     var created_time: String = ""
-    var place: PlaceData?
+    var place: Data?
     var reactions: ReactionsData?
     var comments: CommentsData?
 }
@@ -82,13 +76,9 @@ class CommentsData: EVNetworkingObject {
 class CommentsDataDetail: EVNetworkingObject {
     var comment_count: Int = 0
     var message: String = ""
-    var from: FromData?
+    var from: Data?
     var created_time: String = ""
     var comments: CommentsData?
-}
-
-class FromData: EVNetworkingObject {
-    var name: String = ""
 }
 
 class ReactionsData: EVNetworkingObject {
@@ -102,12 +92,6 @@ class ReactionsDataDetail: EVNetworkingObject {
     var type: String = "" 
 }
 
-class PlaceData: EVNetworkingObject {
-    var id: Int = 0
-    var name: String = ""
-    var location: PlaceDataLocation?
-}
-
 class PlaceDataLocation: EVNetworkingObject {
     var city: String = ""
     var country: String = ""
@@ -119,64 +103,34 @@ class PlaceDataLocation: EVNetworkingObject {
 
 class WorkData: EVNetworkingObject {
     var end_date: String = ""
-    var employer: EmployerData?
-    var location: LocationData?
-    var position: PositionData?
+    var employer: Data?
+    var location: Data?
+    var position: Data?
     var start_date: String = ""
     var id: Int = 0
 }
 
-class PositionData: EVNetworkingObject {
-    var id: Int = 0
-    var name: String = ""
-}
-
-class LocationData: EVNetworkingObject {
-    var id: Int = 0
-    var name: String = ""
-}
-
-class EmployerData: EVNetworkingObject {
-    var id: Int = 0
-    var name: String = ""
-}
-
 class EducationData: EVNetworkingObject {
-    var school: SchoolData?
+    var school: Data?
+    var year: Data?
     var type: String = ""
-    var year: YearData?
     var id: Int = 0
-    var concentration: [ConcentrationData]? = []
+    var concentration: [Data]? = []
 }
 
-class ConcentrationData: EVNetworkingObject {
+class Data: EVNetworkingObject {
     var id: Int = 0
     var name: String = ""
+    var location: PlaceDataLocation?
+    var min: String = ""
+    var picture: String = ""
 }
 
-class YearData: EVNetworkingObject {
-    var id: Int = 0
-    var name: String = ""
-}
-
-class SchoolData: EVNetworkingObject {
-    var id: Int = 0
-    var name: String = ""
-}
-
-class HomeTownData: EVNetworkingObject {
-    var id: Int = 0
-    var name: String = ""
-}
 class CoverUserData: EVNetworkingObject {
     var id: Int = 0
     var offset_x: String = ""
     var offset_y: String = ""
     var source: String = ""
-}
-
-class AgeRangeData: EVNetworkingObject {
-    var min: String = ""
 }
 
 class PictureUserData: EVNetworkingObject {
