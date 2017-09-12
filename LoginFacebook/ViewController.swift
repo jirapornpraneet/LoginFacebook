@@ -46,6 +46,8 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        picker!.delegate = self
+        
         tablePosts.dataSource = self
         tablePosts.delegate = self
         
@@ -69,6 +71,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     }
     
     @IBAction func selectImagePickerClicked(_ sender: Any) {
+        
     }
     
     var userResourceData: UserResourceData! = nil
