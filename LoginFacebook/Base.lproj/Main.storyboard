@@ -17,6 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cz0-1j-Ugy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.25693027090679876" green="0.38932522557528321" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="kQl-dz-GCu" kind="relationship" relationship="rootViewController" id="IcG-vW-Irp"/>
@@ -86,6 +87,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAd-AO-CKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2121" y="209"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tnU-h4-Iom">
+            <objects>
+                <viewController id="4hV-DQ-OQ2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9je-X6-m3L"/>
+                        <viewControllerLayoutGuide type="bottom" id="KVU-Re-kr2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z5U-zf-1fe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0O-ut-qe3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4374" y="261"/>
         </scene>
         <!--Frist View Controller-->
         <scene sceneID="DZs-p3-tN3">
@@ -1937,6 +1956,6 @@
         <image name="iconWritePosts" width="182" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xgt-sI-O6y"/>
+        <segue reference="5ix-FQ-25C"/>
     </inferredMetricsTieBreakers>
 </document>
