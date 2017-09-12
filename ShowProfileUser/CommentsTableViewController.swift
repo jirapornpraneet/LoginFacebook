@@ -30,7 +30,7 @@ class CommentsTableViewController: UITableViewController {
     }
     
     func actionBackButtonToViewController() {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ProfileViewController
         self.present(viewController, animated: true, completion: nil)
     }
     

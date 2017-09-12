@@ -135,38 +135,6 @@
             endingLineNumber = "77"
             landmarkName = "selectImagePickerClicked(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginFacebook.ViewController.selectImagePickerClicked (Any) -&gt; ()"
-                  moduleName = "LoginFacebook"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jirapornpraneet/Documents/LoginFacebook/LoginFacebook/ViewController.swift"
-                  timestampString = "526889759.777547"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "266">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginFacebook.ViewController.(selectImagePickerClicked (Any) -&gt; ()).(closure #1)"
-                  moduleName = "LoginFacebook"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jirapornpraneet/Documents/LoginFacebook/LoginFacebook/ViewController.swift"
-                  timestampString = "526889759.780163"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

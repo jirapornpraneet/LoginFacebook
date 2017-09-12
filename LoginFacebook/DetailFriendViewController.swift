@@ -190,7 +190,7 @@ class DetailFriendViewController: UITableViewController {
             cellPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellPostsData.full_picture)), completed: nil)
             cellPostsFriendTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.ZoomPicture​Posts(_:)))
             cellPostsFriendTableView.picturePostsImageView.isUserInteractionEnabled = true
             cellPostsFriendTableView.picturePostsImageView.tag = indexPath.row
             cellPostsFriendTableView.picturePostsImageView.addGestureRecognizer(tapGestureRecognizer)

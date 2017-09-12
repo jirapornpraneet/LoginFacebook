@@ -31,7 +31,7 @@ class PostsUserTableViewCell: UITableViewCell {
     
 }
 
-class ViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var tablePosts: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -56,11 +56,11 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         profileImageView.layer.borderWidth = 2
         profileImageView.layer.borderColor = UIColor.white.cgColor
         
-        let tapZoomProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomProfilePicture))
+        let tapZoomProfilePicture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.ZoomProfilePicture))
         profileImageView.addGestureRecognizer(tapZoomProfilePicture)
         profileImageView.isUserInteractionEnabled = true
         
-        let tapZoomCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomCoverPicture))
+        let tapZoomCoverPicture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.ZoomCoverPicture))
         coverImageView.addGestureRecognizer(tapZoomCoverPicture)
         coverImageView.isUserInteractionEnabled = true
         
@@ -207,7 +207,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellUserResourcePostsData?.full_picture)!), completed: nil)
             cellPostsUserTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
-            let tapZoomPicturePosts = UITapGestureRecognizer(target: self, action: #selector(ViewController.ZoomPicture​Posts(_:)))
+            let tapZoomPicturePosts = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.ZoomPicture​Posts(_:)))
             cellPostsUserTableView.picturePostsImageView.isUserInteractionEnabled = true
             cellPostsUserTableView.picturePostsImageView.tag = indexPath.row
             cellPostsUserTableView.picturePostsImageView.addGestureRecognizer(tapZoomPicturePosts)
