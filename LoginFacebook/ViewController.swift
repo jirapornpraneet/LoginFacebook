@@ -40,6 +40,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var collegeNameLabel: UILabel!
     @IBOutlet weak var profileUpdateImageView: UIImageView!
+    @IBOutlet weak var imageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
