@@ -8,12 +8,11 @@
 
 import UIKit
 
-class CameraImagePickerViewController: UIViewController, UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate {
+class CameraImagePickerViewController: UIViewController, UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var btnClickMe: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
     var picker: UIImagePickerController? = UIImagePickerController()
-    var popover: UIPopoverController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +50,12 @@ class CameraImagePickerViewController: UIViewController, UIAlertViewDelegate,UII
         if UIDevice.current.userInterfaceIdiom == .phone {
             self.present(alert, animated: true, completion: nil)
         } else {
-            popover = UIPopoverController(contentViewController: alert)
-            popover!.present(from: btnClickMe.frame, in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
+            vc.modalPresentationStyle = .popover
+            let popover = vc.popoverPresentationController!
+            popover.delegate = self
+            popover.permittedArrowDirections = .up
         }
     }
     
@@ -70,8 +73,12 @@ class CameraImagePickerViewController: UIViewController, UIAlertViewDelegate,UII
         if UIDevice.current.userInterfaceIdiom == .phone {
             self.present(picker!, animated: true, completion: nil)
         } else {
-            popover = UIPopoverController(contentViewController: picker!)
-            popover!.present(from: btnClickMe.frame, in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
+            vc.modalPresentationStyle = .popover
+            let popover = vc.popoverPresentationController!
+            popover.delegate = self
+            popover.permittedArrowDirections = .up
         }
     }
     
