@@ -16,7 +16,7 @@ class CameraImagePickerViewController: UIViewController, UIAlertViewDelegate,UII
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        picker!.delegate=self
+        picker!.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
