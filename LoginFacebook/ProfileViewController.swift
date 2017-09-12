@@ -73,18 +73,15 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     @IBAction func selectImagePickerClicked(_ sender: Any) {
         let alert: UIAlertController = UIAlertController(title: "เลือกรูปภาพ", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-//            self.openCamera()
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default) { _ in
+            self.openCamera()
         }
 
-        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-//            self.openGallary()
+        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.default) { _ in
+            self.openGallary()
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
-            UIAlertAction in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { _ in
         }
         
         picker?.delegate = self
@@ -104,6 +101,45 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         }
     }
     
+    func openCamera() {
+        
+    }
+    
+    func openGallary() {
+        
+    }
+//    func openCamera() {
+//        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
+//            picker!.sourceType = UIImagePickerControllerSourceType.camera
+//            self .present(picker!, animated: true, completion: nil)
+//        } else {
+//            openGallary()
+//        }
+//    }
+//    
+//    func openGallary() {
+//        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
+//        if UIDevice.current.userInterfaceIdiom == .phone {
+//            self.present(picker!, animated: true, completion: nil)
+//        } else {
+//            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
+//            vc.modalPresentationStyle = .popover
+//            let popover = vc.popoverPresentationController!
+//            popover.delegate = self
+//            popover.permittedArrowDirections = .up
+//        }
+//    }
+//    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        picker .dismiss(animated: true, completion: nil)
+//        imageView.image=info[UIImagePickerControllerOriginalImage] as? UIImage
+//    }
+//    
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        dismiss(animated: true, completion: nil)
+//    }
+
     var userResourceData: UserResourceData! = nil
     
     func ZoomProfilePicture() {
