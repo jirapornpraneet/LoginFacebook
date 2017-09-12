@@ -41,6 +41,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     @IBOutlet weak var collegeNameLabel: UILabel!
     @IBOutlet weak var profileUpdateImageView: UIImageView!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var imageShowView: UIImageView!
     
     var picker: UIImagePickerController? = UIImagePickerController()
     
@@ -124,6 +125,11 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        imageShowView.image = info [UIImagePickerControllerOriginalImage] as? UIImage
+    }
+      
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
