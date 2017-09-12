@@ -73,22 +73,20 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     @IBAction func selectImagePickerClicked(_ sender: Any) {
         let alert: UIAlertController = UIAlertController(title: "เลือกรูปภาพ", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-//        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-//        
-//        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default) {
-//            UIAlertAction in
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default) {
+            UIAlertAction in
 //            self.openCamera()
-//        }
-//        
-//        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.default) {
-//            UIAlertAction in
+        }
+
+        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.default) {
+            UIAlertAction in
 //            self.openGallary()
-//        }
-//        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
-//            UIAlertAction in
-//        }
-//        
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+        }
+        
 //        picker?.delegate = self
 //        alert.addAction(cameraAction)
 //        alert.addAction(gallaryAction)
