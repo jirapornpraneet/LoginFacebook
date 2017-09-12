@@ -42,6 +42,8 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var profileUpdateImageView: UIImageView!
     @IBOutlet weak var imageButton: UIButton!
     
+    var picker: UIImagePickerController? = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tablePosts.dataSource = self
