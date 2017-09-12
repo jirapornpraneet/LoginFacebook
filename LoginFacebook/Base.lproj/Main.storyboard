@@ -489,7 +489,6 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfm-Hh-7wz">
                                             <rect key="frame" x="45" y="26" width="184" height="9"/>
-                                            <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="9" id="CRg-2e-xMv"/>
                                                 <constraint firstAttribute="width" constant="184" id="f95-GI-hCo"/>
@@ -510,7 +509,6 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gA-o1-v55">
                                             <rect key="frame" x="12" y="47" width="304" height="10"/>
-                                            <color key="backgroundColor" red="0.57034530350000001" green="0.87618415559999996" blue="0.9144969583" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="304" id="2Ly-xE-uzI"/>
                                                 <constraint firstAttribute="height" constant="10" id="Yt2-Le-C9K"/>
@@ -521,7 +519,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLC-yy-Ieh">
                                             <rect key="frame" x="45" y="12" width="117" height="9"/>
-                                            <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="117" id="wD9-iR-ooV"/>
                                                 <constraint firstAttribute="height" constant="9" id="yzo-pc-iTs"/>
@@ -560,7 +557,6 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyC-iQ-TWc">
                                             <rect key="frame" x="43" y="83" width="31" height="16"/>
-                                            <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="31" id="Kh9-eE-4U8"/>
                                                 <constraint firstAttribute="height" constant="16" id="ySE-So-sm8"/>
@@ -575,7 +571,6 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qui-Pc-ksG">
                                             <rect key="frame" x="179" y="86" width="130" height="13"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="130" id="QX8-xi-8vH"/>
                                                 <constraint firstAttribute="height" constant="13" id="w84-em-dHI"/>
@@ -590,7 +585,6 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-wv-4k3">
                                             <rect key="frame" x="185" y="8" width="123" height="16"/>
-                                            <color key="backgroundColor" red="0.1039141866" green="0.66997144669999997" blue="0.26721188699999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="9r4-OH-nNU"/>
                                             </constraints>
