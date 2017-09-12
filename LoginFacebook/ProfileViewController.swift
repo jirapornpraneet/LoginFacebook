@@ -28,10 +28,10 @@ class PostsUserTableViewCell: UITableViewCell {
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
     @IBOutlet weak var reactionFriendsButton: UIButton!
     @IBOutlet weak var commentsFriendsButton: UIButton!
-    
 }
 
 class ProfileViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet var tablePosts: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -40,8 +40,8 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var collegeNameLabel: UILabel!
     @IBOutlet weak var profileUpdateImageView: UIImageView!
-    @IBOutlet weak var imageButton: UIButton!
-    @IBOutlet weak var imageShowView: UIImageView!
+    @IBOutlet weak var selectImagePickerButton: UIButton!
+    @IBOutlet weak var selectImagePickerImageView: UIImageView!
     
     var picker: UIImagePickerController? = UIImagePickerController()
     
@@ -127,7 +127,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        imageShowView.image = info [UIImagePickerControllerOriginalImage] as? UIImage
+        selectImagePickerImageView.image = info [UIImagePickerControllerOriginalImage] as? UIImage
     }
       
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

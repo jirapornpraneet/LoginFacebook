@@ -668,12 +668,12 @@
                     <connections>
                         <outlet property="collegeNameLabel" destination="P3j-eo-UdQ" id="InY-uz-QZX"/>
                         <outlet property="coverImageView" destination="oQp-Gm-oXX" id="lqY-MZ-eUU"/>
-                        <outlet property="imageButton" destination="3Jw-mu-NZ3" id="yuD-H3-zgz"/>
-                        <outlet property="imageShowView" destination="Rrd-Ff-roB" id="ijc-hP-4l5"/>
                         <outlet property="nameLabel" destination="m1G-KE-iIo" id="abC-iP-Mta"/>
                         <outlet property="profileImageView" destination="Ovc-Dx-71I" id="t7C-Jc-0ac"/>
                         <outlet property="profileUpdateImageView" destination="j02-V4-yr9" id="sL4-GI-52g"/>
                         <outlet property="schoolNameLabel" destination="xA5-f1-uQE" id="47c-8A-fK2"/>
+                        <outlet property="selectImagePickerButton" destination="3Jw-mu-NZ3" id="TyE-9C-gwD"/>
+                        <outlet property="selectImagePickerImageView" destination="Rrd-Ff-roB" id="toH-aA-Vxk"/>
                         <outlet property="showFriendButton" destination="mlO-jw-MYG" id="8vm-zs-Lv9"/>
                         <outlet property="tablePosts" destination="aLE-t3-bId" id="yxT-VV-9XV"/>
                         <segue destination="Mll-1r-daG" kind="show" identifier="ReactionFriendsTableView" id="ZXc-Qm-Eq4"/>
