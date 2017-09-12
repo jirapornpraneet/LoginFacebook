@@ -124,14 +124,9 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         }
     }
     
-    //    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    //        picker .dismiss(animated: true, completion: nil)
-    //        imageView.image=info[UIImagePickerControllerOriginalImage] as? UIImage
-    //    }
-    //
-    //    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    //        dismiss(animated: true, completion: nil)
-    //    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     
     var userResourceData: UserResourceData! = nil
     
