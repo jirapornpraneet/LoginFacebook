@@ -32,7 +32,7 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     }
     
     func ZoomPhotos(_ sender: AnyObject) {
-        let albumsPhotosData = setUserResourceAlbumsPhotosData[sender.view.tag] as! AlbumsPhotosDataDetail
+        let albumsPhotosData = setUserResourceAlbumsPhotosData[sender.view.tag] as! Data
         var photosAlbums = [SKPhoto]()
         let photos = SKPhoto.photoWithImageURL((albumsPhotosData.picture))
         photos.shouldCachePhotoURLImage = true
@@ -65,7 +65,7 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellPhotosCollection", for: indexPath) as! PhotosCollectionViewCell
-        let cellAlbumsPhotosData = setUserResourceAlbumsPhotosData[indexPath.row] as! AlbumsPhotosDataDetail
+        let cellAlbumsPhotosData = setUserResourceAlbumsPhotosData[indexPath.row] as! Data
        
         let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellAlbumsPhotosData.picture), width:  200, height: 200)
         cellPhotosCollectionView.photosAlbumsImageView.sd_setImage(with: pictureUrl, completed:nil)
