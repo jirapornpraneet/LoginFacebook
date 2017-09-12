@@ -111,25 +111,18 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     }
     
     func openGallary() {
-//        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary // เรียก photoLibrary ขึ้นมา
-//        if UIDevice
+        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary // เรียก photoLibrary ขึ้นมา
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            self.present(picker!, animated:  true, completion: nil)
+        } else {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
+            vc.modalPresentationStyle = .popover
+            let popover = vc.popoverPresentationController!
+            popover.delegate = self
+            popover.permittedArrowDirections = .up
+        }
     }
-//
-//    func openGallary() {
-//        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-//            self.present(picker!, animated: true, completion: nil)
-//        } else {
-//            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
-//            vc.modalPresentationStyle = .popover
-//            let popover = vc.popoverPresentationController!
-//            popover.delegate = self
-//            popover.permittedArrowDirections = .up
-//        }
-//    }
-    
-
     
     //    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     //        picker .dismiss(animated: true, completion: nil)
