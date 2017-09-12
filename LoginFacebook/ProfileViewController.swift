@@ -112,7 +112,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     }
     
     func openGallary() {
-        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary // เรียก photoLibrary ขึ้นมา
+        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
         if UIDevice.current.userInterfaceIdiom == .phone {
             self.present(picker!, animated:  true, completion: nil)
         } else {
