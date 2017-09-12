@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "526275205.0821"
+            timestampString = "526883545.765179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467">
+            startingLineNumber = "506"
+            endingLineNumber = "506">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "526275205.0821"
+            timestampString = "526883545.765179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "468"
-            endingLineNumber = "468">
+            startingLineNumber = "507"
+            endingLineNumber = "507">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -114,11 +114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "526275205.0821"
+            timestampString = "526883545.765179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386">
+            startingLineNumber = "425"
+            endingLineNumber = "425">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -128,11 +128,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/ViewController.swift"
-            timestampString = "526881646.52516"
+            timestampString = "526883277.680109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "selectImagePickerClicked(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginFacebook.ViewController.selectImagePickerClicked (Any) -&gt; ()"
+                  moduleName = "LoginFacebook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jirapornpraneet/Documents/LoginFacebook/LoginFacebook/ViewController.swift"
+                  timestampString = "526889759.777547"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "266">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoginFacebook.ViewController.(selectImagePickerClicked (Any) -&gt; ()).(closure #1)"
+                  moduleName = "LoginFacebook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jirapornpraneet/Documents/LoginFacebook/LoginFacebook/ViewController.swift"
+                  timestampString = "526889759.780163"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginFacebook/ViewController.swift"
+            timestampString = "526883528.536954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "selectImagePickerClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
