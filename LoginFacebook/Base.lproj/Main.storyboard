@@ -437,6 +437,10 @@
                                                 <constraint firstAttribute="height" constant="40" id="bWB-ja-rkI"/>
                                             </constraints>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-Ff-roB">
+                                            <rect key="frame" x="68" y="8" width="236" height="46"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -665,6 +669,7 @@
                         <outlet property="collegeNameLabel" destination="P3j-eo-UdQ" id="InY-uz-QZX"/>
                         <outlet property="coverImageView" destination="oQp-Gm-oXX" id="lqY-MZ-eUU"/>
                         <outlet property="imageButton" destination="3Jw-mu-NZ3" id="yuD-H3-zgz"/>
+                        <outlet property="imageShowView" destination="Rrd-Ff-roB" id="ijc-hP-4l5"/>
                         <outlet property="nameLabel" destination="m1G-KE-iIo" id="abC-iP-Mta"/>
                         <outlet property="profileImageView" destination="Ovc-Dx-71I" id="t7C-Jc-0ac"/>
                         <outlet property="profileUpdateImageView" destination="j02-V4-yr9" id="sL4-GI-52g"/>
