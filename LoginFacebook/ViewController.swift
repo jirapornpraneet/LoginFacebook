@@ -87,6 +87,9 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
             UIAlertAction in
         }
         
+        picker?.delegate = self
+        
+        
 //        picker?.delegate = self
 //        alert.addAction(cameraAction)
 //        alert.addAction(gallaryAction)
