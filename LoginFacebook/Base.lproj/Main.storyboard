@@ -570,7 +570,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qui-Pc-ksG">
-                                            <rect key="frame" x="179" y="86" width="130" height="13"/>
+                                            <rect key="frame" x="179" y="84" width="130" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="130" id="QX8-xi-8vH"/>
                                                 <constraint firstAttribute="height" constant="13" id="w84-em-dHI"/>
@@ -611,7 +611,7 @@
                                         <constraint firstItem="3tf-OS-ycD" firstAttribute="top" secondItem="cxS-Xl-nPq" secondAttribute="bottom" constant="6" id="8v6-4b-Apy"/>
                                         <constraint firstAttribute="trailing" secondItem="E5T-z3-MUg" secondAttribute="trailing" constant="7" id="9NE-sp-fJy"/>
                                         <constraint firstItem="E5T-z3-MUg" firstAttribute="top" secondItem="9qW-TU-bKW" secondAttribute="topMargin" constant="56" id="ACC-zj-Upc"/>
-                                        <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="Qui-Pc-ksG" secondAttribute="bottom" constant="6" id="CJS-MQ-cab"/>
+                                        <constraint firstItem="RSx-XG-TKo" firstAttribute="top" secondItem="Qui-Pc-ksG" secondAttribute="bottom" constant="8" id="CJS-MQ-cab"/>
                                         <constraint firstItem="Qui-Pc-ksG" firstAttribute="leading" secondItem="wyC-iQ-TWc" secondAttribute="trailing" constant="-10" id="DiG-aI-ne4"/>
                                         <constraint firstItem="Dgh-vN-rBI" firstAttribute="leading" secondItem="9qW-TU-bKW" secondAttribute="leadingMargin" constant="1" id="G48-qJ-S1E"/>
                                         <constraint firstItem="wyC-iQ-TWc" firstAttribute="leading" secondItem="cxS-Xl-nPq" secondAttribute="trailing" constant="3" id="HXr-fc-6NH"/>
