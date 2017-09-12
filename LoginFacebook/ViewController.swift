@@ -91,17 +91,17 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         alert.addAction(cameraAction)
         alert.addAction(gallaryAction)
         alert.addAction(cancelAction)
-//        
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-//            self.present(alert, animated: true, completion: nil)
-//        } else {
-//            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
-//            vc.modalPresentationStyle = .popover
-//            let popover = vc.popoverPresentationController!
-//            popover.delegate = self
-//            popover.permittedArrowDirections = .up
-
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "CameraImagePickerViewController")
+            viewController.modalPresentationStyle = .popover
+            let popover = viewController.popoverPresentationController!
+            popover.delegate = self
+            popover.permittedArrowDirections = .up
+        }
     }
     
     var userResourceData: UserResourceData! = nil
