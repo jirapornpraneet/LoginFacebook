@@ -322,6 +322,9 @@
                                             <rect key="frame" x="116" y="67" width="74" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="iconPicture"/>
+                                            <connections>
+                                                <action selector="selectImagePickerClicked:" destination="XTy-WA-W6X" eventType="touchUpInside" id="Bwb-dq-ngZ"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn3-mb-bFR">
                                             <rect key="frame" x="217" y="66" width="95" height="28"/>

@@ -137,6 +137,10 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func selectImagePickerClicked(_ sender: Any) {
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
