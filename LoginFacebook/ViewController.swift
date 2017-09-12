@@ -68,6 +68,9 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         
     }
     
+    @IBAction func selectImagePickerClicked(_ sender: Any) {
+    }
+    
     var userResourceData: UserResourceData! = nil
     
     func ZoomProfilePicture() {
@@ -138,10 +141,6 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    @IBAction func selectImagePickerClicked(_ sender: Any) {
-    }
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
