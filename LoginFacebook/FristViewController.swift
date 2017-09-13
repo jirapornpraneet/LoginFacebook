@@ -74,6 +74,14 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         rightBarButton.addTarget(self, action: #selector(FristViewController.addTapped), for: .touchUpInside)
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
         self.tabBarController?.navigationItem.setRightBarButton(rightBarButtonItem, animated: true)
+        
+        let leftBarButton = UIButton(type: .custom)
+        leftBarButton.setImage(UIImage(named: "iconCamera"), for: .normal)
+        leftBarButton.frame = CGRect(x: 0, y:0, width: 30, height: 30)
+        leftBarButton.tintColor = UIColor.white
+        leftBarButton.addTarget(self, action: #selector(FristViewController.addTapped), for: .touchUpInside)
+        let leftBarButtonItem = UIBarButtonItem(customView: leftBarButton)
+        self.tabBarController?.navigationItem.setLeftBarButton(leftBarButtonItem, animated: true)
     }
     
     func addTapped() {
