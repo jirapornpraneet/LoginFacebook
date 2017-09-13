@@ -17,7 +17,6 @@ import SwiftyJSON
 import SKPhotoBrowser
 
 class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate {
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     
@@ -51,9 +50,6 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
-            
-            self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-            
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
         }
@@ -63,7 +59,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
-        searchBar.placeholder = "ค้นหา"
+        searchBar.placeholder = "ค้นหา"   
         searchBar.delegate = self
         self.tabBarController?.navigationItem.titleView = searchBar
         
@@ -83,7 +79,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let leftBarButtonItem = UIBarButtonItem(customView: leftBarButton)
         self.tabBarController?.navigationItem.setLeftBarButton(leftBarButtonItem, animated: true)
     }
-    
+
     func addTapped() {
         print("addTapped")
     }
@@ -102,7 +98,6 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        self.nameLabel.text = ""
         self.profileImageView.image = nil
     }
     
