@@ -88,24 +88,6 @@
             </objects>
             <point key="canvasLocation" x="-2121" y="209"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tnU-h4-Iom">
-            <objects>
-                <viewController id="4hV-DQ-OQ2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9je-X6-m3L"/>
-                        <viewControllerLayoutGuide type="bottom" id="KVU-Re-kr2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="z5U-zf-1fe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0O-ut-qe3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4374" y="261"/>
-        </scene>
         <!--Frist View Controller-->
         <scene sceneID="DZs-p3-tN3">
             <objects>
@@ -128,37 +110,31 @@
                                 <color key="textColor" red="0.93031293153762817" green="0.48461708122368696" blue="0.5370414149820596" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">
-                                <rect key="frame" x="91" y="120" width="137" height="144"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="duC-PP-MFI"/>
-                                    <constraint firstAttribute="width" constant="137" id="wbw-Jv-Wsf"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">
+                                <rect key="frame" x="84" y="154" width="137" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QL-b1-54G">
-                                <rect key="frame" x="111.5" y="324" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.31029749779999999" green="0.43677462639999998" blue="0.75612706220000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="IaJ-Ff-DWz"/>
-                                    <constraint firstAttribute="width" constant="97" id="rnC-0L-tkl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="View Profile">
-                                    <color key="titleColor" red="1" green="0.99625312359999996" blue="0.987392516" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTt-Wq-TTq">
+                                <rect key="frame" x="37" y="94" width="239" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-cd-bz2" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="107" y="324" width="106" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33678930997848511" green="0.43963783979415894" blue="0.74124395847320557" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="XTy-WA-W6X" kind="show" id="Xgt-sI-O6y"/>
-                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.99787670370000003" blue="0.96722763779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="b65-RY-aA7" firstAttribute="top" secondItem="smy-lU-jVW" secondAttribute="bottom" constant="27" id="87x-UL-dmo"/>
-                            <constraint firstItem="2QL-b1-54G" firstAttribute="top" secondItem="5Uq-4B-gMI" secondAttribute="bottom" constant="60" id="OFZ-IZ-VAi"/>
                             <constraint firstItem="b65-RY-aA7" firstAttribute="centerX" secondItem="k3Q-CU-mrX" secondAttribute="centerX" id="cxe-HP-0b5"/>
-                            <constraint firstItem="5Uq-4B-gMI" firstAttribute="centerX" secondItem="k3Q-CU-mrX" secondAttribute="centerX" id="h6n-aW-FCt"/>
-                            <constraint firstItem="5Uq-4B-gMI" firstAttribute="top" secondItem="b65-RY-aA7" secondAttribute="bottom" constant="8" id="ns9-Cj-IHC"/>
-                            <constraint firstItem="2QL-b1-54G" firstAttribute="centerX" secondItem="k3Q-CU-mrX" secondAttribute="centerX" id="xSJ-bH-LS1"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="iconFrist" id="9Wc-XG-f1T"/>
@@ -166,13 +142,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="nameLabel" destination="b65-RY-aA7" id="rEJ-C4-amA"/>
-                        <outlet property="profileImageView" destination="5Uq-4B-gMI" id="RwO-iR-79a"/>
+                        <outlet property="loginButton" destination="TAX-cd-bz2" id="xSI-8D-rUN"/>
+                        <outlet property="nameLabel" destination="TTt-Wq-TTq" id="Jsr-wE-iQR"/>
+                        <outlet property="profileImageView" destination="5Uq-4B-gMI" id="j1B-Hr-rlV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3572" y="246"/>
+            <point key="canvasLocation" x="-3577.5" y="218.66197183098592"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="86N-jj-Usq">
@@ -196,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="-816" y="-811"/>
         </scene>
-        <!--View Controller-->
+        <!--Test View Controller-->
         <scene sceneID="7lj-pb-ddF">
             <objects>
-                <viewController id="yW3-U9-gQo" sceneMemberID="viewController">
+                <viewController id="yW3-U9-gQo" customClass="TestViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LKJ-wb-6UB"/>
                         <viewControllerLayoutGuide type="bottom" id="vrl-pz-Zv7"/>
@@ -1955,7 +1932,4 @@
         <image name="iconWorkAbout" width="33" height="29"/>
         <image name="iconWritePosts" width="182" height="46"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="5ix-FQ-25C"/>
-    </inferredMetricsTieBreakers>
 </document>
