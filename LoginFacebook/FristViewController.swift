@@ -30,7 +30,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         self.loginButton.delegate = self
         
         profileImageView.layer.masksToBounds = true
-        profileImageView.layer.cornerRadius = 4
+        profileImageView.layer.cornerRadius = 20
         profileImageView.layer.borderWidth = 2
         profileImageView.layer.borderColor = UIColor.white.cgColor
         
