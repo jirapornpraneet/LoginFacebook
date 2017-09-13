@@ -106,9 +106,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZo-gH-Ptg">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-Yb-Luw">
-                                                <rect key="frame" x="0.0" y="5" width="320" height="61"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-Yb-Luw">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZU-eN-Dug">
                                                         <rect key="frame" x="8" y="8" width="45" height="45"/>
@@ -145,24 +144,17 @@
                                                     </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.61635339140000001" blue="0.73407814469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="61" id="HVU-Pq-AHo"/>
+                                                </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B81-eB-GSl">
-                                                <rect key="frame" x="0.0" y="72" width="320" height="112"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B81-eB-GSl">
+                                                <rect key="frame" x="0.0" y="66" width="320" height="112"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">
                                                         <rect key="frame" x="8" y="19" width="45" height="51"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-cd-bz2" customClass="FBSDKLoginButton">
-                                                        <rect key="frame" x="234" y="19" width="78" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.33678930997848511" green="0.43963783979415894" blue="0.74124395847320557" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                        <state key="normal" title="Login">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veP-9a-NAP">
                                                         <rect key="frame" x="8" y="78" width="94" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -197,12 +189,23 @@
                                                         <color key="textColor" red="0.71090375829999997" green="0.70746944060000005" blue="0.71433807599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-cd-bz2" customClass="FBSDKLoginButton">
+                                                        <rect key="frame" x="226" y="24" width="78" height="25"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.33678930997848511" green="0.43963783979415894" blue="0.74124395847320557" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                        <state key="normal" title="Login">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.56688152560057092" green="1" blue="0.96811549703667488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="112" id="bNr-vN-nzw"/>
+                                                </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uvp-9X-MbV">
-                                                <rect key="frame" x="0.0" y="190" width="320" height="250"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uvp-9X-MbV">
+                                                <rect key="frame" x="0.0" y="183" width="320" height="817"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPostsFriendTableView" rowHeight="135" id="CEC-fF-pwW" customClass="PostsFriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
@@ -361,7 +364,17 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="BFe-Yb-Luw" firstAttribute="top" secondItem="YZo-gH-Ptg" secondAttribute="top" id="10Z-Od-3bM"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uvp-9X-MbV" secondAttribute="trailing" id="2pb-7e-ETi"/>
+                                            <constraint firstItem="B81-eB-GSl" firstAttribute="top" secondItem="BFe-Yb-Luw" secondAttribute="bottom" constant="5" id="MR3-4k-PiY"/>
+                                            <constraint firstItem="B81-eB-GSl" firstAttribute="leading" secondItem="YZo-gH-Ptg" secondAttribute="leading" id="USR-vg-eVq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Uvp-9X-MbV" secondAttribute="bottom" id="UZC-rz-uIV"/>
+                                            <constraint firstItem="Uvp-9X-MbV" firstAttribute="leading" secondItem="YZo-gH-Ptg" secondAttribute="leading" id="Z7j-BE-C2T"/>
+                                            <constraint firstAttribute="trailing" secondItem="B81-eB-GSl" secondAttribute="trailing" id="kEC-OU-YH7"/>
+                                            <constraint firstAttribute="trailing" secondItem="BFe-Yb-Luw" secondAttribute="trailing" id="qDP-zT-K19"/>
+                                            <constraint firstItem="BFe-Yb-Luw" firstAttribute="leading" secondItem="YZo-gH-Ptg" secondAttribute="leading" id="uXB-jp-bMG"/>
                                             <constraint firstAttribute="height" constant="1000" id="vgL-P7-Lxj"/>
+                                            <constraint firstItem="Uvp-9X-MbV" firstAttribute="top" secondItem="B81-eB-GSl" secondAttribute="bottom" constant="5" id="xzJ-fi-dOW"/>
                                         </constraints>
                                     </view>
                                 </subviews>
