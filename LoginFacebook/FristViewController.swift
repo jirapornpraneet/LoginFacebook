@@ -26,7 +26,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customSearchBar()
+        customNavigationBarItem()
         
         self.loginButton.delegate = self
         
@@ -53,18 +53,31 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             self.userResourceData = UserResourceData(json: jsonString)
             
             self.nameLabel.text = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-         
+            
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
         }
     }
     
-    func customSearchBar() {
+    func customNavigationBarItem() {
+        
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
         searchBar.placeholder = "ค้นหา"
         searchBar.delegate = self
         self.tabBarController?.navigationItem.titleView = searchBar
+        
+        let rightBarButton = UIButton(type: .custom)
+        rightBarButton.setImage(UIImage(named: "iconMessenger"), for: .normal)
+        rightBarButton.frame = CGRect(x: 0, y:0, width: 30, height: 30)
+        rightBarButton.tintColor = UIColor.white
+        rightBarButton.addTarget(self, action: #selector(FristViewController.addTapped), for: .touchUpInside)
+        let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
+        self.tabBarController?.navigationItem.setRightBarButton(rightBarButtonItem, animated: true)
+    }
+    
+    func addTapped() {
+        print("addTapped")
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {

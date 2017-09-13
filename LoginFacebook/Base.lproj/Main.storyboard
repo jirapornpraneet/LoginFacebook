@@ -17,7 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cz0-1j-Ugy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.23247852600329369" green="0.35017133763766489" blue="0.70536564086294418" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="kQl-dz-GCu" kind="relationship" relationship="rootViewController" id="IcG-vW-Irp"/>
@@ -1923,7 +1923,7 @@
         <image name="iconHomeTownAbout" width="34" height="32"/>
         <image name="iconLikePosts" width="133" height="49"/>
         <image name="iconMenu" width="23" height="23"/>
-        <image name="iconMessenger" width="124" height="140"/>
+        <image name="iconMessenger" width="533" height="533"/>
         <image name="iconPicture" width="134" height="43"/>
         <image name="iconPlay" width="26" height="26"/>
         <image name="iconPost" width="84" height="103"/>
