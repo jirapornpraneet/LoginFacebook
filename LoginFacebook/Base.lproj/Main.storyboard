@@ -161,9 +161,9 @@
                                                 <rect key="frame" x="0.0" y="66" width="320" height="100"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">
-                                                        <rect key="frame" x="8" y="11" width="40" height="40"/>
+                                                        <rect key="frame" x="8" y="13" width="40" height="43"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="HE5-Wc-BUc"/>
+                                                            <constraint firstAttribute="height" constant="43" id="HE5-Wc-BUc"/>
                                                             <constraint firstAttribute="width" constant="40" id="S28-PQ-WQG"/>
                                                         </constraints>
                                                     </imageView>
@@ -192,7 +192,7 @@
                                                         </state>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คุณกำลังคิดอะไรอยู่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc8-o9-k58">
-                                                        <rect key="frame" x="61" y="20" width="251" height="21"/>
+                                                        <rect key="frame" x="61" y="23" width="251" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="251" id="Gme-a8-8Yp"/>
                                                             <constraint firstAttribute="height" constant="21" id="MJO-X4-3U5"/>
@@ -216,13 +216,13 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="veP-9a-NAP" firstAttribute="top" secondItem="5Uq-4B-gMI" secondAttribute="bottom" constant="13" id="1og-Bb-d8K"/>
-                                                    <constraint firstItem="Cc8-o9-k58" firstAttribute="baseline" secondItem="5Uq-4B-gMI" secondAttribute="baseline" constant="-13.5" id="7OE-7m-JLs"/>
-                                                    <constraint firstItem="sss-ly-Ygv" firstAttribute="top" secondItem="Cc8-o9-k58" secondAttribute="bottom" constant="24" id="DjP-Rw-ato"/>
-                                                    <constraint firstItem="5Uq-4B-gMI" firstAttribute="top" secondItem="B81-eB-GSl" secondAttribute="top" constant="11" id="Jx9-S0-E9H"/>
+                                                    <constraint firstItem="veP-9a-NAP" firstAttribute="top" secondItem="5Uq-4B-gMI" secondAttribute="bottom" constant="8" id="1og-Bb-d8K"/>
+                                                    <constraint firstItem="Cc8-o9-k58" firstAttribute="baseline" secondItem="5Uq-4B-gMI" secondAttribute="baseline" constant="-15.5" id="7OE-7m-JLs"/>
+                                                    <constraint firstItem="sss-ly-Ygv" firstAttribute="top" secondItem="Cc8-o9-k58" secondAttribute="bottom" constant="21" id="DjP-Rw-ato"/>
+                                                    <constraint firstItem="5Uq-4B-gMI" firstAttribute="top" secondItem="B81-eB-GSl" secondAttribute="top" constant="13" id="Jx9-S0-E9H"/>
                                                     <constraint firstItem="tYV-WS-tae" firstAttribute="centerX" secondItem="B81-eB-GSl" secondAttribute="centerX" id="KM6-ZS-2vo"/>
                                                     <constraint firstItem="Cc8-o9-k58" firstAttribute="leading" secondItem="5Uq-4B-gMI" secondAttribute="trailing" constant="13" id="Mea-w6-yx2"/>
-                                                    <constraint firstItem="tYV-WS-tae" firstAttribute="top" secondItem="Cc8-o9-k58" secondAttribute="bottom" constant="25" id="QBO-Iy-uMX"/>
+                                                    <constraint firstItem="tYV-WS-tae" firstAttribute="top" secondItem="Cc8-o9-k58" secondAttribute="bottom" constant="22" id="QBO-Iy-uMX"/>
                                                     <constraint firstAttribute="height" constant="100" id="bNr-vN-nzw"/>
                                                     <constraint firstItem="5Uq-4B-gMI" firstAttribute="leading" secondItem="B81-eB-GSl" secondAttribute="leading" constant="8" id="bST-Qr-eUW"/>
                                                     <constraint firstItem="tYV-WS-tae" firstAttribute="leading" secondItem="veP-9a-NAP" secondAttribute="trailing" constant="36" id="g6u-MF-2MY"/>
@@ -1545,7 +1545,7 @@
         <scene sceneID="can-jy-LhI">
             <objects>
                 <collectionViewController storyboardIdentifier="PhotosAlbumsCollection" id="Sag-kc-C7d" customClass="PhotosAlbumsCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="niO-d9-Lgl">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="niO-d9-Lgl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
