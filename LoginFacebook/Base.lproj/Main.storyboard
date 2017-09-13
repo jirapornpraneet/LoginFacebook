@@ -142,8 +142,17 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-cd-bz2" customClass="FBSDKLoginButton">
+                                                        <rect key="frame" x="221" y="18" width="78" height="25"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.33678930997848511" green="0.43963783979415894" blue="0.74124395847320557" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                        <state key="normal" title="Login">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="0.61635339140000001" blue="0.73407814469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="61" id="HVU-Pq-AHo"/>
                                                 </constraints>
@@ -156,29 +165,20 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veP-9a-NAP">
-                                                        <rect key="frame" x="8" y="78" width="94" height="30"/>
+                                                        <rect key="frame" x="21" y="78" width="68" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <state key="normal" title="Live">
+                                                        <state key="normal" backgroundImage="iconLive">
                                                             <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYV-WS-tae">
-                                                        <rect key="frame" x="113" y="78" width="94" height="30"/>
+                                                        <rect key="frame" x="129" y="80" width="68" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        <state key="normal" title="รูปภาพ">
-                                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sss-ly-Ygv">
-                                                        <rect key="frame" x="218" y="78" width="94" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        <state key="normal" title="เช็คอิน">
+                                                        <state key="normal" backgroundImage="iconPhotos">
                                                             <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
@@ -189,17 +189,17 @@
                                                         <color key="textColor" red="0.71090375829999997" green="0.70746944060000005" blue="0.71433807599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-cd-bz2" customClass="FBSDKLoginButton">
-                                                        <rect key="frame" x="226" y="24" width="78" height="25"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sss-ly-Ygv">
+                                                        <rect key="frame" x="228" y="80" width="68" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.33678930997848511" green="0.43963783979415894" blue="0.74124395847320557" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                        <state key="normal" title="Login">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                        <state key="normal" backgroundImage="iconCheckInFrist">
+                                                            <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.56688152560057092" green="1" blue="0.96811549703667488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="112" id="bNr-vN-nzw"/>
                                                 </constraints>
@@ -406,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3577.5" y="218.66197183098592"/>
+            <point key="canvasLocation" x="-4119.375" y="244.01408450704227"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="86N-jj-Usq">
@@ -2165,6 +2165,7 @@
         <image name="iconActivity" width="159" height="114"/>
         <image name="iconBell" width="26" height="26"/>
         <image name="iconCheckInAbout" width="256" height="256"/>
+        <image name="iconCheckInFrist" width="130" height="50"/>
         <image name="iconComment" width="234" height="59"/>
         <image name="iconEdit" width="143" height="109"/>
         <image name="iconEducation" width="43" height="34"/>
@@ -2179,8 +2180,10 @@
         <image name="iconHello" width="116" height="115"/>
         <image name="iconHomeTownAbout" width="34" height="32"/>
         <image name="iconLikePosts" width="133" height="49"/>
+        <image name="iconLive" width="120" height="50"/>
         <image name="iconMenu" width="23" height="23"/>
         <image name="iconMessenger" width="124" height="140"/>
+        <image name="iconPhotos" width="130" height="50"/>
         <image name="iconPicture" width="134" height="43"/>
         <image name="iconPlay" width="26" height="26"/>
         <image name="iconPost" width="84" height="103"/>
