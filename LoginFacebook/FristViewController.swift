@@ -68,7 +68,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         self.tabBarController?.navigationItem.titleView = searchBar
         
         let rightBarButton = UIButton(type: .custom)
-        rightBarButton.setImage(UIImage(named: "iconMessenger"), for: .normal)
+        rightBarButton.setImage(UIImage(named: "iconMessengerFrist"), for: .normal)
         rightBarButton.frame = CGRect(x: 0, y:0, width: 30, height: 30)
         rightBarButton.tintColor = UIColor.white
         rightBarButton.addTarget(self, action: #selector(FristViewController.addTapped), for: .touchUpInside)
