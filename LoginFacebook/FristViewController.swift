@@ -19,12 +19,7 @@ import SKPhotoBrowser
 class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-
-    var loginButton: FBSDKLoginButton = {
-        let button = FBSDKLoginButton()
-        button.readPermissions = ["email", "user_friends", "user_about_me"]
-        return button
-    }()
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
     
     var accessToken: FBSDKAccessToken!
     
@@ -33,15 +28,12 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         customSearchBar()
         
-        view.addSubview(loginButton)
+        self.loginButton.delegate = self
         
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = 4
         profileImageView.layer.borderWidth = 2
         profileImageView.layer.borderColor = UIColor.white.cgColor
-        
-        loginButton.center = view.center
-        loginButton.delegate = self
         
         if  let token = FBSDKAccessToken.current() {
             fetchUserResource()
