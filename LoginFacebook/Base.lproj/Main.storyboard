@@ -161,10 +161,10 @@
                                                 <rect key="frame" x="0.0" y="66" width="320" height="105"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-4B-gMI">
-                                                        <rect key="frame" x="8" y="11" width="45" height="51"/>
+                                                        <rect key="frame" x="8" y="11" width="40" height="46"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="51" id="HE5-Wc-BUc"/>
-                                                            <constraint firstAttribute="width" constant="45" id="S28-PQ-WQG"/>
+                                                            <constraint firstAttribute="height" constant="46" id="HE5-Wc-BUc"/>
+                                                            <constraint firstAttribute="width" constant="40" id="S28-PQ-WQG"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veP-9a-NAP">
@@ -216,12 +216,12 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="veP-9a-NAP" firstAttribute="top" secondItem="5Uq-4B-gMI" secondAttribute="bottom" constant="8" id="1og-Bb-d8K"/>
-                                                    <constraint firstItem="Cc8-o9-k58" firstAttribute="baseline" secondItem="5Uq-4B-gMI" secondAttribute="baseline" constant="-18.5" id="7OE-7m-JLs"/>
+                                                    <constraint firstItem="veP-9a-NAP" firstAttribute="top" secondItem="5Uq-4B-gMI" secondAttribute="bottom" constant="13" id="1og-Bb-d8K"/>
+                                                    <constraint firstItem="Cc8-o9-k58" firstAttribute="baseline" secondItem="5Uq-4B-gMI" secondAttribute="baseline" constant="-13.5" id="7OE-7m-JLs"/>
                                                     <constraint firstItem="sss-ly-Ygv" firstAttribute="top" secondItem="Cc8-o9-k58" secondAttribute="bottom" constant="24" id="DjP-Rw-ato"/>
                                                     <constraint firstItem="5Uq-4B-gMI" firstAttribute="top" secondItem="B81-eB-GSl" secondAttribute="top" constant="11" id="Jx9-S0-E9H"/>
                                                     <constraint firstItem="tYV-WS-tae" firstAttribute="centerX" secondItem="B81-eB-GSl" secondAttribute="centerX" id="KM6-ZS-2vo"/>
-                                                    <constraint firstItem="Cc8-o9-k58" firstAttribute="leading" secondItem="5Uq-4B-gMI" secondAttribute="trailing" constant="8" id="Mea-w6-yx2"/>
+                                                    <constraint firstItem="Cc8-o9-k58" firstAttribute="leading" secondItem="5Uq-4B-gMI" secondAttribute="trailing" constant="13" id="Mea-w6-yx2"/>
                                                     <constraint firstItem="tYV-WS-tae" firstAttribute="top" secondItem="Cc8-o9-k58" secondAttribute="bottom" constant="25" id="QBO-Iy-uMX"/>
                                                     <constraint firstAttribute="height" constant="105" id="bNr-vN-nzw"/>
                                                     <constraint firstItem="5Uq-4B-gMI" firstAttribute="leading" secondItem="B81-eB-GSl" secondAttribute="leading" constant="8" id="bST-Qr-eUW"/>
