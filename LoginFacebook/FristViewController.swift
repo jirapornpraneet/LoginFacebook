@@ -16,7 +16,7 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
-class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
+class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
@@ -30,6 +30,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        customSearchBar()
         
         view.addSubview(loginButton)
         
@@ -62,8 +64,24 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate {
          
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
-        
         }
+    }
+    
+    func customSearchBar() {
+        let searchBar = UISearchBar()
+        searchBar.showsCancelButton = false
+        searchBar.placeholder = "ค้นหา"
+        searchBar.delegate = self
+        self.tabBarController?.navigationItem.titleView = searchBar
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.tabBarController?.navigationItem.titleView?.endEditing(true)
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
