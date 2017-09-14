@@ -16,7 +16,6 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
-
 class FeedPostsFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var picturePostsImageView: UIImageView!
     @IBOutlet weak var messagePostsLabel: UILabel!
@@ -128,7 +127,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     var userResource: UserResource! = nil
     
     func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place}&limit=10&access_token=EAACEdEose0cBADV0kMLKpsKFxKwvE71c7cXQXa1G2Bu4WjdVQXEfI6YfuTPQl9VJWtYNqIlaDg1LoZBUpjaJhZA0ICa4zRxZBFUHvDRlQtXdFkVhb9BXYZAdIVUzRHzlUwoJ4graU0ycmD7BgY0mOistHuLLkCmJ9ScumtkZC9uKSAZAwRiwOmxoXDJlVXS8moaXoWA4ei5gZDZD")
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place}&limit=10&access_token=EAACEdEose0cBAKMyDAgC6J5eFj0fY6AzX74UKkLqDGTwRS2iJiSBk8ZCem8qpVLFmvnD0K0eGzanx0npcta06PHZBgh7aMrkTZCJxPxy5SBjZCjwkHqpezDmfnjcXVzAhgkZC2Xrpr6bigTk5XboZAosHIWeDZBs0EusaLyoWDFVODIXUnHIOekEVwmNa29kZCsjXNDA6WdBbAZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
@@ -158,6 +157,50 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellFeedPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFeedPostsFriendTableView", for: indexPath) as! FeedPostsFriendTableViewCell
+        let cellUserResourceData = userResource.data?[indexPath.row]
+        let cellUserResourceDataPosts = cellUserResourceData?.posts?.data?[0]
+
+        cellFeedPostsFriendTableView.namePostsLabel.text = cellUserResourceData?.name
+        cellFeedPostsFriendTableView.messagePostsLabel.text = cellUserResourceDataPosts?.message
+        cellFeedPostsFriendTableView.placePostsLabel.text = cellUserResourceDataPosts?.place?.name
+        
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+        cellFeedPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed: nil)
+
+        let userResourceDataPostsCreatedTime = cellUserResourceDataPosts?.created_time
+        if userResourceDataPostsCreatedTime  != nil {
+        let myLocale = Locale(identifier: "th_TH")
+        let dateStringFormPostsDataCreatedTime = userResourceDataPostsCreatedTime
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: dateStringFormPostsDataCreatedTime!)
+        dateFormatter.locale = myLocale
+        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
+        let dateString = dateFormatter.string(from: date!)
+        cellFeedPostsFriendTableView.createdTimePostsLabel.text = dateString
+        } else {
+            cellFeedPostsFriendTableView.createdTimePostsLabel.text = ""
+        }
+        
+        let userResourceDataPostsPicture = cellUserResourceDataPosts?.full_picture
+        if userResourceDataPostsPicture != nil && userResourceDataPostsPicture != "" {
+            tablePostsFriends.rowHeight = 400
+            cellFeedPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (userResourceDataPostsPicture)!), completed: nil)
+            cellFeedPostsFriendTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
+        } else {
+            tablePostsFriends.rowHeight = 125
+            cellFeedPostsFriendTableView.picturePostsImageView.image = nil
+        }
+        
+        let userResourceDataPostsPlace = cellUserResourceDataPosts?.place
+        if userResourceDataPostsPlace == nil {
+            cellFeedPostsFriendTableView.atPlacePostsLabel.text = ""
+            cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = nil
+        } else {
+            cellFeedPostsFriendTableView.atPlacePostsLabel.text = "ที่"
+            cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
+        }
+        
         return cellFeedPostsFriendTableView
     }
 }
