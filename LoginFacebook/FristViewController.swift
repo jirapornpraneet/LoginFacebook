@@ -16,6 +16,18 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
+
+class FeedPostsFriendTableViewCell: UITableViewCell {
+    @IBOutlet weak var picturePostsImageView: UIImageView!
+    @IBOutlet weak var messagePostsLabel: UILabel!
+    @IBOutlet weak var profilePostsImageView: UIImageView!
+    @IBOutlet weak var namePostsLabel: UILabel!
+    @IBOutlet weak var createdTimePostsLabel: UILabel!
+    @IBOutlet weak var placePostsLabel: UILabel!
+    @IBOutlet weak var atPlacePostsLabel: UILabel!
+    @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
+}
+
 class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
