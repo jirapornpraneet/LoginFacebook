@@ -116,7 +116,7 @@
                                                         <state key="normal" backgroundImage="iconStoryUser"/>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AqK-11-hmJ">
-                                                        <rect key="frame" x="170" y="13" width="142" height="64"/>
+                                                        <rect key="frame" x="159" y="13" width="161" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O6e-Lx-Dd3">
