@@ -241,7 +241,7 @@
                                                 <rect key="frame" x="0.0" y="209" width="320" height="791"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPostsFriendTableView" rowHeight="135" id="CEC-fF-pwW" customClass="FeedPostsFriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellFeedPostsFriendTableView" rowHeight="135" id="CEC-fF-pwW" customClass="FeedPostsFriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="320" height="135"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEC-fF-pwW" id="wX8-XS-GV5">
