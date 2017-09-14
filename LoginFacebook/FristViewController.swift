@@ -42,7 +42,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             print("Show >>> ", token.tokenString)
         }
     }
-    
+    // MARK: ViewController
     var userResourceData: UserResourceData! = nil
     
     func fetchUserResource() {
@@ -53,22 +53,6 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             self.userResourceData = UserResourceData(json: jsonString)
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageButton.sd_setBackgroundImage(with: profileImageUrl, for: .normal, completed: nil)
-        }
-    }
-    
-    var userResource: UserResource! = nil
-    
-    func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place}&limit=10&access_token=EAACEdEose0cBADV0kMLKpsKFxKwvE71c7cXQXa1G2Bu4WjdVQXEfI6YfuTPQl9VJWtYNqIlaDg1LoZBUpjaJhZA0ICa4zRxZBFUHvDRlQtXdFkVhb9BXYZAdIVUzRHzlUwoJ4graU0ycmD7BgY0mOistHuLLkCmJ9ScumtkZC9uKSAZAwRiwOmxoXDJlVXS8moaXoWA4ei5gZDZD")
-        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        Alamofire.request(url, method: .get).validate().responseString { response in
-            print(response)
-            switch response.result {
-            case .success(let value):
-                self.userResource  = UserResource(json: value)
-            case .failure(let error):
-                print(error)
-            }
         }
     }
     
@@ -124,5 +108,23 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: TableView
+    
+    var userResource: UserResource! = nil
+    
+    func fetchUserResourceFriends() {
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place}&limit=10&access_token=EAACEdEose0cBADV0kMLKpsKFxKwvE71c7cXQXa1G2Bu4WjdVQXEfI6YfuTPQl9VJWtYNqIlaDg1LoZBUpjaJhZA0ICa4zRxZBFUHvDRlQtXdFkVhb9BXYZAdIVUzRHzlUwoJ4graU0ycmD7BgY0mOistHuLLkCmJ9ScumtkZC9uKSAZAwRiwOmxoXDJlVXS8moaXoWA4ei5gZDZD")
+        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        Alamofire.request(url, method: .get).validate().responseString { response in
+            print(response)
+            switch response.result {
+            case .success(let value):
+                self.userResource  = UserResource(json: value)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
