@@ -116,7 +116,7 @@
                                                         <state key="normal" backgroundImage="iconStoryUser"/>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AqK-11-hmJ">
-                                                        <rect key="frame" x="159" y="13" width="161" height="64"/>
+                                                        <rect key="frame" x="159" y="11" width="161" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O6e-Lx-Dd3">
@@ -241,7 +241,7 @@
                                                 <rect key="frame" x="0.0" y="209" width="320" height="791"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPostsFriendTableView" rowHeight="135" id="CEC-fF-pwW" customClass="PostsFriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPostsFriendTableView" rowHeight="135" id="CEC-fF-pwW" customClass="FeedPostsFriendTableViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="320" height="135"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEC-fF-pwW" id="wX8-XS-GV5">
@@ -387,7 +387,7 @@
                                                             <outlet property="iconCheckInPostsImageView" destination="Hm6-N8-RbR" id="gk8-df-1rX"/>
                                                             <outlet property="messagePostsLabel" destination="0DH-wr-zci" id="zBz-b5-yIU"/>
                                                             <outlet property="namePostsLabel" destination="jbn-gY-LB3" id="Tak-Ue-bhN"/>
-                                                            <outlet property="picturePostsImageView" destination="RXT-Uc-8TS" id="B9d-Tb-2I5"/>
+                                                            <outlet property="picturePostsImageView" destination="RXT-Uc-8TS" id="vnv-bO-Qf1"/>
                                                             <outlet property="placePostsLabel" destination="HbV-6E-AhV" id="ynH-47-zRX"/>
                                                             <outlet property="profilePostsImageView" destination="7Yw-uI-5L7" id="0ia-FZ-nua"/>
                                                         </connections>
@@ -435,6 +435,7 @@
                     <connections>
                         <outlet property="loginButton" destination="TAX-cd-bz2" id="xSI-8D-rUN"/>
                         <outlet property="profileImageButton" destination="umk-Dh-Z7l" id="LM2-GE-AdU"/>
+                        <outlet property="tablePostsFriends" destination="Uvp-9X-MbV" id="d35-JN-l9b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
