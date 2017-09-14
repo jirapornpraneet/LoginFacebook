@@ -19,6 +19,7 @@ import SKPhotoBrowser
 class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
+    @IBOutlet weak var tablePostsFriends: UITableView!
     
     var accessToken: FBSDKAccessToken!
     
