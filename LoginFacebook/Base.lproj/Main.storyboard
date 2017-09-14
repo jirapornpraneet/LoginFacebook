@@ -433,6 +433,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="collectionviewStoryFriends" destination="AqK-11-hmJ" id="bQi-IV-bGn"/>
                         <outlet property="loginButton" destination="TAX-cd-bz2" id="xSI-8D-rUN"/>
                         <outlet property="profileImageButton" destination="umk-Dh-Z7l" id="LM2-GE-AdU"/>
                         <outlet property="tablePostsFriends" destination="Uvp-9X-MbV" id="d35-JN-l9b"/>

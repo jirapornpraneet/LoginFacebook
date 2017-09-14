@@ -37,6 +37,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     @IBOutlet weak var tablePostsFriends: UITableView!
+    @IBOutlet weak var collectionviewStoryFriends: UICollectionView!
     
     var accessToken: FBSDKAccessToken!
     
