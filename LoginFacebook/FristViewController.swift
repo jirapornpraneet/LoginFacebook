@@ -167,6 +167,9 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
         cellFeedPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed: nil)
 
+        cellFeedPostsFriendTableView.profilePostsImageView.layer.masksToBounds = true
+        cellFeedPostsFriendTableView.profilePostsImageView.layer.cornerRadius = 17
+        
         let userResourceDataPostsCreatedTime = cellUserResourceDataPosts?.created_time
         if userResourceDataPostsCreatedTime  != nil {
         let myLocale = Locale(identifier: "th_TH")
