@@ -123,6 +123,9 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             switch response.result {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
+                self.tablePostsFriends.delegate = self
+                self.tablePostsFriends.dataSource = self
+                self.tablePostsFriends.reloadData()
             case .failure(let error):
                 print(error)
             }
