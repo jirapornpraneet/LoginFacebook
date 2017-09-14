@@ -17,7 +17,7 @@ import SwiftyJSON
 import SKPhotoBrowser
 
 class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate {
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     
     var accessToken: FBSDKAccessToken!
@@ -29,10 +29,10 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         self.loginButton.delegate = self
         
-        profileImageView.layer.masksToBounds = true
-        profileImageView.layer.cornerRadius = 20
-        profileImageView.layer.borderWidth = 2
-        profileImageView.layer.borderColor = UIColor.white.cgColor
+        profileImageButton.layer.masksToBounds = true
+        profileImageButton.layer.cornerRadius = 20
+        profileImageButton.layer.borderWidth = 2
+        profileImageButton.layer.borderColor = UIColor.white.cgColor
         
         if  let token = FBSDKAccessToken.current() {
             fetchUserResource()
@@ -51,7 +51,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             let jsonString = dic?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
             let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
-            self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
+            self.profileImageButton.sd_setBackgroundImage(with: profileImageUrl, for: .normal, completed: nil)
         }
     }
     
@@ -98,7 +98,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        self.profileImageView.image = nil
+        self.profileImageButton.setImage(UIImage(named: "nill"), for: .normal)
     }
     
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
