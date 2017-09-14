@@ -431,6 +431,7 @@
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
                         <outlet property="loginButton" destination="TAX-cd-bz2" id="xSI-8D-rUN"/>
+                        <outlet property="profileImageButton" destination="umk-Dh-Z7l" id="LM2-GE-AdU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
