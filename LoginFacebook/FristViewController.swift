@@ -212,4 +212,26 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         return cellFeedPostsFriendTableView
     }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (userResource.data?.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellStoryFriendsCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellStoryFriendsCollectionView", for: indexPath) as! StoryFriendsCollectionViewCell
+        
+//        let cellUserResourceAlbumsData = userResourceData.albums?.data?[indexPath.row]
+//        let celluserResourcePhotosData = cellUserResourceAlbumsData?.photos?.data?[indexPath.row]
+//        
+//        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (celluserResourcePhotosData?.picture)!, width: 120, height: 120)
+//        cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
+        
+        return cellStoryFriendsCollectionView
+        
+    }
+
 }
