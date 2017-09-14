@@ -27,6 +27,11 @@ class FeedPostsFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
 }
 
+class StoryFriendsCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var storyFriendsImageView: UIImageView!
+    @IBOutlet weak var nameFriendsLabel: UILabel!
+}
+
 class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
