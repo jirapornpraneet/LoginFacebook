@@ -144,6 +144,11 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
                 self.tablePostsFriends.delegate = self
                 self.tablePostsFriends.dataSource = self
                 self.tablePostsFriends.reloadData()
+                
+                self.collectionviewStoryFriends.delegate = self
+                self.collectionviewStoryFriends.dataSource = self
+                self.collectionviewStoryFriends.reloadData()
+                
             case .failure(let error):
                 print(error)
             }
