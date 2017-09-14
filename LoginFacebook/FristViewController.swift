@@ -16,7 +16,7 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
-class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate {
+class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     
@@ -126,5 +126,18 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
                 print(error)
             }
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1 
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendsTableViewCell
+        return cellFriendTableView
     }
 }
