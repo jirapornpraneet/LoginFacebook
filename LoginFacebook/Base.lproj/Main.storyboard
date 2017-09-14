@@ -113,13 +113,13 @@
                                                         <rect key="frame" x="8" y="8" width="45" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" backgroundImage="iconDirect"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAp-xI-FW4">
-                                                        <rect key="frame" x="62" y="8" width="45" height="45"/>
+                                                        <rect key="frame" x="62" y="8" width="45" height="49"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" backgroundImage="iconStoryUser"/>
                                                     </button>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AqK-11-hmJ">
                                                         <rect key="frame" x="115" y="7" width="190" height="45"/>
@@ -1545,7 +1545,7 @@
         <scene sceneID="can-jy-LhI">
             <objects>
                 <collectionViewController storyboardIdentifier="PhotosAlbumsCollection" id="Sag-kc-C7d" customClass="PhotosAlbumsCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="niO-d9-Lgl">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="niO-d9-Lgl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2192,6 +2192,7 @@
         <image name="iconCheckInAbout" width="256" height="256"/>
         <image name="iconCheckInFrist" width="130" height="50"/>
         <image name="iconComment" width="234" height="59"/>
+        <image name="iconDirect" width="150" height="160"/>
         <image name="iconEdit" width="143" height="109"/>
         <image name="iconEducation" width="43" height="34"/>
         <image name="iconEducationAbout" width="35" height="31"/>
@@ -2214,6 +2215,7 @@
         <image name="iconPost" width="84" height="103"/>
         <image name="iconShareImage" width="188" height="54"/>
         <image name="iconStatus" width="137" height="41"/>
+        <image name="iconStoryUser" width="160" height="190"/>
         <image name="iconWorkAbout" width="33" height="29"/>
         <image name="iconWritePosts" width="182" height="46"/>
     </resources>
