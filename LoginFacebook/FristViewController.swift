@@ -36,6 +36,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         if  let token = FBSDKAccessToken.current() {
             fetchUserResource()
+            fetchUserResourceFriends()
             accessToken = token
             print(accessToken.tokenString)
             print("Show >>> ", token.tokenString)
@@ -55,11 +56,27 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         }
     }
     
+    var userResource: UserResource! = nil
+    
+    func fetchUserResourceFriends() {
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place}&limit=10&access_token=EAACEdEose0cBADV0kMLKpsKFxKwvE71c7cXQXa1G2Bu4WjdVQXEfI6YfuTPQl9VJWtYNqIlaDg1LoZBUpjaJhZA0ICa4zRxZBFUHvDRlQtXdFkVhb9BXYZAdIVUzRHzlUwoJ4graU0ycmD7BgY0mOistHuLLkCmJ9ScumtkZC9uKSAZAwRiwOmxoXDJlVXS8moaXoWA4ei5gZDZD")
+        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        Alamofire.request(url, method: .get).validate().responseString { response in
+            print(response)
+            switch response.result {
+            case .success(let value):
+                self.userResource  = UserResource(json: value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func customNavigationBarItem() {
         
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
-        searchBar.placeholder = "ค้นหา"   
+        searchBar.placeholder = "ค้นหา"
         searchBar.delegate = self
         self.tabBarController?.navigationItem.titleView = searchBar
         
@@ -79,7 +96,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let leftBarButtonItem = UIBarButtonItem(customView: leftBarButton)
         self.tabBarController?.navigationItem.setLeftBarButton(leftBarButtonItem, animated: true)
     }
-
+    
     func addTapped() {
         print("addTapped")
     }
