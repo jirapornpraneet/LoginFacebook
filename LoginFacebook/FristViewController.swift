@@ -127,7 +127,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     var userResource: UserResource! = nil
     
     func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place}&limit=10&access_token=EAACEdEose0cBAKMyDAgC6J5eFj0fY6AzX74UKkLqDGTwRS2iJiSBk8ZCem8qpVLFmvnD0K0eGzanx0npcta06PHZBgh7aMrkTZCJxPxy5SBjZCjwkHqpezDmfnjcXVzAhgkZC2Xrpr6bigTk5XboZAosHIWeDZBs0EusaLyoWDFVODIXUnHIOekEVwmNa29kZCsjXNDA6WdBbAZDZD")
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAKMyDAgC6J5eFj0fY6AzX74UKkLqDGTwRS2iJiSBk8ZCem8qpVLFmvnD0K0eGzanx0npcta06PHZBgh7aMrkTZCJxPxy5SBjZCjwkHqpezDmfnjcXVzAhgkZC2Xrpr6bigTk5XboZAosHIWeDZBs0EusaLyoWDFVODIXUnHIOekEVwmNa29kZCsjXNDA6WdBbAZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
