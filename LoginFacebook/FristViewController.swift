@@ -149,7 +149,11 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 
+        if  userResource != nil {
+            return userResource.data!.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
