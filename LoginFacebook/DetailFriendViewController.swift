@@ -25,6 +25,10 @@ class PostsFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var placePostsLabel: UILabel!
     @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
+    @IBOutlet weak var iconReaction1ImageView: UIImageView!
+    @IBOutlet weak var iconReaction2ImageView: UIImageView!
+    @IBOutlet weak var reactionFriendsButton: UIButton!
+    @IBOutlet weak var commentsFriendsButton: UIButton!
 }
 
 class DetailFriendViewController: UITableViewController {
@@ -205,6 +209,7 @@ class DetailFriendViewController: UITableViewController {
             cellPostsFriendTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
+        print("Reactions", cellPostsData.reactions?.data)
         return cellPostsFriendTableView
     }
     
