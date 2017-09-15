@@ -1490,13 +1490,17 @@
                                 <color key="backgroundColor" red="0.13341047140000001" green="0.048128960110000001" blue="0.14522525380000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="atPlacePostsLabel" destination="2hf-Yf-ADc" id="cZF-KL-aaW"/>
+                                    <outlet property="commentsFriendsButton" destination="ufW-NM-s6O" id="Y6r-mO-ZdM"/>
                                     <outlet property="createdTimePostsLabel" destination="lmT-ec-Uhm" id="fb8-Ja-skx"/>
                                     <outlet property="iconCheckInPostsImageView" destination="X7Y-TU-Xio" id="k57-I2-mwd"/>
+                                    <outlet property="iconReaction1ImageView" destination="Rqq-Rl-GFU" id="3Q9-6Y-vFL"/>
+                                    <outlet property="iconReaction2ImageView" destination="FWn-XT-MW6" id="VyZ-if-oVs"/>
                                     <outlet property="messagePostsLabel" destination="s1I-AM-OkK" id="U9F-Z4-40v"/>
                                     <outlet property="namePostsLabel" destination="zy5-n0-4Fa" id="PSd-kG-ZIq"/>
                                     <outlet property="picturePostsImageView" destination="ctY-dN-upK" id="WAF-yk-TAQ"/>
                                     <outlet property="placePostsLabel" destination="GIk-vL-WqD" id="Qiv-ud-NEh"/>
                                     <outlet property="profilePostsImageView" destination="qzh-uv-N7v" id="tcG-ZG-6q0"/>
+                                    <outlet property="reactionFriendsButton" destination="nGf-XK-7s0" id="gWJ-qa-CUV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
