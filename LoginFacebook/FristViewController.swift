@@ -327,7 +327,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.masksToBounds = true
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.cornerRadius = 27
-        
+        cellStoryFriendsCollectionView.storyFriendsImageView.layer.borderWidth = 2
+        cellStoryFriendsCollectionView.storyFriendsImageView.layer.borderColor = UIColor(red:0.17, green:0.38, blue:0.90, alpha:1.0).cgColor
         return cellStoryFriendsCollectionView
         
     }
