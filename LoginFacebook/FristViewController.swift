@@ -23,7 +23,6 @@ class FeedPostsFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var namePostsLabel: UILabel!
     @IBOutlet weak var createdTimePostsLabel: UILabel!
     @IBOutlet weak var placePostsLabel: UILabel!
-    @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
@@ -36,7 +35,7 @@ class StoryFriendsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameFriendsLabel: UILabel!
 }
 
-class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource , UIPopoverPresentationControllerDelegate{
+class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource , UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
