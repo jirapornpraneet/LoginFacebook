@@ -134,7 +134,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     var userResource: UserResource! = nil
     
     func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAKMyDAgC6J5eFj0fY6AzX74UKkLqDGTwRS2iJiSBk8ZCem8qpVLFmvnD0K0eGzanx0npcta06PHZBgh7aMrkTZCJxPxy5SBjZCjwkHqpezDmfnjcXVzAhgkZC2Xrpr6bigTk5XboZAosHIWeDZBs0EusaLyoWDFVODIXUnHIOekEVwmNa29kZCsjXNDA6WdBbAZDZD")
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAHFM3txYzUEsAmUWVIr3IuyKn6xPXtIuWYqXzce8JbUEpscGyBskYvy1l09vnZAPXAvgZAdmvZCHX6JBosQhfIbalW41bAmVmAyGGWxbZCrIihWZAFJOBdF2rOTG0qc26uvx2VOaA9wtNTbjeBWdKEoX01i8smpX3M1SWmfewfiUoZB2kB3l70PcqQ9Cfa7AZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
@@ -224,20 +224,19 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (userResource.data?.count)!
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellStoryFriendsCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellStoryFriendsCollectionView", for: indexPath) as! StoryFriendsCollectionViewCell
         
-//        let cellUserResourceAlbumsData = userResourceData.albums?.data?[indexPath.row]
-//        let celluserResourcePhotosData = cellUserResourceAlbumsData?.photos?.data?[indexPath.row]
-//        
-//        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (celluserResourcePhotosData?.picture)!, width: 120, height: 120)
-//        cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
-        
+        let cellUserResourceData = userResource.data?[indexPath.row]
+        cellStoryFriendsCollectionView.nameFriendsLabel.text = cellUserResourceData?.name
+
+        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 120, height: 120)
+        cellStoryFriendsCollectionView.storyFriendsImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
+   
         return cellStoryFriendsCollectionView
         
     }
-
 }
