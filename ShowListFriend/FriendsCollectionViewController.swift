@@ -41,7 +41,7 @@ class FriendsCollectionViewController: UICollectionViewController {
     var userResource: UserResource! = nil
     
     func getDataUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place}&access_token=EAACEdEose0cBAPACCCT1Q0QYEWskZCY0dgqfmF8DWrMAd8E9IGSfD623nHIPZBkuqeJwzLLoAZBflbgDZAKmWVUugjvFKo2JLerSgnLafSq4yCjSXBWUjr6TQqGvHlgZABfZBlCYfFkhGTjrEoEieDGrmiYF8hSXxX3GCuNe6lW0ZAA3OCSrJMPPGUH5UMBcZBypKVVbDUOlXQZDZD")
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture.type(large),birthday,gender,cover,education,hometown,posts{message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&access_token=EAACEdEose0cBAPACCCT1Q0QYEWskZCY0dgqfmF8DWrMAd8E9IGSfD623nHIPZBkuqeJwzLLoAZBflbgDZAKmWVUugjvFKo2JLerSgnLafSq4yCjSXBWUjr6TQqGvHlgZABfZBlCYfFkhGTjrEoEieDGrmiYF8hSXxX3GCuNe6lW0ZAA3OCSrJMPPGUH5UMBcZBypKVVbDUOlXQZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
