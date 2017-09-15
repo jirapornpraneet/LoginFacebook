@@ -133,20 +133,32 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="71" height="77"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8b-sq-aRk">
-                                                                            <rect key="frame" x="5" y="0.0" width="55" height="57"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8b-sq-aRk">
+                                                                            <rect key="frame" x="7" y="0.0" width="57" height="57"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="57" id="dYq-am-y1d"/>
+                                                                            </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36B-Dy-MWW">
-                                                                            <rect key="frame" x="11" y="60" width="42" height="12"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36B-Dy-MWW">
+                                                                            <rect key="frame" x="0.0" y="60" width="71" height="12"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="12" id="TxQ-7g-Trw"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </view>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="x8b-sq-aRk" firstAttribute="leading" secondItem="W3d-UO-ey6" secondAttribute="leading" constant="7" id="345-nn-gYR"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="x8b-sq-aRk" secondAttribute="trailing" constant="7" id="Buf-8h-WbY"/>
+                                                                    <constraint firstItem="36B-Dy-MWW" firstAttribute="leading" secondItem="W3d-UO-ey6" secondAttribute="leading" id="NVy-pM-1ab"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="36B-Dy-MWW" secondAttribute="trailing" id="Tkq-oo-oEv"/>
+                                                                    <constraint firstItem="36B-Dy-MWW" firstAttribute="top" secondItem="x8b-sq-aRk" secondAttribute="bottom" constant="3" id="edV-nU-IBp"/>
+                                                                    <constraint firstItem="x8b-sq-aRk" firstAttribute="top" secondItem="W3d-UO-ey6" secondAttribute="top" id="nfw-KY-0J4"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="nameFriendsLabel" destination="36B-Dy-MWW" id="b0c-Fp-o8S"/>
                                                                     <outlet property="storyFriendsImageView" destination="x8b-sq-aRk" id="cFl-3d-D1V"/>
