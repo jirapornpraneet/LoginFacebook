@@ -242,7 +242,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let userResourceData = userResource.data?[indexPath.row]
         cellStoryFriendsCollectionView.nameFriendsLabel.text = userResourceData?.name
         
-        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 120, height: 120)
+        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 300, height: 300)
         cellStoryFriendsCollectionView.storyFriendsImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
         
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.masksToBounds = true
