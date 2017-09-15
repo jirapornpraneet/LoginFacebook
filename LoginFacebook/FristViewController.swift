@@ -179,7 +179,6 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let userResourceData = userResource.data?[indexPath.row]
         let userResourceDataPosts = userResourceData?.posts?.data?[0]
         
-        cellFeedPostsFriendTableView.namePostsLabel.text = userResourceData?.name
         cellFeedPostsFriendTableView.messagePostsLabel.text = userResourceDataPosts?.message
         cellFeedPostsFriendTableView.placePostsLabel.text = userResourceDataPosts?.place?.name
         
@@ -216,13 +215,13 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         let userResourceDataPostsPlace = userResourceDataPosts?.place
         if userResourceDataPostsPlace == nil {
-            cellFeedPostsFriendTableView.atPlacePostsLabel.text = ""
+              cellFeedPostsFriendTableView.namePostsLabel.text = userResourceData?.name
             cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = nil
         } else {
-            cellFeedPostsFriendTableView.atPlacePostsLabel.text = "ที่"
+            cellFeedPostsFriendTableView.namePostsLabel.text = String(format:"%@   %ที่", (userResourceData?.name)!)
             cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
-        
+                
         let userResourcePostsCommentsDataCount = userResourceDataPosts?.comments?.data?.count
         if userResourcePostsCommentsDataCount == nil {
             cellFeedPostsFriendTableView.commentsFriendsButton.setTitle("", for: .normal)
