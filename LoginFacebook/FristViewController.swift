@@ -172,20 +172,20 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellFeedPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFeedPostsFriendTableView", for: indexPath) as! FeedPostsFriendTableViewCell
-        let cellUserResourceData = userResource.data?[indexPath.row]
-        let cellUserResourceDataPosts = cellUserResourceData?.posts?.data?[0]
+        let userResourceData = userResource.data?[indexPath.row]
+        let userResourceDataPosts = userResourceData?.posts?.data?[0]
         
-        cellFeedPostsFriendTableView.namePostsLabel.text = cellUserResourceData?.name
-        cellFeedPostsFriendTableView.messagePostsLabel.text = cellUserResourceDataPosts?.message
-        cellFeedPostsFriendTableView.placePostsLabel.text = cellUserResourceDataPosts?.place?.name
+        cellFeedPostsFriendTableView.namePostsLabel.text = userResourceData?.name
+        cellFeedPostsFriendTableView.messagePostsLabel.text = userResourceDataPosts?.message
+        cellFeedPostsFriendTableView.placePostsLabel.text = userResourceDataPosts?.place?.name
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 300, height: 300)
         cellFeedPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed: nil)
         
         cellFeedPostsFriendTableView.profilePostsImageView.layer.masksToBounds = true
         cellFeedPostsFriendTableView.profilePostsImageView.layer.cornerRadius = 17
         
-        let userResourceDataPostsCreatedTime = cellUserResourceDataPosts?.created_time
+        let userResourceDataPostsCreatedTime = userResourceDataPosts?.created_time
         if userResourceDataPostsCreatedTime  != nil {
             let myLocale = Locale(identifier: "th_TH")
             let dateStringFormPostsDataCreatedTime = userResourceDataPostsCreatedTime
@@ -200,7 +200,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             cellFeedPostsFriendTableView.createdTimePostsLabel.text = ""
         }
         
-        let userResourceDataPostsPicture = cellUserResourceDataPosts?.full_picture
+        let userResourceDataPostsPicture = userResourceDataPosts?.full_picture
         if userResourceDataPostsPicture != nil && userResourceDataPostsPicture != "" {
             tablePostsFriends.rowHeight = 400
             cellFeedPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (userResourceDataPostsPicture)!), completed: nil)
@@ -210,7 +210,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             cellFeedPostsFriendTableView.picturePostsImageView.image = nil
         }
         
-        let userResourceDataPostsPlace = cellUserResourceDataPosts?.place
+        let userResourceDataPostsPlace = userResourceDataPosts?.place
         if userResourceDataPostsPlace == nil {
             cellFeedPostsFriendTableView.atPlacePostsLabel.text = ""
             cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = nil
