@@ -224,7 +224,11 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        if  userResource != nil {
+            return userResource.data!.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
