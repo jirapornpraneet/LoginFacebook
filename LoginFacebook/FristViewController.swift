@@ -245,6 +245,9 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 120, height: 120)
         cellStoryFriendsCollectionView.storyFriendsImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
         
+        cellStoryFriendsCollectionView.storyFriendsImageView.layer.masksToBounds = true
+        cellStoryFriendsCollectionView.storyFriendsImageView.layer.cornerRadius = 27
+
         return cellStoryFriendsCollectionView
         
     }

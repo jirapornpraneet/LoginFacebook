@@ -176,11 +176,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginFacebook/FristViewController.swift"
-            timestampString = "527140365.174689"
+            timestampString = "527140777.934951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267">
+            startingLineNumber = "270"
+            endingLineNumber = "270">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
