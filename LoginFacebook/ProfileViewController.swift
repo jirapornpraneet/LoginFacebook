@@ -157,9 +157,9 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     }
     
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let cellUserResourcePostsData = userResourceData.posts?.data?[sender.view.tag]
+        let userResourcePostsData = userResourceData.posts?.data?[sender.view.tag]
         var picturePostsImages = [SKPhoto]()
-        let photosPosts = SKPhoto.photoWithImageURL((cellUserResourcePostsData?.full_picture)!)
+        let photosPosts = SKPhoto.photoWithImageURL((userResourcePostsData?.full_picture)!)
         photosPosts.shouldCachePhotoURLImage = true
         picturePostsImages.append(photosPosts)
         let browser = SKPhotoBrowser(photos: picturePostsImages)
@@ -219,22 +219,22 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellPostsUserTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsUserTableView", for: indexPath) as! PostsUserTableViewCell
-        let cellUserResourcePostsData = userResourceData.posts?.data?[indexPath.row]
+        let userResourcePostsData = userResourceData.posts?.data?[indexPath.row]
         
-        cellPostsUserTableView.messagePostsLabel.text = (cellUserResourcePostsData?.message)!
+        cellPostsUserTableView.messagePostsLabel.text = (userResourcePostsData?.message)!
         
-        cellPostsUserTableView.placePostsLabel.text = cellUserResourcePostsData?.place?.name
+        cellPostsUserTableView.placePostsLabel.text = userResourcePostsData?.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
         cellPostsUserTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
-        let cellUserResourcePostsDataFullPicture = cellUserResourcePostsData?.full_picture
-        if  cellUserResourcePostsDataFullPicture  == "" {
+        let userResourcePostsDataFullPicture = userResourcePostsData?.full_picture
+        if  userResourcePostsDataFullPicture  == "" {
             tablePosts.rowHeight = 135
             cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
             tablePosts.rowHeight = 400
-            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellUserResourcePostsData?.full_picture)!), completed: nil)
+            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (userResourcePostsData?.full_picture)!), completed: nil)
             cellPostsUserTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
             let tapZoomPicturePosts = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.ZoomPicture​Posts(_:)))
@@ -244,7 +244,7 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         }
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormUserResourcePostsDataCreatedTime = cellUserResourcePostsData?.created_time
+        let dateStringFormUserResourcePostsDataCreatedTime = userResourcePostsData?.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormUserResourcePostsDataCreatedTime!)
@@ -253,9 +253,9 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         let dateString = dateFormatter.string(from: date!)
         cellPostsUserTableView.createdTimePostsLabel.text = dateString
         
-        let cellUserResourcePostsDataPlacePosts = cellUserResourcePostsData?.place
+        let userResourcePostsDataPlacePosts = userResourcePostsData?.place
         
-        if cellUserResourcePostsDataPlacePosts == nil {
+        if userResourcePostsDataPlacePosts == nil {
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
             cellPostsUserTableView.namePostsLabel.text = String(format:"%@", self.userResourceDataName)
         } else {
@@ -263,75 +263,75 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
             cellPostsUserTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
-        let cellUserResourcePostsDataCommentsDataCount = cellUserResourcePostsData?.comments?.data?.count
-        if cellUserResourcePostsDataCommentsDataCount == nil {
+        let userResourcePostsDataCommentsDataCount = userResourcePostsData?.comments?.data?.count
+        if userResourcePostsDataCommentsDataCount == nil {
             cellPostsUserTableView.commentsFriendsButton.setTitle("", for: .normal)
         } else {
-            cellPostsUserTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", cellUserResourcePostsDataCommentsDataCount!), for: .normal)
+            cellPostsUserTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", userResourcePostsDataCommentsDataCount!), for: .normal)
             cellPostsUserTableView.commentsFriendsButton.tag = indexPath.row
             cellPostsUserTableView.commentsFriendsButton.contentHorizontalAlignment = .right
         }
         
-        let cellUserResourcePostsDataReactionsData = cellUserResourcePostsData?.reactions?.data?[0]
-        var cellUserResourcePostsDataReactionsDataCount = cellUserResourcePostsData?.reactions?.data?.count
-        if cellUserResourcePostsDataReactionsData == nil && cellUserResourcePostsDataReactionsDataCount == nil {
+        let userResourcePostsDataReactionsData = userResourcePostsData?.reactions?.data?[0]
+        var userResourcePostsDataReactionsDataCount = userResourcePostsData?.reactions?.data?.count
+        if userResourcePostsDataReactionsData == nil && userResourcePostsDataReactionsDataCount == nil {
             cellPostsUserTableView.reactionFriendsButton.setTitle("", for: .normal)
-            cellUserResourcePostsDataReactionsDataCount = 0
+            userResourcePostsDataReactionsDataCount = 0
             cellPostsUserTableView.iconReaction1ImageView.image = nil
         } else {
             
-            let cellNameFriendReactions = cellUserResourcePostsDataReactionsData?.name
+            let cellNameFriendReactions = userResourcePostsDataReactionsData?.name
             let length = cellNameFriendReactions?.characters.count
             
             if length! >= 10 {
-                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", cellUserResourcePostsDataReactionsDataCount!), for: .normal)
+                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", userResourcePostsDataReactionsDataCount!), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
                 cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             } else {
-                let reactionsCount = cellUserResourcePostsDataReactionsDataCount! - 1
-                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
+                let reactionsCount = userResourcePostsDataReactionsDataCount! - 1
+                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (userResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
                 cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             }
             
-            let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
+            let userResourcePostsDataReactionType = userResourcePostsDataReactionsData?.type
             
-            if cellUserResourcePostsDataReactionType == "LIKE" {
+            if userResourcePostsDataReactionType == "LIKE" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
-            } else if cellUserResourcePostsDataReactionType == "LOVE" {
+            } else if userResourcePostsDataReactionType == "LOVE" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
-            } else if cellUserResourcePostsDataReactionType == "HAHA" {
+            } else if userResourcePostsDataReactionType == "HAHA" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
-            } else if cellUserResourcePostsDataReactionType == "SAD" {
+            } else if userResourcePostsDataReactionType == "SAD" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
-            } else if cellUserResourcePostsDataReactionType == "WOW" {
+            } else if userResourcePostsDataReactionType == "WOW" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
             } else {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
             }
         }
         
-        if cellUserResourcePostsDataReactionsDataCount == 1 {
+        if userResourcePostsDataReactionsDataCount == 1 {
             cellPostsUserTableView.iconReaction2ImageView.image = nil
         } else {
-            let cellUserResourcePostsDataReactionDataIndex1 = cellUserResourcePostsData?.reactions?.data?[1]
-            let cellUserResourcePostsDataReactionTypeIndex1 = cellUserResourcePostsDataReactionDataIndex1?.type
-            let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
-            if cellUserResourcePostsDataReactionDataIndex1 == nil {
+            let userResourcePostsDataReactionDataIndex1 = userResourcePostsData?.reactions?.data?[1]
+            let userResourcePostsDataReactionTypeIndex1 = userResourcePostsDataReactionDataIndex1?.type
+            let userResourcePostsDataReactionType = userResourcePostsDataReactionsData?.type
+            if userResourcePostsDataReactionDataIndex1 == nil {
                 cellPostsUserTableView.iconReaction2ImageView.image = nil
             } else {
-                if cellUserResourcePostsDataReactionTypeIndex1 == cellUserResourcePostsDataReactionType {
+                if userResourcePostsDataReactionTypeIndex1 == userResourcePostsDataReactionType {
                     cellPostsUserTableView.iconReaction2ImageView.image = nil
                 } else {
-                    if cellUserResourcePostsDataReactionTypeIndex1 == "LIKE" {
+                    if userResourcePostsDataReactionTypeIndex1 == "LIKE" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
-                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "LOVE" {
+                    } else if userResourcePostsDataReactionTypeIndex1 == "LOVE" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
-                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "HAHA" {
+                    } else if userResourcePostsDataReactionTypeIndex1 == "HAHA" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
-                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "SAD" {
+                    } else if userResourcePostsDataReactionTypeIndex1 == "SAD" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
-                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "WOW" {
+                    } else if userResourcePostsDataReactionTypeIndex1 == "WOW" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
                     } else {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")

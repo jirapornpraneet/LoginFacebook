@@ -59,12 +59,12 @@ class CommentsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellCommentsView = tableView.dequeueReusableCell(withIdentifier: "cellCommentsView", for: indexPath) as! CommentsTableViewCell
-        let cellDataCommentsData = getUserResourceDataCommentsData[indexPath.row] as! CommentsDataDetail
-        cellCommentsView.nameFriendsLabel.text = cellDataCommentsData.from?.name
-        cellCommentsView.commentsMessageLabel.text = cellDataCommentsData.message
+        let dataCommentsData = getUserResourceDataCommentsData[indexPath.row] as! CommentsDataDetail
+        cellCommentsView.nameFriendsLabel.text = dataCommentsData.from?.name
+        cellCommentsView.commentsMessageLabel.text = dataCommentsData.message
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormCommentsDataCreatedTime = cellDataCommentsData.created_time
+        let dateStringFormCommentsDataCreatedTime = dataCommentsData.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormCommentsDataCreatedTime)

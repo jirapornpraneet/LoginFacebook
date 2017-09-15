@@ -70,11 +70,11 @@ class AlbumsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellAlbumsDetailCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsDetailCollection", for: indexPath) as! AlbumsDetailCollectionViewCell
-        let cellUserResourceAlbumsData = userResourceData?.albums?.data?[indexPath.row]
+        let userResourceAlbumsData = userResourceData?.albums?.data?[indexPath.row]
 
-        cellAlbumsDetailCollectionView.nameAlbumsLabel.text = cellUserResourceAlbumsData?.name
+        cellAlbumsDetailCollectionView.nameAlbumsLabel.text = userResourceAlbumsData?.name
 
-        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceAlbumsData?.photos?.data?[0].picture)!, width: 150, height: 150)
+        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceAlbumsData?.photos?.data?[0].picture)!, width: 150, height: 150)
         cellAlbumsDetailCollectionView.photoAlbumsImageView.sd_setImage(with:  pictureUrl, completed:nil)
 
         return cellAlbumsDetailCollectionView

@@ -175,11 +175,11 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tableFriends {
             let cellFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFriendTableView", for: indexPath) as! FriendsTableViewCell
-            let cellUserResourceData = userResource.data?[indexPath.row]
+            let userResourceData = userResource.data?[indexPath.row]
             
-            cellFriendTableView.nameFriendsLabel.text = cellUserResourceData?.name
+            cellFriendTableView.nameFriendsLabel.text = userResourceData?.name
             
-            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
+            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 300, height: 300)
             cellFriendTableView.profileFriendsImageView.sd_setImage(with: profileImageUrl, completed:nil)
             
             cellFriendTableView.friendButton.layer.masksToBounds = true
@@ -190,32 +190,32 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             return cellFriendTableView
         } else if tableView == tableMusic {
             let cellMusicTableView = tableView.dequeueReusableCell(withIdentifier: "cellMusicTableView", for: indexPath) as! MusicTableViewCell
-            let cellUserResourceMusicData = userResourceData.music?.data?[indexPath.row]
+            let userResourceMusicData = userResourceData.music?.data?[indexPath.row]
             
-            cellMusicTableView.nameMusicLabel.text = cellUserResourceMusicData?.name
-            cellMusicTableView.categoryLabel.text = cellUserResourceMusicData?.category
+            cellMusicTableView.nameMusicLabel.text = userResourceMusicData?.name
+            cellMusicTableView.categoryLabel.text = userResourceMusicData?.category
             
-            let pictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceMusicData?.picture?.data?.url)!, width: 300, height: 300)
+            let pictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceMusicData?.picture?.data?.url)!, width: 300, height: 300)
             cellMusicTableView.musicImageView.sd_setImage(with: pictureMusicImageUrl, completed: nil)
             
             return cellMusicTableView
         } else if tableView == tableMovie {
             let cellMovieTableView = tableView.dequeueReusableCell(withIdentifier: "cellMovieTableView", for: indexPath) as! MovieTableViewCell
-            let cellUserResourceMovieData = userResourceData.movies?.data?[indexPath.row]
+            let userResourceMovieData = userResourceData.movies?.data?[indexPath.row]
             
-            cellMovieTableView.nameMovieLabel.text = cellUserResourceMovieData?.global_brand_page_name
+            cellMovieTableView.nameMovieLabel.text = userResourceMovieData?.global_brand_page_name
             
-            let pictureMovieImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceMovieData?.picture?.data?.url)!, width: 300, height: 300)
+            let pictureMovieImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceMovieData?.picture?.data?.url)!, width: 300, height: 300)
             cellMovieTableView.movieImageView.sd_setImage(with: pictureMovieImageUrl, completed: nil)
             
             return cellMovieTableView
         } else {
             let cellTelevisionTableView = tableView.dequeueReusableCell(withIdentifier: "cellTelevisionTableView", for: indexPath) as! TelevisionTableViewCell
-            let cellUserResourceTelevisionData = userResourceData.television?.data?[indexPath.row]
+            let userResourceTelevisionData = userResourceData.television?.data?[indexPath.row]
             
-            cellTelevisionTableView.nameTelevisionLabel.text = cellUserResourceTelevisionData?.name
+            cellTelevisionTableView.nameTelevisionLabel.text = userResourceTelevisionData?.name
             
-            let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceTelevisionData?.picture?.data?.url)!, width: 300, height: 300)
+            let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceTelevisionData?.picture?.data?.url)!, width: 300, height: 300)
             cellTelevisionTableView.televisionImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
             
             return cellTelevisionTableView
@@ -238,10 +238,10 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellAlbumsPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsPhotosCollectionView", for: indexPath) as! AlbumsPhotosCollectionViewCell
         
-        let cellUserResourceAlbumsData = userResourceData.albums?.data?[indexPath.row]
-        let celluserResourcePhotosData = cellUserResourceAlbumsData?.photos?.data?[indexPath.row]
+        let userResourceAlbumsData = userResourceData.albums?.data?[indexPath.row]
+        let userResourcePhotosData = userResourceAlbumsData?.photos?.data?[indexPath.row]
     
-        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (celluserResourcePhotosData?.picture)!, width: 120, height: 120)
+        let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourcePhotosData?.picture)!, width: 120, height: 120)
         cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
         
         return cellAlbumsPhotosCollectionView

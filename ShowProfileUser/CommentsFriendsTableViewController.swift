@@ -52,11 +52,11 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellComments = tableView.dequeueReusableCell(withIdentifier: "cellComments", for: indexPath) as! CommentsFriendsTableViewCell
-        let cellCommentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
-        cellComments.commentsMessageLabel.text = cellCommentsData.message
-        cellComments.nameFriendsLabel.text = cellCommentsData.from?.name
+        let commentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
+        cellComments.commentsMessageLabel.text = commentsData.message
+        cellComments.nameFriendsLabel.text = commentsData.from?.name
         
-        let cellListCommentsDataCount = cellCommentsData.comment_count
+        let cellListCommentsDataCount = commentsData.comment_count
         if cellListCommentsDataCount == 0 {
             cellComments.commentsCountButton.setTitle("", for: .normal)
         } else {
@@ -65,7 +65,7 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
         }
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormCommentsDataCreatedTime = cellCommentsData.created_time
+        let dateStringFormCommentsDataCreatedTime = commentsData.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormCommentsDataCreatedTime)

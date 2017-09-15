@@ -65,9 +65,9 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellPhotosCollection", for: indexPath) as! PhotosCollectionViewCell
-        let cellAlbumsPhotosData = setUserResourceAlbumsPhotosData[indexPath.row] as! Data
+        let albumsPhotosData = setUserResourceAlbumsPhotosData[indexPath.row] as! Data
        
-        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellAlbumsPhotosData.picture), width:  200, height: 200)
+        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (albumsPhotosData.picture), width:  200, height: 200)
         cellPhotosCollectionView.photosAlbumsImageView.sd_setImage(with: pictureUrl, completed:nil)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PhotosAlbumsCollectionViewController.ZoomPhotos(_:)))
