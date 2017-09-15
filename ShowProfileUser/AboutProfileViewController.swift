@@ -63,6 +63,28 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         fetchUserResourceProfile()
         getDataUserResourceFriends()
+        
+        self.tableFriends.dataSource = self
+        self.tableFriends.delegate = self
+        
+        self.tableTelevision.delegate = self
+        self.tableTelevision.dataSource = self
+        
+        self.tableMovie.delegate = self
+        self.tableMovie.dataSource = self
+        
+        self.tableMusic.dataSource = self
+        self.tableMusic.delegate = self
+        
+        let collectionViewListFriends = self.collectionviewPhotosAlbums
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: 70, height: 70)
+        collectionViewListFriends?.collectionViewLayout = layout
+        collectionViewListFriends?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        self.collectionviewPhotosAlbums.delegate = self
+        self.collectionviewPhotosAlbums.dataSource = self
     }
     
     var userResourceData: UserResourceData! = nil
@@ -103,27 +125,12 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             let userResourceDataRelationShip = self.userResourceData.relationship_status
             self.ralationshipLabel.text = userResourceDataRelationShip
             
-            self.tableMusic.dataSource = self
-            self.tableMusic.delegate = self
             self.tableMovie.reloadData()
             
-            self.tableMovie.delegate = self
-            self.tableMovie.dataSource = self
             self.tableMusic.reloadData()
             
-            self.tableTelevision.delegate = self
-            self.tableTelevision.dataSource = self
             self.tableTelevision.reloadData()
             
-            let collectionViewListFriends = self.collectionviewPhotosAlbums
-            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            layout.itemSize = CGSize(width: 70, height: 70)
-            collectionViewListFriends?.collectionViewLayout = layout
-            collectionViewListFriends?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-            
-            self.collectionviewPhotosAlbums.delegate = self
-            self.collectionviewPhotosAlbums.dataSource = self
             self.collectionviewPhotosAlbums.reloadData()
         }
     }
@@ -138,9 +145,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             switch response.result {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
-                
-                self.tableFriends.dataSource = self
-                self.tableFriends.delegate = self
+
                 self.tableFriends.reloadData()
                 
             case .failure(let error):
