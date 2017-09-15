@@ -134,9 +134,9 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8b-sq-aRk">
-                                                                            <rect key="frame" x="8" y="0.0" width="55" height="54"/>
+                                                                            <rect key="frame" x="7" y="0.0" width="58" height="57"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="54" id="dYq-am-y1d"/>
+                                                                                <constraint firstAttribute="height" constant="57" id="dYq-am-y1d"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36B-Dy-MWW">
@@ -145,18 +145,18 @@
                                                                                 <constraint firstAttribute="height" constant="12" id="TxQ-7g-Trw"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="10.5"/>
-                                                                            <nil key="textColor"/>
+                                                                            <color key="textColor" red="0.07871931791305542" green="0.078335985541343689" blue="0.086400941014289856" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </view>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="x8b-sq-aRk" firstAttribute="leading" secondItem="W3d-UO-ey6" secondAttribute="leading" constant="8" id="345-nn-gYR"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="x8b-sq-aRk" secondAttribute="trailing" constant="8" id="Buf-8h-WbY"/>
+                                                                    <constraint firstItem="x8b-sq-aRk" firstAttribute="leading" secondItem="W3d-UO-ey6" secondAttribute="leading" constant="7" id="345-nn-gYR"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="x8b-sq-aRk" secondAttribute="trailing" constant="6.5" id="Buf-8h-WbY"/>
                                                                     <constraint firstItem="36B-Dy-MWW" firstAttribute="leading" secondItem="W3d-UO-ey6" secondAttribute="leading" constant="4" id="NVy-pM-1ab"/>
                                                                     <constraint firstAttribute="trailing" secondItem="36B-Dy-MWW" secondAttribute="trailing" constant="4" id="Tkq-oo-oEv"/>
-                                                                    <constraint firstItem="36B-Dy-MWW" firstAttribute="top" secondItem="x8b-sq-aRk" secondAttribute="bottom" constant="9" id="edV-nU-IBp"/>
+                                                                    <constraint firstItem="36B-Dy-MWW" firstAttribute="top" secondItem="x8b-sq-aRk" secondAttribute="bottom" constant="6" id="edV-nU-IBp"/>
                                                                     <constraint firstItem="x8b-sq-aRk" firstAttribute="top" secondItem="W3d-UO-ey6" secondAttribute="top" id="nfw-KY-0J4"/>
                                                                 </constraints>
                                                                 <connections>
