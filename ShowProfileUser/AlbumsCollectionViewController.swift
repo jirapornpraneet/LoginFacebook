@@ -63,7 +63,6 @@ class AlbumsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if  userResourceData != nil {
             return (userResourceData.albums?.data?.count)!
-            
         } else {
             return 0
         }
