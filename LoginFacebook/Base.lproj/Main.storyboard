@@ -1367,13 +1367,6 @@
                                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconEmojiLike" translatesAutoresizingMaskIntoConstraints="NO" id="W6K-Zn-p5z">
-                                            <rect key="frame" x="12" y="82" width="49" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="49" id="6UB-qy-e1I"/>
-                                                <constraint firstAttribute="height" constant="18" id="xqm-OF-gFC"/>
-                                            </constraints>
-                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qzh-uv-N7v">
                                             <rect key="frame" x="7" y="8" width="34" height="33"/>
                                             <constraints>
@@ -1384,16 +1377,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ctY-dN-upK">
                                             <rect key="frame" x="7" y="64" width="306" height="6"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ความคิดเห็น 5 รายการ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7y-SW-ABc">
-                                            <rect key="frame" x="211" y="87" width="97" height="11"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="97" id="jeV-MO-R9p"/>
-                                                <constraint firstAttribute="height" constant="11" id="z5R-G6-mo9"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <color key="textColor" red="0.66880155460000001" green="0.66880155460000001" blue="0.66880155460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1I-AM-OkK">
                                             <rect key="frame" x="12" y="47" width="304" height="10"/>
                                             <constraints>
@@ -1449,12 +1432,10 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="2hf-Yf-ADc" firstAttribute="leading" secondItem="zy5-n0-4Fa" secondAttribute="trailing" constant="5" id="3U8-SB-6ML"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="b7y-SW-ABc" secondAttribute="trailing" constant="4" id="5je-As-9S4"/>
                                         <constraint firstItem="GIk-vL-WqD" firstAttribute="top" secondItem="cjc-9J-zJY" secondAttribute="top" constant="9" id="6Os-e5-kec"/>
                                         <constraint firstItem="qaw-Qg-Gzd" firstAttribute="leading" secondItem="UKw-rw-OSm" secondAttribute="trailing" constant="93" id="Abq-mr-wIZ"/>
                                         <constraint firstItem="2hf-Yf-ADc" firstAttribute="top" secondItem="cjc-9J-zJY" secondAttribute="topMargin" constant="4" id="BU7-nU-xQy"/>
                                         <constraint firstItem="lmT-ec-Uhm" firstAttribute="leading" secondItem="qzh-uv-N7v" secondAttribute="trailing" constant="4" id="EGE-7t-oab"/>
-                                        <constraint firstItem="qaw-Qg-Gzd" firstAttribute="top" secondItem="b7y-SW-ABc" secondAttribute="bottom" constant="7" id="GXy-EG-fG9"/>
                                         <constraint firstAttribute="trailing" secondItem="s1I-AM-OkK" secondAttribute="trailing" constant="4" id="Gok-Vz-AdO"/>
                                         <constraint firstItem="s1I-AM-OkK" firstAttribute="top" secondItem="qzh-uv-N7v" secondAttribute="bottom" constant="6" id="HLR-ym-MhO"/>
                                         <constraint firstAttribute="trailing" secondItem="qaw-Qg-Gzd" secondAttribute="trailing" constant="23" id="HWC-o8-Cl4"/>
@@ -1464,11 +1445,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="ctY-dN-upK" secondAttribute="bottom" constant="56.5" id="QAl-N6-kkd"/>
                                         <constraint firstItem="X7Y-TU-Xio" firstAttribute="top" secondItem="cjc-9J-zJY" secondAttribute="topMargin" constant="3" id="SVc-4Y-YZe"/>
                                         <constraint firstItem="GIk-vL-WqD" firstAttribute="leading" secondItem="X7Y-TU-Xio" secondAttribute="trailing" constant="5" id="bIy-cO-6gM"/>
-                                        <constraint firstItem="b7y-SW-ABc" firstAttribute="leading" secondItem="W6K-Zn-p5z" secondAttribute="trailing" constant="150" id="cUa-uF-1AJ"/>
                                         <constraint firstAttribute="bottom" secondItem="UKw-rw-OSm" secondAttribute="bottom" constant="6.5" id="deT-52-wrG"/>
                                         <constraint firstItem="qzh-uv-N7v" firstAttribute="leading" secondItem="cjc-9J-zJY" secondAttribute="leading" constant="7" id="eDl-uO-bXr"/>
                                         <constraint firstItem="zy5-n0-4Fa" firstAttribute="leading" secondItem="qzh-uv-N7v" secondAttribute="trailing" constant="4" id="jOj-4s-A0b"/>
-                                        <constraint firstItem="UKw-rw-OSm" firstAttribute="top" secondItem="W6K-Zn-p5z" secondAttribute="bottom" constant="5" id="l38-dY-9D5"/>
                                         <constraint firstItem="UKw-rw-OSm" firstAttribute="leading" secondItem="cjc-9J-zJY" secondAttribute="leading" constant="28" id="oql-vT-dyM"/>
                                         <constraint firstAttribute="bottom" secondItem="qaw-Qg-Gzd" secondAttribute="bottom" constant="3.5" id="p8X-QW-tlQ"/>
                                         <constraint firstItem="zy5-n0-4Fa" firstAttribute="top" secondItem="cjc-9J-zJY" secondAttribute="topMargin" constant="4" id="qIJ-zU-r6b"/>
@@ -1476,7 +1455,6 @@
                                         <constraint firstItem="s1I-AM-OkK" firstAttribute="leading" secondItem="cjc-9J-zJY" secondAttribute="leading" constant="12" id="uYZ-9x-o5a"/>
                                         <constraint firstItem="ctY-dN-upK" firstAttribute="leading" secondItem="cjc-9J-zJY" secondAttribute="leading" constant="7" id="wz0-DT-dG8"/>
                                         <constraint firstItem="ctY-dN-upK" firstAttribute="top" secondItem="cjc-9J-zJY" secondAttribute="topMargin" constant="56" id="yi4-0w-gkC"/>
-                                        <constraint firstItem="W6K-Zn-p5z" firstAttribute="leading" secondItem="cjc-9J-zJY" secondAttribute="leadingMargin" constant="4" id="zNZ-vm-kKA"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.13341047140000001" green="0.048128960110000001" blue="0.14522525380000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2289,7 +2267,6 @@
         <image name="iconEducation" width="43" height="34"/>
         <image name="iconEducationAbout" width="35" height="31"/>
         <image name="iconEke" width="100" height="100"/>
-        <image name="iconEmojiLike" width="156" height="59"/>
         <image name="iconEvent" width="210" height="50"/>
         <image name="iconFriend" width="100" height="100"/>
         <image name="iconFriends" width="26" height="26"/>
