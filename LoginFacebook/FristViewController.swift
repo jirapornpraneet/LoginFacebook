@@ -223,6 +223,84 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
+        let userResourcePostsCommentsDataCount = userResourceDataPosts?.comments?.data?.count
+        if userResourcePostsCommentsDataCount == nil {
+            cellFeedPostsFriendTableView.commentsFriendsButton.setTitle("", for: .normal)
+        } else {
+            cellFeedPostsFriendTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", userResourcePostsCommentsDataCount!), for: .normal)
+            cellFeedPostsFriendTableView.commentsFriendsButton.tag = indexPath.row
+            cellFeedPostsFriendTableView.commentsFriendsButton.contentHorizontalAlignment = .right
+        }
+              
+//        let cellUserResourcePostsDataReactionsData = cellUserResourcePostsData?.reactions?.data?[0]
+//        var cellUserResourcePostsDataReactionsDataCount = cellUserResourcePostsData?.reactions?.data?.count
+//        if cellUserResourcePostsDataReactionsData == nil && cellUserResourcePostsDataReactionsDataCount == nil {
+//            cellPostsUserTableView.reactionFriendsButton.setTitle("", for: .normal)
+//            cellUserResourcePostsDataReactionsDataCount = 0
+//            cellPostsUserTableView.iconReaction1ImageView.image = nil
+//        } else {
+//            
+//            let cellNameFriendReactions = cellUserResourcePostsDataReactionsData?.name
+//            let length = cellNameFriendReactions?.characters.count
+//            
+//            if length! >= 10 {
+//                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", cellUserResourcePostsDataReactionsDataCount!), for: .normal)
+//                cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
+//                cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
+//            } else {
+//                let reactionsCount = cellUserResourcePostsDataReactionsDataCount! - 1
+//                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellUserResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
+//                cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
+//                cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
+//            }
+//            
+//            let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
+//            
+//            if cellUserResourcePostsDataReactionType == "LIKE" {
+//                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
+//            } else if cellUserResourcePostsDataReactionType == "LOVE" {
+//                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
+//            } else if cellUserResourcePostsDataReactionType == "HAHA" {
+//                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
+//            } else if cellUserResourcePostsDataReactionType == "SAD" {
+//                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
+//            } else if cellUserResourcePostsDataReactionType == "WOW" {
+//                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
+//            } else {
+//                cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
+//            }
+//        }
+//        
+//        if cellUserResourcePostsDataReactionsDataCount == 1 {
+//            cellPostsUserTableView.iconReaction2ImageView.image = nil
+//        } else {
+//            let cellUserResourcePostsDataReactionDataIndex1 = cellUserResourcePostsData?.reactions?.data?[1]
+//            let cellUserResourcePostsDataReactionTypeIndex1 = cellUserResourcePostsDataReactionDataIndex1?.type
+//            let cellUserResourcePostsDataReactionType = cellUserResourcePostsDataReactionsData?.type
+//            if cellUserResourcePostsDataReactionDataIndex1 == nil {
+//                cellPostsUserTableView.iconReaction2ImageView.image = nil
+//            } else {
+//                if cellUserResourcePostsDataReactionTypeIndex1 == cellUserResourcePostsDataReactionType {
+//                    cellPostsUserTableView.iconReaction2ImageView.image = nil
+//                } else {
+//                    if cellUserResourcePostsDataReactionTypeIndex1 == "LIKE" {
+//                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
+//                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "LOVE" {
+//                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
+//                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "HAHA" {
+//                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
+//                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "SAD" {
+//                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
+//                    } else if cellUserResourcePostsDataReactionTypeIndex1 == "WOW" {
+//                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
+//                    } else {
+//                        cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
+//                    }
+//                }
+//            }
+//        }
+
+        
         return cellFeedPostsFriendTableView
     }
     
