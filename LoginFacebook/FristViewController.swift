@@ -53,6 +53,11 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         profileImageButton.layer.borderWidth = 2
         profileImageButton.layer.borderColor = UIColor.white.cgColor
         
+        self.tablePostsFriends.delegate = self
+        self.tablePostsFriends.dataSource = self
+        self.collectionviewStoryFriends.delegate = self
+        self.collectionviewStoryFriends.dataSource = self
+        
         if  let token = FBSDKAccessToken.current() {
             fetchUserResource()
             fetchUserResourceFriends()
@@ -61,7 +66,9 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             print("Show >>> ", token.tokenString)
         }
     }
+    
     // MARK: ViewController
+    
     var userResourceData: UserResourceData! = nil
     
     func fetchUserResource() {
@@ -141,13 +148,9 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             switch response.result {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
-                self.tablePostsFriends.delegate = self
-                self.tablePostsFriends.dataSource = self
-                self.tablePostsFriends.reloadData()
                 
-                self.collectionviewStoryFriends.delegate = self
-                self.collectionviewStoryFriends.dataSource = self
                 self.collectionviewStoryFriends.reloadData()
+                self.tablePostsFriends.reloadData()
                 
             case .failure(let error):
                 print(error)
@@ -171,28 +174,28 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let cellFeedPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFeedPostsFriendTableView", for: indexPath) as! FeedPostsFriendTableViewCell
         let cellUserResourceData = userResource.data?[indexPath.row]
         let cellUserResourceDataPosts = cellUserResourceData?.posts?.data?[0]
-
+        
         cellFeedPostsFriendTableView.namePostsLabel.text = cellUserResourceData?.name
         cellFeedPostsFriendTableView.messagePostsLabel.text = cellUserResourceDataPosts?.message
         cellFeedPostsFriendTableView.placePostsLabel.text = cellUserResourceDataPosts?.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 300, height: 300)
         cellFeedPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed: nil)
-
+        
         cellFeedPostsFriendTableView.profilePostsImageView.layer.masksToBounds = true
         cellFeedPostsFriendTableView.profilePostsImageView.layer.cornerRadius = 17
         
         let userResourceDataPostsCreatedTime = cellUserResourceDataPosts?.created_time
         if userResourceDataPostsCreatedTime  != nil {
-        let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormPostsDataCreatedTime = userResourceDataPostsCreatedTime
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: dateStringFormPostsDataCreatedTime!)
-        dateFormatter.locale = myLocale
-        dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
-        let dateString = dateFormatter.string(from: date!)
-        cellFeedPostsFriendTableView.createdTimePostsLabel.text = dateString
+            let myLocale = Locale(identifier: "th_TH")
+            let dateStringFormPostsDataCreatedTime = userResourceDataPostsCreatedTime
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            let date = dateFormatter.date(from: dateStringFormPostsDataCreatedTime!)
+            dateFormatter.locale = myLocale
+            dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
+            let dateString = dateFormatter.string(from: date!)
+            cellFeedPostsFriendTableView.createdTimePostsLabel.text = dateString
         } else {
             cellFeedPostsFriendTableView.createdTimePostsLabel.text = ""
         }
@@ -219,6 +222,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         return cellFeedPostsFriendTableView
     }
     
+    // MARK: CollectionView
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -234,12 +239,12 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellStoryFriendsCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellStoryFriendsCollectionView", for: indexPath) as! StoryFriendsCollectionViewCell
         
-        let cellUserResourceData = userResource.data?[indexPath.row]
-        cellStoryFriendsCollectionView.nameFriendsLabel.text = cellUserResourceData?.name
-
-        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellUserResourceData?.picture?.data?.url)!, width: 120, height: 120)
+        let userResourceData = userResource.data?[indexPath.row]
+        cellStoryFriendsCollectionView.nameFriendsLabel.text = userResourceData?.name
+        
+        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 120, height: 120)
         cellStoryFriendsCollectionView.storyFriendsImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
-   
+        
         return cellStoryFriendsCollectionView
         
     }
