@@ -72,7 +72,7 @@ class DetailFriendViewController: UITableViewController {
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: getUserResourceDataProfileImageUrl, width: 150, height: 150)
         profileFriendImageView.sd_setImage(with: profileImageUrl, completed:nil)
-
+        
         let tapZoomPictureProfile = UITapGestureRecognizer(target: self, action: #selector(DetailFriendViewController.ZoomPictureProfile))
         profileFriendImageView.addGestureRecognizer(tapZoomPictureProfile)
         profileFriendImageView.isUserInteractionEnabled = true
@@ -115,7 +115,7 @@ class DetailFriendViewController: UITableViewController {
             self.profileUserImage.contentMode = UIViewContentMode.scaleAspectFit
         }
     }
-
+    
     func ZoomPictureProfile() {
         var pictureDataURLimages = [SKPhoto]()
         let photoDataURL = SKPhoto.photoWithImageURL(getUserResourceDataProfileImageUrl)
@@ -146,10 +146,10 @@ class DetailFriendViewController: UITableViewController {
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -218,75 +218,75 @@ class DetailFriendViewController: UITableViewController {
             cellPostsFriendTableView.commentsFriendsButton.contentHorizontalAlignment = .right
         }
         
-//        let userResourcePostsReactionsData = userResourceDataPosts?.reactions?.data?[0]
-//        var userResourcePostsReactionsDataCount = userResourceDataPosts?.reactions?.data?.count
-//        
-//        if userResourcePostsReactionsData == nil && userResourcePostsReactionsDataCount == nil {
-//            cellFeedPostsFriendTableView.reactionFriendsButton.setTitle("", for: .normal)
-//            userResourcePostsReactionsDataCount = 0
-//            cellFeedPostsFriendTableView.iconReaction1ImageView.image = nil
-//        } else {
-//            
-//            let nameFriendReactions = userResourcePostsReactionsData?.name
-//            let length = nameFriendReactions?.characters.count
-//            
-//            if length! >= 10 {
-//                cellFeedPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%i", userResourcePostsReactionsDataCount!), for: .normal)
-//                cellFeedPostsFriendTableView.reactionFriendsButton.tag = indexPath.row
-//                cellFeedPostsFriendTableView.reactionFriendsButton.contentHorizontalAlignment = .left
-//            } else {
-//                let reactionCount = userResourcePostsReactionsDataCount! - 1
-//                cellFeedPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (userResourcePostsReactionsData?.name)!, reactionCount), for: .normal)
-//                cellFeedPostsFriendTableView.reactionFriendsButton.tag = indexPath.row
-//                cellFeedPostsFriendTableView.reactionFriendsButton.contentHorizontalAlignment = .left
-//            }
-//            
-//            let dataReactionsType = userResourcePostsReactionsData?.type
-//            
-//            if dataReactionsType == "LIKE" {
-//                cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
-//            } else if  dataReactionsType == "LOVE" {
-//                cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
-//            } else if dataReactionsType == "HAHA" {
-//                cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
-//            } else if dataReactionsType == "SAD" {
-//                cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
-//            } else if dataReactionsType == "WOW" {
-//                cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
-//            } else {
-//                cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
-//            }
-//        }
-//        
-//        if userResourcePostsReactionsDataCount == 1 {
-//            cellFeedPostsFriendTableView.iconReaction2ImageView.image = nil
-//        } else {
-//            let dataReactionsIndex1 = userResourceDataPosts?.reactions?.data?[1]
-//            let dataReactionsTypeIndex1 = dataReactionsIndex1?.type
-//            let dataReactionsType = userResourcePostsReactionsData?.type
-//            if dataReactionsIndex1 == nil {
-//                cellFeedPostsFriendTableView.iconReaction2ImageView.image = nil
-//            } else {
-//                if dataReactionsTypeIndex1 == dataReactionsType {
-//                    cellFeedPostsFriendTableView.iconReaction2ImageView.image = nil
-//                } else {
-//                    if dataReactionsTypeIndex1 == "LIKE" {
-//                        cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
-//                    } else if dataReactionsTypeIndex1 == "LOVE" {
-//                        cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
-//                    } else if dataReactionsTypeIndex1 == "HAHA" {
-//                        cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
-//                    } else if dataReactionsTypeIndex1 == "SAD" {
-//                        cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
-//                    } else if dataReactionsTypeIndex1 == "WOW" {
-//                        cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
-//                    } else {
-//                        cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
-//                    }
-//                }
-//            }
-//        }
-
+        let userResourcePostsReactionsData = cellPostsData.reactions?.data?[0]
+        var userResourcePostsReactionsDataCount = cellPostsData.reactions?.data?.count
+        
+        if userResourcePostsReactionsData == nil && userResourcePostsReactionsDataCount == nil {
+            cellPostsFriendTableView.reactionFriendsButton.setTitle("", for: .normal)
+            userResourcePostsReactionsDataCount = 0
+            cellPostsFriendTableView.iconReaction1ImageView.image = nil
+        } else {
+            
+            let nameFriendReactions = userResourcePostsReactionsData?.name
+            let length = nameFriendReactions?.characters.count
+            
+            if length! >= 10 {
+                cellPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%i", userResourcePostsReactionsDataCount!), for: .normal)
+                cellPostsFriendTableView.reactionFriendsButton.tag = indexPath.row
+                cellPostsFriendTableView.reactionFriendsButton.contentHorizontalAlignment = .left
+            } else {
+                let reactionCount = userResourcePostsReactionsDataCount! - 1
+                cellPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (userResourcePostsReactionsData?.name)!, reactionCount), for: .normal)
+                cellPostsFriendTableView.reactionFriendsButton.tag = indexPath.row
+                cellPostsFriendTableView.reactionFriendsButton.contentHorizontalAlignment = .left
+            }
+            
+            let dataReactionsType = userResourcePostsReactionsData?.type
+            
+            if dataReactionsType == "LIKE" {
+                cellPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
+            } else if  dataReactionsType == "LOVE" {
+                cellPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
+            } else if dataReactionsType == "HAHA" {
+                cellPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
+            } else if dataReactionsType == "SAD" {
+                cellPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
+            } else if dataReactionsType == "WOW" {
+                cellPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
+            } else {
+                cellPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
+            }
+        }
+        
+        if userResourcePostsReactionsDataCount == 1 {
+            cellPostsFriendTableView.iconReaction2ImageView.image = nil
+        } else {
+            let dataReactionsIndex1 = cellPostsData.reactions?.data?[1]
+            let dataReactionsTypeIndex1 = dataReactionsIndex1?.type
+            let dataReactionsType = userResourcePostsReactionsData?.type
+            if dataReactionsIndex1 == nil {
+                cellPostsFriendTableView.iconReaction2ImageView.image = nil
+            } else {
+                if dataReactionsTypeIndex1 == dataReactionsType {
+                    cellPostsFriendTableView.iconReaction2ImageView.image = nil
+                } else {
+                    if dataReactionsTypeIndex1 == "LIKE" {
+                        cellPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
+                    } else if dataReactionsTypeIndex1 == "LOVE" {
+                        cellPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
+                    } else if dataReactionsTypeIndex1 == "HAHA" {
+                        cellPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
+                    } else if dataReactionsTypeIndex1 == "SAD" {
+                        cellPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
+                    } else if dataReactionsTypeIndex1 == "WOW" {
+                        cellPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
+                    } else {
+                        cellPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
+                    }
+                }
+            }
+        }
+        
         return cellPostsFriendTableView
     }
     
