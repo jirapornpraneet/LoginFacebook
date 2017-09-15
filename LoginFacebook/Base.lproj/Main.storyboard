@@ -391,13 +391,17 @@
                                                         <color key="backgroundColor" red="0.13341047140000001" green="0.048128960110000001" blue="0.14522525380000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <connections>
                                                             <outlet property="atPlacePostsLabel" destination="GjH-y5-vdb" id="a4c-h1-PNp"/>
+                                                            <outlet property="commentsFriendsButton" destination="wXm-qy-Zrq" id="QEH-Np-SXz"/>
                                                             <outlet property="createdTimePostsLabel" destination="fSD-SF-SY6" id="PWl-qO-zK6"/>
                                                             <outlet property="iconCheckInPostsImageView" destination="Hm6-N8-RbR" id="gk8-df-1rX"/>
+                                                            <outlet property="iconReaction1ImageView" destination="uUT-HB-5mJ" id="Rth-DY-r94"/>
+                                                            <outlet property="iconReaction2ImageView" destination="dEG-OH-BUq" id="UHI-Jd-XmT"/>
                                                             <outlet property="messagePostsLabel" destination="0DH-wr-zci" id="zBz-b5-yIU"/>
                                                             <outlet property="namePostsLabel" destination="jbn-gY-LB3" id="Tak-Ue-bhN"/>
                                                             <outlet property="picturePostsImageView" destination="RXT-Uc-8TS" id="vnv-bO-Qf1"/>
                                                             <outlet property="placePostsLabel" destination="HbV-6E-AhV" id="ynH-47-zRX"/>
                                                             <outlet property="profilePostsImageView" destination="7Yw-uI-5L7" id="0ia-FZ-nua"/>
+                                                            <outlet property="reactionFriendsButton" destination="Tz1-61-WTB" id="9j8-vG-UYt"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
