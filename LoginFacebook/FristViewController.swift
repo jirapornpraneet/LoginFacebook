@@ -36,7 +36,7 @@ class StoryFriendsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameFriendsLabel: UILabel!
 }
 
-class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource , UIPopoverPresentationControllerDelegate{
     
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var loginButton: FBSDKLoginButton!
@@ -332,4 +332,53 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         return cellStoryFriendsCollectionView
         
     }
+    
+    // MARK: PopOver Reaction and Comments
+    
+    @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
+        
+        let senderReactionFriendsButton = sender as! UIButton
+        let getUserResourcePostsData = userResourceData.posts?.data?[senderReactionFriendsButton.tag]
+        let getUserResourcePostsDataReaction = getUserResourcePostsData?.reactions?.data
+        let getUserResourcePostsDataReactionData = getUserResourcePostsDataReaction!
+        let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
+        let getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
+        
+        let popReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReactionFriendsTableView") as! ReactionFriendsTableViewController
+        popReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popReactionFriendsTableViewController.popoverPresentationController?.delegate = self
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
+        popReactionFriendsTableViewController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
+        
+        self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
+        
+        let senderCommentsFriendsButton = sender as! UIButton
+        let getUserResourcePostsData = userResourceData.posts?.data?[senderCommentsFriendsButton.tag]
+        let getUserResourcePostsDataComments = getUserResourcePostsData?.comments?.data
+        let getUserResourcePostsDataCommentsData = getUserResourcePostsDataComments!
+        let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
+        let getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
+        
+        let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
+        popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
+        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
+        
+        self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
+    }
+
 }
