@@ -144,7 +144,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     var userResource: UserResource! = nil
     
     func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAOvRyc7kiQmoGFhchcit5JEsqUaryXVIElnfnGyzNVy2QE7FLZCueZA5oDWnsT1ImHgPFfv1NXEip2Fe6wCd6iAjfv8OmJKxRKMVHeudjPhLGnwCYs6bt9vCQLb4JmxQuCxIbLwsw97pMd7rY5YyGJMjI1emxKXe9UjDftkZBd8vFSDFsbB6yvqrMsW6AZDZD")
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAJfrU8oKikPrnfOfZBhHmsU5RrWpOPN8YdM6GVayZCwA5mkeU81EG4ZAXTfnj4bZAbqLql6MvFNt2bOP1Jyqd6MdZAfJ9GuStN15y6tLMRyfNhhb0lu2ZBBfjzkZAx1qx6M7CR20i6y6byYg5JLx7JhZCPcI5tBUOCvNP04NKElgMqYE0zmv508CYXBQ5PO0hgZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
@@ -175,22 +175,22 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellFeedPostsFriendTableView = tableView.dequeueReusableCell(withIdentifier: "cellFeedPostsFriendTableView", for: indexPath) as! FeedPostsFriendTableViewCell
-        let userResourceData = userResource.data?[indexPath.row]
-        let userResourceDataPosts = userResourceData?.posts?.data?[0]
+        let cellData = userResource.data?[indexPath.row]
+        let cellDataPosts = cellData?.posts?.data?[0]
         
-        cellFeedPostsFriendTableView.messagePostsLabel.text = userResourceDataPosts?.message
-        cellFeedPostsFriendTableView.placePostsLabel.text = userResourceDataPosts?.place?.name
+        cellFeedPostsFriendTableView.messagePostsLabel.text = cellDataPosts?.message
+        cellFeedPostsFriendTableView.placePostsLabel.text = cellDataPosts?.place?.name
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 300, height: 300)
+        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.picture?.data?.url)!, width: 300, height: 300)
         cellFeedPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed: nil)
         
         cellFeedPostsFriendTableView.profilePostsImageView.layer.masksToBounds = true
         cellFeedPostsFriendTableView.profilePostsImageView.layer.cornerRadius = 17
         
-        let userResourceDataPostsCreatedTime = userResourceDataPosts?.created_time
-        if userResourceDataPostsCreatedTime  != nil {
+        let cellDataPostsCreatedTime = cellDataPosts?.created_time
+        if cellDataPostsCreatedTime  != nil {
             let myLocale = Locale(identifier: "th_TH")
-            let dateStringFormPostsDataCreatedTime = userResourceDataPostsCreatedTime
+            let dateStringFormPostsDataCreatedTime = cellDataPostsCreatedTime
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
             let date = dateFormatter.date(from: dateStringFormPostsDataCreatedTime!)
@@ -202,26 +202,26 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             cellFeedPostsFriendTableView.createdTimePostsLabel.text = ""
         }
         
-        let userResourceDataPostsPicture = userResourceDataPosts?.full_picture
-        if userResourceDataPostsPicture != nil && userResourceDataPostsPicture != "" {
+        let cellDataPostsPicture = cellDataPosts?.full_picture
+        if cellDataPostsPicture != nil && cellDataPostsPicture != "" {
             tablePostsFriends.rowHeight = 400
-            cellFeedPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (userResourceDataPostsPicture)!), completed: nil)
+            cellFeedPostsFriendTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellDataPostsPicture)!), completed: nil)
             cellFeedPostsFriendTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
         } else {
             tablePostsFriends.rowHeight = 125
             cellFeedPostsFriendTableView.picturePostsImageView.image = nil
         }
         
-        let userResourceDataPostsPlace = userResourceDataPosts?.place
-        if userResourceDataPostsPlace == nil {
-            cellFeedPostsFriendTableView.namePostsLabel.text = userResourceData?.name
+        let cellDataPostsPlace = cellDataPosts?.place
+        if cellDataPostsPlace == nil {
+            cellFeedPostsFriendTableView.namePostsLabel.text = cellData?.name
             cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = nil
         } else {
-            cellFeedPostsFriendTableView.namePostsLabel.text = String(format:"%@   %ที่", (userResourceData?.name)!)
+            cellFeedPostsFriendTableView.namePostsLabel.text = String(format:"%@   %ที่", (cellData?.name)!)
             cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
-        let userResourcePostsCommentsDataCount = userResourceDataPosts?.comments?.data?.count
+        let userResourcePostsCommentsDataCount = cellDataPosts?.comments?.data?.count
         if userResourcePostsCommentsDataCount == nil {
             cellFeedPostsFriendTableView.commentsFriendsButton.setTitle("", for: .normal)
         } else {
@@ -230,8 +230,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             cellFeedPostsFriendTableView.commentsFriendsButton.contentHorizontalAlignment = .right
         }
         
-        let userResourcePostsReactionsData = userResourceDataPosts?.reactions?.data?[0]
-        var userResourcePostsReactionsDataCount = userResourceDataPosts?.reactions?.data?.count
+        let userResourcePostsReactionsData = cellDataPosts?.reactions?.data?[0]
+        var userResourcePostsReactionsDataCount = cellDataPosts?.reactions?.data?.count
         
         if userResourcePostsReactionsData == nil && userResourcePostsReactionsDataCount == nil {
             cellFeedPostsFriendTableView.reactionFriendsButton.setTitle("", for: .normal)
@@ -273,7 +273,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         if userResourcePostsReactionsDataCount == 1 {
             cellFeedPostsFriendTableView.iconReaction2ImageView.image = nil
         } else {
-            let dataReactionsIndex1 = userResourceDataPosts?.reactions?.data?[1]
+            let dataReactionsIndex1 = cellDataPosts?.reactions?.data?[1]
             let dataReactionsTypeIndex1 = dataReactionsIndex1?.type
             let dataReactionsType = userResourcePostsReactionsData?.type
             if dataReactionsIndex1 == nil {
@@ -318,10 +318,10 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellStoryFriendsCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellStoryFriendsCollectionView", for: indexPath) as! StoryFriendsCollectionViewCell
         
-        let userResourceData = userResource.data?[indexPath.row]
-        cellStoryFriendsCollectionView.nameFriendsLabel.text = userResourceData?.name
+        let cellData = userResource.data?[indexPath.row]
+        cellStoryFriendsCollectionView.nameFriendsLabel.text = cellData?.name
         
-        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourceData?.picture?.data?.url)!, width: 300, height: 300)
+        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.picture?.data?.url)!, width: 300, height: 300)
         cellStoryFriendsCollectionView.storyFriendsImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
         
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.masksToBounds = true
