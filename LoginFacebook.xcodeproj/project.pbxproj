@@ -207,12 +207,13 @@
 			path = "Function Helper";
 			sourceTree = SOURCE_ROOT;
 		};
-		ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */ = {
+		ABDB42571F4BDBFD001586A6 /* AlbumsPhotosViewController */ = {
 			isa = PBXGroup;
 			children = (
 				ABA416371F46AF9300BD9BC1 /* AlbumsCollectionViewController.swift */,
 				ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */,
 			);
+			name = AlbumsPhotosViewController;
 			path = AlbumsPhotosUser;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -235,7 +236,7 @@
 				AB91A0401F5817AE00D7D84A /* CommentsFriendsTableViewController.swift */,
 				AB91A0421F58183200D7D84A /* CommentsTableViewController.swift */,
 				AB1CB2221F5FA5C100F6FD7B /* AboutProfileViewController.swift */,
-				ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */,
+				ABDB42571F4BDBFD001586A6 /* AlbumsPhotosViewController */,
 			);
 			name = ViewController;
 			path = ShowProfileUser;
