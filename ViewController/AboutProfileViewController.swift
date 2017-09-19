@@ -125,6 +125,8 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
             let userResourceDataRelationShip = self.userResourceData.relationship_status
             self.ralationshipLabel.text = userResourceDataRelationShip
             
+            self.tableFriends.reloadData()
+            
             self.tableMovie.reloadData()
             
             self.tableMusic.reloadData()
@@ -138,16 +140,13 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     var userResource: UserResource! = nil
     
     func getDataUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBAOvRyc7kiQmoGFhchcit5JEsqUaryXVIElnfnGyzNVy2QE7FLZCueZA5oDWnsT1ImHgPFfv1NXEip2Fe6wCd6iAjfv8OmJKxRKMVHeudjPhLGnwCYs6bt9vCQLb4JmxQuCxIbLwsw97pMd7rY5YyGJMjI1emxKXe9UjDftkZBd8vFSDFsbB6yvqrMsW6AZDZD")
+        var url = String(format:"https://graph.facebook.com/me/friends?fields=name,picture.type(large)&access_token=EAACEdEose0cBABe7FbP1xkPj85qeqWZCOzZBr6cpdZBSE4A9eq3aXJYB61xtAer9VHKUHz4kRzgnavqEI8LL5ETRUK8jHMJXWy9aHXNMFCD1hKbaLbMuMdMWITz5j1NUmuwGPu2wk3C6dZCV47OJ1GfLkwzpx0UC5ejO5rJ7u3FtVQ9BtFCIdbQ0PZBZBZBrkQWc3xmIMe5jAZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             print(response)
             switch response.result {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
-
-                self.tableFriends.reloadData()
-                
             case .failure(let error):
                 print(error)
             }
@@ -161,14 +160,18 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == tableFriends {
-            return 4
-        } else if tableView == tableMusic {
-            return 4
-        } else if tableView == tableMovie {
-            return 4
+        if userResourceData != nil && userResource != nil {
+            if tableView == tableFriends {
+                return 4
+            } else if tableView == tableMusic {
+                return 4
+            } else if tableView == tableMovie {
+                return 4
+            } else {
+                return 4
+            }
         } else {
-            return 4
+            return 0
         }
     }
     
@@ -232,7 +235,11 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        if  userResourceData != nil {
+            return 8
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -240,7 +247,7 @@ class AboutProfileViewController: UIViewController, UITableViewDataSource, UITab
         
         let userResourceAlbumsData = userResourceData.albums?.data?[indexPath.row]
         let userResourcePhotosData = userResourceAlbumsData?.photos?.data?[indexPath.row]
-    
+        
         let pictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (userResourcePhotosData?.picture)!, width: 120, height: 120)
         cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: pictureTelevisionImageUrl, completed: nil)
         
