@@ -84,7 +84,7 @@
                     <tabBarItem key="tabBarItem" title="" image="iconFriends" id="w3l-Xv-u4r"/>
                     <navigationItem key="navigationItem" id="ReM-i6-nRs"/>
                     <connections>
-                        <segue destination="R9R-l5-Gwy" kind="show" id="18e-J4-gpF"/>
+                        <segue destination="R9R-l5-Gwy" kind="show" identifier="DetailFriendViewController" id="18e-J4-gpF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAd-AO-CKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
