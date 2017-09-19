@@ -193,6 +193,7 @@
 		AB34E2A11F70D20E00184401 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AB292EBA1F3085B10088896D /* UserResource.swift */,
 			);
 			path = Resource;
 			sourceTree = SOURCE_ROOT;
@@ -228,7 +229,6 @@
 		ABDB61B21F3AF47000CAD71D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AB292EBA1F3085B10088896D /* UserResource.swift */,
 				ABAAC0331F3453AA000B42F3 /* FristViewController.swift */,
 				AB33440E1F29BA3000F20846 /* ProfileViewController.swift */,
 				AB91A03C1F58135900D7D84A /* ReactionFriendsTableViewController.swift */,
