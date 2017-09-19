@@ -379,7 +379,7 @@
                                                                         <color key="titleColor" red="0.61176470589999998" green="0.62352941179999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     </state>
                                                                     <connections>
-                                                                        <action selector="clickButtonToViewCommentsFriendsTableViewController:" destination="XTy-WA-W6X" eventType="touchUpInside" id="ovv-hv-nCY"/>
+                                                                        <action selector="clickButtonToViewCommentsFriendsTableViewController:" destination="Fhu-NT-lmh" eventType="touchUpInside" id="ELJ-Nm-vi8"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbn-gY-LB3">
@@ -1735,7 +1735,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="CommentsFriendsTableView" id="9K5-XI-o34" customClass="CommentsFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJf-M6-SLg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1823,7 +1823,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="CommentsView" id="oIg-l3-HvX" customClass="CommentsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="JuK-Lt-aPz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -2348,6 +2348,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="2by-pi-m5Q"/>
         <segue reference="tu9-YV-hSf"/>
-        <segue reference="qcw-xZ-Cnh"/>
+        <segue reference="KVF-ZU-yes"/>
     </inferredMetricsTieBreakers>
 </document>
