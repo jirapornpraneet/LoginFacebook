@@ -328,6 +328,12 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         return cellStoryFriendsCollectionView
     }
     
+    @IBAction func clickButtonToShowProfileUserViewController(_ sender: Any) {
+        
+        let showProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            self.present(showProfileViewController, animated: true, completion: nil)
+    }
+    
     @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
         
         let senderReactionFriendsButton = sender as! UIButton
@@ -351,6 +357,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
     }
+    
+    
     
     @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
         
