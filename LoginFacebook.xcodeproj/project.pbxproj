@@ -161,7 +161,6 @@
 				AB442AA21F42CE9F00C17A41 /* Function Helper */,
 				ABDB61B21F3AF47000CAD71D /* ViewController */,
 				ABDB61B11F3AF43E00CAD71D /* ShowFriend */,
-				ABDB61AF1F3AF3FA00CAD71D /* FristViewApp */,
 				AB33440C1F29BA3000F20846 /* AppDelegate.swift */,
 				AB3344101F29BA3000F20846 /* Main.storyboard */,
 				AB3344131F29BA3000F20846 /* Assets.xcassets */,
@@ -206,13 +205,6 @@
 				ABA416351F46A9F900BD9BC1 /* PhotosAlbumsCollectionViewController.swift */,
 			);
 			path = AlbumsPhotosUser;
-			sourceTree = SOURCE_ROOT;
-		};
-		ABDB61AF1F3AF3FA00CAD71D /* FristViewApp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FristViewApp;
 			sourceTree = SOURCE_ROOT;
 		};
 		ABDB61B11F3AF43E00CAD71D /* ShowFriend */ = {
