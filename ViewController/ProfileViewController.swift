@@ -219,22 +219,22 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellPostsUserTableView = tableView.dequeueReusableCell(withIdentifier: "cellPostsUserTableView", for: indexPath) as! PostsUserTableViewCell
-        let userResourcePostsData = userResourceData.posts?.data?[indexPath.row]
+        let cellDataPosts = userResourceData.posts?.data?[indexPath.row]
         
-        cellPostsUserTableView.messagePostsLabel.text = (userResourcePostsData?.message)!
+        cellPostsUserTableView.messagePostsLabel.text = (cellDataPosts?.message)!
         
-        cellPostsUserTableView.placePostsLabel.text = userResourcePostsData?.place?.name
+        cellPostsUserTableView.placePostsLabel.text = cellDataPosts?.place?.name
         
         let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
         cellPostsUserTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
         
-        let userResourcePostsDataFullPicture = userResourcePostsData?.full_picture
-        if  userResourcePostsDataFullPicture  == "" {
+        let cellDataPostsFullPicture = cellDataPosts?.full_picture
+        if  cellDataPostsFullPicture  == "" {
             tablePosts.rowHeight = 135
             cellPostsUserTableView.picturePostsImageView.image = nil
         } else {
             tablePosts.rowHeight = 400
-            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (userResourcePostsData?.full_picture)!), completed: nil)
+            cellPostsUserTableView.picturePostsImageView.sd_setImage(with: URL(string: (cellDataPosts?.full_picture)!), completed: nil)
             cellPostsUserTableView.picturePostsImageView.contentMode = UIViewContentMode.scaleAspectFit
             
             let tapZoomPicturePosts = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.ZoomPicture​Posts(_:)))
@@ -244,18 +244,18 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         }
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormUserResourcePostsDataCreatedTime = userResourcePostsData?.created_time
+        let dateStringFormCellDataPostsCreatedTime = cellDataPosts?.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: dateStringFormUserResourcePostsDataCreatedTime!)
+        let date = dateFormatter.date(from: dateStringFormCellDataPostsCreatedTime!)
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)
         cellPostsUserTableView.createdTimePostsLabel.text = dateString
         
-        let userResourcePostsDataPlacePosts = userResourcePostsData?.place
+        let cellDataPostsPlacePosts = cellDataPosts?.place
         
-        if userResourcePostsDataPlacePosts == nil {
+        if cellDataPostsPlacePosts == nil {
             cellPostsUserTableView.iconCheckInPostsImageView.image = nil
             cellPostsUserTableView.namePostsLabel.text = String(format:"%@", self.userResourceDataName)
         } else {
@@ -263,75 +263,75 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
             cellPostsUserTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
-        let userResourcePostsDataCommentsDataCount = userResourcePostsData?.comments?.data?.count
-        if userResourcePostsDataCommentsDataCount == nil {
+        let cellDataPostsCommentsDataCount = cellDataPosts?.comments?.data?.count
+        if cellDataPostsCommentsDataCount == nil {
             cellPostsUserTableView.commentsFriendsButton.setTitle("", for: .normal)
         } else {
-            cellPostsUserTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", userResourcePostsDataCommentsDataCount!), for: .normal)
+            cellPostsUserTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", cellDataPostsCommentsDataCount!), for: .normal)
             cellPostsUserTableView.commentsFriendsButton.tag = indexPath.row
             cellPostsUserTableView.commentsFriendsButton.contentHorizontalAlignment = .right
         }
         
-        let userResourcePostsDataReactionsData = userResourcePostsData?.reactions?.data?[0]
-        var userResourcePostsDataReactionsDataCount = userResourcePostsData?.reactions?.data?.count
-        if userResourcePostsDataReactionsData == nil && userResourcePostsDataReactionsDataCount == nil {
+        let cellDataPostsReactionsData = cellDataPosts?.reactions?.data?[0]
+        var cellDataPostsReactionsDataCount = cellDataPosts?.reactions?.data?.count
+        if cellDataPostsReactionsData == nil && cellDataPostsReactionsDataCount == nil {
             cellPostsUserTableView.reactionFriendsButton.setTitle("", for: .normal)
-            userResourcePostsDataReactionsDataCount = 0
+            cellDataPostsReactionsDataCount = 0
             cellPostsUserTableView.iconReaction1ImageView.image = nil
         } else {
             
-            let cellNameFriendReactions = userResourcePostsDataReactionsData?.name
+            let cellNameFriendReactions = cellDataPostsReactionsData?.name
             let length = cellNameFriendReactions?.characters.count
             
             if length! >= 10 {
-                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", userResourcePostsDataReactionsDataCount!), for: .normal)
+                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", cellDataPostsReactionsDataCount!), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
                 cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             } else {
-                let reactionsCount = userResourcePostsDataReactionsDataCount! - 1
-                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (userResourcePostsDataReactionsData?.name)!, reactionsCount), for: .normal)
+                let reactionsCount = cellDataPostsReactionsDataCount! - 1
+                cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellDataPostsReactionsData?.name)!, reactionsCount), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
                 cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             }
             
-            let userResourcePostsDataReactionType = userResourcePostsDataReactionsData?.type
+            let cellDataPostsReactionType = cellDataPostsReactionsData?.type
             
-            if userResourcePostsDataReactionType == "LIKE" {
+            if cellDataPostsReactionType == "LIKE" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
-            } else if userResourcePostsDataReactionType == "LOVE" {
+            } else if cellDataPostsReactionType == "LOVE" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
-            } else if userResourcePostsDataReactionType == "HAHA" {
+            } else if cellDataPostsReactionType == "HAHA" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
-            } else if userResourcePostsDataReactionType == "SAD" {
+            } else if cellDataPostsReactionType == "SAD" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
-            } else if userResourcePostsDataReactionType == "WOW" {
+            } else if cellDataPostsReactionType == "WOW" {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
             } else {
                 cellPostsUserTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
             }
         }
         
-        if userResourcePostsDataReactionsDataCount == 1 {
+        if cellDataPostsReactionsDataCount == 1 {
             cellPostsUserTableView.iconReaction2ImageView.image = nil
         } else {
-            let userResourcePostsDataReactionDataIndex1 = userResourcePostsData?.reactions?.data?[1]
-            let userResourcePostsDataReactionTypeIndex1 = userResourcePostsDataReactionDataIndex1?.type
-            let userResourcePostsDataReactionType = userResourcePostsDataReactionsData?.type
-            if userResourcePostsDataReactionDataIndex1 == nil {
+            let cellDataPostsReactionDataIndex1 = cellDataPosts?.reactions?.data?[1]
+            let cellDataPostsReactionTypeIndex1 = cellDataPostsReactionDataIndex1?.type
+            let cellDataPostsReactionType = cellDataPostsReactionsData?.type
+            if cellDataPostsReactionDataIndex1 == nil {
                 cellPostsUserTableView.iconReaction2ImageView.image = nil
             } else {
-                if userResourcePostsDataReactionTypeIndex1 == userResourcePostsDataReactionType {
+                if cellDataPostsReactionTypeIndex1 == cellDataPostsReactionType {
                     cellPostsUserTableView.iconReaction2ImageView.image = nil
                 } else {
-                    if userResourcePostsDataReactionTypeIndex1 == "LIKE" {
+                    if cellDataPostsReactionTypeIndex1 == "LIKE" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "LOVE" {
+                    } else if cellDataPostsReactionTypeIndex1 == "LOVE" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "HAHA" {
+                    } else if cellDataPostsReactionTypeIndex1 == "HAHA" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "SAD" {
+                    } else if cellDataPostsReactionTypeIndex1 == "SAD" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
-                    } else if userResourcePostsDataReactionTypeIndex1 == "WOW" {
+                    } else if cellDataPostsReactionTypeIndex1 == "WOW" {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
                     } else {
                         cellPostsUserTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
@@ -345,11 +345,11 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
         
         let senderReactionFriendsButton = sender as! UIButton
-        let getUserResourcePostsData = userResourceData.posts?.data?[senderReactionFriendsButton.tag]
-        let getUserResourcePostsDataReaction = getUserResourcePostsData?.reactions?.data
-        let getUserResourcePostsDataReactionData = getUserResourcePostsDataReaction!
-        let getUserResourcePostsDataCount = getUserResourcePostsData?.reactions?.data?.count
-        let getUserResourcePostsDataReactionCount = getUserResourcePostsDataCount!
+        let getCellDataPosts = userResourceData.posts?.data?[senderReactionFriendsButton.tag]
+        let getCellDataPostsReaction = getCellDataPosts?.reactions?.data
+        let getCellDataPostsReactionData = getCellDataPostsReaction!
+        let getCellDataPostsCount = getCellDataPosts?.reactions?.data?.count
+        let getCellDataPostsReactionCount = getCellDataPostsCount!
         
         let popReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReactionFriendsTableView") as! ReactionFriendsTableViewController
         popReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -359,8 +359,8 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         popReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
         popReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getUserResourcePostsDataReactionData
-        popReactionFriendsTableViewController.setUserResourcePostsDataReactionCount = getUserResourcePostsDataReactionCount
+        popReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getCellDataPostsReactionData
+        popReactionFriendsTableViewController.setUserResourcePostsDataReactionCount = getCellDataPostsReactionCount
         
         self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
     }
@@ -368,11 +368,11 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
         
         let senderCommentsFriendsButton = sender as! UIButton
-        let getUserResourcePostsData = userResourceData.posts?.data?[senderCommentsFriendsButton.tag]
-        let getUserResourcePostsDataComments = getUserResourcePostsData?.comments?.data
-        let getUserResourcePostsDataCommentsData = getUserResourcePostsDataComments!
-        let getUserResourcePostsDataCount = getUserResourcePostsData?.comments?.data?.count
-        let getUserResourcePostsDataCommentsCount = getUserResourcePostsDataCount!
+        let getCellDataPosts = userResourceData.posts?.data?[senderCommentsFriendsButton.tag]
+        let getCellDataPostsComments = getCellDataPosts?.comments?.data
+        let getCellDataPostsCommentsData = getCellDataPostsComments!
+        let getCellDataPostsCount = getCellDataPosts?.comments?.data?.count
+        let getCellDataPostsCommentsCount = getCellDataPostsCount!
         
         let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
         popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -382,8 +382,8 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
         popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getUserResourcePostsDataCommentsData
-        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getUserResourcePostsDataCommentsCount
+        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getCellDataPostsCommentsData
+        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getCellDataPostsCommentsCount
         
         self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
     }
