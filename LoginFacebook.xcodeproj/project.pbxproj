@@ -211,7 +211,6 @@
 		ABDB61AF1F3AF3FA00CAD71D /* FristViewApp */ = {
 			isa = PBXGroup;
 			children = (
-				ABAAC0331F3453AA000B42F3 /* FristViewController.swift */,
 			);
 			path = FristViewApp;
 			sourceTree = SOURCE_ROOT;
@@ -230,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				AB292EBA1F3085B10088896D /* UserResource.swift */,
+				ABAAC0331F3453AA000B42F3 /* FristViewController.swift */,
 				AB33440E1F29BA3000F20846 /* ProfileViewController.swift */,
 				AB91A03C1F58135900D7D84A /* ReactionFriendsTableViewController.swift */,
 				AB91A0401F5817AE00D7D84A /* CommentsFriendsTableViewController.swift */,
