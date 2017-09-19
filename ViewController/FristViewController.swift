@@ -144,7 +144,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     var userResource: UserResource! = nil
     
     func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAFibZCeWCKoj0FCGnrKLEZBaMuJck0oPk5L387ZAgZB787HKTeqHsoPNyCBZA5DIAaST7eUNz60ZCaXXqrSjmVbXMSCPUqLsIZAYaIVAHmZB1SKaZBjKFoSp1ZBZBkJVPaxLzQ29ZAhmWDjofazeVOMjW1xSm3SwXxDjwvmW4fI0UUfBV7gSd2kMuU9YzXHndeZCFmQZDZD")
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBADAPisAzcIFva0xZATU5W28ttLPxtWQMrorqiqUiFp3QsOX5T3t5bCJ9P8V8KsZA74YzVWMMWIt8OHxEubul748L0XvgbfGcJud01zmkoTqgIuioygzEy1VnUxtvnAbzZAKldbHMLZAGe35VMjilKJFVQLoUDKwxZC8qfH6MdSdD9Yg0hZCVQkYHCaf8BXXAZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             switch response.result {
@@ -326,6 +326,34 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.borderWidth = 2
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.borderColor = UIColor(red:0.17, green:0.38, blue:0.90, alpha:1.0).cgColor
         return cellStoryFriendsCollectionView
-        
     }
+    
+    @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
+        
+        let senderReactionFriendsButton = sender as! UIButton
+        let getCellData = userResource.data?[senderReactionFriendsButton.tag]
+        let getCellDataPosts = getCellData?.posts?.data?[0]
+        let getCellDataPostsReaction = getCellDataPosts?.reactions?.data
+        let getCellDataPostsReactionData = getCellDataPostsReaction!
+        let getCellDataPostsCount = getCellDataPosts?.reactions?.data?.count
+        let getCellDataPostsReactionCount = getCellDataPostsCount!
+        
+        let popReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReactionFriendsTableView") as! ReactionFriendsTableViewController
+        popReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popReactionFriendsTableViewController.popoverPresentationController?.delegate = self
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popReactionFriendsTableViewController.setDataPostsReaction = getCellDataPostsReactionData
+        popReactionFriendsTableViewController.setDataPostsReactionCount = getCellDataPostsReactionCount
+        
+        self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
+    }
+
 }
