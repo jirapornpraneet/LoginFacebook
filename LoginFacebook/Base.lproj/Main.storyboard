@@ -711,7 +711,7 @@
                                                 <color key="titleColor" red="0.41905742080000002" green="0.4170329888" blue="0.42108185279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <segue destination="6bZ-i0-FeG" kind="show" id="17C-5i-7t9"/>
+                                                <segue destination="6bZ-i0-FeG" kind="show" id="KuB-HP-Zyt"/>
                                             </connections>
                                         </button>
                                     </subviews>
