@@ -83,13 +83,10 @@
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="" image="iconFriends" id="w3l-Xv-u4r"/>
                     <navigationItem key="navigationItem" id="ReM-i6-nRs"/>
-                    <connections>
-                        <segue destination="R9R-l5-Gwy" kind="show" identifier="DetailFriendViewController" id="18e-J4-gpF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAd-AO-CKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1684" y="227"/>
+            <point key="canvasLocation" x="-1751" y="226"/>
         </scene>
         <!--Frist View Controller-->
         <scene sceneID="DZs-p3-tN3">
@@ -256,9 +253,6 @@
                                                             <constraint firstAttribute="height" constant="43" id="CHB-8e-3rw"/>
                                                             <constraint firstAttribute="width" constant="40" id="oDp-7g-aoC"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <segue destination="XTy-WA-W6X" kind="show" id="2by-pi-m5Q"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -488,13 +482,11 @@
                         <outlet property="loginButton" destination="TAX-cd-bz2" id="xSI-8D-rUN"/>
                         <outlet property="profileImageButton" destination="umk-Dh-Z7l" id="LM2-GE-AdU"/>
                         <outlet property="tablePostsFriends" destination="Uvp-9X-MbV" id="d35-JN-l9b"/>
-                        <segue destination="Mll-1r-daG" kind="show" identifier="ReactionFriendsTableView" id="tu9-YV-hSf"/>
-                        <segue destination="9K5-XI-o34" kind="show" identifier="CommentsFriendsTableView" id="KVF-ZU-yes"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3165" y="435.21126760563379"/>
+            <point key="canvasLocation" x="-3647" y="434"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="86N-jj-Usq">
@@ -535,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGY-7E-7t3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-977" y="207"/>
+            <point key="canvasLocation" x="-1018" y="205"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="obW-0g-IlQ">
@@ -1058,7 +1050,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbl-lZ-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-324.375" y="329.57746478873241"/>
+            <point key="canvasLocation" x="58" y="433"/>
         </scene>
         <!--Detail Friend View Controller-->
         <scene sceneID="7Jf-3z-mib">
@@ -1553,12 +1545,11 @@
                         <outlet property="profileFriendImageView" destination="M9U-eW-Tvy" id="Ln1-J4-HQD"/>
                         <outlet property="profileUserImage" destination="eqq-tv-cm8" id="Hzr-f2-lrh"/>
                         <outlet property="tablePostsFriend" destination="NAA-ES-LIh" id="SVJ-nG-N7U"/>
-                        <segue destination="Mll-1r-daG" kind="show" identifier="ReactionFriendsTableView" id="gXM-lv-a7G"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsm-Lh-EAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2357" y="286"/>
+            <point key="canvasLocation" x="-2724" y="349"/>
         </scene>
         <!--Albums Collection View Controller-->
         <scene sceneID="UqD-cY-JoY">
@@ -1672,7 +1663,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2670" y="2054"/>
+            <point key="canvasLocation" x="-2409" y="1931"/>
         </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
@@ -1741,7 +1732,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="CommentsFriendsTableView" id="9K5-XI-o34" customClass="CommentsFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJf-M6-SLg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1822,14 +1813,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1913" y="2159"/>
+            <point key="canvasLocation" x="-1686" y="1908"/>
         </scene>
         <!--Comments Table View Controller-->
         <scene sceneID="16a-cb-4Fi">
             <objects>
                 <tableViewController storyboardIdentifier="CommentsView" id="oIg-l3-HvX" customClass="CommentsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="JuK-Lt-aPz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1896,7 +1887,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFs-pT-zTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1024" y="2158"/>
+            <point key="canvasLocation" x="-818" y="1908"/>
         </scene>
         <!--About Profile View Controller-->
         <scene sceneID="BQ5-jJ-9bi">
@@ -2351,9 +2342,4 @@
         <image name="iconWorkAbout" width="33" height="29"/>
         <image name="iconWritePosts" width="190" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="2by-pi-m5Q"/>
-        <segue reference="gXM-lv-a7G"/>
-        <segue reference="KVF-ZU-yes"/>
-    </inferredMetricsTieBreakers>
 </document>
