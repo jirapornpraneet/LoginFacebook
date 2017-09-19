@@ -486,6 +486,7 @@
                         <outlet property="profileImageButton" destination="umk-Dh-Z7l" id="LM2-GE-AdU"/>
                         <outlet property="tablePostsFriends" destination="Uvp-9X-MbV" id="d35-JN-l9b"/>
                         <segue destination="Mll-1r-daG" kind="show" identifier="ReactionFriendsTableView" id="tu9-YV-hSf"/>
+                        <segue destination="9K5-XI-o34" kind="show" identifier="CommentsFriendsTableView" id="KVF-ZU-yes"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1618,7 +1619,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ReactionFriendsTableView" id="Mll-1r-daG" customClass="ReactionFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" id="IPG-hh-56G">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1665,7 +1666,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1504" y="1623"/>
+            <point key="canvasLocation" x="-2278" y="1732"/>
         </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
@@ -1815,7 +1816,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-816" y="1524"/>
+            <point key="canvasLocation" x="-1138" y="1687"/>
         </scene>
         <!--Comments Table View Controller-->
         <scene sceneID="16a-cb-4Fi">
@@ -2309,7 +2310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0X-Nu-7mT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2220" y="1841"/>
+            <point key="canvasLocation" x="-3036" y="1939"/>
         </scene>
     </scenes>
     <resources>
@@ -2346,6 +2347,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2by-pi-m5Q"/>
-        <segue reference="ZXc-Qm-Eq4"/>
+        <segue reference="tu9-YV-hSf"/>
+        <segue reference="qcw-xZ-Cnh"/>
     </inferredMetricsTieBreakers>
 </document>
