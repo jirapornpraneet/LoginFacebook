@@ -365,6 +365,8 @@
                                                                     </state>
                                                                     <connections>
                                                                         <action selector="clickButtonToViewReactionFriendsTableViewController:" destination="XTy-WA-W6X" eventType="touchUpInside" id="RSc-O8-0Hm"/>
+                                                                        <action selector="clickButtonToViewReactionFriendsTableViewController:" destination="Fhu-NT-lmh" eventType="touchUpInside" id="XmZ-zZ-IfR"/>
+                                                                        <segue destination="Mll-1r-daG" kind="show" id="a9q-Zq-Wxy"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXm-qy-Zrq">
@@ -1663,7 +1665,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1517" y="1524"/>
+            <point key="canvasLocation" x="-1504" y="1623"/>
         </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
@@ -2344,5 +2346,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2by-pi-m5Q"/>
+        <segue reference="ZXc-Qm-Eq4"/>
     </inferredMetricsTieBreakers>
 </document>
