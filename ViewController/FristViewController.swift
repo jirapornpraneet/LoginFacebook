@@ -352,6 +352,30 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
     }
     
+    @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
+        
+        let senderCommentsFriendsButton = sender as! UIButton
+        let getCellData = userResource.data?[senderCommentsFriendsButton.tag]
+        let getCellDataPosts = getCellData?.posts?.data?[0]
+        let getCellDataPostsComments = getCellDataPosts?.comments?.data
+        let getCellDataPostsCommentsData = getCellDataPostsComments!
+        let getCellDataPostsCount = getCellDataPosts?.comments?.data?.count
+        let getCellDataPostsCommentsCount = getCellDataPostsCount!
+        
+        let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
+        popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popCommentsFriendsTableViewController.setDataPostsComments = getCellDataPostsCommentsData
+        popCommentsFriendsTableViewController.setDataPostsCommentsCount = getCellDataPostsCommentsCount
+        
+        self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
+    }
+
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
     }
