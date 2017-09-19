@@ -158,6 +158,7 @@
 		AB33440B1F29BA3000F20846 /* LoginFacebook */ = {
 			isa = PBXGroup;
 			children = (
+				AB34E2A71F70D5B400184401 /* UserResource */,
 				AB34E2A11F70D20E00184401 /* Resource */,
 				AB442AA21F42CE9F00C17A41 /* Function Helper */,
 				ABDB61B21F3AF47000CAD71D /* ViewController */,
@@ -196,6 +197,13 @@
 				AB292EBA1F3085B10088896D /* UserResource.swift */,
 			);
 			path = Resource;
+			sourceTree = SOURCE_ROOT;
+		};
+		AB34E2A71F70D5B400184401 /* UserResource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserResource;
 			sourceTree = SOURCE_ROOT;
 		};
 		AB442AA21F42CE9F00C17A41 /* Function Helper */ = {
