@@ -31,7 +31,7 @@ class PostsFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var commentsFriendsButton: UIButton!
 }
 
-class DetailFriendViewController: UITableViewController {
+class DetailFriendViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     @IBOutlet var tablePostsFriend: UITableView!
     @IBOutlet weak var profileFriendImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -293,4 +293,55 @@ class DetailFriendViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
+        
+        let senderReactionFriendsButton = sender as! UIButton
+        let getCellDataPosts = getDataPosts[senderReactionFriendsButton.tag] as! PostsDataDetail
+        let getCellDataPostsReaction = getCellDataPosts.reactions?.data
+        let getCellDataPostsReactionData = getCellDataPostsReaction!
+        let getCellDataPostsCount = getCellDataPosts.reactions?.data?.count
+        let getCellDataPostsReactionCount = getCellDataPostsCount!
+        
+        let popReactionFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReactionFriendsTableView") as! ReactionFriendsTableViewController
+        popReactionFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popReactionFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popReactionFriendsTableViewController.popoverPresentationController?.delegate = self
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
+        popReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popReactionFriendsTableViewController.setDataPostsReaction = getCellDataPostsReactionData
+        popReactionFriendsTableViewController.setDataPostsReactionCount = getCellDataPostsReactionCount
+        
+        self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
+        
+        let senderCommentsFriendsButton = sender as! UIButton
+        let getCellDataPosts = getDataPosts[senderCommentsFriendsButton.tag] as! PostsDataDetail
+        let getCellDataPostsComments = getCellDataPosts.comments?.data
+        let getCellDataPostsCommentsData = getCellDataPostsComments!
+        let getCellDataPostsCount = getCellDataPosts.comments?.data?.count
+        let getCellDataPostsCommentsCount = getCellDataPostsCount!
+        
+        let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
+        popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popCommentsFriendsTableViewController.setDataPostsComments = getCellDataPostsCommentsData
+        popCommentsFriendsTableViewController.setDataPostsCommentsCount = getCellDataPostsCommentsCount
+        
+        self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
+    }
+
 }
