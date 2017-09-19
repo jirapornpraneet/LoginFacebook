@@ -253,6 +253,9 @@
                                                             <constraint firstAttribute="height" constant="43" id="CHB-8e-3rw"/>
                                                             <constraint firstAttribute="width" constant="40" id="oDp-7g-aoC"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="clickButtonToShowProfileUserViewController:" destination="Fhu-NT-lmh" eventType="touchUpInside" id="MCz-rG-FsC"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -486,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3647" y="434"/>
+            <point key="canvasLocation" x="-3656" y="492"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="86N-jj-Usq">
@@ -532,7 +535,7 @@
         <!--Profile View Controller-->
         <scene sceneID="obW-0g-IlQ">
             <objects>
-                <tableViewController storyboardIdentifier="ViewController" id="XTy-WA-W6X" customClass="ProfileViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileViewController" id="XTy-WA-W6X" customClass="ProfileViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="aLE-t3-bId">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1549,7 +1552,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsm-Lh-EAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2724" y="349"/>
+            <point key="canvasLocation" x="-2762" y="386"/>
         </scene>
         <!--Albums Collection View Controller-->
         <scene sceneID="UqD-cY-JoY">
