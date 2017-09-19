@@ -1065,7 +1065,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="DetailFriendViewController" id="R9R-l5-Gwy" customClass="DetailFriendViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="NAA-ES-LIh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="720"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="sG0-uv-cnA">
@@ -1445,6 +1445,7 @@
                                                 <color key="titleColor" red="0.61176470589999998" green="0.62352941179999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
+                                                <action selector="clickButtonToViewCommentsFriendsTableViewController:" destination="R9R-l5-Gwy" eventType="touchUpInside" id="Qwd-aR-6hk"/>
                                                 <action selector="clickButtonToViewCommentsFriendsTableViewController:" destination="XTy-WA-W6X" eventType="touchUpInside" id="uHy-EF-AS3"/>
                                             </connections>
                                         </button>
@@ -1467,6 +1468,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="clickButtonToViewReactionFriendsTableViewController:" destination="XTy-WA-W6X" eventType="touchUpInside" id="G3D-Fc-OPu"/>
+                                                <action selector="clickButtonToViewReactionFriendsTableViewController:" destination="R9R-l5-Gwy" eventType="touchUpInside" id="Ncw-ZN-lyu"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FWn-XT-MW6">
@@ -1537,7 +1539,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="L53-3J-USF"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="720"/>
+                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
                         <outlet property="birthdayLabel" destination="lZe-Oi-Gpt" id="Hdt-JG-cwX"/>
                         <outlet property="coverImage" destination="DfE-FK-Ce4" id="Bkq-kg-Dh1"/>
@@ -1623,7 +1625,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ReactionFriendsTableView" id="Mll-1r-daG" customClass="ReactionFriendsTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" id="IPG-hh-56G">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="720"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
