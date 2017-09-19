@@ -331,7 +331,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     @IBAction func clickButtonToShowProfileUserViewController(_ sender: Any) {
         
         let showProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-            self.present(showProfileViewController, animated: true, completion: nil)
+        self.show(showProfileViewController, sender: nil)
     }
     
     @IBAction func clickButtonToViewReactionFriendsTableViewController(_ sender: AnyObject) {
@@ -383,9 +383,9 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         
         self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
     }
-
+    
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
     }
-
+    
 }
