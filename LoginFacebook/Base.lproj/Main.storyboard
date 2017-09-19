@@ -366,7 +366,6 @@
                                                                     <connections>
                                                                         <action selector="clickButtonToViewReactionFriendsTableViewController:" destination="XTy-WA-W6X" eventType="touchUpInside" id="RSc-O8-0Hm"/>
                                                                         <action selector="clickButtonToViewReactionFriendsTableViewController:" destination="Fhu-NT-lmh" eventType="touchUpInside" id="XmZ-zZ-IfR"/>
-                                                                        <segue destination="Mll-1r-daG" kind="show" id="a9q-Zq-Wxy"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXm-qy-Zrq">
@@ -486,6 +485,7 @@
                         <outlet property="loginButton" destination="TAX-cd-bz2" id="xSI-8D-rUN"/>
                         <outlet property="profileImageButton" destination="umk-Dh-Z7l" id="LM2-GE-AdU"/>
                         <outlet property="tablePostsFriends" destination="Uvp-9X-MbV" id="d35-JN-l9b"/>
+                        <segue destination="Mll-1r-daG" kind="show" identifier="ReactionFriendsTableView" id="tu9-YV-hSf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIE-9g-yTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
