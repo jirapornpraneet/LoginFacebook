@@ -38,34 +38,34 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
         return 1
     }
     
-    var setUserResourcePostsDataCommentsCount = Int()
+    var setDataPostsCommentsCount = Int()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if setUserResourcePostsDataCommentsCount != 0 {
-            return setUserResourcePostsDataCommentsCount
+        if setDataPostsCommentsCount != 0 {
+            return setDataPostsCommentsCount
         } else {
             return 0
         }
     }
     
-    var setUserResourcePostsDataCommentsData = [NSObject]()
+    var setDataPostsComments = [NSObject]()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellComments = tableView.dequeueReusableCell(withIdentifier: "cellComments", for: indexPath) as! CommentsFriendsTableViewCell
-        let commentsData = setUserResourcePostsDataCommentsData[indexPath.row] as! CommentsDataDetail
-        cellComments.commentsMessageLabel.text = commentsData.message
-        cellComments.nameFriendsLabel.text = commentsData.from?.name
+        let cellDataComments = setDataPostsComments[indexPath.row] as! CommentsDataDetail
+        cellComments.commentsMessageLabel.text = cellDataComments.message
+        cellComments.nameFriendsLabel.text = cellDataComments.from?.name
         
-        let cellListCommentsDataCount = commentsData.comment_count
-        if cellListCommentsDataCount == 0 {
+        let cellDataCommentsCount = cellDataComments.comment_count
+        if cellDataCommentsCount == 0 {
             cellComments.commentsCountButton.setTitle("", for: .normal)
         } else {
-            cellComments.commentsCountButton.setTitle(String(format: "%ความคิดเห็น %i %รายการ", cellListCommentsDataCount), for: .normal)
+            cellComments.commentsCountButton.setTitle(String(format: "%ความคิดเห็น %i %รายการ", cellDataCommentsCount), for: .normal)
             cellComments.commentsCountButton.tag = indexPath.row
         }
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormCommentsDataCreatedTime = commentsData.created_time
+        let dateStringFormCommentsDataCreatedTime = cellDataComments.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: dateStringFormCommentsDataCreatedTime)
@@ -79,14 +79,14 @@ class CommentsFriendsTableViewController: UITableViewController, UIPopoverPresen
     
     @IBAction func clickButtonToViewCommentsTableViewController(_ sender: AnyObject) {
         let senderCommentsFriendsButton = sender as! UIButton
-        let getCommentsData = setUserResourcePostsDataCommentsData[senderCommentsFriendsButton.tag] as! CommentsDataDetail
-        let getCommentsDataCommentsData = getCommentsData.comments?.data
-        let getCommentsDataCommentsCount = getCommentsData.comments?.data?.count
+        let getCellDataComments = setDataPostsComments[senderCommentsFriendsButton.tag] as! CommentsDataDetail
+        let getDataComments = getCellDataComments.comments?.data
+        let getDataCommentsCount = getCellDataComments.comments?.data?.count
     
         let commentsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "CommentsView") as! CommentsTableViewController
         let navigationCommentsTableViewController = UINavigationController(rootViewController: commentsTableViewController)
-        commentsTableViewController.getUserResourceDataCommentsData = getCommentsDataCommentsData!
-        commentsTableViewController.getUserResourceDataCommentsCount = getCommentsDataCommentsCount!
+        commentsTableViewController.getDataComments = getDataComments!
+        commentsTableViewController.getDataCommentsCount = getDataCommentsCount!
         navigationCommentsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
         let popCommentsTableViewController = navigationCommentsTableViewController.popoverPresentationController
         popCommentsTableViewController?.permittedArrowDirections = UIPopoverArrowDirection.up

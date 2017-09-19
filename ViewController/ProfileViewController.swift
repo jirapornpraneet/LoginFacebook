@@ -137,32 +137,32 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
     var userResourceData: UserResourceData! = nil
     
     func ZoomProfilePicture() {
-        var profileImages = [SKPhoto]()
+        var images = [SKPhoto]()
         let photoProfile = SKPhoto.photoWithImageURL((userResourceData.picture?.data?.url)!)
         photoProfile.shouldCachePhotoURLImage = true
-        profileImages.append(photoProfile)
-        let browser = SKPhotoBrowser(photos: profileImages)
+        images.append(photoProfile)
+        let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
     
     func ZoomCoverPicture() {
-        var coverImages = [SKPhoto]()
+        var images = [SKPhoto]()
         let photoCover = SKPhoto.photoWithImageURL((userResourceData.cover?.source)!)
         photoCover.shouldCachePhotoURLImage = true
-        coverImages.append(photoCover)
-        let browser = SKPhotoBrowser(photos: coverImages)
+        images.append(photoCover)
+        let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
     
     func ZoomPicture​Posts(_ sender: AnyObject) {
-        let userResourcePostsData = userResourceData.posts?.data?[sender.view.tag]
-        var picturePostsImages = [SKPhoto]()
-        let photosPosts = SKPhoto.photoWithImageURL((userResourcePostsData?.full_picture)!)
+        let cellDataPosts = userResourceData.posts?.data?[sender.view.tag]
+        var images = [SKPhoto]()
+        let photosPosts = SKPhoto.photoWithImageURL((cellDataPosts?.full_picture)!)
         photosPosts.shouldCachePhotoURLImage = true
-        picturePostsImages.append(photosPosts)
-        let browser = SKPhotoBrowser(photos: picturePostsImages)
+        images.append(photosPosts)
+        let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
@@ -187,15 +187,15 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
             let userResourceDataEducationSchoolName1 = self.userResourceData.education?[0].school?.name
             self.collegeNameLabel.text = String(format: "%เคยศึกษาที่  %@", userResourceDataEducationSchoolName1!)
             
-            let profileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
-            self.profileUpdateImageView.sd_setImage(with: profileUpdateImageUrl, completed:nil)
+            let thumborProfileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
+            self.profileUpdateImageView.sd_setImage(with: thumborProfileUpdateImageUrl, completed:nil)
             
-            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 230)
-            self.profileImageView.sd_setImage(with: profileImageUrl, completed:nil)
+            let thumborProfileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 230)
+            self.profileImageView.sd_setImage(with: thumborProfileImageUrl, completed:nil)
             self.profileImageView.contentMode = UIViewContentMode.scaleAspectFit
             
-            let coverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.cover?.source)!, width: 480, height: 260)
-            self.coverImageView.sd_setImage(with: coverImageUrl, completed:nil)
+            let thumborCoverImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.cover?.source)!, width: 480, height: 260)
+            self.coverImageView.sd_setImage(with: thumborCoverImageUrl, completed:nil)
             
             self.tablePosts.reloadData()
         }
@@ -225,8 +225,8 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         
         cellPostsUserTableView.placePostsLabel.text = cellDataPosts?.place?.name
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
-        cellPostsUserTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed:nil)
+        let thumborProfileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 160, height: 160)
+        cellPostsUserTableView.profilePostsImageView.sd_setImage(with: thumborProfileImageUrl, completed:nil)
         
         let cellDataPostsFullPicture = cellDataPosts?.full_picture
         if  cellDataPostsFullPicture  == "" {
@@ -281,9 +281,9 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         } else {
             
             let cellNameFriendReactions = cellDataPostsReactionsData?.name
-            let length = cellNameFriendReactions?.characters.count
+            let lengthNameFriendReactions = cellNameFriendReactions?.characters.count
             
-            if length! >= 10 {
+            if lengthNameFriendReactions! >= 10 {
                 cellPostsUserTableView.reactionFriendsButton.setTitle(String(format:"%i", cellDataPostsReactionsDataCount!), for: .normal)
                 cellPostsUserTableView.reactionFriendsButton.tag = indexPath.row
                 cellPostsUserTableView.reactionFriendsButton.contentHorizontalAlignment = .left
@@ -359,8 +359,8 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         popReactionFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
         popReactionFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popReactionFriendsTableViewController.setUserResourcePostsDataReactionData = getCellDataPostsReactionData
-        popReactionFriendsTableViewController.setUserResourcePostsDataReactionCount = getCellDataPostsReactionCount
+        popReactionFriendsTableViewController.setDataPostsReaction = getCellDataPostsReactionData
+        popReactionFriendsTableViewController.setDataPostsReactionCount = getCellDataPostsReactionCount
         
         self.present(popReactionFriendsTableViewController, animated: true, completion: nil)
     }
@@ -382,8 +382,8 @@ class ProfileViewController: UITableViewController, UIPopoverPresentationControl
         popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
         popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
         
-        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsData = getCellDataPostsCommentsData
-        popCommentsFriendsTableViewController.setUserResourcePostsDataCommentsCount = getCellDataPostsCommentsCount
+        popCommentsFriendsTableViewController.setDataPostsComments = getCellDataPostsCommentsData
+        popCommentsFriendsTableViewController.setDataPostsCommentsCount = getCellDataPostsCommentsCount
         
         self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
     }

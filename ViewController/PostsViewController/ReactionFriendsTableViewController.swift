@@ -35,36 +35,38 @@ class ReactionFriendsTableViewController: UITableViewController {
         return 1
     }
     
-    var setUserResourcePostsDataReactionCount = Int()
+    var setDataPostsReactionCount = Int()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if setUserResourcePostsDataReactionCount != 0 {
-            return setUserResourcePostsDataReactionCount
+        if setDataPostsReactionCount != 0 {
+            return setDataPostsReactionCount
         } else {
             return 0
         }
     }
     
-    var setUserResourcePostsDataReactionData = [NSObject]()
+    var setDataPostsReaction = [NSObject]()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellReactionFriends = tableView.dequeueReusableCell(withIdentifier: "cellReactionFriends", for: indexPath) as! ReactionFriendsTableViewCell
-        let reactionData = setUserResourcePostsDataReactionData[indexPath.row] as! ReactionsDataDetail
-        cellReactionFriends.nameFriendsLabel.text = reactionData.name
-        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: reactionData.pic_large, width: 50, height: 50)
-        cellReactionFriends.profileFriendImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
+        let cellDataReaction = setDataPostsReaction[indexPath.row] as! ReactionsDataDetail
         
-        let reactionDataType = reactionData.type
+        cellReactionFriends.nameFriendsLabel.text = cellDataReaction.name
         
-        if reactionDataType == "LIKE" {
+        let thumborProfileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: cellDataReaction.pic_large, width: 50, height: 50)
+        cellReactionFriends.profileFriendImageView.sd_setImage(with: thumborProfileFriendImageUrl, completed: nil)
+        
+        let cellDataReactionDataType = cellDataReaction.type
+        
+        if cellDataReactionDataType == "LIKE" {
             cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLike")
-        } else if reactionDataType == "LOVE" {
+        } else if cellDataReactionDataType == "LOVE" {
             cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconLove")
-        } else if reactionDataType == "HAHA" {
+        } else if cellDataReactionDataType == "HAHA" {
             cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconHaHa")
-        } else if reactionDataType == "SAD" {
+        } else if cellDataReactionDataType == "SAD" {
             cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconSad")
-        } else if reactionDataType == "WOW" {
+        } else if cellDataReactionDataType == "WOW" {
             cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconWow")
         } else {
             cellReactionFriends.reactionFriendImageView.image = UIImage(named:"iconAngry")
@@ -80,8 +82,8 @@ class ReactionFriendsTableViewController: UITableViewController {
     }
     
     func tapLinkUrlProfileFriend(_ sender: AnyObject) {
-        let reactionData = setUserResourcePostsDataReactionData[sender.view.tag] as! ReactionsDataDetail
-        if let linkUrlProfileFriend = URL(string: "\(reactionData.link)") {
+        let cellDataReaction = setDataPostsReaction[sender.view.tag] as! ReactionsDataDetail
+        if let linkUrlProfileFriend = URL(string: "\(cellDataReaction.link)") {
             UIApplication.shared.open(linkUrlProfileFriend, options: [:], completionHandler: nil)
         }
     }

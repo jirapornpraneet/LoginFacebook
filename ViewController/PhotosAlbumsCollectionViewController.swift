@@ -32,17 +32,17 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
     }
     
     func ZoomPhotos(_ sender: AnyObject) {
-        let albumsPhotosData = setUserResourceAlbumsPhotosData[sender.view.tag] as! Data
-        var photosAlbums = [SKPhoto]()
-        let photos = SKPhoto.photoWithImageURL((albumsPhotosData.picture))
+        let cellDataAlbumsPhotos = setDataAlbumsPhotos[sender.view.tag] as! Data
+        var images = [SKPhoto]()
+        let photos = SKPhoto.photoWithImageURL((cellDataAlbumsPhotos.picture))
         photos.shouldCachePhotoURLImage = true
-        photosAlbums.append(photos)
-        let browser = SKPhotoBrowser(photos: photosAlbums)
+        images.append(photos)
+        let browser = SKPhotoBrowser(photos: images)
         browser.initializePageIndex(0)
         present(browser, animated: true, completion: {})
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -51,24 +51,24 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         return 1
     }
     
-    var setUserResourceAlbumsPhotosDataCount = Int()
-
+    var setDataAlbumsPhotosCount = Int()
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if  setUserResourceAlbumsPhotosDataCount  != 0 {
-            return setUserResourceAlbumsPhotosDataCount 
+        if  setDataAlbumsPhotosCount  != 0 {
+            return setDataAlbumsPhotosCount
         } else {
             return 0
         }
     }
     
-    var setUserResourceAlbumsPhotosData = [NSObject]()
+    var setDataAlbumsPhotos = [NSObject]()
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellPhotosCollection", for: indexPath) as! PhotosCollectionViewCell
-        let albumsPhotosData = setUserResourceAlbumsPhotosData[indexPath.row] as! Data
-       
-        let pictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (albumsPhotosData.picture), width:  200, height: 200)
-        cellPhotosCollectionView.photosAlbumsImageView.sd_setImage(with: pictureUrl, completed:nil)
+        let cellDataAlbumsPhotos = setDataAlbumsPhotos[indexPath.row] as! Data
+        
+        let thumborPictureUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataAlbumsPhotos.picture), width:  200, height: 200)
+        cellPhotosCollectionView.photosAlbumsImageView.sd_setImage(with: thumborPictureUrl, completed:nil)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PhotosAlbumsCollectionViewController.ZoomPhotos(_:)))
         cellPhotosCollectionView.photosAlbumsImageView.isUserInteractionEnabled = true
@@ -77,6 +77,6 @@ class PhotosAlbumsCollectionViewController: UICollectionViewController {
         
         return cellPhotosCollectionView
     }
-
-
+    
+    
 }

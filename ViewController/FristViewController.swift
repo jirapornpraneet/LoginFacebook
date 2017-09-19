@@ -80,8 +80,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             let dic = result as? NSDictionary
             let jsonString = dic?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
-            let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
-            self.profileImageButton.sd_setBackgroundImage(with: profileImageUrl, for: .normal, completed: nil)
+            let thumborProfileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
+            self.profileImageButton.sd_setBackgroundImage(with: thumborProfileImageUrl, for: .normal, completed: nil)
         }
     }
     
@@ -144,19 +144,16 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     var userResource: UserResource! = nil
     
     func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAJfrU8oKikPrnfOfZBhHmsU5RrWpOPN8YdM6GVayZCwA5mkeU81EG4ZAXTfnj4bZAbqLql6MvFNt2bOP1Jyqd6MdZAfJ9GuStN15y6tLMRyfNhhb0lu2ZBBfjzkZAx1qx6M7CR20i6y6byYg5JLx7JhZCPcI5tBUOCvNP04NKElgMqYE0zmv508CYXBQ5PO0hgZDZD")
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBAFibZCeWCKoj0FCGnrKLEZBaMuJck0oPk5L387ZAgZB787HKTeqHsoPNyCBZA5DIAaST7eUNz60ZCaXXqrSjmVbXMSCPUqLsIZAYaIVAHmZB1SKaZBjKFoSp1ZBZBkJVPaxLzQ29ZAhmWDjofazeVOMjW1xSm3SwXxDjwvmW4fI0UUfBV7gSd2kMuU9YzXHndeZCFmQZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
-            print(response)
             switch response.result {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
                 
                 self.collectionviewStoryFriends.reloadData()
                 self.tablePostsFriends.reloadData()
-                
-            case .failure(let error):
-                print(error)
+            case .failure( _): break
             }
         }
     }
@@ -181,8 +178,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         cellFeedPostsFriendTableView.messagePostsLabel.text = cellDataPosts?.message
         cellFeedPostsFriendTableView.placePostsLabel.text = cellDataPosts?.place?.name
         
-        let profileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.picture?.data?.url)!, width: 300, height: 300)
-        cellFeedPostsFriendTableView.profilePostsImageView.sd_setImage(with: profileImageUrl, completed: nil)
+        let thumborProfileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.picture?.data?.url)!, width: 300, height: 300)
+        cellFeedPostsFriendTableView.profilePostsImageView.sd_setImage(with: thumborProfileImageUrl, completed: nil)
         
         cellFeedPostsFriendTableView.profilePostsImageView.layer.masksToBounds = true
         cellFeedPostsFriendTableView.profilePostsImageView.layer.cornerRadius = 17
@@ -221,76 +218,76 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
             cellFeedPostsFriendTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
-        let userResourcePostsCommentsDataCount = cellDataPosts?.comments?.data?.count
-        if userResourcePostsCommentsDataCount == nil {
+        let cellDataPostsCommentsCount = cellDataPosts?.comments?.data?.count
+        if cellDataPostsCommentsCount == nil {
             cellFeedPostsFriendTableView.commentsFriendsButton.setTitle("", for: .normal)
         } else {
-            cellFeedPostsFriendTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", userResourcePostsCommentsDataCount!), for: .normal)
+            cellFeedPostsFriendTableView.commentsFriendsButton.setTitle(String(format:"%ความคิดเห็น %i %รายการ", cellDataPostsCommentsCount!), for: .normal)
             cellFeedPostsFriendTableView.commentsFriendsButton.tag = indexPath.row
             cellFeedPostsFriendTableView.commentsFriendsButton.contentHorizontalAlignment = .right
         }
         
-        let userResourcePostsReactionsData = cellDataPosts?.reactions?.data?[0]
-        var userResourcePostsReactionsDataCount = cellDataPosts?.reactions?.data?.count
+        let cellDataPostsReactions = cellDataPosts?.reactions?.data?[0]
+        var cellDataPostsReactionsCount = cellDataPosts?.reactions?.data?.count
         
-        if userResourcePostsReactionsData == nil && userResourcePostsReactionsDataCount == nil {
+        if cellDataPostsReactions == nil && cellDataPostsReactionsCount == nil {
             cellFeedPostsFriendTableView.reactionFriendsButton.setTitle("", for: .normal)
-            userResourcePostsReactionsDataCount = 0
+            cellDataPostsReactionsCount = 0
             cellFeedPostsFriendTableView.iconReaction1ImageView.image = nil
         } else {
             
-            let nameFriendReactions = userResourcePostsReactionsData?.name
-            let length = nameFriendReactions?.characters.count
+            let cellDataNameFriendReactions = cellDataPostsReactions?.name
+            let lengthNameFriendReactions = cellDataNameFriendReactions?.characters.count
             
-            if length! >= 10 {
-                cellFeedPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%i", userResourcePostsReactionsDataCount!), for: .normal)
+            if lengthNameFriendReactions! >= 10 {
+                cellFeedPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%i", cellDataPostsReactionsCount!), for: .normal)
                 cellFeedPostsFriendTableView.reactionFriendsButton.tag = indexPath.row
                 cellFeedPostsFriendTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             } else {
-                let reactionCount = userResourcePostsReactionsDataCount! - 1
-                cellFeedPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (userResourcePostsReactionsData?.name)!, reactionCount), for: .normal)
+                let reactionCount = cellDataPostsReactionsCount! - 1
+                cellFeedPostsFriendTableView.reactionFriendsButton.setTitle(String(format:"%@ %และคนอื่นๆอีก %i %คน", (cellDataPostsReactions?.name)!, reactionCount), for: .normal)
                 cellFeedPostsFriendTableView.reactionFriendsButton.tag = indexPath.row
                 cellFeedPostsFriendTableView.reactionFriendsButton.contentHorizontalAlignment = .left
             }
             
-            let dataReactionsType = userResourcePostsReactionsData?.type
+            let cellDataReactionsType = cellDataPostsReactions?.type
             
-            if dataReactionsType == "LIKE" {
+            if cellDataReactionsType == "LIKE" {
                 cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconLike")
-            } else if  dataReactionsType == "LOVE" {
+            } else if  cellDataReactionsType == "LOVE" {
                 cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconLove")
-            } else if dataReactionsType == "HAHA" {
+            } else if cellDataReactionsType == "HAHA" {
                 cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconHaHa")
-            } else if dataReactionsType == "SAD" {
+            } else if cellDataReactionsType == "SAD" {
                 cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconSad")
-            } else if dataReactionsType == "WOW" {
+            } else if cellDataReactionsType == "WOW" {
                 cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconWow")
             } else {
                 cellFeedPostsFriendTableView.iconReaction1ImageView.image = UIImage(named:"iconAngry")
             }
         }
         
-        if userResourcePostsReactionsDataCount == 1 {
+        if cellDataPostsReactionsCount == 1 {
             cellFeedPostsFriendTableView.iconReaction2ImageView.image = nil
         } else {
-            let dataReactionsIndex1 = cellDataPosts?.reactions?.data?[1]
-            let dataReactionsTypeIndex1 = dataReactionsIndex1?.type
-            let dataReactionsType = userResourcePostsReactionsData?.type
-            if dataReactionsIndex1 == nil {
+            let cellDataReactionsIndex1 = cellDataPosts?.reactions?.data?[1]
+            let cellDataReactionsTypeIndex1 = cellDataReactionsIndex1?.type
+            let cellDataReactionsType = cellDataPostsReactions?.type
+            if cellDataReactionsIndex1 == nil {
                 cellFeedPostsFriendTableView.iconReaction2ImageView.image = nil
             } else {
-                if dataReactionsTypeIndex1 == dataReactionsType {
+                if cellDataReactionsTypeIndex1 == cellDataReactionsType {
                     cellFeedPostsFriendTableView.iconReaction2ImageView.image = nil
                 } else {
-                    if dataReactionsTypeIndex1 == "LIKE" {
+                    if cellDataReactionsTypeIndex1 == "LIKE" {
                         cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconLike")
-                    } else if dataReactionsTypeIndex1 == "LOVE" {
+                    } else if cellDataReactionsTypeIndex1 == "LOVE" {
                         cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconLove")
-                    } else if dataReactionsTypeIndex1 == "HAHA" {
+                    } else if cellDataReactionsTypeIndex1 == "HAHA" {
                         cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconHaHa")
-                    } else if dataReactionsTypeIndex1 == "SAD" {
+                    } else if cellDataReactionsTypeIndex1 == "SAD" {
                         cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconSad")
-                    } else if dataReactionsTypeIndex1 == "WOW" {
+                    } else if cellDataReactionsTypeIndex1 == "WOW" {
                         cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconWow")
                     } else {
                         cellFeedPostsFriendTableView.iconReaction2ImageView.image = UIImage(named:"iconAngry")
@@ -321,8 +318,8 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         let cellData = userResource.data?[indexPath.row]
         cellStoryFriendsCollectionView.nameFriendsLabel.text = cellData?.name
         
-        let profileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.picture?.data?.url)!, width: 300, height: 300)
-        cellStoryFriendsCollectionView.storyFriendsImageView.sd_setImage(with: profileFriendImageUrl, completed: nil)
+        let thumborProfileFriendImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellData?.picture?.data?.url)!, width: 300, height: 300)
+        cellStoryFriendsCollectionView.storyFriendsImageView.sd_setImage(with: thumborProfileFriendImageUrl, completed: nil)
         
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.masksToBounds = true
         cellStoryFriendsCollectionView.storyFriendsImageView.layer.cornerRadius = 27

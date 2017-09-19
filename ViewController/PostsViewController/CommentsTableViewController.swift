@@ -45,29 +45,29 @@ class CommentsTableViewController: UITableViewController {
         return 1
     }
     
-    var getUserResourceDataCommentsCount = Int()
+    var getDataCommentsCount = Int()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if getUserResourceDataCommentsCount != 0 {
-            return getUserResourceDataCommentsCount
+        if getDataCommentsCount != 0 {
+            return getDataCommentsCount
         } else {
             return 0
         }
     }
     
-    var getUserResourceDataCommentsData = [NSObject]()
+    var getDataComments = [NSObject]()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellCommentsView = tableView.dequeueReusableCell(withIdentifier: "cellCommentsView", for: indexPath) as! CommentsTableViewCell
-        let dataCommentsData = getUserResourceDataCommentsData[indexPath.row] as! CommentsDataDetail
-        cellCommentsView.nameFriendsLabel.text = dataCommentsData.from?.name
-        cellCommentsView.commentsMessageLabel.text = dataCommentsData.message
+        let cellDataComments = getDataComments[indexPath.row] as! CommentsDataDetail
+        cellCommentsView.nameFriendsLabel.text = cellDataComments.from?.name
+        cellCommentsView.commentsMessageLabel.text = cellDataComments.message
         
         let myLocale = Locale(identifier: "th_TH")
-        let dateStringFormCommentsDataCreatedTime = dataCommentsData.created_time
+        let dateStringFormCellDataCommentsCreatedTime = cellDataComments.created_time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: dateStringFormCommentsDataCreatedTime)
+        let date = dateFormatter.date(from: dateStringFormCellDataCommentsCreatedTime)
         dateFormatter.locale = myLocale
         dateFormatter.dateFormat = "EEEE" + " เวลา " + "hh:mm"
         let dateString = dateFormatter.string(from: date!)

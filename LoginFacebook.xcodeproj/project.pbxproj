@@ -214,8 +214,8 @@
 		AB34E2BD1F70D7B400184401 /* FriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AB34E2BE1F70D7B400184401 /* DetailFriendViewController.swift */,
 				AB34E2BF1F70D7B400184401 /* FriendsCollectionViewController.swift */,
+				AB34E2BE1F70D7B400184401 /* DetailFriendViewController.swift */,
 			);
 			path = FriendsViewController;
 			sourceTree = "<group>";
