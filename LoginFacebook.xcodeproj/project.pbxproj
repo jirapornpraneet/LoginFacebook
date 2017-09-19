@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				AB442AA21F42CE9F00C17A41 /* Function Helper */,
-				ABDB61B21F3AF47000CAD71D /* ShowProfileUser */,
+				ABDB61B21F3AF47000CAD71D /* ViewController */,
 				ABDB61B11F3AF43E00CAD71D /* ShowFriend */,
 				ABDB61AF1F3AF3FA00CAD71D /* FristViewApp */,
 				AB33440C1F29BA3000F20846 /* AppDelegate.swift */,
@@ -226,7 +226,7 @@
 			path = ShowListFriend;
 			sourceTree = SOURCE_ROOT;
 		};
-		ABDB61B21F3AF47000CAD71D /* ShowProfileUser */ = {
+		ABDB61B21F3AF47000CAD71D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				AB292EBA1F3085B10088896D /* UserResource.swift */,
@@ -237,6 +237,7 @@
 				AB1CB2221F5FA5C100F6FD7B /* AboutProfileViewController.swift */,
 				ABDB42571F4BDBFD001586A6 /* AlbumsPhotosUser */,
 			);
+			name = ViewController;
 			path = ShowProfileUser;
 			sourceTree = SOURCE_ROOT;
 		};
