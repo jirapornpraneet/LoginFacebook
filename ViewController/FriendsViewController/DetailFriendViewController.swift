@@ -23,7 +23,6 @@ class PostsFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var namePostsLabel: UILabel!
     @IBOutlet weak var createdTimePostsLabel: UILabel!
     @IBOutlet weak var placePostsLabel: UILabel!
-    @IBOutlet weak var atPlacePostsLabel: UILabel!
     @IBOutlet weak var iconCheckInPostsImageView: UIImageView!
     @IBOutlet weak var iconReaction1ImageView: UIImageView!
     @IBOutlet weak var iconReaction2ImageView: UIImageView!
@@ -169,7 +168,6 @@ class DetailFriendViewController: UITableViewController, UIPopoverPresentationCo
         let cellDataPosts = getDataPosts[indexPath.row] as! PostsDataDetail
         
         cellPostsFriendTableView.messagePostsLabel.text = cellDataPosts.message
-        cellPostsFriendTableView.namePostsLabel.text = getDataName
         cellPostsFriendTableView.placePostsLabel.text = cellDataPosts.place?.name
         
         let thumborProfileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (getDataProfileImageUrl), width: 150, height: 150)
@@ -200,12 +198,13 @@ class DetailFriendViewController: UITableViewController, UIPopoverPresentationCo
             cellPostsFriendTableView.picturePostsImageView.addGestureRecognizer(tapGestureRecognizer)
         }
         
+        
         let cellDataPostsPlace = cellDataPosts.place
         if cellDataPostsPlace == nil {
-            cellPostsFriendTableView.atPlacePostsLabel.text = ""
+            cellPostsFriendTableView.namePostsLabel.text = getDataName
             cellPostsFriendTableView.iconCheckInPostsImageView.image = nil
         } else {
-            cellPostsFriendTableView.atPlacePostsLabel.text = "ที่"
+            cellPostsFriendTableView.namePostsLabel.text = String(format:"%@   %ที่", (getDataName))
             cellPostsFriendTableView.iconCheckInPostsImageView.image = UIImage(named:"iconCheckin")
         }
         
