@@ -30,8 +30,7 @@ class CommentsTableViewController: UITableViewController {
     }
     
     func actionBackButtonToViewController() {
-        let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        self.show(profileViewController, sender: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
