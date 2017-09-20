@@ -1769,7 +1769,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qF8-MI-FQE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-mC-cSS">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-mC-cSS">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HkV-nk-YQN">
@@ -2361,7 +2361,7 @@
                                     <constraint firstAttribute="bottom" secondItem="mkm-mC-cSS" secondAttribute="bottom" constant="-64" id="ZId-Q2-R1H"/>
                                     <constraint firstItem="mkm-mC-cSS" firstAttribute="leading" secondItem="qF8-MI-FQE" secondAttribute="leading" id="iPk-pr-IV5"/>
                                     <constraint firstAttribute="trailing" secondItem="mkm-mC-cSS" secondAttribute="trailing" id="lKS-mC-KTl"/>
-                                    <constraint firstItem="mkm-mC-cSS" firstAttribute="top" secondItem="qF8-MI-FQE" secondAttribute="top" constant="64" id="ygQ-Q0-8Nv"/>
+                                    <constraint firstItem="mkm-mC-cSS" firstAttribute="top" secondItem="qF8-MI-FQE" secondAttribute="top" id="ygQ-Q0-8Nv"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
