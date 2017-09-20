@@ -1864,8 +1864,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz9-CH-AlG">
                                                         <rect key="frame" x="18" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconTodayInThePast">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -3143,6 +3143,7 @@
         <image name="iconShareImage" width="190" height="55"/>
         <image name="iconStatus" width="130" height="50"/>
         <image name="iconStoryUser" width="160" height="190"/>
+        <image name="iconTodayInThePast" width="150" height="150"/>
         <image name="iconWorkAbout" width="33" height="29"/>
         <image name="iconWritePosts" width="190" height="60"/>
     </resources>
