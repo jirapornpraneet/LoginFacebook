@@ -1879,8 +1879,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5le-zI-upl">
                                                         <rect key="frame" x="94" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconGroup">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1894,8 +1894,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gR-ds-9Pn">
                                                         <rect key="frame" x="172" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconBuyAndSell">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1909,8 +1909,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoX-3O-D1K">
                                                         <rect key="frame" x="248" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconCircleFriends">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1924,8 +1924,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxr-vP-Cv5">
                                                         <rect key="frame" x="20" y="105" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconCalender">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1939,8 +1939,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwQ-sV-z7e">
                                                         <rect key="frame" x="96" y="105" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconJoyStick">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1954,8 +1954,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQE-Bj-0bu">
                                                         <rect key="frame" x="174" y="105" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconValidation">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1969,8 +1969,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTE-pw-cDe">
                                                         <rect key="frame" x="250" y="105" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconProffer">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1984,8 +1984,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUW-yc-Gsp">
                                                         <rect key="frame" x="20" y="184" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconPlace">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1999,8 +1999,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-bu-QhC">
                                                         <rect key="frame" x="96" y="184" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconNearbyFriends">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2014,8 +2014,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxk-QG-nTy">
                                                         <rect key="frame" x="174" y="184" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconWiFi">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2029,8 +2029,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhe-av-D8I">
                                                         <rect key="frame" x="250" y="184" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconQRCode">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2044,8 +2044,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaR-Ub-LbE">
                                                         <rect key="frame" x="20" y="263" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconWeather">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2059,8 +2059,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="le2-JL-f3A">
                                                         <rect key="frame" x="96" y="263" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconSports">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2074,8 +2074,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOt-KG-F6A">
                                                         <rect key="frame" x="174" y="263" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconLivePopPular">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2089,8 +2089,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-QD-OHf">
                                                         <rect key="frame" x="250" y="263" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconSearchPeople">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2104,8 +2104,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-ao-eR0">
                                                         <rect key="frame" x="20" y="342" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconDeviceRequest">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2119,8 +2119,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibC-Y1-jeD">
                                                         <rect key="frame" x="96" y="342" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconAccumulatePoints">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2134,8 +2134,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiC-m1-SLe">
                                                         <rect key="frame" x="174" y="342" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconCity">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2149,8 +2149,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4O-bQ-0Om">
                                                         <rect key="frame" x="250" y="342" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconGreet">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2171,8 +2171,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBO-AP-URp">
                                                         <rect key="frame" x="20" y="422" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconFeedInteresting">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2186,8 +2186,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQo-da-uY0">
                                                         <rect key="frame" x="96" y="422" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconMoves">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2201,8 +2201,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPX-dn-2d2">
                                                         <rect key="frame" x="174" y="422" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconProtect">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2216,8 +2216,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stq-is-V3x">
                                                         <rect key="frame" x="250" y="422" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconPage">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2231,8 +2231,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ta-Mn-e5m">
                                                         <rect key="frame" x="19" y="502" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconFeed">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2246,8 +2246,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krO-Ib-3h8">
                                                         <rect key="frame" x="95" y="502" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconApp">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2268,8 +2268,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfc-Md-LUM">
                                                         <rect key="frame" x="20" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconSetting">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2283,8 +2283,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOq-QR-6hT">
                                                         <rect key="frame" x="96" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconPrivate">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2298,8 +2298,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhp-zP-5Wr">
                                                         <rect key="frame" x="174" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconHelp">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2313,8 +2313,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt0-4j-kQY">
                                                         <rect key="frame" x="250" y="27" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconShortCut">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -2335,8 +2335,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJ3-zb-tcm">
                                                         <rect key="frame" x="19" y="112" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal">
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" backgroundImage="iconLogOut">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -3114,36 +3114,66 @@
         </scene>
     </scenes>
     <resources>
+        <image name="iconAccumulatePoints" width="150" height="150"/>
         <image name="iconActivity" width="145" height="100"/>
+        <image name="iconApp" width="150" height="150"/>
         <image name="iconBell" width="26" height="26"/>
+        <image name="iconBuyAndSell" width="150" height="150"/>
+        <image name="iconCalender" width="150" height="150"/>
         <image name="iconCheckInAbout" width="256" height="256"/>
         <image name="iconCheckInFrist" width="130" height="50"/>
+        <image name="iconCircleFriends" width="150" height="150"/>
+        <image name="iconCity" width="150" height="150"/>
         <image name="iconComment" width="234" height="59"/>
+        <image name="iconDeviceRequest" width="150" height="150"/>
         <image name="iconDirect" width="150" height="160"/>
         <image name="iconEdit" width="145" height="100"/>
         <image name="iconEducation" width="43" height="34"/>
         <image name="iconEducationAbout" width="35" height="31"/>
         <image name="iconEke" width="100" height="100"/>
         <image name="iconEvent" width="210" height="50"/>
+        <image name="iconFeed" width="150" height="150"/>
+        <image name="iconFeedInteresting" width="150" height="150"/>
         <image name="iconFriend" width="100" height="100"/>
         <image name="iconFriends" width="26" height="26"/>
         <image name="iconFrist" width="26" height="26"/>
+        <image name="iconGreet" width="150" height="150"/>
+        <image name="iconGroup" width="150" height="150"/>
         <image name="iconHeartAbout" width="40" height="41"/>
         <image name="iconHello" width="100" height="100"/>
+        <image name="iconHelp" width="150" height="150"/>
         <image name="iconHomeTownAbout" width="34" height="32"/>
         <image name="iconInstragram" width="150" height="150"/>
+        <image name="iconJoyStick" width="150" height="150"/>
         <image name="iconLikePosts" width="133" height="49"/>
         <image name="iconLive" width="120" height="50"/>
+        <image name="iconLivePopPular" width="150" height="150"/>
+        <image name="iconLogOut" width="150" height="150"/>
         <image name="iconMenu" width="23" height="23"/>
         <image name="iconMessenger" width="100" height="100"/>
+        <image name="iconMoves" width="150" height="150"/>
+        <image name="iconNearbyFriends" width="150" height="150"/>
+        <image name="iconPage" width="150" height="150"/>
         <image name="iconPhotos" width="130" height="50"/>
         <image name="iconPicture" width="135" height="50"/>
+        <image name="iconPlace" width="150" height="150"/>
         <image name="iconPlay" width="26" height="26"/>
         <image name="iconPost" width="100" height="100"/>
+        <image name="iconPrivate" width="150" height="150"/>
+        <image name="iconProffer" width="150" height="150"/>
+        <image name="iconProtect" width="150" height="150"/>
+        <image name="iconQRCode" width="150" height="150"/>
+        <image name="iconSearchPeople" width="150" height="150"/>
+        <image name="iconSetting" width="150" height="150"/>
         <image name="iconShareImage" width="190" height="55"/>
+        <image name="iconShortCut" width="150" height="150"/>
+        <image name="iconSports" width="150" height="150"/>
         <image name="iconStatus" width="130" height="50"/>
         <image name="iconStoryUser" width="160" height="190"/>
         <image name="iconTodayInThePast" width="150" height="150"/>
+        <image name="iconValidation" width="150" height="150"/>
+        <image name="iconWeather" width="150" height="150"/>
+        <image name="iconWiFi" width="150" height="150"/>
         <image name="iconWorkAbout" width="33" height="29"/>
         <image name="iconWritePosts" width="190" height="60"/>
     </resources>
