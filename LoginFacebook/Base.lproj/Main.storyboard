@@ -1771,6 +1771,13 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-mC-cSS">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HkV-nk-YQN">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.92535786450158541" green="0.93630404572465986" blue="0.95527505786091371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.47101533140000001" green="0.46873989500000002" blue="0.47329076780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="700" id="jsG-jO-Ni2"/>
