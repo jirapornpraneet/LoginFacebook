@@ -1809,6 +1809,11 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92535786450158541" green="0.93630404572465986" blue="0.95527505786091371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpv-rS-ZaV">
+                                                <rect key="frame" x="0.0" y="112" width="320" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.47101533140000001" green="0.46873989500000002" blue="0.47329076780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
