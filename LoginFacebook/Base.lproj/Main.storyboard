@@ -1810,7 +1810,7 @@
                                                 <color key="backgroundColor" red="0.92535786450158541" green="0.93630404572465986" blue="0.95527505786091371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpv-rS-ZaV">
-                                                <rect key="frame" x="0.0" y="112" width="320" height="111"/>
+                                                <rect key="frame" x="0.0" y="112" width="320" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ทางลัด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8N-VQ-DOI">
@@ -1823,7 +1823,7 @@
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNj-89-9xi">
                                                         <rect key="frame" x="8" y="27" width="299" height="78"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.92535786450000002" green="0.93630404570000003" blue="0.9552750579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="thw-5X-zW1">
                                                             <size key="itemSize" width="77" height="74"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1855,7 +1855,7 @@
                                                         </cells>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.92535786450000002" green="0.93630404570000003" blue="0.9552750579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.47101533140000001" green="0.46873989500000002" blue="0.47329076780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
