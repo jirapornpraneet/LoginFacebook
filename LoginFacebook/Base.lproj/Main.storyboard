@@ -1770,7 +1770,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-mC-cSS">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HkV-nk-YQN">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
@@ -1860,12 +1860,12 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.47101533140000001" green="0.46873989500000002" blue="0.47329076780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="700" id="jsG-jO-Ni2"/>
+                                            <constraint firstAttribute="height" constant="1000" id="jsG-jO-Ni2"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="mkm-mC-cSS" secondAttribute="bottom" id="ZId-Q2-R1H"/>
+                                    <constraint firstAttribute="bottom" secondItem="mkm-mC-cSS" secondAttribute="bottom" constant="-64" id="ZId-Q2-R1H"/>
                                     <constraint firstItem="mkm-mC-cSS" firstAttribute="leading" secondItem="qF8-MI-FQE" secondAttribute="leading" id="iPk-pr-IV5"/>
                                     <constraint firstAttribute="trailing" secondItem="mkm-mC-cSS" secondAttribute="trailing" id="lKS-mC-KTl"/>
                                     <constraint firstItem="mkm-mC-cSS" firstAttribute="top" secondItem="qF8-MI-FQE" secondAttribute="top" id="ygQ-Q0-8Nv"/>
