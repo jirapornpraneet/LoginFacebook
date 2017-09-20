@@ -1763,11 +1763,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xSb-8G-Uf2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4sm-qu-mJR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qF8-MI-FQE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-mC-cSS">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
@@ -1883,7 +1883,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="iconMenu" id="zM4-j5-fe9"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="700"/>
+                    <size key="freeformSize" width="320" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-9O-vwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
