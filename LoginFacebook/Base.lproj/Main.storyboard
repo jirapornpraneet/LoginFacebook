@@ -583,7 +583,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGY-7E-7t3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1018" y="205"/>
+            <point key="canvasLocation" x="-943" y="225"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="obW-0g-IlQ">
@@ -1106,7 +1106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbl-lZ-8G2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="433"/>
+            <point key="canvasLocation" x="47" y="348"/>
         </scene>
         <!--Detail Friend View Controller-->
         <scene sceneID="7Jf-3z-mib">
@@ -1595,7 +1595,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsm-Lh-EAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2763.75" y="385.56338028169017"/>
+            <point key="canvasLocation" x="-2646" y="348"/>
         </scene>
         <!--Albums Collection View Controller-->
         <scene sceneID="UqD-cY-JoY">
@@ -1655,7 +1655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="758-LS-6D1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="1908"/>
+            <point key="canvasLocation" x="1376" y="1907"/>
         </scene>
         <!--Reaction Friends Table View Controller-->
         <scene sceneID="M7E-8o-RLO">
@@ -1709,7 +1709,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSF-64-mNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2409" y="1931"/>
+            <point key="canvasLocation" x="-1442" y="1906"/>
         </scene>
         <!--Photos Albums Collection View Controller-->
         <scene sceneID="can-jy-LhI">
@@ -1752,7 +1752,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qv9-wQ-DSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="1785"/>
+            <point key="canvasLocation" x="2070" y="1784"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DJs-Jm-IRk">
@@ -1765,13 +1765,20 @@
                     <view key="view" contentMode="scaleToFill" id="4sm-qu-mJR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-tS-kgw">
+                                <rect key="frame" x="0.0" y="64" width="320" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.47101533138300472" green="0.46873989499951196" blue="0.47329076776649748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="iconMenu" id="zM4-j5-fe9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-9O-vwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="206"/>
+            <point key="canvasLocation" x="1136.25" y="225"/>
         </scene>
         <!--Comments Friends Table View Controller-->
         <scene sceneID="KZ6-ft-pfc">
@@ -1897,7 +1904,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUZ-ni-kBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1687.5" y="1907.7464788732395"/>
+            <point key="canvasLocation" x="-726" y="1908"/>
         </scene>
         <!--Comments Table View Controller-->
         <scene sceneID="16a-cb-4Fi">
@@ -2004,7 +2011,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFs-pT-zTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-818" y="1908"/>
+            <point key="canvasLocation" x="15" y="1908"/>
         </scene>
         <!--About Profile View Controller-->
         <scene sceneID="BQ5-jJ-9bi">
@@ -2501,7 +2508,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0X-Nu-7mT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-35.625" y="2224.6478873239439"/>
+            <point key="canvasLocation" x="699" y="2225"/>
         </scene>
     </scenes>
     <resources>
