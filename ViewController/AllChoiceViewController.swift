@@ -19,7 +19,7 @@ import SKPhotoBrowser
 class AllChoiceViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
