@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F52C8D65B0CFCBDB36A4418 /* Pods_LoginFacebookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DB884A753D0349A4BBAF4D /* Pods_LoginFacebookTests.framework */; };
 		AB080B081F736118007D5302 /* AllChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB080B071F736118007D5302 /* AllChoiceViewController.swift */; };
+		AB080B0A1F73C6C9007D5302 /* MusicAllCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB080B091F73C6C9007D5302 /* MusicAllCollectionViewController.swift */; };
 		AB33440D1F29BA3000F20846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB33440C1F29BA3000F20846 /* AppDelegate.swift */; };
 		AB3344121F29BA3000F20846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3344101F29BA3000F20846 /* Main.storyboard */; };
 		AB3344141F29BA3000F20846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3344131F29BA3000F20846 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		919F8559C7802257AFBB2661 /* Pods-LoginFacebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginFacebook.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoginFacebook/Pods-LoginFacebook.release.xcconfig"; sourceTree = "<group>"; };
 		A9DB884A753D0349A4BBAF4D /* Pods_LoginFacebookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginFacebookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB080B071F736118007D5302 /* AllChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllChoiceViewController.swift; sourceTree = "<group>"; };
+		AB080B091F73C6C9007D5302 /* MusicAllCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicAllCollectionViewController.swift; sourceTree = "<group>"; };
 		AB3344091F29BA3000F20846 /* LoginFacebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginFacebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB33440C1F29BA3000F20846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB3344111F29BA3000F20846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				AB34E2BC1F70D7B400184401 /* AlbumsCollectionViewController.swift */,
 				AB34E2C11F70D7B400184401 /* PhotosAlbumsCollectionViewController.swift */,
 				AB080B071F736118007D5302 /* AllChoiceViewController.swift */,
+				AB080B091F73C6C9007D5302 /* MusicAllCollectionViewController.swift */,
 				AB34E2BD1F70D7B400184401 /* FriendsViewController */,
 				AB34E2C21F70D7B400184401 /* PostsViewController */,
 			);
@@ -557,6 +560,7 @@
 				AB34E2CE1F70D7B400184401 /* CommentsFriendsTableViewController.swift in Sources */,
 				AB080B081F736118007D5302 /* AllChoiceViewController.swift in Sources */,
 				AB33440D1F29BA3000F20846 /* AppDelegate.swift in Sources */,
+				AB080B0A1F73C6C9007D5302 /* MusicAllCollectionViewController.swift in Sources */,
 				AB34E2CF1F70D7B400184401 /* CommentsTableViewController.swift in Sources */,
 				AB34E2C91F70D7B400184401 /* AlbumsCollectionViewController.swift in Sources */,
 				AB442AA41F42CEA900C17A41 /* FunctionHelper.swift in Sources */,
