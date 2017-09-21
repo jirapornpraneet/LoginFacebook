@@ -25,7 +25,7 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageButton: UIButton!
-    @IBOutlet weak var collectionviewGames: UICollectionView!
+    @IBOutlet weak var collectionviewMusic: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +36,8 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
         profileImageButton.layer.borderWidth = 2
         profileImageButton.layer.borderColor = UIColor.white.cgColor
         
-        collectionviewGames.delegate = self
-        collectionviewGames.dataSource = self
+        collectionviewMusic.delegate = self
+        collectionviewMusic.dataSource = self
     }
     
     var userResourceData: UserResourceData! = nil
@@ -54,7 +54,7 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
             let thumborProfileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageButton.sd_setBackgroundImage(with: thumborProfileUpdateImageUrl, for: .normal, completed: nil)
             
-            self.collectionviewGames.reloadData()
+            self.collectionviewMusic.reloadData()
             
         }
     }
