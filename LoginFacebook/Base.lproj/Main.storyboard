@@ -1754,10 +1754,10 @@
             </objects>
             <point key="canvasLocation" x="2070" y="1784"/>
         </scene>
-        <!--View Controller-->
+        <!--All Choice View Controller-->
         <scene sceneID="DJs-Jm-IRk">
             <objects>
-                <viewController id="LFi-kb-IJf" sceneMemberID="viewController">
+                <viewController id="LFi-kb-IJf" customClass="AllChoiceViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RRf-Yb-V4Q"/>
                         <viewControllerLayoutGuide type="bottom" id="xSb-8G-Uf2"/>
