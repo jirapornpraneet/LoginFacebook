@@ -1754,11 +1754,11 @@
             </objects>
             <point key="canvasLocation" x="2070" y="1784"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Music All Collection View Controller-->
         <scene sceneID="1Dc-ZS-4D7">
             <objects>
-                <collectionViewController id="t3D-sS-f3B" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2zc-Mo-phU">
+                <collectionViewController id="t3D-sS-f3B" customClass="MusicAllCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="2zc-Mo-phU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
