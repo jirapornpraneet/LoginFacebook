@@ -20,11 +20,21 @@ class AllChoiceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchUserResourceProfile()
     }
 
     var userResourceData: UserResourceData! = nil
     
-    
+    func fetchUserResourceProfile() {
+        let parameters = ["fields": "first_name, last_name, picture{url},groups{name,picture{url}}"]
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
+            let resultDictionary = result as? NSDictionary
+            let jsonString = resultDictionary?.toJsonString()
+            self.userResourceData = UserResourceData(json: jsonString)
+            print("userResourceData", self.userResourceData)
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
