@@ -16,9 +16,9 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
-class GamesCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var gamesImageView: UIImageView!
-    @IBOutlet weak var nameGamesLabel: UILabel!
+class MusicCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var musicImageView: UIImageView!
+    @IBOutlet weak var nameMusicLabel: UILabel!
 }
 
 class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
@@ -76,15 +76,15 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellGamesCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellGamesCollectionView", for: indexPath) as! GamesCollectionViewCell
+        let cellMusicCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellMusicCollectionView", for: indexPath) as! GamesCollectionViewCell
         
-        let cellDataGames = userResourceData.games?.data?[indexPath.row]
+        let cellDataGames = userResourceData.music?.data?[indexPath.row]
         
-        cellGamesCollectionView.nameGamesLabel.text = cellDataGames?.name
+        cellMusicCollectionView.nameGamesLabel.text = cellDataGames?.name
 
 //        let thumborPictureGamesImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataGames?.picture?.data?.url)!, width: 200, height: 200)
 //        cellGamesCollectionView.gamesImageView.sd_setImage(with: thumborPictureGamesImageUrl, completed: nil)
-        return cellGamesCollectionView
+        return cellMusicCollectionView
         
     }
 
