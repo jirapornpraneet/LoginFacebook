@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import FacebookLogin
+import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
+import SDWebImage
+import Alamofire
+import SwiftyJSON
+import SKPhotoBrowser
 
 class AllChoiceViewController: UIViewController {
 
