@@ -1844,10 +1844,13 @@
                                                         <color key="textColor" red="0.38134517769999998" green="0.38134517769999998" blue="0.38134517769999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNj-89-9xi">
-                                                        <rect key="frame" x="8" y="24" width="210" height="84"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.61635339140000001" blue="0.73407814469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNj-89-9xi">
+                                                        <rect key="frame" x="7" y="24" width="223" height="84"/>
+                                                        <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="84" id="U0V-E2-9oK"/>
+                                                            <constraint firstAttribute="width" constant="223" id="Zcl-nt-tK3"/>
+                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="thw-5X-zW1">
                                                             <size key="itemSize" width="70" height="82"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1882,10 +1885,13 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFs-Ga-3ml">
-                                                        <rect key="frame" x="241" y="30" width="48" height="48"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFs-Ga-3ml">
+                                                        <rect key="frame" x="249" y="24" width="45" height="45"/>
                                                         <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="3gM-xD-ZYS"/>
+                                                            <constraint firstAttribute="width" constant="45" id="Cbn-ZH-52d"/>
+                                                        </constraints>
                                                         <state key="normal" backgroundImage="iconViewAll">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
@@ -1893,9 +1899,13 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
+                                                    <constraint firstItem="zFs-Ga-3ml" firstAttribute="leading" secondItem="CNj-89-9xi" secondAttribute="trailing" constant="19" id="HNn-NO-7AT"/>
+                                                    <constraint firstItem="zFs-Ga-3ml" firstAttribute="top" secondItem="fpv-rS-ZaV" secondAttribute="top" constant="24" id="I7l-TF-5NV"/>
+                                                    <constraint firstItem="CNj-89-9xi" firstAttribute="centerX" secondItem="fpv-rS-ZaV" secondAttribute="centerX" constant="-41.5" id="RB9-I1-pUy"/>
                                                     <constraint firstItem="b8N-VQ-DOI" firstAttribute="top" secondItem="fpv-rS-ZaV" secondAttribute="top" constant="4" id="ZEa-oC-Xdx"/>
                                                     <constraint firstItem="b8N-VQ-DOI" firstAttribute="leading" secondItem="fpv-rS-ZaV" secondAttribute="leading" constant="8" id="hwF-Ea-gnN"/>
                                                     <constraint firstAttribute="height" constant="111" id="tpX-la-WWx"/>
+                                                    <constraint firstItem="CNj-89-9xi" firstAttribute="top" secondItem="b8N-VQ-DOI" secondAttribute="bottom" constant="6" id="txm-0x-PZl"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQI-G0-u0x">
