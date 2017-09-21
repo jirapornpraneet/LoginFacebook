@@ -2377,6 +2377,10 @@
                     <tabBarItem key="tabBarItem" title="" image="iconMenu" id="zM4-j5-fe9"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1100"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="C8G-nk-tkc" id="GO2-ef-pZ5"/>
+                        <outlet property="profileImageButton" destination="AbP-9y-OzP" id="zYB-CP-sQw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-9O-vwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
