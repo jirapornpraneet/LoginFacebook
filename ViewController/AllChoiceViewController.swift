@@ -25,6 +25,7 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageButton: UIButton!
+    @IBOutlet weak var collectionviewPhotosAlbums: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
