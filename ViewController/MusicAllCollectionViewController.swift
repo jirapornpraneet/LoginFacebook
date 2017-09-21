@@ -10,6 +10,11 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
+class MusicAllCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var musicImageView: UIImageView!
+    @IBOutlet weak var nameMusicLabel: UILabel!
+}
+
 class MusicAllCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
