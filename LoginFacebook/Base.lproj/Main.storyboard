@@ -1877,6 +1877,10 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </view>
+                                                                <connections>
+                                                                    <outlet property="gamesImageView" destination="JQO-Yg-nPa" id="rgR-h1-zOG"/>
+                                                                    <outlet property="nameGamesLabel" destination="87S-6o-uRk" id="Vsd-Ha-MfX"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
