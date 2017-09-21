@@ -35,6 +35,12 @@ class AllChoiceViewController: UIViewController {
             let jsonString = resultDictionary?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
             print("userResourceData", self.userResourceData)
+            
+            let userResourceDataName = self.userResourceData.first_name + "  " + self.userResourceData.last_name
+            self.nameLabel.text = userResourceDataName
+            
+            let thumborProfileImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
+            self.profileImageButton.sd_setBackgroundImage(with: thumborProfileImageUrl, for: .normal, completed: nil)
         }
     }
 
