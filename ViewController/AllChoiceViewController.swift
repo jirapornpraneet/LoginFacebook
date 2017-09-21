@@ -63,22 +63,25 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if  userResourceData != nil {
-            return 8
+            return 4
         } else {
             return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellAlbumsPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsPhotosCollectionView", for: indexPath) as! AlbumsPhotosCollectionViewCell
+        let cellGamesCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellGamesCollectionView", for: indexPath) as! GamesCollectionViewCell
         
-        let cellDataAlbums = userResourceData.albums?.data?[indexPath.row]
-        let cellDataPhotos = cellDataAlbums?.photos?.data?[indexPath.row]
+        let cellDataGames = userResourceData.games?.data?[indexPath.row]
         
-        let thumborPictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataPhotos?.picture)!, width: 120, height: 120)
-        cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: thumborPictureTelevisionImageUrl, completed: nil)
+        cellGamesCollectionView.nameGamesLabel.text = cellDataGames?.name
+
+        let thumborPictureGamesImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataGames?.picture?.data?.url)!, width: 200, height: 200)
+        cellGamesCollectionView.gamesImageView.sd_setImage(with: thumborPictureGamesImageUrl, completed: nil)
+//        let thumborPictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataPhotos?.picture)!, width: 120, height: 120)
+//        cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: thumborPictureTelevisionImageUrl, completed: nil)
         
-        return cellAlbumsPhotosCollectionView
+        return cellGamesCollectionView
         
     }
 
