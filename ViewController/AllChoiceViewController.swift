@@ -37,6 +37,11 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
         profileImageButton.layer.borderWidth = 2
         profileImageButton.layer.borderColor = UIColor.white.cgColor
         
+        viewAllButton.layer.masksToBounds = true
+        viewAllButton.layer.cornerRadius = 25
+        viewAllButton.layer.borderWidth = 0.5
+        viewAllButton.layer.borderColor = UIColor(red:0.33, green:0.33, blue:0.33, alpha:1.0).cgColor
+        
         collectionviewMusic.delegate = self
         collectionviewMusic.dataSource = self
     }
