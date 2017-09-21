@@ -16,6 +16,11 @@ import Alamofire
 import SwiftyJSON
 import SKPhotoBrowser
 
+class GamesCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var gamesImageView: UIImageView!
+    @IBOutlet weak var nameGamesLabel: UILabel!
+}
+
 class AllChoiceViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
