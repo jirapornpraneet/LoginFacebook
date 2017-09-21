@@ -35,6 +35,9 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
         profileImageButton.layer.cornerRadius = 25
         profileImageButton.layer.borderWidth = 2
         profileImageButton.layer.borderColor = UIColor.white.cgColor
+        
+        collectionviewGames.delegate = self
+        collectionviewGames.dataSource = self
     }
     
     var userResourceData: UserResourceData! = nil
@@ -50,6 +53,8 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
             
             let thumborProfileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageButton.sd_setBackgroundImage(with: thumborProfileUpdateImageUrl, for: .normal, completed: nil)
+            
+            self.collectionviewGames.reloadData()
             
         }
     }
