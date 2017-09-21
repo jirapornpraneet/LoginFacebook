@@ -24,6 +24,11 @@ class AllChoiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUserResourceProfile()
+        
+        profileImageButton.layer.masksToBounds = true
+        profileImageButton.layer.cornerRadius = 25
+        profileImageButton.layer.borderWidth = 2
+        profileImageButton.layer.borderColor = UIColor.white.cgColor
     }
 
     var userResourceData: UserResourceData! = nil
