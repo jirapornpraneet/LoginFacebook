@@ -21,7 +21,7 @@ class GamesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameGamesLabel: UILabel!
 }
 
-class AllChoiceViewController: UIViewController {
+class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageButton: UIButton!
