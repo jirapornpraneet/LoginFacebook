@@ -35,6 +35,7 @@ class UserResourceData: EVNetworkingObject {
     var music: AlbumsData?
     var movies: AlbumsData?
     var television: AlbumsData?
+    var groups: AlbumsData?
 }
 
 class AlbumsData: EVNetworkingObject {
