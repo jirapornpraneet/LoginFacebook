@@ -1886,7 +1886,7 @@
                                                         <rect key="frame" x="241" y="30" width="48" height="48"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal" backgroundImage="iconCircleFriends">
+                                                        <state key="normal" backgroundImage="iconViewAll">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -3550,6 +3550,7 @@
         <image name="iconStoryUser" width="160" height="190"/>
         <image name="iconTodayInThePast" width="150" height="150"/>
         <image name="iconValidation" width="150" height="150"/>
+        <image name="iconViewAll" width="150" height="150"/>
         <image name="iconWeather" width="150" height="150"/>
         <image name="iconWiFi" width="150" height="150"/>
         <image name="iconWorkAbout" width="33" height="29"/>
