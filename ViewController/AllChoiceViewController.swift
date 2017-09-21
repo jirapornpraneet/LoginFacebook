@@ -43,7 +43,7 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
     var userResourceData: UserResourceData! = nil
     
     func fetchUserResourceProfile() {
-        let parameters = ["fields": "first_name, last_name, picture.type(large),games"]
+        let parameters = ["fields": "first_name, last_name, picture.type(large),music{name,picture{url}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
             let jsonString = resultDictionary?.toJsonString()
@@ -82,11 +82,8 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
         
         cellGamesCollectionView.nameGamesLabel.text = cellDataGames?.name
 
-        let thumborPictureGamesImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataGames?.picture?.data?.url)!, width: 200, height: 200)
-        cellGamesCollectionView.gamesImageView.sd_setImage(with: thumborPictureGamesImageUrl, completed: nil)
-//        let thumborPictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataPhotos?.picture)!, width: 120, height: 120)
-//        cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: thumborPictureTelevisionImageUrl, completed: nil)
-        
+//        let thumborPictureGamesImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataGames?.picture?.data?.url)!, width: 200, height: 200)
+//        cellGamesCollectionView.gamesImageView.sd_setImage(with: thumborPictureGamesImageUrl, completed: nil)
         return cellGamesCollectionView
         
     }
