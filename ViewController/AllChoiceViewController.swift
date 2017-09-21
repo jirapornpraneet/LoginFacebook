@@ -69,24 +69,23 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if  userResourceData != nil {
-            return 4
+            return 3
         } else {
             return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellMusicCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellMusicCollectionView", for: indexPath) as! GamesCollectionViewCell
+        let cellMusicCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellMusicCollectionView", for: indexPath) as! MusicCollectionViewCell
         
-        let cellDataGames = userResourceData.music?.data?[indexPath.row]
+        let cellDataMusic = userResourceData.music?.data?[indexPath.row]
         
-        cellMusicCollectionView.nameGamesLabel.text = cellDataGames?.name
-
-//        let thumborPictureGamesImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataGames?.picture?.data?.url)!, width: 200, height: 200)
-//        cellGamesCollectionView.gamesImageView.sd_setImage(with: thumborPictureGamesImageUrl, completed: nil)
+        cellMusicCollectionView.nameMusicLabel.text = cellDataMusic?.name
+        
+        let thumborPictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataMusic?.picture?.data?.url)!, width: 200, height: 200)
+        cellMusicCollectionView.musicImageView.sd_setImage(with: thumborPictureMusicImageUrl, completed: nil)
+        
         return cellMusicCollectionView
         
     }
-
-    
 }
