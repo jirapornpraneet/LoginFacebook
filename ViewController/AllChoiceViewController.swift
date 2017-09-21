@@ -57,4 +57,30 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
         super.didReceiveMemoryWarning()
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if  userResourceData != nil {
+            return 8
+        } else {
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellAlbumsPhotosCollectionView = collectionView.dequeueReusableCell(withReuseIdentifier: "cellAlbumsPhotosCollectionView", for: indexPath) as! AlbumsPhotosCollectionViewCell
+        
+        let cellDataAlbums = userResourceData.albums?.data?[indexPath.row]
+        let cellDataPhotos = cellDataAlbums?.photos?.data?[indexPath.row]
+        
+        let thumborPictureTelevisionImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataPhotos?.picture)!, width: 120, height: 120)
+        cellAlbumsPhotosCollectionView.photosImageView.sd_setImage(with: thumborPictureTelevisionImageUrl, completed: nil)
+        
+        return cellAlbumsPhotosCollectionView
+        
+    }
+
+    
 }
