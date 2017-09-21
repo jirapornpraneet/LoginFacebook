@@ -17,6 +17,9 @@ import SwiftyJSON
 import SKPhotoBrowser
 
 class AllChoiceViewController: UIViewController {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,7 @@ class AllChoiceViewController: UIViewController {
     var userResourceData: UserResourceData! = nil
     
     func fetchUserResourceProfile() {
-        let parameters = ["fields": "first_name, last_name, picture{url},groups{name,picture{url}}"]
+        let parameters = ["fields": "first_name, last_name, picture{url}, groups{name,picture{url}}"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, _) in
             let resultDictionary = result as? NSDictionary
             let jsonString = resultDictionary?.toJsonString()
