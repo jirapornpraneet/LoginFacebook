@@ -21,7 +21,7 @@ class MusicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameMusicLabel: UILabel!
 }
 
-class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
+class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageButton: UIButton!
@@ -64,6 +64,30 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
             
         }
     }
+    
+    @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
+        
+        let senderCommentsFriendsButton = sender as! UIButton
+        let getCellDataPosts = userResourceData.posts?.data?[senderCommentsFriendsButton.tag]
+        let getCellDataPostsComments = getCellDataPosts?.comments?.data
+        let getCellDataPostsCommentsData = getCellDataPostsComments!
+        let getCellDataPostsCount = getCellDataPosts?.comments?.data?.count
+        let getCellDataPostsCommentsCount = getCellDataPostsCount!
+        
+        let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
+        popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        popCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
+        popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        popCommentsFriendsTableViewController.setDataPostsComments = getCellDataPostsCommentsData
+        popCommentsFriendsTableViewController.setDataPostsCommentsCount = getCellDataPostsCommentsCount
+        
+        self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
