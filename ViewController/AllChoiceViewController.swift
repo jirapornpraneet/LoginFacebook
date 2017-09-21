@@ -85,6 +85,11 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
         let thumborPictureMusicImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (cellDataMusic?.picture?.data?.url)!, width: 200, height: 200)
         cellMusicCollectionView.musicImageView.sd_setImage(with: thumborPictureMusicImageUrl, completed: nil)
         
+        cellMusicCollectionView.musicImageView.layer.masksToBounds = true
+        cellMusicCollectionView.musicImageView.layer.cornerRadius = 25
+        cellMusicCollectionView.musicImageView.layer.borderWidth = 2
+        cellMusicCollectionView.musicImageView.layer.borderColor = UIColor.white.cgColor
+        
         return cellMusicCollectionView
         
     }
