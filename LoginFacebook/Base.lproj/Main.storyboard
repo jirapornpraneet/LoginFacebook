@@ -2754,6 +2754,7 @@
                         <outlet property="collectionviewMusic" destination="CNj-89-9xi" id="Hen-Qj-nlS"/>
                         <outlet property="nameLabel" destination="C8G-nk-tkc" id="GO2-ef-pZ5"/>
                         <outlet property="profileImageButton" destination="AbP-9y-OzP" id="zYB-CP-sQw"/>
+                        <outlet property="viewAllButton" destination="zFs-Ga-3ml" id="NHm-vU-dfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-9O-vwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
