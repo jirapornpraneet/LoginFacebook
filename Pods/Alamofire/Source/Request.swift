@@ -1,7 +1,7 @@
 //
 //  Request.swift
 //
-//  Copyright (c) 2014-2016 Alamofire Software Foundation (http://alamofire.org/)
+//  Copyright (c) 2014-2017 Alamofire Software Foundation (http://alamofire.org/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -161,7 +161,8 @@ open class Request {
         user: String,
         password: String,
         persistence: URLCredential.Persistence = .forSession)
-        -> Self {
+        -> Self
+    {
         let credential = URLCredential(user: user, password: password, persistence: persistence)
         return authenticate(usingCredential: credential)
     }
@@ -292,11 +293,12 @@ extension Request: CustomDebugStringConvertible {
 
             if let credentials = credentialStorage.credentials(for: protectionSpace)?.values {
                 for credential in credentials {
-                    components.append("-u \(credential.user!):\(credential.password!)")
+                    guard let user = credential.user, let password = credential.password else { continue }
+                    components.append("-u \(user):\(password)")
                 }
             } else {
-                if let credential = delegate.credential {
-                    components.append("-u \(credential.user!):\(credential.password!)")
+                if let credential = delegate.credential, let user = credential.user, let password = credential.password {
+                    components.append("-u \(user):\(password)")
                 }
             }
         }
@@ -307,7 +309,12 @@ extension Request: CustomDebugStringConvertible {
                 let cookies = cookieStorage.cookies(for: url), !cookies.isEmpty
             {
                 let string = cookies.reduce("") { $0 + "\($1.name)=\($1.value);" }
+
+            #if swift(>=3.2)
+                components.append("-b \"\(string[..<string.index(before: string.endIndex)])\"")
+            #else
                 components.append("-b \"\(string.substring(to: string.characters.index(before: string.endIndex)))\"")
+            #endif
             }
         }
 
@@ -530,7 +537,8 @@ open class DownloadRequest: Request {
     open class func suggestedDownloadDestination(
         for directory: FileManager.SearchPathDirectory = .documentDirectory,
         in domain: FileManager.SearchPathDomainMask = .userDomainMask)
-        -> DownloadFileDestination {
+        -> DownloadFileDestination
+    {
         return { temporaryURL, response in
             let directoryURLs = FileManager.default.urls(for: directory, in: domain)
 
