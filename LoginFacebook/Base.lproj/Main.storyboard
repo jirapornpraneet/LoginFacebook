@@ -1759,7 +1759,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="MusicCollectionView" id="t3D-sS-f3B" customClass="MusicAllCollectionViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="2zc-Mo-phU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BCN-i5-pbX">
@@ -1769,7 +1769,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dx2-p3-AQt" customClass="MusicAllCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellMusicAllCollectionView" id="Dx2-p3-AQt" customClass="MusicAllCollectionViewCell" customModule="LoginFacebook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="117" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1800,13 +1800,10 @@
                             <outlet property="delegate" destination="t3D-sS-f3B" id="2HX-tX-CXy"/>
                         </connections>
                     </collectionView>
-                    <connections>
-                        <outlet property="collectionView" destination="2zc-Mo-phU" id="5hn-hS-8YL"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tF7-cM-XnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="-55.985915492957744"/>
+            <point key="canvasLocation" x="2261" y="506"/>
         </scene>
         <!--All Choice View Controller-->
         <scene sceneID="DJs-Jm-IRk">
@@ -1949,6 +1946,9 @@
                                                         <state key="normal" backgroundImage="iconViewAll">
                                                             <color key="titleColor" red="0.078719317910000003" green="0.07833598554" blue="0.086400941009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clickButtonToViewMusicAllCollectionView:" destination="LFi-kb-IJf" eventType="touchUpInside" id="hAB-LW-Zbu"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2819,6 +2819,7 @@
                         <outlet property="nameLabel" destination="C8G-nk-tkc" id="GO2-ef-pZ5"/>
                         <outlet property="profileImageButton" destination="AbP-9y-OzP" id="zYB-CP-sQw"/>
                         <outlet property="viewAllButton" destination="zFs-Ga-3ml" id="NHm-vU-dfQ"/>
+                        <segue destination="t3D-sS-f3B" kind="show" identifier="MusicCollectionView" id="BD1-Hy-kX4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOR-9O-vwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
