@@ -94,13 +94,13 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
         self.tabBarController?.navigationItem.titleView = searchBar
         
         let rightBarButton = UIButton(type: .custom)
-        rightBarButton.setImage(UIImage(named: "iconMessengerFrist"), for: .normal)
+        rightBarButton.setImage(UIImage(named: "iconMessenger"), for: .normal)
         rightBarButton.frame = CGRect(x: 0, y:0, width: 30, height: 30)
         rightBarButton.tintColor = UIColor.white
         rightBarButton.addTarget(self, action: #selector(FristViewController.addTapped), for: .touchUpInside)
         let rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
         self.tabBarController?.navigationItem.setRightBarButton(rightBarButtonItem, animated: true)
-        
+
         let leftBarButton = UIButton(type: .custom)
         leftBarButton.setImage(UIImage(named: "iconCamera"), for: .normal)
         leftBarButton.frame = CGRect(x: 0, y:0, width: 30, height: 30)
@@ -144,7 +144,7 @@ class FristViewController: UIViewController, FBSDKLoginButtonDelegate, UISearchB
     var userResource: UserResource! = nil
     
     func fetchUserResourceFriends() {
-        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBADAPisAzcIFva0xZATU5W28ttLPxtWQMrorqiqUiFp3QsOX5T3t5bCJ9P8V8KsZA74YzVWMMWIt8OHxEubul748L0XvgbfGcJud01zmkoTqgIuioygzEy1VnUxtvnAbzZAKldbHMLZAGe35VMjilKJFVQLoUDKwxZC8qfH6MdSdD9Yg0hZCVQkYHCaf8BXXAZDZD")
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=name,picture{url},link,posts.limit(1){message,full_picture,created_time,place,reactions.limit(100){name,pic_large,type,link},comments{comment_count,message,from,created_time,comments{message,created_time,from}}}&limit=10&access_token=EAACEdEose0cBALTVinqSCIHZBHXLmvUO09of8jYRbnGruzX2arCqmuZBnAOdNDleef1bZAOs5rRwxUIoAkHaRuZBcHG5w8H5KGy7hp3tzfHi2DR0TZB9vmfghMRpOpBZB99roZBkr0JyzMGIeVPIDtxuKNDq0ZCUJ8knC6hHU0rH568ZAs6WSWXMz2F3sM1Xpo3JQ0Vn2lxZBVrwZDZD")
         url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Alamofire.request(url, method: .get).validate().responseString { response in
             switch response.result {
