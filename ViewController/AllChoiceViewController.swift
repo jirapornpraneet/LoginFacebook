@@ -65,29 +65,22 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
         }
     }
     
-    @IBAction func clickButtonToViewCommentsFriendsTableViewController(_ sender: AnyObject) {
+    @IBAction func clickButtonToViewMusicAllCollectionView(_ sender: AnyObject) {
+        let getCellDataMusic = userResourceData.music?.data
+        let getCellDataMusicCount = getCellDataMusic?.count        
+        let popMusicCollectionView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MusicCollectionView") as! MusicAllCollectionViewController
+        popMusicCollectionView.modalPresentationStyle = UIModalPresentationStyle.popover
         
-        let senderCommentsFriendsButton = sender as! UIButton
-        let getCellDataPosts = userResourceData.posts?.data?[senderCommentsFriendsButton.tag]
-        let getCellDataPostsComments = getCellDataPosts?.comments?.data
-        let getCellDataPostsCommentsData = getCellDataPostsComments!
-        let getCellDataPostsCount = getCellDataPosts?.comments?.data?.count
-        let getCellDataPostsCommentsCount = getCellDataPostsCount!
+        popMusicCollectionView.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popMusicCollectionView.popoverPresentationController?.delegate = self
+        popMusicCollectionView.popoverPresentationController?.sourceView = sender as? UIView
+        popMusicCollectionView.popoverPresentationController?.sourceRect = sender.bounds
         
-        let popCommentsFriendsTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CommentsFriendsTableView") as! CommentsFriendsTableViewController
-        popCommentsFriendsTableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        popMusicCollectionView.setDataMusic = getCellDataMusic!
+        popMusicCollectionView.setDataMusicCount = getCellDataMusicCount!
         
-        popCommentsFriendsTableViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popCommentsFriendsTableViewController.popoverPresentationController?.delegate = self
-        popCommentsFriendsTableViewController.popoverPresentationController?.sourceView = sender as? UIView
-        popCommentsFriendsTableViewController.popoverPresentationController?.sourceRect = sender.bounds
-        
-        popCommentsFriendsTableViewController.setDataPostsComments = getCellDataPostsCommentsData
-        popCommentsFriendsTableViewController.setDataPostsCommentsCount = getCellDataPostsCommentsCount
-        
-        self.present(popCommentsFriendsTableViewController, animated: true, completion: nil)
+        self.present(popMusicCollectionView, animated: true, completion: nil)
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
