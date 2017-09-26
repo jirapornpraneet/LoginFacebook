@@ -1832,7 +1832,7 @@
                                                         <rect key="frame" x="89" y="28" width="143" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13" id="RWG-rH-XpF"/>
-                                                            <constraint firstAttribute="width" constant="143" id="Wgd-WO-SMY"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="143" id="Wgd-WO-SMY"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.38134517766497467" green="0.38134517766497467" blue="0.38134517766497467" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1842,7 +1842,7 @@
                                                         <rect key="frame" x="89" y="49" width="143" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13" id="4UF-F2-Zev"/>
-                                                            <constraint firstAttribute="width" constant="143" id="5ID-F9-6xi"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="143" id="5ID-F9-6xi"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.46355488582182736" green="0.46355488582182736" blue="0.46355488582182736" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
