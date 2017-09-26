@@ -561,10 +561,10 @@
             </objects>
             <point key="canvasLocation" x="-816" y="-811"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Videos Table View Controller-->
         <scene sceneID="NFV-EB-WZP">
             <objects>
-                <tableViewController id="86q-FH-IJV" sceneMemberID="viewController">
+                <tableViewController id="86q-FH-IJV" customClass="VideosTableViewController" customModule="LoginFacebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Rz-NS-fO4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
