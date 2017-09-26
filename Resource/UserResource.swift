@@ -37,6 +37,22 @@ class UserResourceData: EVNetworkingObject {
     var television: AlbumsData?
     var groups: AlbumsData?
     var games: AlbumsData?
+    var videos: VideosData?
+}
+
+class VideosData: EVNetworkingObject {
+    var data: [VideosDataDetail]? = []
+}
+
+class VideosDataDetail: EVNetworkingObject {
+    var embed_html: String = ""
+    var picture: String = ""
+    var from: Data?
+    var title: String = ""
+    var updated_time: String = ""
+    var source: String = ""
+    var reactions: ReactionsData?
+    var comments: CommentsData?
 }
 
 class AlbumsData: EVNetworkingObject {
