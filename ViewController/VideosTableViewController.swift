@@ -33,7 +33,26 @@ class VideosTableViewController: UITableViewController {
         super.viewDidLoad()
         tableListVideos.delegate = self
         tableListVideos.dataSource = self
+        
+        getDataUserResourceFriends()
     }
+    
+    var userResource: UserResource! = nil
+    
+    func getDataUserResourceFriends() {
+        var url = String(format:"https://graph.facebook.com/v2.10/me/friends?fields=videos.limit(10){embed_html,picture,from,description,updated_time,source,reactions.limit(1){name,pic_large,type},comments.limit(1){message,from,created_time,comment_count,comments{message,from,created_time}}}&access_token=EAACEdEose0cBAEnAfrJcjw3AnQqn7ZBxejxIbKt43iLDjwePOLvvupZACpGQ1VffquuLkLqZC7l5liQevCfZAm5JzkejvFY2wqWltZC2PTEbG6AVHGoVVdzJYZBM6fs9Ol8gN5HwC5yE1DEMZAn2fXDoWr3Vf9MG3OWUn194qPzcPHc35Aupa9ZC7RYl9XxDGIKJ42WP9cvnHAZDZD")
+        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        Alamofire.request(url, method: .get).validate().responseString { response in
+            switch response.result {
+            case .success(let value):
+                self.userResource  = UserResource(json: value)
+                print("userResource", self.userResource)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
