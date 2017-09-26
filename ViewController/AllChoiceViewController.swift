@@ -23,7 +23,7 @@ class MusicCollectionViewCell: UICollectionViewCell {
 
 class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationControllerDelegate {
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var collectionviewMusic: UICollectionView!
     @IBOutlet weak var viewAllButton: UIButton!
@@ -120,4 +120,6 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
     }
+    
+    
 }
