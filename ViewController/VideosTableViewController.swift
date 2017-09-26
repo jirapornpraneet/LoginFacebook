@@ -47,6 +47,7 @@ class VideosTableViewController: UITableViewController {
             case .success(let value):
                 self.userResource  = UserResource(json: value)
                 print("userResource", self.userResource)
+                self.tableListVideos.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -61,11 +62,15 @@ class VideosTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if  userResource != nil {
+            return userResource.data!.count
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
