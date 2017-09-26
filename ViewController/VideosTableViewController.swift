@@ -16,13 +16,13 @@ import FBSDKShareKit
 import SDWebImage
 
 class VideosTableViewCell: UITableViewCell {
+    
+    
     @IBOutlet weak var pictureVideoImageView: UIImageView!
-    @IBOutlet weak var messageVideosLabel: UILabel!
+    @IBOutlet weak var titleVideosLabel: UILabel!
     @IBOutlet weak var updateTimePostsLabel: UILabel!
-    @IBOutlet weak var iconReaction1ImageView: UIImageView!
-    @IBOutlet weak var iconReaction2ImageView: UIImageView!
-    @IBOutlet weak var reactionFriendsButton: UIButton!
-    @IBOutlet weak var commentsFriendsButton: UIButton!
+    @IBOutlet weak var friendsReactionImageView: UIImageView!
+    @IBOutlet weak var friendsReactionButton: UIButton!
 }
 
 class VideosTableViewController: UITableViewController {
