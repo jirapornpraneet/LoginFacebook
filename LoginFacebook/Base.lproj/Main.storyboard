@@ -585,6 +585,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="" image="iconPlay" id="wRR-1D-t7M"/>
+                    <connections>
+                        <outlet property="tableListVideos" destination="7Rz-NS-fO4" id="6Tb-Kk-bH4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSg-Jl-9SN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
