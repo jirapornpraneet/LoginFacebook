@@ -55,7 +55,7 @@ class AllChoiceViewController: UIViewController,UICollectionViewDelegate, UIColl
             let jsonString = resultDictionary?.toJsonString()
             self.userResourceData = UserResourceData(json: jsonString)
             let userResourceDataName = self.userResourceData.first_name + "  " + self.userResourceData.last_name
-            self.nameLabel.text = userResourceDataName
+            self.nameButton.setTitle(userResourceDataName, for: .normal)
             
             let thumborProfileUpdateImageUrl = FunctionHelper().getThumborUrlFromImageUrl(imageUrlStr: (self.userResourceData.picture?.data?.url)!, width: 200, height: 200)
             self.profileImageButton.sd_setBackgroundImage(with: thumborProfileUpdateImageUrl, for: .normal, completed: nil)
