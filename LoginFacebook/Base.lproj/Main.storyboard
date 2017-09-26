@@ -1851,7 +1851,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkV-nk-YQN">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-9y-OzP">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-9y-OzP">
                                                         <rect key="frame" x="19" y="20" width="55" height="55"/>
                                                         <color key="backgroundColor" red="1" green="0.82536075210000004" blue="0.90727871940000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
@@ -1865,18 +1865,37 @@
                                                             <segue destination="XTy-WA-W6X" kind="show" id="Sec-Fh-lDE"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ดูโปรไฟล์ของคุณ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4F-7m-5On">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ดูโปรไฟล์ของคุณ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4F-7m-5On">
                                                         <rect key="frame" x="89" y="49" width="143" height="13"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13" id="BN8-mN-GcN"/>
+                                                            <constraint firstAttribute="width" constant="143" id="Hnk-co-d88"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.46355488582182736" green="0.46355488582182736" blue="0.46355488582182736" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNU-HT-VUT">
+                                                        <rect key="frame" x="76.5" y="20" width="167" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="167" id="KcF-eS-kwa"/>
+                                                            <constraint firstAttribute="height" constant="30" id="PJH-ZS-Ewa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <state key="normal" title="name">
+                                                            <color key="titleColor" red="0.38134517769999998" green="0.38134517769999998" blue="0.38134517769999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
+                                                    <constraint firstItem="wNU-HT-VUT" firstAttribute="centerX" secondItem="HkV-nk-YQN" secondAttribute="centerX" id="8Dm-sX-AoV"/>
                                                     <constraint firstAttribute="height" constant="98" id="J2v-HO-h1p"/>
                                                     <constraint firstItem="AbP-9y-OzP" firstAttribute="top" secondItem="HkV-nk-YQN" secondAttribute="top" constant="20" id="QSs-nB-vZD"/>
+                                                    <constraint firstItem="wNU-HT-VUT" firstAttribute="leading" secondItem="AbP-9y-OzP" secondAttribute="trailing" constant="2.5" id="Ryl-em-QtQ"/>
+                                                    <constraint firstItem="c4F-7m-5On" firstAttribute="centerX" secondItem="wNU-HT-VUT" secondAttribute="centerX" id="UWF-Bu-7lp"/>
+                                                    <constraint firstItem="wNU-HT-VUT" firstAttribute="top" secondItem="HkV-nk-YQN" secondAttribute="top" constant="20" id="m5c-Bu-QSN"/>
+                                                    <constraint firstItem="c4F-7m-5On" firstAttribute="top" secondItem="HkV-nk-YQN" secondAttribute="top" constant="49" id="vPZ-WC-t9w"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpv-rS-ZaV">
