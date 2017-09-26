@@ -2864,6 +2864,7 @@
                     <size key="freeformSize" width="320" height="1100"/>
                     <connections>
                         <outlet property="collectionviewMusic" destination="CNj-89-9xi" id="Hen-Qj-nlS"/>
+                        <outlet property="nameButton" destination="wNU-HT-VUT" id="zzU-5t-xxm"/>
                         <outlet property="profileImageButton" destination="AbP-9y-OzP" id="zYB-CP-sQw"/>
                         <outlet property="viewAllButton" destination="zFs-Ga-3ml" id="NHm-vU-dfQ"/>
                         <segue destination="t3D-sS-f3B" kind="show" identifier="MusicCollectionView" id="BD1-Hy-kX4"/>
