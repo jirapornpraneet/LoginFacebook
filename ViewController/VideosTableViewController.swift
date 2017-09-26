@@ -31,6 +31,8 @@ class VideosTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableListVideos.delegate = self
+        tableListVideos.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
