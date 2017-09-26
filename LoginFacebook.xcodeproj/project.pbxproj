@@ -31,6 +31,7 @@
 		AB34E2D11F70D7B400184401 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34E2C61F70D7B400184401 /* ProfileViewController.swift */; };
 		AB442AA41F42CEA900C17A41 /* FunctionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB442AA31F42CEA900C17A41 /* FunctionHelper.swift */; };
 		AB442AA61F42CEE900C17A41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB442AA51F42CEE900C17A41 /* Constants.swift */; };
+		ABB812CA1F7A3FAB00AB46E9 /* VideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB812C91F7A3FAB00AB46E9 /* VideosTableViewController.swift */; };
 		C600288BE88A4AC450A70EC7 /* Pods_LoginFacebookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD6A6029967D898B89B0CDF /* Pods_LoginFacebookUITests.framework */; };
 		E341C951500E83B4CAC4DF3D /* Pods_LoginFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4381DCBD72523FB11E8F79C0 /* Pods_LoginFacebook.framework */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		AB34E2C61F70D7B400184401 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AB442AA31F42CEA900C17A41 /* FunctionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionHelper.swift; sourceTree = "<group>"; };
 		AB442AA51F42CEE900C17A41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ABB812C91F7A3FAB00AB46E9 /* VideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				AB34E2C11F70D7B400184401 /* PhotosAlbumsCollectionViewController.swift */,
 				AB080B071F736118007D5302 /* AllChoiceViewController.swift */,
 				AB080B091F73C6C9007D5302 /* MusicAllCollectionViewController.swift */,
+				ABB812C91F7A3FAB00AB46E9 /* VideosTableViewController.swift */,
 				AB34E2BD1F70D7B400184401 /* FriendsViewController */,
 				AB34E2C21F70D7B400184401 /* PostsViewController */,
 			);
@@ -568,6 +571,7 @@
 				AB34E2CB1F70D7B400184401 /* FriendsCollectionViewController.swift in Sources */,
 				AB34E2CD1F70D7B400184401 /* PhotosAlbumsCollectionViewController.swift in Sources */,
 				AB34E2D11F70D7B400184401 /* ProfileViewController.swift in Sources */,
+				ABB812CA1F7A3FAB00AB46E9 /* VideosTableViewController.swift in Sources */,
 				AB34E2C71F70D7B400184401 /* UserResource.swift in Sources */,
 				AB442AA61F42CEE900C17A41 /* Constants.swift in Sources */,
 			);
