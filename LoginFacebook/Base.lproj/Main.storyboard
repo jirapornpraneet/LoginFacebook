@@ -1915,7 +1915,6 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFs-Ga-3ml">
                                                         <rect key="frame" x="249" y="24" width="45" height="45"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="JVt-eY-JCa"/>
                                                             <constraint firstAttribute="height" constant="45" id="oHL-p5-3xh"/>
