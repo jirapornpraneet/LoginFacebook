@@ -584,7 +584,7 @@
                             <outlet property="delegate" destination="86q-FH-IJV" id="jqL-f5-JmP"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" id="wRR-1D-t7M"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconPlay" id="wRR-1D-t7M"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSg-Jl-9SN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3704,6 +3704,7 @@
         <image name="iconPhotos" width="130" height="50"/>
         <image name="iconPicture" width="135" height="50"/>
         <image name="iconPlace" width="150" height="150"/>
+        <image name="iconPlay" width="26" height="26"/>
         <image name="iconPost" width="100" height="100"/>
         <image name="iconPrivate" width="150" height="150"/>
         <image name="iconProffer" width="150" height="150"/>
