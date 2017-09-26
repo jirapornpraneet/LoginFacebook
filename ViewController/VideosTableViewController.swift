@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import FacebookLogin
+import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
+import SDWebImage
 
 class VideosTableViewCell: UITableViewCell {
     @IBOutlet weak var pictureVideoImageView: UIImageView!
