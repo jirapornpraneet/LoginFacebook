@@ -4,8 +4,6 @@ included:
 excluded: 
   - Pods
   - Pods/Products
-disabled_rules:
-  - force_cast
 type_body_length:
   - 300 # warning
   - 400 # error
