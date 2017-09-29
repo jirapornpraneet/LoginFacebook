@@ -6,7 +6,6 @@ excluded:
   - Pods/Products
 disabled_rules:
   - variable_name
-  - trailing_whitespace
   - force_cast
 type_body_length:
   - 300 # warning
