@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
         return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }
 
